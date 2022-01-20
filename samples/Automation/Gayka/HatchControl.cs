@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
@@ -82,7 +82,7 @@ namespace Steps.NET
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(88, 19);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Угол штриховки";
+			this.label1.Text = "РЈРіРѕР» С€С‚СЂРёС…РѕРІРєРё";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label2
@@ -91,7 +91,7 @@ namespace Steps.NET
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(88, 19);
 			this.label2.TabIndex = 1;
-			this.label2.Text = "Шаг штриховки";
+			this.label2.Text = "РЁР°Рі С€С‚СЂРёС…РѕРІРєРё";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// tbAngle

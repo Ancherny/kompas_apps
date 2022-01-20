@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 using KompasAPI7;
 
 
@@ -52,12 +52,12 @@ namespace Steps.NET
 		#endregion
 
 		#region Custom declarations
-		private float p;						// шаг - вспомогательное поле
-		private float massa;					// масса - вспомогательное поле
-		private int bitMapId;					// идентификатор слайда
+		private float p;						// С€Р°Рі - РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ РїРѕР»Рµ
+		private float massa;					// РјР°СЃСЃР° - РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРµ РїРѕР»Рµ
+		private int bitMapId;					// РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃР»Р°Р№РґР°
 
-		private static int MAX_LENGTH = 1000;	// максимальная длина стержня
-		private static int MIN_LENGTH = 0;		// минимальная длина стержня
+		private static int MAX_LENGTH = 1000;	// РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР»РёРЅР° СЃС‚РµСЂР¶РЅСЏ
+		private static int MIN_LENGTH = 0;		// РјРёРЅРёРјР°Р»СЊРЅР°СЏ РґР»РёРЅР° СЃС‚РµСЂР¶РЅСЏ
 
 		private Pin pinObj;
 		#endregion
@@ -135,7 +135,7 @@ namespace Steps.NET
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(184, 19);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Длина ввинчиваемого конца b1";
+			this.label1.Text = "Р”Р»РёРЅР° РІРІРёРЅС‡РёРІР°РµРјРѕРіРѕ РєРѕРЅС†Р° b1";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cbEndLength
@@ -174,7 +174,7 @@ namespace Steps.NET
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(56, 19);
 			this.label3.TabIndex = 6;
-			this.label3.Text = "Длина";
+			this.label3.Text = "Р”Р»РёРЅР°";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cbDiameter
@@ -192,7 +192,7 @@ namespace Steps.NET
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(56, 19);
 			this.label2.TabIndex = 4;
-			this.label2.Text = "Диаметр";
+			this.label2.Text = "Р”РёР°РјРµС‚СЂ";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// groupBox2
@@ -210,7 +210,7 @@ namespace Steps.NET
 			this.rbVar2.Location = new System.Drawing.Point(16, 40);
 			this.rbVar2.Name = "rbVar2";
 			this.rbVar2.TabIndex = 1;
-			this.rbVar2.Text = "Исполнение 2";
+			this.rbVar2.Text = "РСЃРїРѕР»РЅРµРЅРёРµ 2";
 			this.rbVar2.CheckedChanged += new System.EventHandler(this.rbVar2_CheckedChanged);
 			// 
 			// rbVar1
@@ -220,7 +220,7 @@ namespace Steps.NET
 			this.rbVar1.Name = "rbVar1";
 			this.rbVar1.TabIndex = 0;
 			this.rbVar1.TabStop = true;
-			this.rbVar1.Text = "Исполнение 1";
+			this.rbVar1.Text = "РСЃРїРѕР»РЅРµРЅРёРµ 1";
 			this.rbVar1.CheckedChanged += new System.EventHandler(this.rbVar1_CheckedChanged);
 			// 
 			// panel
@@ -247,7 +247,7 @@ namespace Steps.NET
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(96, 19);
 			this.label4.TabIndex = 8;
-			this.label4.Text = "Класс точности";
+			this.label4.Text = "РљР»Р°СЃСЃ С‚РѕС‡РЅРѕСЃС‚Рё";
 			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cbGOST
@@ -265,7 +265,7 @@ namespace Steps.NET
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(56, 19);
 			this.label5.TabIndex = 10;
-			this.label5.Text = "ГОСТ";
+			this.label5.Text = "Р“РћРЎРў";
 			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cbMaterial
@@ -283,7 +283,7 @@ namespace Steps.NET
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(64, 19);
 			this.label6.TabIndex = 12;
-			this.label6.Text = "Материал";
+			this.label6.Text = "РњР°С‚РµСЂРёР°Р»";
 			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// chbShortStep
@@ -291,7 +291,7 @@ namespace Steps.NET
 			this.chbShortStep.Location = new System.Drawing.Point(16, 220);
 			this.chbShortStep.Name = "chbShortStep";
 			this.chbShortStep.TabIndex = 14;
-			this.chbShortStep.Text = "Мелкий шаг";
+			this.chbShortStep.Text = "РњРµР»РєРёР№ С€Р°Рі";
 			this.chbShortStep.CheckedChanged += new System.EventHandler(this.chbShortStep_CheckedChanged);
 			// 
 			// chbSpecObject
@@ -302,7 +302,7 @@ namespace Steps.NET
 			this.chbSpecObject.Name = "chbSpecObject";
 			this.chbSpecObject.Size = new System.Drawing.Size(208, 24);
 			this.chbSpecObject.TabIndex = 15;
-			this.chbSpecObject.Text = "Создать объект спецификации";
+			this.chbSpecObject.Text = "РЎРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё";
 			this.chbSpecObject.CheckedChanged += new System.EventHandler(this.chbSpecObject_CheckedChanged);
 			// 
 			// chbSimpled
@@ -311,7 +311,7 @@ namespace Steps.NET
 			this.chbSimpled.Name = "chbSimpled";
 			this.chbSimpled.Size = new System.Drawing.Size(88, 24);
 			this.chbSimpled.TabIndex = 16;
-			this.chbSimpled.Text = "Упрощенно";
+			this.chbSimpled.Text = "РЈРїСЂРѕС‰РµРЅРЅРѕ";
 			this.chbSimpled.CheckedChanged += new System.EventHandler(this.chbSimpled_CheckedChanged);
 			// 
 			// lvListView
@@ -330,7 +330,7 @@ namespace Steps.NET
 			this.btnOK.Name = "btnOK";
 			this.btnOK.Size = new System.Drawing.Size(64, 23);
 			this.btnOK.TabIndex = 18;
-			this.btnOK.Text = "ОК";
+			this.btnOK.Text = "РћРљ";
 			this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
 			// 
 			// btnHelp
@@ -340,7 +340,7 @@ namespace Steps.NET
 			this.btnHelp.Name = "btnHelp";
 			this.btnHelp.Size = new System.Drawing.Size(64, 23);
 			this.btnHelp.TabIndex = 19;
-			this.btnHelp.Text = "Справка";
+			this.btnHelp.Text = "РЎРїСЂР°РІРєР°";
 			this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
 			// 
 			// btnCancel
@@ -351,7 +351,7 @@ namespace Steps.NET
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(64, 23);
 			this.btnCancel.TabIndex = 20;
-			this.btnCancel.Text = "Отмена";
+			this.btnCancel.Text = "РћС‚РјРµРЅР°";
 			// 
 			// FrmMain
 			// 
@@ -383,7 +383,7 @@ namespace Steps.NET
 			this.Name = "FrmMain";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Шпильки";
+			this.Text = "РЁРїРёР»СЊРєРё";
 			this.Load += new System.EventHandler(this.FrmMain_Load);
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmMain_Paint);
 			this.groupBox1.ResumeLayout(false);
@@ -424,11 +424,11 @@ namespace Steps.NET
 
 			int width = Convert.ToInt32(lvListView.Width / 5);
 			lvListView.Columns.Clear();
-			lvListView.Columns.Add(pinObj.LoadString("STR247"), width, HorizontalAlignment.Left);	//l0 Гаечный конец
-			lvListView.Columns.Add(pinObj.LoadString("STR248"), width, HorizontalAlignment.Left);	//l1 Ввинчиваемый конец
-			lvListView.Columns.Add(pinObj.LoadString("STR231"), width, HorizontalAlignment.Left);	//"Шаг резьбы"
-			lvListView.Columns.Add(pinObj.LoadString("STR236"), width, HorizontalAlignment.Left);	//"Фаска"
-			lvListView.Columns.Add(pinObj.LoadString("STR237"), width, HorizontalAlignment.Left);	//"Масса 1000 шт"
+			lvListView.Columns.Add(pinObj.LoadString("STR247"), width, HorizontalAlignment.Left);	//l0 Р“Р°РµС‡РЅС‹Р№ РєРѕРЅРµС†
+			lvListView.Columns.Add(pinObj.LoadString("STR248"), width, HorizontalAlignment.Left);	//l1 Р’РІРёРЅС‡РёРІР°РµРјС‹Р№ РєРѕРЅРµС†
+			lvListView.Columns.Add(pinObj.LoadString("STR231"), width, HorizontalAlignment.Left);	//"РЁР°Рі СЂРµР·СЊР±С‹"
+			lvListView.Columns.Add(pinObj.LoadString("STR236"), width, HorizontalAlignment.Left);	//"Р¤Р°СЃРєР°"
+			lvListView.Columns.Add(pinObj.LoadString("STR237"), width, HorizontalAlignment.Left);	//"РњР°СЃСЃР° 1000 С€С‚"
 
 			CalcMassa();
 
@@ -444,24 +444,24 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Выдаёт сообщение о ошибке, закрывает диалог
+		/// Р’С‹РґР°С‘С‚ СЃРѕРѕР±С‰РµРЅРёРµ Рѕ РѕС€РёР±РєРµ, Р·Р°РєСЂС‹РІР°РµС‚ РґРёР°Р»РѕРі
 		/// </summary>
 		/// <param name="id"></param>
 		void ErrorDialog(string id)
 		{
-			string buf = pinObj.LoadString(id);			// строка из ресурса
-			Kompas.Instance.KompasObject.ksError(buf);	// сообщение об ошибке
+			string buf = pinObj.LoadString(id);			// СЃС‚СЂРѕРєР° РёР· СЂРµСЃСѓСЂСЃР°
+			Kompas.Instance.KompasObject.ksError(buf);	// СЃРѕРѕР±С‰РµРЅРёРµ РѕР± РѕС€РёР±РєРµ
 			this.DialogResult = DialogResult.Cancel;
 			Close();
 		}
 
 
 		/// <summary>
-		/// Заполняет список диаметров
+		/// Р—Р°РїРѕР»РЅСЏРµС‚ СЃРїРёСЃРѕРє РґРёР°РјРµС‚СЂРѕРІ
 		/// </summary>
 		void FillDiametr()
 		{
-			bool failDB = true;	// предполагаем ошибку
+			bool failDB = true;	// РїСЂРµРґРїРѕР»Р°РіР°РµРј РѕС€РёР±РєСѓ
 			ksUserParam tmpL = (ksUserParam)Kompas.Instance.KompasObject.GetParamStruct((short)StructType2DEnum.ko_UserParam);
 			ksLtVariant item = (ksLtVariant)Kompas.Instance.KompasObject.GetParamStruct((short)StructType2DEnum.ko_LtVariant);
 			ksDynamicArray arr = (ksDynamicArray)Kompas.Instance.KompasObject.GetDynamicArray(ldefin2d.LTVARIANT_ARR);
@@ -475,11 +475,11 @@ namespace Steps.NET
 				item.strVal = string.Empty;
 				arr.ksAddArrayItem(-1, item);
 
-				cbDiameter.Items.Clear();	// очищаем список
+				cbDiameter.Items.Clear();	// РѕС‡РёС‰Р°РµРј СЃРїРёСЃРѕРє
 
-				float lMin = MAX_LENGTH;	// минимальное значение в списке
-				float lMax = MIN_LENGTH;	// максимальное значение в списке
-				bool enterInRange = false;	// Текущее значение диаметра не входит в новые значения
+				float lMin = MAX_LENGTH;	// РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃРїРёСЃРєРµ
+				float lMax = MIN_LENGTH;	// РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃРїРёСЃРєРµ
+				bool enterInRange = false;	// РўРµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РґРёР°РјРµС‚СЂР° РЅРµ РІС…РѕРґРёС‚ РІ РЅРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
 
 				if (pinObj.Data.ksCondition(pinObj.Base.bg,
 					pinObj.Base.rg1, "t = 1") == 1)
@@ -487,59 +487,59 @@ namespace Steps.NET
 					int i = 1;
 					do
 					{
-						// Просматриваем все записи базы данных
+						// РџСЂРѕСЃРјР°С‚СЂРёРІР°РµРј РІСЃРµ Р·Р°РїРёСЃРё Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 						i = pinObj.Data.ksReadRecord(pinObj.Base.bg,
 							pinObj.Base.rg1,
-							tmpL);	// Считываем данное
+							tmpL);	// РЎС‡РёС‚С‹РІР°РµРј РґР°РЅРЅРѕРµ
 						if (i != 0)
 						{
-							// если запись найдена
+							// РµСЃР»Рё Р·Р°РїРёСЃСЊ РЅР°Р№РґРµРЅР°
 							arr.ksGetArrayItem(1, item);
 							string c = item.strVal;
-							cbDiameter.Items.Add(c);		// Заносим его в список
-							float ln = Convert.ToSingle(c.Replace('.', ','));	// Преобразуем его в число
+							cbDiameter.Items.Add(c);		// Р—Р°РЅРѕСЃРёРј РµРіРѕ РІ СЃРїРёСЃРѕРє
+							float ln = Convert.ToSingle(c.Replace('.', ','));	// РџСЂРµРѕР±СЂР°Р·СѓРµРј РµРіРѕ РІ С‡РёСЃР»Рѕ
 							if (pinObj.PinParam.d == ln)
-								enterInRange = true;	// Текущее значение диаметра входит в новые значения
+								enterInRange = true;	// РўРµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РґРёР°РјРµС‚СЂР° РІС…РѕРґРёС‚ РІ РЅРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
 							if (ln < lMin)
-								lMin = ln;				// находим минимальное значение
+								lMin = ln;				// РЅР°С…РѕРґРёРј РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
 							if (ln > lMax)
-								lMax = ln;				// находим максимальное значение
+								lMax = ln;				// РЅР°С…РѕРґРёРј РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
 
-							failDB = false;				// ошибки нет
+							failDB = false;				// РѕС€РёР±РєРё РЅРµС‚
 						}
 					}
 					while (i != 0);
 
-					if (!enterInRange)			// если текущее значение диаметра не входит в в новые значения
-						pinObj.PinParam.d = lMin;	// присваиваем диаметру минимальное значение
-					if (pinObj.PinParam.d < lMin)	// если диаметр выходит за минимальную границу новых значений
-						pinObj.PinParam.d = lMin;	// присваиваем ему минимальное значение
-					if (pinObj.PinParam.d > lMax)	// если диаметр выходит за максимальную границу новых значений
-						pinObj.PinParam.d = lMax;	// присваиваем ему максимальное значение
+					if (!enterInRange)			// РµСЃР»Рё С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РґРёР°РјРµС‚СЂР° РЅРµ РІС…РѕРґРёС‚ РІ РІ РЅРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
+						pinObj.PinParam.d = lMin;	// РїСЂРёСЃРІР°РёРІР°РµРј РґРёР°РјРµС‚СЂСѓ РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
+					if (pinObj.PinParam.d < lMin)	// РµСЃР»Рё РґРёР°РјРµС‚СЂ РІС‹С…РѕРґРёС‚ Р·Р° РјРёРЅРёРјР°Р»СЊРЅСѓСЋ РіСЂР°РЅРёС†Сѓ РЅРѕРІС‹С… Р·РЅР°С‡РµРЅРёР№
+						pinObj.PinParam.d = lMin;	// РїСЂРёСЃРІР°РёРІР°РµРј РµРјСѓ РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
+					if (pinObj.PinParam.d > lMax)	// РµСЃР»Рё РґРёР°РјРµС‚СЂ РІС‹С…РѕРґРёС‚ Р·Р° РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ РіСЂР°РЅРёС†Сѓ РЅРѕРІС‹С… Р·РЅР°С‡РµРЅРёР№
+						pinObj.PinParam.d = lMax;	// РїСЂРёСЃРІР°РёРІР°РµРј РµРјСѓ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
 
 					string s = string.Format("{0}",
-						pinObj.PinParam.d);					// преобразуем текущее значение диаметра в строку
+						pinObj.PinParam.d);					// РїСЂРµРѕР±СЂР°Р·СѓРµРј С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РґРёР°РјРµС‚СЂР° РІ СЃС‚СЂРѕРєСѓ
 					for (int j = 0; j < cbDiameter.Items.Count; j ++)
 					{
 						string str = cbDiameter.Items[j].ToString();
 						if (str == s)
-							cbDiameter.SelectedIndex = j;	// выделяем его в списке
+							cbDiameter.SelectedIndex = j;	// РІС‹РґРµР»СЏРµРј РµРіРѕ РІ СЃРїРёСЃРєРµ
 					}
 				}
 			}
-			if (failDB)						// если работа с БД не была удачной
-				ErrorDialog("DIAM_ERROR");	// сообщаем об ошибке
+			if (failDB)						// РµСЃР»Рё СЂР°Р±РѕС‚Р° СЃ Р‘Р” РЅРµ Р±С‹Р»Р° СѓРґР°С‡РЅРѕР№
+				ErrorDialog("DIAM_ERROR");	// СЃРѕРѕР±С‰Р°РµРј РѕР± РѕС€РёР±РєРµ
 		}
 
 
 		/// <summary>
-		/// Заполняет список длин
+		/// Р—Р°РїРѕР»РЅСЏРµС‚ СЃРїРёСЃРѕРє РґР»РёРЅ
 		/// </summary>
 		void FillLenght()
 		{
 			string buf = string.Empty;
 			string buf1 = string.Empty;
-			bool failDB = true;	// предполагаем ошибку
+			bool failDB = true;	// РїСЂРµРґРїРѕР»Р°РіР°РµРј РѕС€РёР±РєСѓ
 	
 			ksUserParam tmpL = (ksUserParam)Kompas.Instance.KompasObject.GetParamStruct((short)StructType2DEnum.ko_UserParam);
 			ksLtVariant item = (ksLtVariant)Kompas.Instance.KompasObject.GetParamStruct((short)StructType2DEnum.ko_LtVariant);
@@ -556,88 +556,88 @@ namespace Steps.NET
 				item.floatVal = 0;
 				arr.ksAddArrayItem(-1, item);
 
-				// формируем условие запроса к БД
+				// С„РѕСЂРјРёСЂСѓРµРј СѓСЃР»РѕРІРёРµ Р·Р°РїСЂРѕСЃР° Рє Р‘Р”
 				buf = pinObj.LoadString("STR_245");
 				buf1 = string.Format(buf, pinObj.PinParam.d);
 				if (pinObj.Data.ksCondition(pinObj.Base.bs, pinObj.Base.rs1, buf1) == 1)
 				{
-					cbLength.Items.Clear();	// очищаем список
+					cbLength.Items.Clear();	// РѕС‡РёС‰Р°РµРј СЃРїРёСЃРѕРє
 
-					float lMin = MAX_LENGTH;	// минимальное значение в списке
-					float lMax = MIN_LENGTH;	// максимальное значение в списке
-					bool enterInRange = false;	// Текущее значение длины не входит в новые значения
+					float lMin = MAX_LENGTH;	// РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃРїРёСЃРєРµ
+					float lMax = MIN_LENGTH;	// РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ СЃРїРёСЃРєРµ
+					bool enterInRange = false;	// РўРµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РґР»РёРЅС‹ РЅРµ РІС…РѕРґРёС‚ РІ РЅРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
 
 					int i = 1;
 					do
 					{
-						// Просматриваем все записи базы данных
-						i = pinObj.Data.ksReadRecord(pinObj.Base.bs, pinObj.Base.rs1, tmpL);	// Считываем данное
+						// РџСЂРѕСЃРјР°С‚СЂРёРІР°РµРј РІСЃРµ Р·Р°РїРёСЃРё Р±Р°Р·С‹ РґР°РЅРЅС‹С…
+						i = pinObj.Data.ksReadRecord(pinObj.Base.bs, pinObj.Base.rs1, tmpL);	// РЎС‡РёС‚С‹РІР°РµРј РґР°РЅРЅРѕРµ
 						if (i != 0)
 						{
-							// если запись найдена
+							// РµСЃР»Рё Р·Р°РїРёСЃСЊ РЅР°Р№РґРµРЅР°
 							arr.ksGetArrayItem(1, item);
 							string c = item.strVal;
-							cbLength.Items.Add(c);			// Заносим его в список
-							float ln = Convert.ToSingle(c.Replace('.', ','));	// Преобразуем его в число
+							cbLength.Items.Add(c);			// Р—Р°РЅРѕСЃРёРј РµРіРѕ РІ СЃРїРёСЃРѕРє
+							float ln = Convert.ToSingle(c.Replace('.', ','));	// РџСЂРµРѕР±СЂР°Р·СѓРµРј РµРіРѕ РІ С‡РёСЃР»Рѕ
 							if (pinObj.PinParam.l == ln)
-								enterInRange = true;		// Текущее значение длины входит в новые значения
+								enterInRange = true;		// РўРµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РґР»РёРЅС‹ РІС…РѕРґРёС‚ РІ РЅРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
 							if (ln < lMin)
-								lMin = ln;					// находим минимальное значение
+								lMin = ln;					// РЅР°С…РѕРґРёРј РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
 							if (ln > lMax)
-								lMax = ln;					// находим максимальное значение
+								lMax = ln;					// РЅР°С…РѕРґРёРј РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
 
-							failDB = false;					// ошибки нет
+							failDB = false;					// РѕС€РёР±РєРё РЅРµС‚
 						}
 					}
 					while (i != 0);
 
-					if (!enterInRange)			// если текущее значение длины не входит в в новые значения
-						pinObj.PinParam.l = lMin;	// присваиваем длине минимальное значение
-					if (pinObj.PinParam.l < lMin)	// если диаметр выходит за минимальную границу новых значений
-						pinObj.PinParam.l = lMin;	// присваиваем ему минимальное значение
-					if (pinObj.PinParam.l > lMax)	// если диаметр выходит за максимальную границу новых значений
-						pinObj.PinParam.l = lMax;	// присваиваем ему максимальное значение
+					if (!enterInRange)			// РµСЃР»Рё С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РґР»РёРЅС‹ РЅРµ РІС…РѕРґРёС‚ РІ РІ РЅРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
+						pinObj.PinParam.l = lMin;	// РїСЂРёСЃРІР°РёРІР°РµРј РґР»РёРЅРµ РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
+					if (pinObj.PinParam.l < lMin)	// РµСЃР»Рё РґРёР°РјРµС‚СЂ РІС‹С…РѕРґРёС‚ Р·Р° РјРёРЅРёРјР°Р»СЊРЅСѓСЋ РіСЂР°РЅРёС†Сѓ РЅРѕРІС‹С… Р·РЅР°С‡РµРЅРёР№
+						pinObj.PinParam.l = lMin;	// РїСЂРёСЃРІР°РёРІР°РµРј РµРјСѓ РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
+					if (pinObj.PinParam.l > lMax)	// РµСЃР»Рё РґРёР°РјРµС‚СЂ РІС‹С…РѕРґРёС‚ Р·Р° РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ РіСЂР°РЅРёС†Сѓ РЅРѕРІС‹С… Р·РЅР°С‡РµРЅРёР№
+						pinObj.PinParam.l = lMax;	// РїСЂРёСЃРІР°РёРІР°РµРј РµРјСѓ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
 
-					buf1 = string.Format("{0}", pinObj.PinParam.l);	// преобразуем текущее значение длины в строку
+					buf1 = string.Format("{0}", pinObj.PinParam.l);	// РїСЂРµРѕР±СЂР°Р·СѓРµРј С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РґР»РёРЅС‹ РІ СЃС‚СЂРѕРєСѓ
 					for (int j = 0; j < cbLength.Items.Count; j ++)
 					{
 						string str = cbLength.Items[j].ToString();
 						if (str == buf1)
-							cbLength.SelectedIndex = j;				// выделяем его в списке
+							cbLength.SelectedIndex = j;				// РІС‹РґРµР»СЏРµРј РµРіРѕ РІ СЃРїРёСЃРєРµ
 					}
 				}
 			}
 
-			if (failDB)						// если работа с БД не была удачной
-				ErrorDialog("LEN_ERROR");	// сообщаем об ошибке
+			if (failDB)						// РµСЃР»Рё СЂР°Р±РѕС‚Р° СЃ Р‘Р” РЅРµ Р±С‹Р»Р° СѓРґР°С‡РЅРѕР№
+				ErrorDialog("LEN_ERROR");	// СЃРѕРѕР±С‰Р°РµРј РѕР± РѕС€РёР±РєРµ
 		}
 
 
 		private void FrmMain_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
 		{
-			// Вывод слайда
+			// Р’С‹РІРѕРґ СЃР»Р°Р№РґР°
 			Kompas.Instance.KompasObject.ksDrawSlide(panel.Handle.ToInt32(), bitMapId);
 		}
 
 		private void cbGOST_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			// Изменение госта в списке ГОСТов
-			string str = cbGOST.Text;	// считываем строку
+			// РР·РјРµРЅРµРЅРёРµ РіРѕСЃС‚Р° РІ СЃРїРёСЃРєРµ Р“РћРЎРўРѕРІ
+			string str = cbGOST.Text;	// СЃС‡РёС‚С‹РІР°РµРј СЃС‚СЂРѕРєСѓ
 			int index = str.IndexOf('-');
-			if (index > 0)                   // удаляем из ГОСТа год
+			if (index > 0)                   // СѓРґР°Р»СЏРµРј РёР· Р“РћРЎРўР° РіРѕРґ
 				str = str.Substring(0, index);
-			short gost = Convert.ToInt16(str); // преобразуем в число
+			short gost = Convert.ToInt16(str); // РїСЂРµРѕР±СЂР°Р·СѓРµРј РІ С‡РёСЃР»Рѕ
 			if (gost != pinObj.PinParam.gost)
 			{
 				pinObj.PinParam.gost = gost;
 
-				cbEndLength.SelectedIndex = pinObj.GetTypeForGost(pinObj.PinParam.gost);	// выделение длины ввинчиваемого конца l1
-				cbAccClass.SelectedIndex = pinObj.GetKlassForGost(pinObj.PinParam.gost);	// выделение класса точности
+				cbEndLength.SelectedIndex = pinObj.GetTypeForGost(pinObj.PinParam.gost);	// РІС‹РґРµР»РµРЅРёРµ РґР»РёРЅС‹ РІРІРёРЅС‡РёРІР°РµРјРѕРіРѕ РєРѕРЅС†Р° l1
+				cbAccClass.SelectedIndex = pinObj.GetKlassForGost(pinObj.PinParam.gost);	// РІС‹РґРµР»РµРЅРёРµ РєР»Р°СЃСЃР° С‚РѕС‡РЅРѕСЃС‚Рё
 
-				if (pinObj.BaseOpened)		// если БД открыта
-					pinObj.CloseBase();	// закрываем старую БД
+				if (pinObj.BaseOpened)		// РµСЃР»Рё Р‘Р” РѕС‚РєСЂС‹С‚Р°
+					pinObj.CloseBase();	// Р·Р°РєСЂС‹РІР°РµРј СЃС‚Р°СЂСѓСЋ Р‘Р”
 
-				// Открываем новую БД и считываем текущие параметры
+				// РћС‚РєСЂС‹РІР°РµРј РЅРѕРІСѓСЋ Р‘Р” Рё СЃС‡РёС‚С‹РІР°РµРј С‚РµРєСѓС‰РёРµ РїР°СЂР°РјРµС‚СЂС‹
 				if (!pinObj.OpenBase(true))
 				{
 					DialogResult = DialogResult.Cancel;
@@ -682,8 +682,8 @@ namespace Steps.NET
 
 		private void btnHelp_Click(object sender, System.EventArgs e)
 		{
-			// Вызов справки
-      string err = pinObj.LoadString("STR230");	// "Файл constr.chm не найден"
+			// Р’С‹Р·РѕРІ СЃРїСЂР°РІРєРё
+      string err = pinObj.LoadString("STR230");	// "Р¤Р°Р№Р» constr.chm РЅРµ РЅР°Р№РґРµРЅ"
 			Kompas.Instance.KompasObject.ksError(err);
 		}
 
@@ -694,9 +694,9 @@ namespace Steps.NET
 			else
 				pinObj.PinParam.f = Convert.ToInt16((pinObj.PinParam.f != 0 & Pin.ISPOLN != 0) ? 0 : 1);
 
-			bitMapId = pinObj.ChoiceBMP(pinObj.PinParam.gost, pinObj.PinParam.f);	// выбор слайда
-			InitParamList();			// обновляем список параметров
-			FrmMain_Paint(null, null);	// перерисовываем слайд
+			bitMapId = pinObj.ChoiceBMP(pinObj.PinParam.gost, pinObj.PinParam.f);	// РІС‹Р±РѕСЂ СЃР»Р°Р№РґР°
+			InitParamList();			// РѕР±РЅРѕРІР»СЏРµРј СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ
+			FrmMain_Paint(null, null);	// РїРµСЂРµСЂРёСЃРѕРІС‹РІР°РµРј СЃР»Р°Р№Рґ
 		}
 
 		private void rbVar1_CheckedChanged(object sender, System.EventArgs e)
@@ -706,9 +706,9 @@ namespace Steps.NET
 			else
 				pinObj.PinParam.f = Convert.ToInt16(pinObj.PinParam.f != 0 | Pin.ISPOLN != 0);
 
-			bitMapId = pinObj.ChoiceBMP(pinObj.PinParam.gost, pinObj.PinParam.f);	// выбор слайда
-			InitParamList();			// обновляем список параметров
-			FrmMain_Paint(null, null);	// перерисовываем слайд
+			bitMapId = pinObj.ChoiceBMP(pinObj.PinParam.gost, pinObj.PinParam.f);	// РІС‹Р±РѕСЂ СЃР»Р°Р№РґР°
+			InitParamList();			// РѕР±РЅРѕРІР»СЏРµРј СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ
+			FrmMain_Paint(null, null);	// РїРµСЂРµСЂРёСЃРѕРІС‹РІР°РµРј СЃР»Р°Р№Рґ
 		}
 
 		private void chbShortStep_CheckedChanged(object sender, System.EventArgs e)
@@ -722,35 +722,35 @@ namespace Steps.NET
 
 		private void cbLength_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			// Изменение в списке длин - считываем новые параметры из БД
-			string str = cbLength.Text;			// считываем строку
-			float l = Convert.ToSingle(str);	// преобразуем в число
+			// РР·РјРµРЅРµРЅРёРµ РІ СЃРїРёСЃРєРµ РґР»РёРЅ - СЃС‡РёС‚С‹РІР°РµРј РЅРѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РёР· Р‘Р”
+			string str = cbLength.Text;			// СЃС‡РёС‚С‹РІР°РµРј СЃС‚СЂРѕРєСѓ
+			float l = Convert.ToSingle(str);	// РїСЂРµРѕР±СЂР°Р·СѓРµРј РІ С‡РёСЃР»Рѕ
 			if (Math.Abs(l - pinObj.PinParam.l) > 0.001)
 			{
-				pinObj.PinParam.l = l; //нашли длину для k индекса в списке длин
+				pinObj.PinParam.l = l; //РЅР°С€Р»Рё РґР»РёРЅСѓ РґР»СЏ k РёРЅРґРµРєСЃР° РІ СЃРїРёСЃРєРµ РґР»РёРЅ
 				if (pinObj.ReadPinStBase() == -1)
 				{
 					DialogResult = DialogResult.Cancel;
 					Close();
 					return;
 				}
-				// Чтение БД
+				// Р§С‚РµРЅРёРµ Р‘Р”
 
 				bool ew = pinObj.PinParam.f != 0 & Pin.ALLST != 0 ? false : true;
 				rbVar2.Enabled = ew;
 				rbVar1.Checked = !ew;
 
-				bitMapId = pinObj.ChoiceBMP(pinObj.PinParam.gost, pinObj.PinParam.f); // выбор слайда
-				InitParamList();                        // обновляем список параметров
-				FrmMain_Paint(null, null);              // перерисовываем слайд
+				bitMapId = pinObj.ChoiceBMP(pinObj.PinParam.gost, pinObj.PinParam.f); // РІС‹Р±РѕСЂ СЃР»Р°Р№РґР°
+				InitParamList();                        // РѕР±РЅРѕРІР»СЏРµРј СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ
+				FrmMain_Paint(null, null);              // РїРµСЂРµСЂРёСЃРѕРІС‹РІР°РµРј СЃР»Р°Р№Рґ
 			}
 		}
 
 		private void cbDiameter_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			// Изменение в списке диаметров - обновляем список длин и считываем новые параметры из БД
-			string c = cbDiameter.Text;		// считываем строку
-			float dr = Convert.ToSingle(c);	// преобразуем в число
+			// РР·РјРµРЅРµРЅРёРµ РІ СЃРїРёСЃРєРµ РґРёР°РјРµС‚СЂРѕРІ - РѕР±РЅРѕРІР»СЏРµРј СЃРїРёСЃРѕРє РґР»РёРЅ Рё СЃС‡РёС‚С‹РІР°РµРј РЅРѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РёР· Р‘Р”
+			string c = cbDiameter.Text;		// СЃС‡РёС‚С‹РІР°РµРј СЃС‚СЂРѕРєСѓ
+			float dr = Convert.ToSingle(c);	// РїСЂРµРѕР±СЂР°Р·СѓРµРј РІ С‡РёСЃР»Рѕ
 			if (Math.Abs(dr - pinObj.PinParam.d) > 0.001)
 			{
 				if (pinObj.ReadPinBase(dr) == 0)
@@ -759,9 +759,9 @@ namespace Steps.NET
 					Close();
 					return;
 				}
-				// Чтение БД
+				// Р§С‚РµРЅРёРµ Р‘Р”
 
-				FillLenght();	// заполнение списка длин
+				FillLenght();	// Р·Р°РїРѕР»РЅРµРЅРёРµ СЃРїРёСЃРєР° РґР»РёРЅ
 
 				if (pinObj.ReadPinStBase() == -1)
 				{
@@ -769,21 +769,21 @@ namespace Steps.NET
 					Close();
 					return;
 				}
-				// Чтение БД
+				// Р§С‚РµРЅРёРµ Р‘Р”
 
 				bool ew = pinObj.PinParam.f != 0 & Pin.ALLST != 0 ? false : true;
 				rbVar2.Enabled = ew;
 				rbVar1.Checked = !ew;
 
-				bitMapId = pinObj.ChoiceBMP(pinObj.PinParam.gost, pinObj.PinParam.f);	// выбор слайда
-				InitParamList();					// обновляем список параметров
-				this.FrmMain_Paint(null, null);	// перерисовываем слайд
+				bitMapId = pinObj.ChoiceBMP(pinObj.PinParam.gost, pinObj.PinParam.f);	// РІС‹Р±РѕСЂ СЃР»Р°Р№РґР°
+				InitParamList();					// РѕР±РЅРѕРІР»СЏРµРј СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ
+				this.FrmMain_Paint(null, null);	// РїРµСЂРµСЂРёСЃРѕРІС‹РІР°РµРј СЃР»Р°Р№Рґ
 			}
 		}
 
 		private void cbEndLength_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			// Изменение в списке "Длина ввинчиваемого конца"
+			// РР·РјРµРЅРµРЅРёРµ РІ СЃРїРёСЃРєРµ "Р”Р»РёРЅР° РІРІРёРЅС‡РёРІР°РµРјРѕРіРѕ РєРѕРЅС†Р°"
 			int k = cbEndLength.SelectedIndex;
 			int k1 = cbAccClass.SelectedIndex;
 			if ((k > -1) && (k1 > -1))
@@ -794,7 +794,7 @@ namespace Steps.NET
 
 		private void chbSimpled_CheckedChanged(object sender, System.EventArgs e)
 		{
-			// Изменение состояния checkbox'а "Упрощенно"
+			// РР·РјРµРЅРµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ checkbox'Р° "РЈРїСЂРѕС‰РµРЅРЅРѕ"
 			if (chbSimpled.Checked)
 				pinObj.PinParam.f = (short)(Convert.ToInt32(pinObj.PinParam.f) | Convert.ToInt32(Pin.SIMPLE));
 			else
@@ -803,7 +803,7 @@ namespace Steps.NET
 
 		private void cbAccClass_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			// Изменение в списке "Класс точности"
+			// РР·РјРµРЅРµРЅРёРµ РІ СЃРїРёСЃРєРµ "РљР»Р°СЃСЃ С‚РѕС‡РЅРѕСЃС‚Рё"
 			int k = cbAccClass.SelectedIndex;
 			int k1 = cbEndLength.SelectedIndex;
 			if ((k != -1) && (k1 != -1))
@@ -833,8 +833,8 @@ namespace Steps.NET
 			else
 				rbVar2.Checked = true;
 
-			FillDiametr(); // заполнение списка диаметра
-			FillLenght();  // заполнение списка длин
+			FillDiametr(); // Р·Р°РїРѕР»РЅРµРЅРёРµ СЃРїРёСЃРєР° РґРёР°РјРµС‚СЂР°
+			FillLenght();  // Р·Р°РїРѕР»РЅРµРЅРёРµ СЃРїРёСЃРєР° РґР»РёРЅ
 
 			bool ew = (pinObj.PinParam.f & Pin.ALLST) != 0 ? false : true;
 			rbVar2.Enabled = ew;
@@ -845,19 +845,19 @@ namespace Steps.NET
 			ChoicePitch();
 			bitMapId = pinObj.ChoiceBMP(pinObj.PinParam.gost, pinObj.PinParam.f);
 
-			// Заполнение списка ГОСТов
+			// Р—Р°РїРѕР»РЅРµРЅРёРµ СЃРїРёСЃРєР° Р“РћРЎРўРѕРІ
 			cbGOST.Items.Clear();
 			string[] ids = new string[]{"STR59", "STR60", "STR61", "STR62", "STR63", "STR64", "STR65", "STR66", "STR67", "STR68", "STR69", "STR70"};
 			foreach (string id in ids)
 				cbGOST.Items.Add(pinObj.LoadString(id));
-			cbGOST.SelectedValue = pinObj.LoadString(pinObj.NumberStr(pinObj.PinParam.gost));	// выделяем его в списке
+			cbGOST.SelectedValue = pinObj.LoadString(pinObj.NumberStr(pinObj.PinParam.gost));	// РІС‹РґРµР»СЏРµРј РµРіРѕ РІ СЃРїРёСЃРєРµ
 
-			// Заполнение списка "Длина ввинчиваемого конца l1"
+			// Р—Р°РїРѕР»РЅРµРЅРёРµ СЃРїРёСЃРєР° "Р”Р»РёРЅР° РІРІРёРЅС‡РёРІР°РµРјРѕРіРѕ РєРѕРЅС†Р° l1"
 			cbEndLength.Items.Clear();
 			ids = new string[]{"IDS_STUD_1D", "IDS_STUD_125D", "IDS_STUD_16D", "IDS_STUD_2D", "IDS_STUD_25D", "IDS_STUD_L0"};
 			foreach (string id in ids)
 				cbEndLength.Items.Add(pinObj.LoadString(id));
-			cbEndLength.SelectedIndex = pinObj.GetTypeForGost(pinObj.PinParam.gost);	// выделение длины ввинчиваемого конца l1
+			cbEndLength.SelectedIndex = pinObj.GetTypeForGost(pinObj.PinParam.gost);	// РІС‹РґРµР»РµРЅРёРµ РґР»РёРЅС‹ РІРІРёРЅС‡РёРІР°РµРјРѕРіРѕ РєРѕРЅС†Р° l1
 
 			cbMaterial.Items.Clear();
 			ids = new string[]{"STR238", "STR239", "STR240", "STR246"};
@@ -865,13 +865,13 @@ namespace Steps.NET
 				cbMaterial.Items.Add(pinObj.LoadString(id));
 			cbMaterial.SelectedIndex = pinObj.PinParam.indexMassa;
 
-			// Заполнение списка "Класс точности"
+			// Р—Р°РїРѕР»РЅРµРЅРёРµ СЃРїРёСЃРєР° "РљР»Р°СЃСЃ С‚РѕС‡РЅРѕСЃС‚Рё"
 			cbAccClass.Items.Clear();
 			cbAccClass.Items.Add(pinObj.LoadString("IDS_STUD_A"));	// "A"
 			cbAccClass.Items.Add(pinObj.LoadString("IDS_STUD_B"));	// "B"
-			cbAccClass.SelectedIndex = pinObj.GetKlassForGost(pinObj.PinParam.gost);	// выделение класса точности
+			cbAccClass.SelectedIndex = pinObj.GetKlassForGost(pinObj.PinParam.gost);	// РІС‹РґРµР»РµРЅРёРµ РєР»Р°СЃСЃР° С‚РѕС‡РЅРѕСЃС‚Рё
 
-			// Изменение состояния checkbox'а "Упрощенно"
+			// РР·РјРµРЅРµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ checkbox'Р° "РЈРїСЂРѕС‰РµРЅРЅРѕ"
 			chbSimpled.Checked = (pinObj.PinParam.f & Pin.SIMPLE) != 0 ? true : false;
 			chbSpecObject.Checked = pinObj.FlagAttr != 0 ? true: false;
 
@@ -887,38 +887,38 @@ namespace Steps.NET
 
 
 	/// <summary>
-	/// Структура параметров и класс шпилек
+	/// РЎС‚СЂСѓРєС‚СѓСЂР° РїР°СЂР°РјРµС‚СЂРѕРІ Рё РєР»Р°СЃСЃ С€РїРёР»РµРє
 	/// </summary>
 	public class BaseMakroParam 
 	{
 		public float ang;
 		public ushort flagAttr;
 		public short drawType;
-		public byte typeSwitch;	// тип запроса положения базовой точки элемента 0 Placement 1 Curso
-								// 0 - точка + направление оси 0X (Placement);
-								// 1 - точка, направление совпадает с осью 0X текущей СК (Cursor).
+		public byte typeSwitch;	// С‚РёРї Р·Р°РїСЂРѕСЃР° РїРѕР»РѕР¶РµРЅРёСЏ Р±Р°Р·РѕРІРѕР№ С‚РѕС‡РєРё СЌР»РµРјРµРЅС‚Р° 0 Placement 1 Curso
+								// 0 - С‚РѕС‡РєР° + РЅР°РїСЂР°РІР»РµРЅРёРµ РѕСЃРё 0X (Placement);
+								// 1 - С‚РѕС‡РєР°, РЅР°РїСЂР°РІР»РµРЅРёРµ СЃРѕРІРїР°РґР°РµС‚ СЃ РѕСЃСЊСЋ 0X С‚РµРєСѓС‰РµР№ РЎРљ (Cursor).
 	}
 
 
 	/// <summary>
-	/// Структура параметров
+	/// РЎС‚СЂСѓРєС‚СѓСЂР° РїР°СЂР°РјРµС‚СЂРѕРІ
 	/// </summary>
 	public class PIN 
 	{
-		public float d;				// диаметр резьбы
-		public float p1;			// шаг резьбы
-		public float p2;			// шаг резьбы
-		public float b1;			// ввинчиваемый конец  l1
-		public float c;				// размер фаски
-		public float l;				// длина шпильки
-		public float b;				// гаечный конец  l0
-		public short f;				// битовые маски
-		public short klass;			// класс точности
-		public short gost;			// номер госта
-		public short ver;			// версия макро
-		public float m1;			// масса 1 исполнение
-		public float m2;			// масса 2 исполнение
-		public short indexMassa;	// 0-металл 1- алюмин сплав 3-бронза 2-латунь
+		public float d;				// РґРёР°РјРµС‚СЂ СЂРµР·СЊР±С‹
+		public float p1;			// С€Р°Рі СЂРµР·СЊР±С‹
+		public float p2;			// С€Р°Рі СЂРµР·СЊР±С‹
+		public float b1;			// РІРІРёРЅС‡РёРІР°РµРјС‹Р№ РєРѕРЅРµС†  l1
+		public float c;				// СЂР°Р·РјРµСЂ С„Р°СЃРєРё
+		public float l;				// РґР»РёРЅР° С€РїРёР»СЊРєРё
+		public float b;				// РіР°РµС‡РЅС‹Р№ РєРѕРЅРµС†  l0
+		public short f;				// Р±РёС‚РѕРІС‹Рµ РјР°СЃРєРё
+		public short klass;			// РєР»Р°СЃСЃ С‚РѕС‡РЅРѕСЃС‚Рё
+		public short gost;			// РЅРѕРјРµСЂ РіРѕСЃС‚Р°
+		public short ver;			// РІРµСЂСЃРёСЏ РјР°РєСЂРѕ
+		public float m1;			// РјР°СЃСЃР° 1 РёСЃРїРѕР»РЅРµРЅРёРµ
+		public float m2;			// РјР°СЃСЃР° 2 РёСЃРїРѕР»РЅРµРЅРёРµ
+		public short indexMassa;	// 0-РјРµС‚Р°Р»Р» 1- Р°Р»СЋРјРёРЅ СЃРїР»Р°РІ 3-Р±СЂРѕРЅР·Р° 2-Р»Р°С‚СѓРЅСЊ
 	}
 
 
@@ -930,7 +930,7 @@ namespace Steps.NET
 
 
 	/// <summary>
-	/// Класс шпилек
+	/// РљР»Р°СЃСЃ С€РїРёР»РµРє
 	/// </summary>
 	public class Pin
 	{
@@ -938,23 +938,23 @@ namespace Steps.NET
 		private ResourceManager resManager = new ResourceManager(typeof(Pin));
 
 		private bool openBase;
-		private ksDocument3D doc;				// интерфейс текущего 3D-документа
-		private ksSpecification specification;	// интерфейс спецификации
-		private ksPart part;					// деталь
-		private ksEntityCollection collect;		// массив всех entity детали
-		private bool collectChanged;			// true - массив изменился
+		private ksDocument3D doc;				// РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСѓС‰РµРіРѕ 3D-РґРѕРєСѓРјРµРЅС‚Р°
+		private ksSpecification specification;	// РёРЅС‚РµСЂС„РµР№СЃ СЃРїРµС†РёС„РёРєР°С†РёРё
+		private ksPart part;					// РґРµС‚Р°Р»СЊ
+		private ksEntityCollection collect;		// РјР°СЃСЃРёРІ РІСЃРµС… entity РґРµС‚Р°Р»Рё
+		private bool collectChanged;			// true - РјР°СЃСЃРёРІ РёР·РјРµРЅРёР»СЃСЏ
 		private string fileName;
 		private uint countObj;
 		private int flagMode;
 
-		private ksUserParam paramSTmp;			// параметры для чтения БД
-		private ksUserParam paramTmp;			// параметры для чтения БД
-		private ksUserParam param;				// параметры для Get/SetMacroParam
-		private ksDataBaseObject data;			// интерфейс БД
+		private ksUserParam paramSTmp;			// РїР°СЂР°РјРµС‚СЂС‹ РґР»СЏ С‡С‚РµРЅРёСЏ Р‘Р”
+		private ksUserParam paramTmp;			// РїР°СЂР°РјРµС‚СЂС‹ РґР»СЏ С‡С‚РµРЅРёСЏ Р‘Р”
+		private ksUserParam param;				// РїР°СЂР°РјРµС‚СЂС‹ РґР»СЏ Get/SetMacroParam
+		private ksDataBaseObject data;			// РёРЅС‚РµСЂС„РµР№СЃ Р‘Р”
 
 		private BaseMakroParam par = new BaseMakroParam();
 		private PIN tmp = new PIN();
-		private PinBase base_ = new PinBase();	// работа с БД
+		private PinBase base_ = new PinBase();	// СЂР°Р±РѕС‚Р° СЃ Р‘Р”
 		#endregion
 
 		#region Constants
@@ -963,22 +963,22 @@ namespace Steps.NET
 		private const short ID_TOPVID = 3;
 		private const short ID_VIDSEC = 4;
 
-		public static uint PITCH = 0x2;				// крупный шаг >0 мелкий шаг
-		public static short ALLST = 0x4;			// резьба на b >0 резьба до головки
-		public static short SIMPLE = 0x10;			// нормальная отрисовка >0 упрощенная отрисовка
-		public static int ISPOLN = 0x80;			// исполнение 1 >0 исполнение 2
-		private static int TAKEISPOLN = 0x100;		// 0 не учитывать исполнение  >0 учитывать исполнение
-		private static int PITCHOFF = 0x800;		// есть крупный и мелкий шаг >0 есть только крупный
+		public static uint PITCH = 0x2;				// РєСЂСѓРїРЅС‹Р№ С€Р°Рі >0 РјРµР»РєРёР№ С€Р°Рі
+		public static short ALLST = 0x4;			// СЂРµР·СЊР±Р° РЅР° b >0 СЂРµР·СЊР±Р° РґРѕ РіРѕР»РѕРІРєРё
+		public static short SIMPLE = 0x10;			// РЅРѕСЂРјР°Р»СЊРЅР°СЏ РѕС‚СЂРёСЃРѕРІРєР° >0 СѓРїСЂРѕС‰РµРЅРЅР°СЏ РѕС‚СЂРёСЃРѕРІРєР°
+		public static int ISPOLN = 0x80;			// РёСЃРїРѕР»РЅРµРЅРёРµ 1 >0 РёСЃРїРѕР»РЅРµРЅРёРµ 2
+		private static int TAKEISPOLN = 0x100;		// 0 РЅРµ СѓС‡РёС‚С‹РІР°С‚СЊ РёСЃРїРѕР»РЅРµРЅРёРµ  >0 СѓС‡РёС‚С‹РІР°С‚СЊ РёСЃРїРѕР»РЅРµРЅРёРµ
+		private static int PITCHOFF = 0x800;		// РµСЃС‚СЊ РєСЂСѓРїРЅС‹Р№ Рё РјРµР»РєРёР№ С€Р°Рі >0 РµСЃС‚СЊ С‚РѕР»СЊРєРѕ РєСЂСѓРїРЅС‹Р№
 
 		private static int COUNT_MASSA = 1000;
 
-		private static int MAX_COUNT_SPCOBJ = 4;	//максимальное число объектов СП за раз 4
+		private static int MAX_COUNT_SPCOBJ = 4;	//РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ РѕР±СЉРµРєС‚РѕРІ РЎРџ Р·Р° СЂР°Р· 4
 		private static int[] spcObj = new int[MAX_COUNT_SPCOBJ];
 
 		private static short STANDART_SECTION = 25;
-		private static int SPC_NAME = 5;           // наименование
+		private static int SPC_NAME = 5;           // РЅР°РёРјРµРЅРѕРІР°РЅРёРµ
 
-		private static string STUDS_FILE = "stud.l3d|Шпильки|Шпилька_1";
+		private static string STUDS_FILE = "stud.l3d|РЁРїРёР»СЊРєРё|РЁРїРёР»СЊРєР°_1";
 		#endregion
 
 		#region Resource IDs
@@ -990,8 +990,8 @@ namespace Steps.NET
 		#endregion
 
 		/// <summary>
-		/// Определяет является ли объект поверхностью: planar = true - плоскостью,
-		/// false - конической поверхностью
+		/// РћРїСЂРµРґРµР»СЏРµС‚ СЏРІР»СЏРµС‚СЃСЏ Р»Рё РѕР±СЉРµРєС‚ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊСЋ: planar = true - РїР»РѕСЃРєРѕСЃС‚СЊСЋ,
+		/// false - РєРѕРЅРёС‡РµСЃРєРѕР№ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊСЋ
 		/// </summary>
 		/// <param name="entity"></param>
 		/// <param name="planar"></param>
@@ -1019,7 +1019,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Определяет является ли объект осью
+		/// РћРїСЂРµРґРµР»СЏРµС‚ СЏРІР»СЏРµС‚СЃСЏ Р»Рё РѕР±СЉРµРєС‚ РѕСЃСЊСЋ
 		/// </summary>
 		/// <param name="?"></param>
 		/// <returns></returns>
@@ -1027,18 +1027,18 @@ namespace Steps.NET
 		{
 			if (entity != null)
 			{
-				return entity.IsIt((int)Obj3dType.o3d_axis2Planes) ||	// ось по двум плоскостям
-					entity.IsIt((int)Obj3dType.o3d_axisOperation) ||	// ось операций
-					entity.IsIt((int)Obj3dType.o3d_axis2Points) ||		// ось по двум точкам
-					entity.IsIt((int)Obj3dType.o3d_axisConeFace) ||		// ось конической поверхности
-					entity.IsIt((int)Obj3dType.o3d_axisEdge);			// ось по ребру
+				return entity.IsIt((int)Obj3dType.o3d_axis2Planes) ||	// РѕСЃСЊ РїРѕ РґРІСѓРј РїР»РѕСЃРєРѕСЃС‚СЏРј
+					entity.IsIt((int)Obj3dType.o3d_axisOperation) ||	// РѕСЃСЊ РѕРїРµСЂР°С†РёР№
+					entity.IsIt((int)Obj3dType.o3d_axis2Points) ||		// РѕСЃСЊ РїРѕ РґРІСѓРј С‚РѕС‡РєР°Рј
+					entity.IsIt((int)Obj3dType.o3d_axisConeFace) ||		// РѕСЃСЊ РєРѕРЅРёС‡РµСЃРєРѕР№ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё
+					entity.IsIt((int)Obj3dType.o3d_axisEdge);			// РѕСЃСЊ РїРѕ СЂРµР±СЂСѓ
 			}
 			return false;
 		}
 
 
 		/// <summary>
-		/// Функция фильтр
+		/// Р¤СѓРЅРєС†РёСЏ С„РёР»СЊС‚СЂ
 		/// </summary>
 		/// <param name="_entity"></param>
 		/// <returns></returns>
@@ -1050,12 +1050,12 @@ namespace Steps.NET
 				ksEntity entity = (ksEntity)_entity;
 				if (entity != null) 
 				{
-					ksPart entPart = (ksPart)entity.GetParent();	// Деталь присланного объекта
-					if (entPart != Kompas.Instance.PinObj.Part)		// Если деталь другая
+					ksPart entPart = (ksPart)entity.GetParent();	// Р”РµС‚Р°Р»СЊ РїСЂРёСЃР»Р°РЅРЅРѕРіРѕ РѕР±СЉРµРєС‚Р°
+					if (entPart != Kompas.Instance.PinObj.Part)		// Р•СЃР»Рё РґРµС‚Р°Р»СЊ РґСЂСѓРіР°СЏ
 						res = IsSurface(entity, false) || 
 							IsSurface(entity, false) ||
-							IsAxis(entity);							// Проверяем объект на принадлежность к
-					// Плоскости, конической поверхности или оси
+							IsAxis(entity);							// РџСЂРѕРІРµСЂСЏРµРј РѕР±СЉРµРєС‚ РЅР° РїСЂРёРЅР°РґР»РµР¶РЅРѕСЃС‚СЊ Рє
+					// РџР»РѕСЃРєРѕСЃС‚Рё, РєРѕРЅРёС‡РµСЃРєРѕР№ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё РёР»Рё РѕСЃРё
 				}                                               
 			}
 			return res;
@@ -1063,8 +1063,8 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Функция обратной связи
-		/// 0 - плоскость, 1 - цилиндр, 2 - ось - состав collection
+		/// Р¤СѓРЅРєС†РёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРІСЏР·Рё
+		/// 0 - РїР»РѕСЃРєРѕСЃС‚СЊ, 1 - С†РёР»РёРЅРґСЂ, 2 - РѕСЃСЊ - СЃРѕСЃС‚Р°РІ collection
 		/// </summary>
 
 		public int SELECTCALLBACKPROC(object _entity, object _info) 
@@ -1084,40 +1084,40 @@ namespace Steps.NET
 				{
 					if (IsSurface(entity, false)) 
 					{
-						// При повторном указании объекта снимаем с него выбор
+						// РџСЂРё РїРѕРІС‚РѕСЂРЅРѕРј СѓРєР°Р·Р°РЅРёРё РѕР±СЉРµРєС‚Р° СЃРЅРёРјР°РµРј СЃ РЅРµРіРѕ РІС‹Р±РѕСЂ
             ksEntity oldPlane = (ksEntity)collection.GetByIndex( 2 );
             if ( oldPlane == entity )
-              collection.SetByIndex( null, 2 );   // Обнулить ось
+              collection.SetByIndex( null, 2 );   // РћР±РЅСѓР»РёС‚СЊ РѕСЃСЊ
             else
             {
-              collection.SetByIndex( entity, 2 ); // Заменить ось
-              collection.SetByIndex( null, 1 );   // Обнулить коническую плоскость
+              collection.SetByIndex( entity, 2 ); // Р—Р°РјРµРЅРёС‚СЊ РѕСЃСЊ
+              collection.SetByIndex( null, 1 );   // РћР±РЅСѓР»РёС‚СЊ РєРѕРЅРёС‡РµСЃРєСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
             }
 						res = 1;
 					}
 					else if (IsSurface(entity, false)) 
 					{
-						// При повторном указании объекта снимаем с него выбор
+						// РџСЂРё РїРѕРІС‚РѕСЂРЅРѕРј СѓРєР°Р·Р°РЅРёРё РѕР±СЉРµРєС‚Р° СЃРЅРёРјР°РµРј СЃ РЅРµРіРѕ РІС‹Р±РѕСЂ
             ksEntity oldPlane = (ksEntity)collection.GetByIndex( 1 );
             if ( oldPlane == entity )
-              collection.SetByIndex( null, 1 );   // Обнулить коническую плоскость
+              collection.SetByIndex( null, 1 );   // РћР±РЅСѓР»РёС‚СЊ РєРѕРЅРёС‡РµСЃРєСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
             else
             {
-              collection.SetByIndex( entity, 1 ); // Заменить коническую плоскость
-              collection.SetByIndex( null, 2 );   // Обнулить ось
+              collection.SetByIndex( entity, 1 ); // Р—Р°РјРµРЅРёС‚СЊ РєРѕРЅРёС‡РµСЃРєСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
+              collection.SetByIndex( null, 2 );   // РћР±РЅСѓР»РёС‚СЊ РѕСЃСЊ
             }
 						res = 1;
 					}
 					else if (IsAxis(entity)) 
 					{
-						// При повторном указании объекта снимаем с него выбор
+						// РџСЂРё РїРѕРІС‚РѕСЂРЅРѕРј СѓРєР°Р·Р°РЅРёРё РѕР±СЉРµРєС‚Р° СЃРЅРёРјР°РµРј СЃ РЅРµРіРѕ РІС‹Р±РѕСЂ
             ksEntity oldAxis = (ksEntity)collection.GetByIndex(2);
             if ( oldAxis == entity )
-              collection.SetByIndex( null, 2 );   // Обнулить ось
+              collection.SetByIndex( null, 2 );   // РћР±РЅСѓР»РёС‚СЊ РѕСЃСЊ
             else
             {
-              collection.SetByIndex( entity, 2 ); // Заменить ось
-              collection.SetByIndex( null,   1 ); // Обнулить коническую плоскость
+              collection.SetByIndex( entity, 2 ); // Р—Р°РјРµРЅРёС‚СЊ РѕСЃСЊ
+              collection.SetByIndex( null,   1 ); // РћР±РЅСѓР»РёС‚СЊ РєРѕРЅРёС‡РµСЃРєСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
             }
 
 						res = 1;
@@ -1126,7 +1126,7 @@ namespace Steps.NET
 					if (res != 0)
 						Kompas.Instance.PinObj.collectChanged = true;
 
-					string mes = LoadString("STR_SELECT_PLANE");	// Укажите точку привязки детали
+					string mes = LoadString("STR_SELECT_PLANE");	// РЈРєР°Р¶РёС‚Рµ С‚РѕС‡РєСѓ РїСЂРёРІСЏР·РєРё РґРµС‚Р°Р»Рё
 					info.prompt = mes;
 				}
 			}
@@ -1134,9 +1134,9 @@ namespace Steps.NET
 			{
 				if (collection != null)
 					for (int i = 0; i < 3; i ++)
-						collection.SetByIndex(null, i);				// Обнулить
+						collection.SetByIndex(null, i);				// РћР±РЅСѓР»РёС‚СЊ
 
-				string mes = LoadString("STR_SELECT_PLANE");	// Укажите точку привязки детали
+				string mes = LoadString("STR_SELECT_PLANE");	// РЈРєР°Р¶РёС‚Рµ С‚РѕС‡РєСѓ РїСЂРёРІСЏР·РєРё РґРµС‚Р°Р»Рё
 				info.prompt = mes; 
 				res = 1;
 			}
@@ -1146,7 +1146,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Добавить сопряжения
+		/// Р”РѕР±Р°РІРёС‚СЊ СЃРѕРїСЂСЏР¶РµРЅРёСЏ
 		/// </summary>
 		/// <param name="object_"></param>
 		/// <param name="doc"></param>
@@ -1156,7 +1156,7 @@ namespace Steps.NET
 			ksEntity ent = (ksEntity)collection.GetByIndex(0);
 			if (ent != null && IsSurface(ent, false))
 			{
-				// поверхность
+				// РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ
 				ksEntity partObj = null;
 				object_.GetEntityByName("Plane", partObj);
 				if (!doc.AddMateConstraint((int)MateConstraintType.mc_Coincidence, ent, partObj,
@@ -1169,7 +1169,7 @@ namespace Steps.NET
 			ent = (ksEntity)collection.GetByIndex(1);
 			if (ent != null && IsSurface(ent, false/*planar*/)) 
 			{
-				// коническая поверхность
+				// РєРѕРЅРёС‡РµСЃРєР°СЏ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ
 				ksEntity partObj = null;
 				object_.GetEntityByName("Axis", partObj);
 				if (!doc.AddMateConstraint((int)MateConstraintType.mc_Concentric, ent, partObj, 0, 1, 0)) 
@@ -1181,7 +1181,7 @@ namespace Steps.NET
 			ent = (ksEntity)collection.GetByIndex(2);
 			if (ent != null && IsAxis(ent)) 
 			{
-				// ось
+				// РѕСЃСЊ
 				ksEntity partObj = null;
 				object_.GetEntityByName("Axis", partObj);
 				if (!doc.AddMateConstraint((int)MateConstraintType.mc_Concentric, ent, partObj, 0, 1, 0)) 
@@ -1193,7 +1193,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Удалить сопряжения
+		/// РЈРґР°Р»РёС‚СЊ СЃРѕРїСЂСЏР¶РµРЅРёСЏ
 		/// </summary>
 		/// <param name="?"></param>
 		private void DelMates(Pin object_, ksDocument3D doc, ksEntityCollection collection) 
@@ -1201,7 +1201,7 @@ namespace Steps.NET
 			ksEntity ent = (ksEntity)collection.GetByIndex(0);
 			if (ent != null && IsSurface(ent, false)) 
 			{
-				// поверхность
+				// РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ
 				ksEntity partObj = null;
 				object_.GetEntityByName("Plane", partObj);
 				doc.RemoveMateConstraint((int)MateConstraintType.mc_Coincidence, ent, partObj);
@@ -1210,7 +1210,7 @@ namespace Steps.NET
 			ent = (ksEntity)collection.GetByIndex(1);
 			if (ent != null && IsSurface(ent, false/*planar*/)) 
 			{
-				// коническая поверхность
+				// РєРѕРЅРёС‡РµСЃРєР°СЏ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ
 				ksEntity partObj = null;
 				object_.GetEntityByName("Axis", partObj);
 				doc.RemoveMateConstraint((int)MateConstraintType.mc_Concentric, ent, partObj);
@@ -1219,7 +1219,7 @@ namespace Steps.NET
 			ent = (ksEntity)collection.GetByIndex(2);
 			if (ent != null && IsAxis(ent)) 
 			{
-				// ось
+				// РѕСЃСЊ
 				ksEntity partObj = null;
 				object_.GetEntityByName("Axis", partObj);
 				doc.RemoveMateConstraint((int)MateConstraintType.mc_Concentric, ent, partObj);
@@ -1228,7 +1228,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Заполняет адреса функций фильтра и обратной связи
+		/// Р—Р°РїРѕР»РЅСЏРµС‚ Р°РґСЂРµСЃР° С„СѓРЅРєС†РёР№ С„РёР»СЊС‚СЂР° Рё РѕР±СЂР°С‚РЅРѕР№ СЃРІСЏР·Рё
 		/// </summary>
 		/// <param name="info"></param>
 		private void SetCallBackAndFilterFunction(ksRequestInfo3D info) 
@@ -1239,7 +1239,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Конструктор
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		/// </summary>
 		public Pin()  
 		{
@@ -1291,7 +1291,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Конструктор копии
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёРё
 		/// </summary>
 		/// <returns></returns>
 		public Pin Dublicate()
@@ -1314,7 +1314,7 @@ namespace Steps.NET
 			if (other.part != null)
 				part = other.part;
 
-			collectChanged = other.collectChanged; // true - массив изменился
+			collectChanged = other.collectChanged; // true - РјР°СЃСЃРёРІ РёР·РјРµРЅРёР»СЃСЏ
 			countObj = other.countObj;
 			flagMode = other.flagMode;
 			par = other.par;
@@ -1357,7 +1357,7 @@ namespace Steps.NET
 		{
 			if (Kompas.Instance.KompasObject.ksReturnResult() != 0)
 			{
-				if (Kompas.Instance.KompasObject.ksReturnResult() == (int)ErrorType.etError10)	//  10  "Ошибка! Вырожденный объект"
+				if (Kompas.Instance.KompasObject.ksReturnResult() == (int)ErrorType.etError10)	//  10  "РћС€РёР±РєР°! Р’С‹СЂРѕР¶РґРµРЅРЅС‹Р№ РѕР±СЉРµРєС‚"
 					Kompas.Instance.KompasObject.ksResultNULL();
 				else
 					Kompas.Instance.KompasObject.ksMessageBoxResult();
@@ -1498,17 +1498,17 @@ namespace Steps.NET
 
 		public bool GetFullName(string name, ref string fName)
 		{
-			string bufName = name;			// буфер из которого будем все доставать
-			string path = string.Empty;		// полный путь к файлу
-			string modelName = string.Empty;// разделы и подразделы в библ-ке моделей
-			bool rez = false;				// результат
+			string bufName = name;			// Р±СѓС„РµСЂ РёР· РєРѕС‚РѕСЂРѕРіРѕ Р±СѓРґРµРј РІСЃРµ РґРѕСЃС‚Р°РІР°С‚СЊ
+			string path = string.Empty;		// РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ
+			string modelName = string.Empty;// СЂР°Р·РґРµР»С‹ Рё РїРѕРґСЂР°Р·РґРµР»С‹ РІ Р±РёР±Р»-РєРµ РјРѕРґРµР»РµР№
+			bool rez = false;				// СЂРµР·СѓР»СЊС‚Р°С‚
 			fName = Assembly.GetExecutingAssembly().Location;
-			// путь к нашей dll
-			int ind = bufName.IndexOf('|');	// ищем позицию с кот. нач-ся разделы          
-			if (ind > 0)					// если раздел найден - копируем путь внутри библ-ки в буфер
+			// РїСѓС‚СЊ Рє РЅР°С€РµР№ dll
+			int ind = bufName.IndexOf('|');	// РёС‰РµРј РїРѕР·РёС†РёСЋ СЃ РєРѕС‚. РЅР°С‡-СЃСЏ СЂР°Р·РґРµР»С‹          
+			if (ind > 0)					// РµСЃР»Рё СЂР°Р·РґРµР» РЅР°Р№РґРµРЅ - РєРѕРїРёСЂСѓРµРј РїСѓС‚СЊ РІРЅСѓС‚СЂРё Р±РёР±Р»-РєРё РІ Р±СѓС„РµСЂ
 				modelName = bufName.Substring(ind, bufName.Length - ind);
 
-			string fileName = ind > 0 ? bufName.Substring(0, ind) : bufName; // имя файла без разделов
+			string fileName = ind > 0 ? bufName.Substring(0, ind) : bufName; // РёРјСЏ С„Р°Р№Р»Р° Р±РµР· СЂР°Р·РґРµР»РѕРІ
 			if (fileName != string.Empty) 
 			{
 				if (fName != null && fName != string.Empty) 
@@ -1516,20 +1516,20 @@ namespace Steps.NET
 					FileInfo rootInfo = new FileInfo(fName);
 					path = rootInfo.DirectoryName + @"\" + fileName;
 					FileInfo fInfo = new FileInfo(path);
-					if (fInfo.Exists)	// проверка файла
-						rez = true;		// файл найден
+					if (fInfo.Exists)	// РїСЂРѕРІРµСЂРєР° С„Р°Р№Р»Р°
+						rez = true;		// С„Р°Р№Р» РЅР°Р№РґРµРЅ
 					else 
 					{
-						// файл не найден
+						// С„Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ
 						path = rootInfo.DirectoryName + @"\LOAD\" + fileName;
 						fInfo = new FileInfo(path);
-						if (fInfo.Exists)	// проверка файла
-							rez = true;		// файл найден
+						if (fInfo.Exists)	// РїСЂРѕРІРµСЂРєР° С„Р°Р№Р»Р°
+							rez = true;		// С„Р°Р№Р» РЅР°Р№РґРµРЅ
 					}
 				}
 			}
-			if (rez)						// файл найден
-				fName = path + modelName;	// формируем полный путь
+			if (rez)						// С„Р°Р№Р» РЅР°Р№РґРµРЅ
+				fName = path + modelName;	// С„РѕСЂРјРёСЂСѓРµРј РїРѕР»РЅС‹Р№ РїСѓС‚СЊ
 
 			return rez;
 		}
@@ -1544,7 +1544,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Открытие БД и создание отношений к БД
+		/// РћС‚РєСЂС‹С‚РёРµ Р‘Р” Рё СЃРѕР·РґР°РЅРёРµ РѕС‚РЅРѕС€РµРЅРёР№ Рє Р‘Р”
 		/// </summary>
 		/// <param name="initParam"></param>
 		/// <returns></returns>
@@ -1628,7 +1628,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Закрытие БД
+		/// Р—Р°РєСЂС‹С‚РёРµ Р‘Р”
 		/// </summary>
 		public void CloseBase() 
 		{
@@ -1649,7 +1649,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Чтение БД
+		/// Р§С‚РµРЅРёРµ Р‘Р”
 		/// </summary>
 		/// <param name="d"></param>
 		/// <returns></returns>
@@ -1672,8 +1672,8 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Читать параметры стержня
-		/// возвращает 1 - успех 0 - не найдено записи -1 - ошибка связи с БД
+		/// Р§РёС‚Р°С‚СЊ РїР°СЂР°РјРµС‚СЂС‹ СЃС‚РµСЂР¶РЅСЏ
+		/// РІРѕР·РІСЂР°С‰Р°РµС‚ 1 - СѓСЃРїРµС… 0 - РЅРµ РЅР°Р№РґРµРЅРѕ Р·Р°РїРёСЃРё -1 - РѕС€РёР±РєР° СЃРІСЏР·Рё СЃ Р‘Р”
 		/// </summary>
 		/// <returns></returns>
 		public int ReadPinStBase() 
@@ -1863,7 +1863,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Находит у детали поверхность с заданным именем
+		/// РќР°С…РѕРґРёС‚ Сѓ РґРµС‚Р°Р»Рё РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ СЃ Р·Р°РґР°РЅРЅС‹Рј РёРјРµРЅРµРј
 		/// </summary>
 		/// <param name="name"></param>
 		/// <param name="entity"></param>
@@ -1872,7 +1872,7 @@ namespace Steps.NET
 			entity = null;
 			if (part != null) 
 			{
-				if (collect == null)  // массив лежит в классе, и если он ещё не создан - создаём
+				if (collect == null)  // РјР°СЃСЃРёРІ Р»РµР¶РёС‚ РІ РєР»Р°СЃСЃРµ, Рё РµСЃР»Рё РѕРЅ РµС‰С‘ РЅРµ СЃРѕР·РґР°РЅ - СЃРѕР·РґР°С‘Рј
 					collect = (ksEntityCollection)part.EntityCollection((int)Obj3dType.o3d_constrElement);
 
 				ksEntity findEntity = (ksEntity)collect.GetByName(name, true, true);
@@ -1883,22 +1883,22 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Массив пуст - указали placement
+		/// РњР°СЃСЃРёРІ РїСѓСЃС‚ - СѓРєР°Р·Р°Р»Рё placement
 		/// </summary>
 		/// <param name="info"></param>
 		/// <returns></returns>
 		public bool IsCollectionEmpty(ksRequestInfo3D info) 
 		{
 			bool res = true;
-			ksEntityCollection collection = (ksEntityCollection)info.GetEntityCollection(); // Новый массив
+			ksEntityCollection collection = (ksEntityCollection)info.GetEntityCollection(); // РќРѕРІС‹Р№ РјР°СЃСЃРёРІ
 			if (collection != null)
-				for(int i = 0, count = collection.GetCount(); i < count; i++) // Цикл по массиву
+				for(int i = 0, count = collection.GetCount(); i < count; i++) // Р¦РёРєР» РїРѕ РјР°СЃСЃРёРІСѓ
 				{       
-					ksEntity ent = (ksEntity)collection.GetByIndex(i);        // Текущий элемент
-					if (ent != null)                          // Если он не null
+					ksEntity ent = (ksEntity)collection.GetByIndex(i);        // РўРµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚
+					if (ent != null)                          // Р•СЃР»Рё РѕРЅ РЅРµ null
 					{                        
-						res = false;                                   // Массив не пуст
-						break;                                         // Завершить цикл
+						res = false;                                   // РњР°СЃСЃРёРІ РЅРµ РїСѓСЃС‚
+						break;                                         // Р—Р°РІРµСЂС€РёС‚СЊ С†РёРєР»
 					}
 				}
 			return res; 
@@ -1908,23 +1908,23 @@ namespace Steps.NET
 		public bool IsCollectionChange(ksRequestInfo3D info) 
 		{
 			bool res = true;                                     
-			if (!collectChanged) // Если новые объекты не указывали - сравниваем массивы
+			if (!collectChanged) // Р•СЃР»Рё РЅРѕРІС‹Рµ РѕР±СЉРµРєС‚С‹ РЅРµ СѓРєР°Р·С‹РІР°Р»Рё - СЃСЂР°РІРЅРёРІР°РµРј РјР°СЃСЃРёРІС‹
 			{                             
-				// Возможен вариант когда указали точку и массив в info заполнен null'ми а старый нет
-				res = false; // Не надо перестраивать
-				ksEntityCollection collection1 = (ksEntityCollection)info.GetEntityCollection(); // Новый массив
-				ksEntityCollection collection2 = (ksEntityCollection)part.GetMateConstraintObjects(); // Старый массив
+				// Р’РѕР·РјРѕР¶РµРЅ РІР°СЂРёР°РЅС‚ РєРѕРіРґР° СѓРєР°Р·Р°Р»Рё С‚РѕС‡РєСѓ Рё РјР°СЃСЃРёРІ РІ info Р·Р°РїРѕР»РЅРµРЅ null'РјРё Р° СЃС‚Р°СЂС‹Р№ РЅРµС‚
+				res = false; // РќРµ РЅР°РґРѕ РїРµСЂРµСЃС‚СЂР°РёРІР°С‚СЊ
+				ksEntityCollection collection1 = (ksEntityCollection)info.GetEntityCollection(); // РќРѕРІС‹Р№ РјР°СЃСЃРёРІ
+				ksEntityCollection collection2 = (ksEntityCollection)part.GetMateConstraintObjects(); // РЎС‚Р°СЂС‹Р№ РјР°СЃСЃРёРІ
 				if (collection1 != null && collection2 != null && 
 					(collection1.GetCount() > 2) && (collection2.GetCount() > 2)) 
 				{
-					for(int i = 0; i < 3; i ++) // Цикл по массивам
+					for(int i = 0; i < 3; i ++) // Р¦РёРєР» РїРѕ РјР°СЃСЃРёРІР°Рј
 					{                        
-						ksEntity ent1 = (ksEntity)collection1.GetByIndex(i);	// Текущий элемент 1
-						ksEntity ent2 = (ksEntity)collection2.GetByIndex(i);	// Текущий элемент 2
-						if (ent1 != null && ent2 != null && ent1 != ent2)		// Если они не равны 
+						ksEntity ent1 = (ksEntity)collection1.GetByIndex(i);	// РўРµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚ 1
+						ksEntity ent2 = (ksEntity)collection2.GetByIndex(i);	// РўРµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚ 2
+						if (ent1 != null && ent2 != null && ent1 != ent2)		// Р•СЃР»Рё РѕРЅРё РЅРµ СЂР°РІРЅС‹ 
 						{     
-							res = true;                                 // Перестраиваем
-							break;                                      // Завершить цикл
+							res = true;                                 // РџРµСЂРµСЃС‚СЂР°РёРІР°РµРј
+							break;                                      // Р—Р°РІРµСЂС€РёС‚СЊ С†РёРєР»
 						}
 					}
 				}
@@ -1966,11 +1966,11 @@ namespace Steps.NET
 
 			if (flagMode != 0)
 			{
-				spcObj = specification.D3GetSpcObjForGeomWithLimit(null,	// Имя библиотеки типов
-					0,														// Номер типа спецификации
+				spcObj = specification.D3GetSpcObjForGeomWithLimit(null,	// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё С‚РёРїРѕРІ
+					0,														// РќРѕРјРµСЂ С‚РёРїР° СЃРїРµС†РёС„РёРєР°С†РёРё
 					part,
-					1,														// 1 - первый объект 0 - следующий объект                                              		
-					STANDART_SECTION,										// Номер раздела
+					1,														// 1 - РїРµСЂРІС‹Р№ РѕР±СЉРµРєС‚ 0 - СЃР»РµРґСѓСЋС‰РёР№ РѕР±СЉРµРєС‚                                              		
+					STANDART_SECTION,										// РќРѕРјРµСЂ СЂР°Р·РґРµР»Р°
 					81764182256.0D);
 
 				if(par.flagAttr == 0)
@@ -1981,12 +1981,12 @@ namespace Steps.NET
 			}
 
 			bool flagMode_ = (spcObj != 0 ? true : false);
-			if (flagMode_ | specification.ksSpcObjectCreate(null,	// Имя библиотеки типов
-				0,													// Номер типа спецификации
-				STANDART_SECTION, 0,								// Номер раздела и подраздела
-				81764182256.0D, 0) != 0)							// Тип атрибута
+			if (flagMode_ | specification.ksSpcObjectCreate(null,	// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё С‚РёРїРѕРІ
+				0,													// РќРѕРјРµСЂ С‚РёРїР° СЃРїРµС†РёС„РёРєР°С†РёРё
+				STANDART_SECTION, 0,								// РќРѕРјРµСЂ СЂР°Р·РґРµР»Р° Рё РїРѕРґСЂР°Р·РґРµР»Р°
+				81764182256.0D, 0) != 0)							// РўРёРї Р°С‚СЂРёР±СѓС‚Р°
 			{
-				// Исполнение
+				// РСЃРїРѕР»РЅРµРЅРёРµ
 				uint uBuf = Convert.ToUInt32(!!(tmp.f != 0 & ISPOLN != 0));
 				specification.ksSpcVisible(SPC_NAME, 2, (short)uBuf);
 				if (uBuf != 0)
@@ -1997,17 +1997,17 @@ namespace Steps.NET
 					specification.ksSpcChangeValue(SPC_NAME, 2, par1, ldefin2d.UINT_ATTR_TYPE);
 				}
 
-				// Изменим диаметр
+				// РР·РјРµРЅРёРј РґРёР°РјРµС‚СЂ
 				arr.ksClearArray();
 				item.floatVal = tmp.d;
 				arr.ksAddArrayItem(-1, item);
 				specification.ksSpcChangeValue(SPC_NAME, 4, par1, ldefin2d.FLOAT_ATTR_TYPE);
 
-				// Отследим мелкий шаг
+				// РћС‚СЃР»РµРґРёРј РјРµР»РєРёР№ С€Р°Рі
 				uBuf = Convert.ToUInt32(!(tmp.f != 0 & PITCHOFF != 0 || !(tmp.f != 0 & PITCH != 0)));
 				specification.ksSpcVisible(SPC_NAME, 5, (short)uBuf);
-				specification.ksSpcVisible(SPC_NAME, 6, (short)uBuf); // Шаг
-				if(uBuf != 0)	// Выключить шаг и его разделитель
+				specification.ksSpcVisible(SPC_NAME, 6, (short)uBuf); // РЁР°Рі
+				if(uBuf != 0)	// Р’С‹РєР»СЋС‡РёС‚СЊ С€Р°Рі Рё РµРіРѕ СЂР°Р·РґРµР»РёС‚РµР»СЊ
 				{
 					arr.ksClearArray();
 					item.floatVal = tmp.p2;
@@ -2015,7 +2015,7 @@ namespace Steps.NET
 					specification.ksSpcChangeValue(SPC_NAME, 6, par1, ldefin2d.FLOAT_ATTR_TYPE);
 				}
 
-				// Изменим длину
+				// РР·РјРµРЅРёРј РґР»РёРЅСѓ
 				arr.ksClearArray();
 				item.uIntVal = (int)tmp.l;
 				arr.ksAddArrayItem(-1, item);
@@ -2023,13 +2023,13 @@ namespace Steps.NET
 
 				if (flagMode == 0)
 				{
-					specification.ksSpcVisible(SPC_NAME, 7,  0); // Выключим поле допуска
-					specification.ksSpcVisible(SPC_NAME, 10, 0); // Выключим класс прочности
-					specification.ksSpcVisible(SPC_NAME, 11, 0); // Выключим материал
-					specification.ksSpcVisible(SPC_NAME, 12, 0); // Выключим покрытие
+					specification.ksSpcVisible(SPC_NAME, 7,  0); // Р’С‹РєР»СЋС‡РёРј РїРѕР»Рµ РґРѕРїСѓСЃРєР°
+					specification.ksSpcVisible(SPC_NAME, 10, 0); // Р’С‹РєР»СЋС‡РёРј РєР»Р°СЃСЃ РїСЂРѕС‡РЅРѕСЃС‚Рё
+					specification.ksSpcVisible(SPC_NAME, 11, 0); // Р’С‹РєР»СЋС‡РёРј РјР°С‚РµСЂРёР°Р»
+					specification.ksSpcVisible(SPC_NAME, 12, 0); // Р’С‹РєР»СЋС‡РёРј РїРѕРєСЂС‹С‚РёРµ
 				}
 
-				// Изменим ГОСТ
+				// РР·РјРµРЅРёРј Р“РћРЎРў
 				arr.ksClearArray();
 				item.uIntVal = tmp.gost;
 				arr.ksAddArrayItem(-1, item);
@@ -2041,9 +2041,9 @@ namespace Steps.NET
 					? 0.97 : 1.08) / COUNT_MASSA);
 				string buf = string.Empty;
 				buf = string.Format("{0:0.#}", massa);
-				specification.ksSpcMassa(buf);	// Масса детали
+				specification.ksSpcMassa(buf);	// РњР°СЃСЃР° РґРµС‚Р°Р»Рё
 
-				// Подключим геометрию
+				// РџРѕРґРєР»СЋС‡РёРј РіРµРѕРјРµС‚СЂРёСЋ
 				specification.D3SpcIncludePart(part, false);
 
 				return specification.ksSpcObjectEnd();
@@ -2054,7 +2054,7 @@ namespace Steps.NET
 		public bool DrawSpcObj() 
 		{
 			//memset(spcObj, 0, sizeof(reference) * MAX_COUNT_SPCOBJ);
-			if (Kompas.Instance.KompasObject.ksReturnResult() == (int)ErrorType.etError10) // Вырожденный объект
+			if (Kompas.Instance.KompasObject.ksReturnResult() == (int)ErrorType.etError10) // Р’С‹СЂРѕР¶РґРµРЅРЅС‹Р№ РѕР±СЉРµРєС‚
 				Kompas.Instance.KompasObject.ksResultNULL();
 
 			spcObj[0] = Kompas.Instance.PinObj.EditSpcObj(spcObj[0]);
@@ -2074,7 +2074,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Процесс создания детали
+		/// РџСЂРѕС†РµСЃСЃ СЃРѕР·РґР°РЅРёСЏ РґРµС‚Р°Р»Рё
 		/// </summary>
 		/// <param name="_doc"></param>
 		public void Draw3D(ksDocument3D _doc)
@@ -2086,11 +2086,11 @@ namespace Steps.NET
 				flagMode = Convert.ToInt32(doc.IsEditMode());
 				Kompas.Instance.PinObj = this;
 
-				// Взяли деталь
+				// Р’Р·СЏР»Рё РґРµС‚Р°Р»СЊ
 				part = (ksPart)doc.GetPart(flagMode != 0 ? (int)Part_Type.pEdit_Part : (int)Part_Type.pNew_Part);
 				if (part != null) 
 				{
-					// После определения детали нужно считать параметры редактирования
+					// РџРѕСЃР»Рµ РѕРїСЂРµРґРµР»РµРЅРёСЏ РґРµС‚Р°Р»Рё РЅСѓР¶РЅРѕ СЃС‡РёС‚Р°С‚СЊ РїР°СЂР°РјРµС‚СЂС‹ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
 					if (flagMode != 0)
 						GetParam();
 					else
@@ -2100,18 +2100,18 @@ namespace Steps.NET
 					{
 						if (flagMode != 0)
 						{ 
-							// Режим редактирования без изменения местоположения и mate'ов
-							SetParam(part);		// Установим параметры
+							// Р РµР¶РёРј СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ Р±РµР· РёР·РјРµРЅРµРЅРёСЏ РјРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёСЏ Рё mate'РѕРІ
+							SetParam(part);		// РЈСЃС‚Р°РЅРѕРІРёРј РїР°СЂР°РјРµС‚СЂС‹
 						}
 						else
 						{   
-							// Создание нового
+							// РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ
 							ksRequestInfo3D info = (ksRequestInfo3D)doc.GetRequestInfo(part);
 							if (info != null) 
 							{
 								string prompt;
 					 
-								prompt = LoadString(flagMode != 0 ? "STR_SELECT_PLANE" : "STR_SELECT_POINT");	// Укажите точку привязки детали
+								prompt = LoadString(flagMode != 0 ? "STR_SELECT_PLANE" : "STR_SELECT_POINT");	// РЈРєР°Р¶РёС‚Рµ С‚РѕС‡РєСѓ РїСЂРёРІСЏР·РєРё РґРµС‚Р°Р»Рё
 								info.prompt = prompt;
 								SetCallBackAndFilterFunction(info);
 								info.CreatePhantom();
@@ -2119,7 +2119,7 @@ namespace Steps.NET
 								if (phantom != null)
 									SetParam(phantom); 
             
-								// Теперь временные српряжения
+								// РўРµРїРµСЂСЊ РІСЂРµРјРµРЅРЅС‹Рµ СЃСЂРїСЂСЏР¶РµРЅРёСЏ
 								if (doc.UserGetPlacementAndEntity(3)) 
 								{
 									ksPlacement lpace = (ksPlacement)info.GetPlacement();
@@ -2128,25 +2128,25 @@ namespace Steps.NET
 									{
 										SetParam(part);
 
-										if (IsCollectionChange(info))			// Массив Mate'ов изменился
+										if (IsCollectionChange(info))			// РњР°СЃСЃРёРІ Mate'РѕРІ РёР·РјРµРЅРёР»СЃСЏ
 										{ 
-											if (flagMode != 0)					// Режим редактирования
-												SetMates(doc, info, true);		// Удалить сопряжения
+											if (flagMode != 0)					// Р РµР¶РёРј СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
+												SetMates(doc, info, true);		// РЈРґР°Р»РёС‚СЊ СЃРѕРїСЂСЏР¶РµРЅРёСЏ
 
-											SetMates(doc, info, false);			// Создать сопряжения
+											SetMates(doc, info, false);			// РЎРѕР·РґР°С‚СЊ СЃРѕРїСЂСЏР¶РµРЅРёСЏ
 										}
 
-										if (IsCollectionEmpty(info))			// Указали placement
-											part.UpdatePlacement();				// Изменм положение детали
+										if (IsCollectionEmpty(info))			// РЈРєР°Р·Р°Р»Рё placement
+											part.UpdatePlacement();				// РР·РјРµРЅРј РїРѕР»РѕР¶РµРЅРёРµ РґРµС‚Р°Р»Рё
                 
-										// Устанавливаем признак, стандартное изделие
+										// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїСЂРёР·РЅР°Рє, СЃС‚Р°РЅРґР°СЂС‚РЅРѕРµ РёР·РґРµР»РёРµ
 										part.standardComponent = true;
 									}
-									DrawSpcObj();		// Создать объект СП
+									DrawSpcObj();		// РЎРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚ РЎРџ
 
-									if (spcObj[0] != 0)	// Вывод объекта СП
+									if (spcObj[0] != 0)	// Р’С‹РІРѕРґ РѕР±СЉРµРєС‚Р° РЎРџ
 									{                       
-										// Олегово окно - редактируем параметры
+										// РћР»РµРіРѕРІРѕ РѕРєРЅРѕ - СЂРµРґР°РєС‚РёСЂСѓРµРј РїР°СЂР°РјРµС‚СЂС‹
 										for (int i = 0, count = Kompas.Instance.PinObj.ObjCount; i < count; i ++) //{
 											specification.ksEditWindowSpcObject(spcObj[i]);
 										spcObj[0] = 0;
@@ -2164,33 +2164,33 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Присваивает переменной с именем varName значение val
+		/// РџСЂРёСЃРІР°РёРІР°РµС‚ РїРµСЂРµРјРµРЅРЅРѕР№ СЃ РёРјРµРЅРµРј varName Р·РЅР°С‡РµРЅРёРµ val
 		/// </summary>
 		/// <param name="varArr"></param>
 		/// <param name="varName"></param>
 		/// <param name="val"></param>
 		public void SetVarValue(ksVariableCollection varArr, string varName, double val)
 		{
-			ksVariable var = (ksVariable)varArr.GetByName(varName, true, false); // текущая переменная
+			ksVariable var = (ksVariable)varArr.GetByName(varName, true, false); // С‚РµРєСѓС‰Р°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ
 			if (var != null)
-				var.value = val;                     // сменить значение
+				var.value = val;                     // СЃРјРµРЅРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ
 		}
 
 
 		public void SetParam(ksPart _part) 
 		{
-			// Редактируем внешние переменные
+			// Р РµРґР°РєС‚РёСЂСѓРµРј РІРЅРµС€РЅРёРµ РїРµСЂРµРјРµРЅРЅС‹Рµ
 			if (_part != null) 
 			{
-				// Массив внешних переменных детали
+				// РњР°СЃСЃРёРІ РІРЅРµС€РЅРёС… РїРµСЂРµРјРµРЅРЅС‹С… РґРµС‚Р°Р»Рё
 				ksVariableCollection varArr = (ksVariableCollection)_part.VariableCollection();
 				if (varArr != null) 
 				{
-					float l, b1 = 0, b; // b1 = 0 - условие резьбы на всю длину
-					l = tmp.b1 + tmp.l; // Длина всей шпильки
+					float l, b1 = 0, b; // b1 = 0 - СѓСЃР»РѕРІРёРµ СЂРµР·СЊР±С‹ РЅР° РІСЃСЋ РґР»РёРЅСѓ
+					l = tmp.b1 + tmp.l; // Р”Р»РёРЅР° РІСЃРµР№ С€РїРёР»СЊРєРё
 					b = tmp.b;
 					float step = (tmp.f & PITCH) != 0 ? tmp.p1 : tmp.p2;
-					if(Math.Abs(tmp.b1) < 0.001) // ГОСТ 22042, ГОСТ 22043 
+					if(Math.Abs(tmp.b1) < 0.001) // Р“РћРЎРў 22042, Р“РћРЎРў 22043 
 					{ 
 						if(Math.Abs(tmp.b) > 0.001) 
 							b1 = b;
@@ -2201,30 +2201,30 @@ namespace Steps.NET
 						if (Math.Abs(tmp.b) < 0.001)
 							b = (float)(tmp.l - 0.5 * tmp.d - 2 * step);
 					}
-					// Основные параметры
-					SetVarValue(varArr, "d", tmp.d);					// Диаметр резьбы
+					// РћСЃРЅРѕРІРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹
+					SetVarValue(varArr, "d", tmp.d);					// Р”РёР°РјРµС‚СЂ СЂРµР·СЊР±С‹
 					float len = Math.Abs(b1 - b) < 0.001 ? tmp.l - b1 : tmp.l;
-					SetVarValue(varArr, "l", len);						// Длина шпильки
-					SetVarValue(varArr, "b1", b1);						// Длина ввинчиваемого конца
-					SetVarValue(varArr, "c1", tmp.c);					// Размер фаски на конце стержня
+					SetVarValue(varArr, "l", len);						// Р”Р»РёРЅР° С€РїРёР»СЊРєРё
+					SetVarValue(varArr, "b1", b1);						// Р”Р»РёРЅР° РІРІРёРЅС‡РёРІР°РµРјРѕРіРѕ РєРѕРЅС†Р°
+					SetVarValue(varArr, "c1", tmp.c);					// Р Р°Р·РјРµСЂ С„Р°СЃРєРё РЅР° РєРѕРЅС†Рµ СЃС‚РµСЂР¶РЅСЏ
 					if (Math.Abs(l - b1 - b) > 0.001)
-						SetVarValue(varArr, "l1",     l - b1 - b);		// Длина гладкой части стержня
+						SetVarValue(varArr, "l1",     l - b1 - b);		// Р”Р»РёРЅР° РіР»Р°РґРєРѕР№ С‡Р°СЃС‚Рё СЃС‚РµСЂР¶РЅСЏ
 
-					SetVarValue(varArr, "t", (step * 0.866 * 3 / 8));	// Толщина удаляемого материала
+					SetVarValue(varArr, "t", (step * 0.866 * 3 / 8));	// РўРѕР»С‰РёРЅР° СѓРґР°Р»СЏРµРјРѕРіРѕ РјР°С‚РµСЂРёР°Р»Р°
 
 					int perf2 = ((tmp.f & ISPOLN) == 0 || (tmp.f & ALLST) != 0 || Math.Abs(l - b1 - b) < 0.001) ? 1 : 0;
-					SetVarValue(varArr, "cut1", perf2);					// Вкл/выкл исполнение 2
-					SetVarValue(varArr, "f1", (tmp.f & SIMPLE) == 0 ? 0.0 : 1.0); // Вкл/выкл подголовок
+					SetVarValue(varArr, "cut1", perf2);					// Р’РєР»/РІС‹РєР» РёСЃРїРѕР»РЅРµРЅРёРµ 2
+					SetVarValue(varArr, "f1", (tmp.f & SIMPLE) == 0 ? 0.0 : 1.0); // Р’РєР»/РІС‹РєР» РїРѕРґРіРѕР»РѕРІРѕРє
 
-					// Задать название детали
+					// Р—Р°РґР°С‚СЊ РЅР°Р·РІР°РЅРёРµ РґРµС‚Р°Р»Рё
 					string buf1;
-					buf1 = LoadString("IDS_STUD_NAME");					// Заготовка имени детали из ресурса
+					buf1 = LoadString("IDS_STUD_NAME");					// Р—Р°РіРѕС‚РѕРІРєР° РёРјРµРЅРё РґРµС‚Р°Р»Рё РёР· СЂРµСЃСѓСЂСЃР°
 					string buf = string.Empty;
-					buf = string.Format(buf1, tmp.d, tmp.l, tmp.gost);	// Создать имя детали
-					_part.name = buf;									// Присвоить детали новое имя
-					_part.Update();										// Обновить деталь
+					buf = string.Format(buf1, tmp.d, tmp.l, tmp.gost);	// РЎРѕР·РґР°С‚СЊ РёРјСЏ РґРµС‚Р°Р»Рё
+					_part.name = buf;									// РџСЂРёСЃРІРѕРёС‚СЊ РґРµС‚Р°Р»Рё РЅРѕРІРѕРµ РёРјСЏ
+					_part.Update();										// РћР±РЅРѕРІРёС‚СЊ РґРµС‚Р°Р»СЊ
 
-					// Перестроим модель с измененными внешними переменными
+					// РџРµСЂРµСЃС‚СЂРѕРёРј РјРѕРґРµР»СЊ СЃ РёР·РјРµРЅРµРЅРЅС‹РјРё РІРЅРµС€РЅРёРјРё РїРµСЂРµРјРµРЅРЅС‹РјРё
 					_part.RebuildModel();
 				}
 
@@ -2235,7 +2235,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Выбор меню
+		/// Р’С‹Р±РѕСЂ РјРµРЅСЋ
 		/// </summary>
 		/// <returns></returns>
 		public string ChoiceMenuId() 
@@ -2244,10 +2244,10 @@ namespace Steps.NET
 
 			switch (par.drawType) 
 			{
-				case ID_VID    : // Вид
+				case ID_VID    : // Р’РёРґ
 					result = par.typeSwitch == 0 ? "MENU_22032_1" : "MENU_22032_3";
 					break;
-				case ID_TOPVID : // Вид сверху
+				case ID_TOPVID : // Р’РёРґ СЃРІРµСЂС…Сѓ
 					result = par.typeSwitch == 0 ? "MENU_22032_2" : "MENU_22032_4";
 					break;
 			}
@@ -2275,7 +2275,7 @@ namespace Steps.NET
 			Pin bufS = Kompas.Instance.PinObj.Dublicate();
 			if (bufS != null && bufS.OpenBase(true))
 			{
-				Kompas.Instance.KompasObject.ksEnableTaskAccess(0);	// закрыть доступ к компасу
+				Kompas.Instance.KompasObject.ksEnableTaskAccess(0);	// Р·Р°РєСЂС‹С‚СЊ РґРѕСЃС‚СѓРї Рє РєРѕРјРїР°СЃСѓ
 
 				try
 				{
@@ -2284,7 +2284,7 @@ namespace Steps.NET
 				}
 				catch (Exception ex) {Kompas.Instance.KompasObject.ksMessage(ex.Message);}
 
-				Kompas.Instance.KompasObject.ksEnableTaskAccess(1);	// открыть доступ к компасу
+				Kompas.Instance.KompasObject.ksEnableTaskAccess(1);	// РѕС‚РєСЂС‹С‚СЊ РґРѕСЃС‚СѓРї Рє РєРѕРјРїР°СЃСѓ
 
 				if (res) 
 					Kompas.Instance.PinObj.Assign(bufS);
@@ -2295,7 +2295,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Выбор слайда
+		/// Р’С‹Р±РѕСЂ СЃР»Р°Р№РґР°
 		/// </summary>
 		/// <param name="gost"></param>
 		/// <param name="f"></param>
@@ -2312,7 +2312,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Определяет длину ввинчиваемого конца по ГОСТу
+		/// РћРїСЂРµРґРµР»СЏРµС‚ РґР»РёРЅСѓ РІРІРёРЅС‡РёРІР°РµРјРѕРіРѕ РєРѕРЅС†Р° РїРѕ Р“РћРЎРўСѓ
 		/// </summary>
 		/// <param name="gost"></param>
 		/// <returns></returns>
@@ -2339,7 +2339,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Определяет класс точности по ГОСТу
+		/// РћРїСЂРµРґРµР»СЏРµС‚ РєР»Р°СЃСЃ С‚РѕС‡РЅРѕСЃС‚Рё РїРѕ Р“РћРЎРўСѓ
 		/// </summary>
 		/// <param name="gost"></param>
 		/// <returns></returns>
@@ -2367,7 +2367,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Определяет класс точности по ГОСТу
+		/// РћРїСЂРµРґРµР»СЏРµС‚ РєР»Р°СЃСЃ С‚РѕС‡РЅРѕСЃС‚Рё РїРѕ Р“РћРЎРўСѓ
 		/// </summary>
 		/// <param name="type"></param>
 		/// <param name="klass"></param>

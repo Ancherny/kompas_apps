@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 
 using System;
 using Microsoft.Win32;
@@ -12,20 +12,20 @@ using reference = System.Int32;
 
 namespace Steps.NET
 {
-	// Класс Step11 - Пример запроса командного окна
+	// РљР»Р°СЃСЃ Step11 - РџСЂРёРјРµСЂ Р·Р°РїСЂРѕСЃР° РєРѕРјР°РЅРґРЅРѕРіРѕ РѕРєРЅР°
   [ClassInterface(ClassInterfaceType.AutoDual)]
 	public class Step11
 	{
 		private KompasObject kompas;
 
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)] public object GetLibraryName()
 		{
-			return "Step11 - Пример запроса командного окна";
+			return "Step11 - РџСЂРёРјРµСЂ Р·Р°РїСЂРѕСЃР° РєРѕРјР°РЅРґРЅРѕРіРѕ РѕРєРЅР°";
 		}
 		
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			kompas = (KompasObject) kompas_;
@@ -37,26 +37,26 @@ namespace Steps.NET
 				{
 					info.Init();
 					info.menuId = 3002;
-					info.title = "Дерево команд";
+					info.title = "Р”РµСЂРµРІРѕ РєРѕРјР°РЅРґ";
 
 					info.SetCallBackCm("CALLBACKPROCCOMMANDWINDOW", 0, this);
 					int cmd = doc.ksCommandWindow(info);
-					kompas.ksMessage(string.Format("Выбрана команда {0}", cmd));
+					kompas.ksMessage(string.Format("Р’С‹Р±СЂР°РЅР° РєРѕРјР°РЅРґР° {0}", cmd));
 				}
 			}
 		}
 
 
-		// Формирование меню библиотеки
+		// Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РјРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)]	public string ExternalMenuItem1(short number, ref short itemType, ref short command)
 		{
-			string result = string.Empty;	//По уполчанию - пустая строка
+			string result = string.Empty;	//РџРѕ СѓРїРѕР»С‡Р°РЅРёСЋ - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°
 			itemType = 1;					//MENUITEM
 
 			switch (number)
 			{
 				case 1:
-					result = "Пример запроса командного окна";
+					result = "РџСЂРёРјРµСЂ Р·Р°РїСЂРѕСЃР° РєРѕРјР°РЅРґРЅРѕРіРѕ РѕРєРЅР°";
 					command = 1;
 					break;
 				case 2:
@@ -69,20 +69,20 @@ namespace Steps.NET
 		}
 	
 
-		// HINSTANCE модуля с ресурсами
+		// HINSTANCE РјРѕРґСѓР»СЏ СЃ СЂРµСЃСѓСЂСЃР°РјРё
 		public object ExternalGetResourceModule()
 		{
 			return Assembly.GetExecutingAssembly().Location;
 		}
 
 
-		// Функция обратной связи
-		// 0 - плоскость, 1 - цилиндр, 2 - ось - состав collection
+		// Р¤СѓРЅРєС†РёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРІСЏР·Рё
+		// 0 - РїР»РѕСЃРєРѕСЃС‚СЊ, 1 - С†РёР»РёРЅРґСЂ, 2 - РѕСЃСЊ - СЃРѕСЃС‚Р°РІ collection
 		public int CALLBACKPROCCOMMANDWINDOW(int comm, [In][MarshalAs(UnmanagedType.LPStruct)]object rInfo)
 		{
-			kompas.ksMessage(string.Format("Выполняется команда {0}", comm));
-			// заменяем заголовок окна в зависимости от выполненной команды
-			// аналогично можно заменить и состав дерева команд
+			kompas.ksMessage(string.Format("Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ РєРѕРјР°РЅРґР° {0}", comm));
+			// Р·Р°РјРµРЅСЏРµРј Р·Р°РіРѕР»РѕРІРѕРє РѕРєРЅР° РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РІС‹РїРѕР»РЅРµРЅРЅРѕР№ РєРѕРјР°РЅРґС‹
+			// Р°РЅР°Р»РѕРіРёС‡РЅРѕ РјРѕР¶РЅРѕ Р·Р°РјРµРЅРёС‚СЊ Рё СЃРѕСЃС‚Р°РІ РґРµСЂРµРІР° РєРѕРјР°РЅРґ
 			ksRequestInfo info = null;
 			info = (ksRequestInfo)rInfo;
 			if (info != null) 
@@ -93,21 +93,21 @@ namespace Steps.NET
 					default	: info.title = "2"; break;
 				}
 			}
-			// возвращаемый результат определяет, должна ли система продолжать
-			// запрашивать команду :
-			// TRUE - продолжать
-			// FALSE - завержить работу с окном
+			// РІРѕР·РІСЂР°С‰Р°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚ РѕРїСЂРµРґРµР»СЏРµС‚, РґРѕР»Р¶РЅР° Р»Рё СЃРёСЃС‚РµРјР° РїСЂРѕРґРѕР»Р¶Р°С‚СЊ
+			// Р·Р°РїСЂР°С€РёРІР°С‚СЊ РєРѕРјР°РЅРґСѓ :
+			// TRUE - РїСЂРѕРґРѕР»Р¶Р°С‚СЊ
+			// FALSE - Р·Р°РІРµСЂР¶РёС‚СЊ СЂР°Р±РѕС‚Сѓ СЃ РѕРєРЅРѕРј
 			return comm == 2213 ? 0 : 1;
 		}
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -123,11 +123,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 		
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

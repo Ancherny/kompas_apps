@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 using KompasAPI7;
 using Kompas6Constants;
 using Kompas6Constants3D;
@@ -15,14 +15,14 @@ namespace Step2_API7_3D
 	public class Dimensions3D
 	{
     private KompasObject      kompas;
-    private IApplication      appl;         // Интерфейс приложения
-    private IKompasDocument3D doc;          // Интерфейс документа 3D в API7 
-    private ksDocument3D      doc3D;        // Интерфейс документа 3D в API5
-    private ResourceManager   resMng = new ResourceManager( typeof(Dimensions3D) );   // Менеджер ресурсов
+    private IApplication      appl;         // РРЅС‚РµСЂС„РµР№СЃ РїСЂРёР»РѕР¶РµРЅРёСЏ
+    private IKompasDocument3D doc;          // РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р° 3D РІ API7 
+    private ksDocument3D      doc3D;        // РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р° 3D РІ API5
+    private ResourceManager   resMng = new ResourceManager( typeof(Dimensions3D) );   // РњРµРЅРµРґР¶РµСЂ СЂРµСЃСѓСЂСЃРѕРІ
     private int               oType = (int)Kompas6Constants3D.Obj3dType.o3d_edge;
 
     //-------------------------------------------------------------------------------
-    // Загрузить строку из ресурса
+    // Р—Р°РіСЂСѓР·РёС‚СЊ СЃС‚СЂРѕРєСѓ РёР· СЂРµСЃСѓСЂСЃР°
     // ---
     string LoadString( string name )
     {
@@ -30,7 +30,7 @@ namespace Step2_API7_3D
     }
     
     //-------------------------------------------------------------------------------
-    // Имя библиотеки
+    // РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
     // ---
     [return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
     {
@@ -38,7 +38,7 @@ namespace Step2_API7_3D
     }
 
     //-------------------------------------------------------------------------------
-    // Меню библиотеки
+    // РњРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
     // ---
     [return: MarshalAs(UnmanagedType.BStr)] public string ExternalMenuItem(short number, ref short itemType, ref short command)
     {
@@ -86,7 +86,7 @@ namespace Step2_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Головная функция библиотеки
+    // Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
     // ---
     public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
     {
@@ -95,19 +95,19 @@ namespace Step2_API7_3D
       if ( kompas == null )
         return;
       
-      // Получаем интерфейс приложения
+      // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ РїСЂРёР»РѕР¶РµРЅРёСЏ
       appl = (IApplication)kompas.ksGetApplication7();
 
       if ( appl == null )
         return;
 
-      // Получаем интерфейс активного документа 3D в API7
+      // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ Р°РєС‚РёРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° 3D РІ API7
       doc = (IKompasDocument3D)appl.ActiveDocument;
 
       if ( doc == null )
         return;
 
-      // Получаем интерфейс активного документа 3D в API5
+      // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ Р°РєС‚РёРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° 3D РІ API5
       doc3D = (ksDocument3D)kompas.ActiveDocument3D();
 
       if ( doc3D == null )
@@ -115,25 +115,25 @@ namespace Step2_API7_3D
 
       switch ( command )
       {
-        case 1: CreateLineDimension3D();      break;  // Создание линейного размера 3D
-        case 2: LineDimension3DNavigation();  break;  // Навигация по коллекции линейных размеров 3D
-        case 3: EditLineDimension3D();        break;  // Редактирование линейного размера 3D
-        case 4: RadialDimension3DWork();      break;  // Создание и редактирование радиального размера 3D
-        case 5: DiametralDimension3DWork();   break;  // Создание и редактирование диаметрального размера 3D
-        case 6: AngleDimension3DWork();       break;  // Создание и редактирование углового размера 3D
+        case 1: CreateLineDimension3D();      break;  // РЎРѕР·РґР°РЅРёРµ Р»РёРЅРµР№РЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
+        case 2: LineDimension3DNavigation();  break;  // РќР°РІРёРіР°С†РёСЏ РїРѕ РєРѕР»Р»РµРєС†РёРё Р»РёРЅРµР№РЅС‹С… СЂР°Р·РјРµСЂРѕРІ 3D
+        case 3: EditLineDimension3D();        break;  // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р»РёРЅРµР№РЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
+        case 4: RadialDimension3DWork();      break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЂР°РґРёР°Р»СЊРЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
+        case 5: DiametralDimension3DWork();   break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРёР°РјРµС‚СЂР°Р»СЊРЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
+        case 6: AngleDimension3DWork();       break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СѓРіР»РѕРІРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
       }
     }
 
 
-    #region Вспомогательные функции
+    #region Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё
     //-------------------------------------------------------------------------------
-    // Получить контейнер обозначений 3D
+    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
     // ---
     ISymbols3DContainer GetSymbols3DContainer()
     {
       if ( doc != null )
       {
-        // Получаем контейнер обозначений 3D
+        // РџРѕР»СѓС‡Р°РµРј РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
         return (ISymbols3DContainer)doc.TopPart;
       }
       return null;
@@ -141,7 +141,7 @@ namespace Step2_API7_3D
 
 
     //-----------------------------------------------------------------------------
-    // Функция фильтрации
+    // Р¤СѓРЅРєС†РёСЏ С„РёР»СЊС‚СЂР°С†РёРё
     // ---
     public bool UserFilterProc( object e )
     {
@@ -157,31 +157,31 @@ namespace Step2_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Установить объект привязки и базовую плоскость
+    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РѕР±СЉРµРєС‚ РїСЂРёРІСЏР·РєРё Рё Р±Р°Р·РѕРІСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
     // ---
     bool SetLineDimObjectPlane( ref ILineDimension3D dim )
     {
 	    bool res = false;
-	    // Фильтрация объектов - ребра
+	    // Р¤РёР»СЊС‚СЂР°С†РёСЏ РѕР±СЉРµРєС‚РѕРІ - СЂРµР±СЂР°
 	    oType = (int)Kompas6Constants3D.Obj3dType.o3d_edge;
     	
 	    if ( doc3D != null )
 	    {
-		    // Указать в документе объект - ребро
+		    // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕР±СЉРµРєС‚ - СЂРµР±СЂРѕ
         ksEntity obj1 = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                          LoadString("IDS_OBJ1"), 0, this );
 
 		    if ( obj1 != null )
 		    {
-			    // Тип фильтрации - грани
+			    // РўРёРї С„РёР»СЊС‚СЂР°С†РёРё - РіСЂР°РЅРё
 			    oType = (int)Kompas6Constants3D.Obj3dType.o3d_face;
-			    // Указать в документе объект - грань
+			    // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕР±СЉРµРєС‚ - РіСЂР°РЅСЊ
           ksEntity plane = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                             LoadString("IDS_PLANE"), 0, this );
 
 			    if ( plane != null )
 			    {
-				    // Преобразовать интерфейсы ребра и грани из API5 в API7
+				    // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃС‹ СЂРµР±СЂР° Рё РіСЂР°РЅРё РёР· API5 РІ API7
             IModelObject mObj1 = (IModelObject)kompas.TransferInterface( obj1, 
                                  (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
             IModelObject mPlane = (IModelObject)kompas.TransferInterface( plane, 
@@ -189,10 +189,10 @@ namespace Step2_API7_3D
     				
 				    if ( mObj1 != null && mPlane != null && dim != null )
 				    {
-					    // Установить первый объект размера (Второй объект устанавливается 
-					    // только в том случае, если измеряется расстояние между точками)
+					    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РїРµСЂРІС‹Р№ РѕР±СЉРµРєС‚ СЂР°Р·РјРµСЂР° (Р’С‚РѕСЂРѕР№ РѕР±СЉРµРєС‚ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ 
+					    // С‚РѕР»СЊРєРѕ РІ С‚РѕРј СЃР»СѓС‡Р°Рµ, РµСЃР»Рё РёР·РјРµСЂСЏРµС‚СЃСЏ СЂР°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ С‚РѕС‡РєР°РјРё)
 					    dim.Object1 = mObj1;
-					    // Установить базовую плоскость размера
+					    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Р±Р°Р·РѕРІСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ СЂР°Р·РјРµСЂР°
 					    dim.Plane = mPlane;
 					    res = true;
 				    }
@@ -204,7 +204,7 @@ namespace Step2_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Установить новую базовую плоскость
+    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РЅРѕРІСѓСЋ Р±Р°Р·РѕРІСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
     // ---
     bool SetNewPlane( ref ILineDimension3D dim )
     {
@@ -213,19 +213,19 @@ namespace Step2_API7_3D
 	    if ( dim != null && doc3D != null )
 	    {
 		    oType = (int)Kompas6Constants3D.Obj3dType.o3d_face;
-		    // Указать в документе объект
+		    // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕР±СЉРµРєС‚
 		    ksEntity obj1 = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                         LoadString("IDS_NEWPLANE"), 0, this );
 
 		    if ( obj1 != null )
 		    {
-			    // Преобразовать интерфейс объекта из API5 в API7
+			    // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
 			    IModelObject plane = (IModelObject)kompas.TransferInterface( obj1, 
                                (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
 
 			    if ( plane != null )
 			    {
-				    // Установить базовую плоскость
+				    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Р±Р°Р·РѕРІСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
 				    dim.Plane = plane;
 				    res = true;
 			    }
@@ -236,23 +236,23 @@ namespace Step2_API7_3D
     #endregion
 
 
-    #region Линейный размер 3D
+    #region Р›РёРЅРµР№РЅС‹Р№ СЂР°Р·РјРµСЂ 3D
     //-------------------------------------------------------------------------------
-    // Создание линейного размера 3D
+    // РЎРѕР·РґР°РЅРёРµ Р»РёРЅРµР№РЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
     // ---
     void CreateLineDimension3D()
     {
-	    // Получить контейнер обозначений 3D
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 	    ISymbols3DContainer symbCont = GetSymbols3DContainer();
 
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию линейных размеров 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ Р»РёРЅРµР№РЅС‹С… СЂР°Р·РјРµСЂРѕРІ 3D
 		    ILineDimensions3D dimsCol = symbCont.LineDimensions3D;
 
 		    if ( dimsCol != null )
 		    {
-			    // Добавить новый линейный размер 3D
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ Р»РёРЅРµР№РЅС‹Р№ СЂР°Р·РјРµСЂ 3D
 			    ILineDimension3D newDim = (ILineDimension3D)dimsCol.Add( Kompas6Constants3D.
                                      ksObj3dTypeEnum.o3d_lineDimension3D );
 
@@ -260,20 +260,20 @@ namespace Step2_API7_3D
 			    {
 				    bool create = false;
 
-				    // Если удалось установить объект привязки и базовую плоскость
+				    // Р•СЃР»Рё СѓРґР°Р»РѕСЃСЊ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РѕР±СЉРµРєС‚ РїСЂРёРІСЏР·РєРё Рё Р±Р°Р·РѕРІСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
 				    if ( SetLineDimObjectPlane(ref newDim) )
 				    {
-					    // Установить длину размера
+					    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РґР»РёРЅСѓ СЂР°Р·РјРµСЂР°
 					    newDim.Length = 30;
-					    // Применить параметры
+					    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 					    create = (bool)!!newDim.Update();		
     					
 				    }
 				    else
-					    // Выдать сообщение "Объект не создан"
+					    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ"
               kompas.ksMessage( LoadString("IDS_NOCREATE") );
 
-				    // Если объект не создался, удалить
+				    // Р•СЃР»Рё РѕР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°Р»СЃСЏ, СѓРґР°Р»РёС‚СЊ
 				    if ( !create )
 				    {
 					    IFeature7 obj = (IFeature7)newDim;
@@ -288,23 +288,23 @@ namespace Step2_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Выдать сообщение с параметрами линейного размера 3D
+    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё Р»РёРЅРµР№РЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
     // ---
     void GetLineDimensionPar( ref ILineDimension3D dim )
     {
 	    if ( dim != null )
 	    {
-		    // Получить длину размера
+		    // РџРѕР»СѓС‡РёС‚СЊ РґР»РёРЅСѓ СЂР°Р·РјРµСЂР°
 		    double lenght = dim.Length;
 		    double val = 0;
 
-		    // Получить значение размера
+		    // РџРѕР»СѓС‡РёС‚СЊ Р·РЅР°С‡РµРЅРёРµ СЂР°Р·РјРµСЂР°
 		    IDimensionText dimText = (IDimensionText)dim;
 
 		    if ( dimText != null )
 			    val = dimText.NominalValue;
 
-		    // Сформировать сообщение
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ
         string buf = LoadString( "IDS_LINEDIM3D" ) + "\n\r";
         buf += string.Format( LoadString("IDS_LENGTH"), lenght ) + "\n\r";
         buf += string.Format( LoadString("IDS_DIMVAL"), val );
@@ -314,47 +314,47 @@ namespace Step2_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Навигация по коллекции линейных размеров 3D
+    // РќР°РІРёРіР°С†РёСЏ РїРѕ РєРѕР»Р»РµРєС†РёРё Р»РёРЅРµР№РЅС‹С… СЂР°Р·РјРµСЂРѕРІ 3D
     // ---
     void LineDimension3DNavigation()
     {
 	    if ( doc != null )
 	    {
-		    // Получить контейнер обозначений 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 		    ISymbols3DContainer symbCont = GetSymbols3DContainer();
     		
 		    if ( symbCont != null )
 		    {
-			    // Получить коллекцию линейных размеров 3D
+			    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ Р»РёРЅРµР№РЅС‹С… СЂР°Р·РјРµСЂРѕРІ 3D
 			    ILineDimensions3D dimsCol = symbCont.LineDimensions3D;
     			
 			    if ( doc3D != null )
 			    {
-				    // Получить менеджер селектирования
+				    // РџРѕР»СѓС‡РёС‚СЊ РјРµРЅРµРґР¶РµСЂ СЃРµР»РµРєС‚РёСЂРѕРІР°РЅРёСЏ
 				    ksSelectionMng selectMng = (ksSelectionMng)doc3D.GetSelectionMng();
 
 				    if ( dimsCol != null && selectMng != null )
 				    {
-					    // Цикл по коллекции 
+					    // Р¦РёРєР» РїРѕ РєРѕР»Р»РµРєС†РёРё 
 					    for ( long i = 0; i < dimsCol.Count; i++ )
 					    {	
-						    // Получить размер из коллекции по индексу
+						    // РџРѕР»СѓС‡РёС‚СЊ СЂР°Р·РјРµСЂ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РёРЅРґРµРєСЃСѓ
 						    ILineDimension3D lineDim = (ILineDimension3D)dimsCol.get_LineDimension3D( i );
 
 						    if ( lineDim != null )
 						    {
-							    // Преобразовать интерфейс объекта 3D из API7 в API5
+							    // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° 3D РёР· API7 РІ API5
 							    ksEntity dimObj = (ksEntity)kompas.TransferInterface( lineDim,
                                     (int)Kompas6Constants.ksAPITypeEnum.ksAPI5Auto,
                                     (int)Kompas6Constants3D.Obj3dType.o3d_entity );
 
                   if ( dimObj != null )
 							    {
-								    // Подсветить объект
+								    // РџРѕРґСЃРІРµС‚РёС‚СЊ РѕР±СЉРµРєС‚
 								    selectMng.Select( dimObj );
-								    // Выдать сообщение с параметрами размера
+								    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё СЂР°Р·РјРµСЂР°
 								    GetLineDimensionPar( ref lineDim );
-								    // Убрать подсветку
+								    // РЈР±СЂР°С‚СЊ РїРѕРґСЃРІРµС‚РєСѓ
 								    selectMng.Unselect( dimObj );
 							    }
 						    }
@@ -367,27 +367,27 @@ namespace Step2_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Изменить параметры линейного размера 3D
+    // РР·РјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ Р»РёРЅРµР№РЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
     // ---
     void ChangeLineDimensionPar( ref ILineDimension3D dim )
     {
 	    if ( dim != null )
 	    {
-		    // Получить интерфейс параметров размера
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ СЂР°Р·РјРµСЂР°
 		    IDimensionParams dimPars = (IDimensionParams)dim;
 
 		    if ( dimPars != null )
 		    {
-			    // Тип стрелок - засечка
+			    // РўРёРї СЃС‚СЂРµР»РѕРє - Р·Р°СЃРµС‡РєР°
 			    dimPars.ArrowType1 = Kompas6Constants.ksArrowEnum.ksNotch;
 			    dimPars.ArrowType2 = Kompas6Constants.ksArrowEnum.ksNotch;
-			    // Расположение стрелок - снаружи
+			    // Р Р°СЃРїРѕР»РѕР¶РµРЅРёРµ СЃС‚СЂРµР»РѕРє - СЃРЅР°СЂСѓР¶Рё
 			    dimPars.ArrowPos = Kompas6Constants.ksDimensionArrowPosEnum.ksDimArrowOutside;
-			    // Направление полки - вправо
+			    // РќР°РїСЂР°РІР»РµРЅРёРµ РїРѕР»РєРё - РІРїСЂР°РІРѕ
 			    dimPars.ShelfDirection = Kompas6Constants.ksShelfDirectionEnum.ksLSRight;
-			    // Длина полки
+			    // Р”Р»РёРЅР° РїРѕР»РєРё
 			    dimPars.ShelfLength = 10;
-			    // Угол наклона полки
+			    // РЈРіРѕР» РЅР°РєР»РѕРЅР° РїРѕР»РєРё
 			    dimPars.ShelfAngle = 45;
 		    }
 	    }
@@ -395,46 +395,46 @@ namespace Step2_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование линейного размера 3D
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р»РёРЅРµР№РЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
     // ---
     void EditLineDimension3D()
     {
 	    if ( doc3D != null )
 	    {
 		    oType = (int)Kompas6Constants3D.Obj3dType.o3d_lineDimension3D;
-		    // Указать в документе объект
+		    // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕР±СЉРµРєС‚
 		    ksEntity obj1 = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                         LoadString("IDS_DIM"), 0, this );
 
 		    if ( obj1 != null )
 		    {
-			    // Преобразовать интерфейс объекта из API5 в API7
+			    // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
 			    IModelObject mObj1 = (IModelObject)kompas.TransferInterface( obj1, 
                                (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
 
 			    if ( mObj1 != null && (int)mObj1.ModelObjectType == (int)Kompas6Constants3D.
                                  Obj3dType.o3d_lineDimension3D )
 			    {
-				    // Получить интерфейс линейного размера 3D
+				    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ Р»РёРЅРµР№РЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
 				    ILineDimension3D lineDim = (ILineDimension3D)mObj1;
 
 				    if ( lineDim != null )
 				    {
-					    // Установить новую базовую плоскость
+					    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РЅРѕРІСѓСЋ Р±Р°Р·РѕРІСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
 					    if ( !SetNewPlane(ref lineDim) )
-						    // Выдать сообщение "Не удалось установить новую базовую плоскость"
+						    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РќРµ СѓРґР°Р»РѕСЃСЊ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅРѕРІСѓСЋ Р±Р°Р·РѕРІСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ"
                 kompas.ksMessage( LoadString("IDS_NOTSETPLANE") );
 
-					    // Изменить параметры размера
+					    // РР·РјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ СЂР°Р·РјРµСЂР°
 					    ChangeLineDimensionPar( ref lineDim );
-					    // Уменьшить длину размера
+					    // РЈРјРµРЅСЊС€РёС‚СЊ РґР»РёРЅСѓ СЂР°Р·РјРµСЂР°
 					    lineDim.Length = lineDim.Length - 10;
-					    // Применить изменения
+					    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 					    lineDim.Update();
 				    }
 			    }
 			    else
-				    // Выдать сообщение "Объект не является линейным размером"
+				    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЏРІР»СЏРµС‚СЃСЏ Р»РёРЅРµР№РЅС‹Рј СЂР°Р·РјРµСЂРѕРј"
             kompas.ksMessage( LoadString("IDS_NOTDIM") );
 		    }
 	    }
@@ -442,9 +442,9 @@ namespace Step2_API7_3D
     #endregion
 
 
-    #region Радиальный размер 3D
+    #region Р Р°РґРёР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ 3D
     //-------------------------------------------------------------------------------
-    // Создать радиальный размер 3D
+    // РЎРѕР·РґР°С‚СЊ СЂР°РґРёР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ 3D
     // ---
     bool CreateRadDimension3D( ref IRadialDimension3D dim )
     {
@@ -453,46 +453,46 @@ namespace Step2_API7_3D
 	    if ( dim != null && doc3D != null )
 	    {
 			  oType = (int)Kompas6Constants3D.Obj3dType.o3d_edge;
-			  // Указать в документе объект - ребро
+			  // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕР±СЉРµРєС‚ - СЂРµР±СЂРѕ
         ksEntity edge = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                         LoadString("IDS_OBJ1"), 0, this );
 
 			  if ( edge != null )
 			  {
-				  // Получить интерфейс свойств ребра
+				  // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ СЂРµР±СЂР°
 				  ksEdgeDefinition edgeDef = (ksEdgeDefinition)edge.GetDefinition();
 
-				  // Проверить, является ли ребро круговым
+				  // РџСЂРѕРІРµСЂРёС‚СЊ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЂРµР±СЂРѕ РєСЂСѓРіРѕРІС‹Рј
 				  if ( edgeDef != null && edgeDef.IsCircle() )
 				  {
-					  // Преобразовать интерфейс объекта из API5 в API7
+					  // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
 					  IModelObject mObj1 = (IModelObject)kompas.TransferInterface( edge, 
                                  (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
 
 					  if ( mObj1 != null )
-						  // Установить объект
+						  // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РѕР±СЉРµРєС‚
 						  dim.Object1 = mObj1;
 
-					  // Получить интерфейс параметров объекта
+					  // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ РѕР±СЉРµРєС‚Р°
 					  IDimensionParams dimPars = (IDimensionParams)dim;
 
 					  if ( dimPars != null )
 					  {
-						  // Направление полки - влево
+						  // РќР°РїСЂР°РІР»РµРЅРёРµ РїРѕР»РєРё - РІР»РµРІРѕ
 						  dimPars.ShelfDirection = Kompas6Constants.ksShelfDirectionEnum.ksLSLeft;
-						  // Длина полки
+						  // Р”Р»РёРЅР° РїРѕР»РєРё
 						  dimPars.ShelfLength = 15;
-						  // Угол наклона полки
+						  // РЈРіРѕР» РЅР°РєР»РѕРЅР° РїРѕР»РєРё
 						  dimPars.ShelfAngle = 30;
 					  }
 
-					  // Тип размера - не от центра
+					  // РўРёРї СЂР°Р·РјРµСЂР° - РЅРµ РѕС‚ С†РµРЅС‚СЂР°
 					  dim.DimensionType = false;
-					  // Применить параметры
+					  // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 					  res = dim.Update();
 				  }
 				  else
-					  // Выдать сообщение "Ребро не является круговым"
+					  // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "Р РµР±СЂРѕ РЅРµ СЏРІР»СЏРµС‚СЃСЏ РєСЂСѓРіРѕРІС‹Рј"
             kompas.ksMessage( LoadString("IDS_NOTCIRCLE") );
 			  }
 		  }
@@ -501,87 +501,87 @@ namespace Step2_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Редактировать радиальный размер 3D
+    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЂР°РґРёР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ 3D
     // ---
     void EditRadDimension3D( ref IRadialDimension3D dim )
     {
 	    if ( dim != null )
 	    {
-		    // Тип размера - от центра
+		    // РўРёРї СЂР°Р·РјРµСЂР° - РѕС‚ С†РµРЅС‚СЂР°
 		    dim.DimensionType = true;
 
-		    // Получить интерфейс параметров размера
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ СЂР°Р·РјРµСЂР°
 		    IDimensionParams dimPars = (IDimensionParams)dim;
 
 		    if ( dimPars != null )
-			    // Отключить полку
+			    // РћС‚РєР»СЋС‡РёС‚СЊ РїРѕР»РєСѓ
 			    dimPars.ShelfDirection = Kompas6Constants.ksShelfDirectionEnum.ksLSNone;
 
-		    // Получить интерфейс текстов размера
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚РѕРІ СЂР°Р·РјРµСЂР°
 		    IDimensionText dimText = (IDimensionText)dim;
 
 		    if ( dimText != null )
 		    {
-			    // Задать квалитет
+			    // Р—Р°РґР°С‚СЊ РєРІР°Р»РёС‚РµС‚
 			    dimText.Tolerance = "h6";
 
-			    // Включить квалитет
+			    // Р’РєР»СЋС‡РёС‚СЊ РєРІР°Р»РёС‚РµС‚
 			    dimText.ToleranceOn = true;
 
-			    // Получить интерфейс текста нижнего отклонения
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РЅРёР¶РЅРµРіРѕ РѕС‚РєР»РѕРЅРµРЅРёСЏ
 			    ITextLine lowDev = dimText.LowDeviation;
     			
-			    // Задать текстовую строку
+			    // Р—Р°РґР°С‚СЊ С‚РµРєСЃС‚РѕРІСѓСЋ СЃС‚СЂРѕРєСѓ
 			    if ( lowDev != null )
 				    lowDev.Str = "+0.021";
 		    }
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    dim.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование радиального размера 3D
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЂР°РґРёР°Р»СЊРЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
     // ---
     void RadialDimension3DWork()
     {
-	    // Получить контейнер обозначений 3D
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 	    ISymbols3DContainer symbCont = GetSymbols3DContainer();
 
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию радиальных размеров 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ СЂР°РґРёР°Р»СЊРЅС‹С… СЂР°Р·РјРµСЂРѕРІ 3D
 		    IRadialDimensions3D dimsCol = symbCont.RadialDimensions3D;
 
 		    if ( dimsCol != null )
 		    {
-			    // Добавить новый радиальный размер 3D
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ СЂР°РґРёР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ 3D
 			    IRadialDimension3D newDim = dimsCol.Add();
 
 			    if ( newDim != null )
 			    {
-				    // Создать радиальный размер 3D
+				    // РЎРѕР·РґР°С‚СЊ СЂР°РґРёР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ 3D
 				    if ( CreateRadDimension3D(ref newDim) )
 				    {	
 					    string name = "";
-					    // Получить интерфейс объекта дерева построения
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР° РїРѕСЃС‚СЂРѕРµРЅРёСЏ
 					    IFeature7 feature = (IFeature7)newDim;
               				
-					    // Получить имя объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р°
 					    if ( feature != null )
 						    name = feature.Name;
 
 					    if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по имени
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РёРјРµРЅРё
 						    IRadialDimension3D radDim = dimsCol.get_RadialDimension3D( name );
-						    // Редактировать размер
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЂР°Р·РјРµСЂ
 						    EditRadDimension3D( ref radDim );
 					    }
 				    }
 				    else
-					    // Выдать сообщение "Объект не создан"
+					    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ"
               kompas.ksMessage( LoadString("IDS_NOCREATE") );
 			    }
 		    }
@@ -590,9 +590,9 @@ namespace Step2_API7_3D
     #endregion
 
 
-    #region Диаметральный размер 3D
+    #region Р”РёР°РјРµС‚СЂР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ 3D
     //-------------------------------------------------------------------------------
-    // Создать димаметральный размер
+    // РЎРѕР·РґР°С‚СЊ РґРёРјР°РјРµС‚СЂР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ
     // ---
     bool CreateDiamDimension3D( ref IDiametralDimension3D dim )
     {
@@ -601,31 +601,31 @@ namespace Step2_API7_3D
 	    if ( dim != null && doc3D != null )
 	    {
 			  oType = (int)Kompas6Constants3D.Obj3dType.o3d_edge;
-			  // Указать в документе объект - ребро
+			  // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕР±СЉРµРєС‚ - СЂРµР±СЂРѕ
         ksEntity edge = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                         LoadString("IDS_OBJ1"), 0, this );
 			  
         if ( edge != null )
 			  {
-				  // Получить интерфейс свойств ребра
+				  // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ СЂРµР±СЂР°
 				  ksEdgeDefinition edgeDef = (ksEdgeDefinition)edge.GetDefinition();
     			
-				  // Проверить, является ли ребро круговым
+				  // РџСЂРѕРІРµСЂРёС‚СЊ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЂРµР±СЂРѕ РєСЂСѓРіРѕРІС‹Рј
 				  if ( edgeDef != null && edgeDef.IsCircle() )
 				  {
-					  // Преобразовать интерфейс объекта из API5 в API7
+					  // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
             IModelObject mObj1 = (IModelObject)kompas.TransferInterface( edge, 
                                  (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
     				
 					  if ( mObj1 != null )
-						  // Установить объект
+						  // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РѕР±СЉРµРєС‚
 						  dim.Object1 = mObj1;
     				
-					  // Применить параметры
+					  // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 					  res = dim.Update();
 				  }
 				  else
-					  // Выдать сообщение "Ребро не является круговым"
+					  // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "Р РµР±СЂРѕ РЅРµ СЏРІР»СЏРµС‚СЃСЏ РєСЂСѓРіРѕРІС‹Рј"
             kompas.ksMessage( LoadString("IDS_NOTCIRCLE") );
 			  }
 		  }
@@ -634,77 +634,77 @@ namespace Step2_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Редактировать диаметральный размер
+    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РґРёР°РјРµС‚СЂР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ
     // ---
     void EditDiamDimension3D( ref IDiametralDimension3D dim )
     {
 	    if ( dim != null )
 	    {
-		    // Тип размера - с обрывом
+		    // РўРёРї СЂР°Р·РјРµСЂР° - СЃ РѕР±СЂС‹РІРѕРј
 		    dim.DimensionType = true;
 
-		    // Получить интерфейс текстов размера
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚РѕРІ СЂР°Р·РјРµСЂР°
 		    IDimensionText dimText = (IDimensionText)dim;
 
 		    if ( dimText != null )
 		    {
-			    // Получить интерфейс текста под размерной надписью
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РїРѕРґ СЂР°Р·РјРµСЂРЅРѕР№ РЅР°РґРїРёСЃСЊСЋ
 			    IText txtUnder = dimText.TextUnder;
     			
-			    // Задать текстовую строку
+			    // Р—Р°РґР°С‚СЊ С‚РµРєСЃС‚РѕРІСѓСЋ СЃС‚СЂРѕРєСѓ
 			    if ( txtUnder != null )
 				    txtUnder.Str = LoadString( "IDS_DIMTEXT" );
 
-			    // Подчеркнутый текст
+			    // РџРѕРґС‡РµСЂРєРЅСѓС‚С‹Р№ С‚РµРєСЃС‚
 			    dimText.Underline = true;
 		    }
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    dim.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование диаметрального размера 3D
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРёР°РјРµС‚СЂР°Р»СЊРЅРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
     // ---
     void DiametralDimension3DWork()
     {
-	    // Получить контейнер обозначений 3D
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 	    ISymbols3DContainer symbCont = GetSymbols3DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию диаметральных размеров 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ РґРёР°РјРµС‚СЂР°Р»СЊРЅС‹С… СЂР°Р·РјРµСЂРѕРІ 3D
 		    IDiametralDimensions3D dimsCol = symbCont.DiametralDimensions3D;
     		
 		    if ( dimsCol != null )
 		    {
-			    // Добавить новый диаметральный размер 3D
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ РґРёР°РјРµС‚СЂР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ 3D
 			    IDiametralDimension3D newDim = dimsCol.Add();
     			
 			    if ( newDim != null )
 			    {
-				    // Создать диаметральный размер 3D
+				    // РЎРѕР·РґР°С‚СЊ РґРёР°РјРµС‚СЂР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ 3D
 				    if ( CreateDiamDimension3D(ref newDim) )
 				    {	
 					    string name = "";
-					    // Получить интерфейс объекта дерева построения
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР° РїРѕСЃС‚СЂРѕРµРЅРёСЏ
 					    IFeature7 feature = (IFeature7)newDim;
     					
-					    // Получить имя объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р°
 					    if ( feature != null )
 						    name = feature.Name;
     					
 					    if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по имени
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РёРјРµРЅРё
 						    IDiametralDimension3D diamDim = dimsCol.get_DiametralDimension3D( name );
-						    // Редактировать размер
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЂР°Р·РјРµСЂ
 						    EditDiamDimension3D( ref diamDim );
 					    }
 				    }
 				    else
-					    // Выдать сообщение "Объект не создан"
+					    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ"
               kompas.ksMessage( LoadString("IDS_NOCREATE") );
 			    }
 		    }
@@ -713,9 +713,9 @@ namespace Step2_API7_3D
     #endregion
 
 
-    #region Угловой размер 3D
+    #region РЈРіР»РѕРІРѕР№ СЂР°Р·РјРµСЂ 3D
     //-------------------------------------------------------------------------------
-    // Создать угловой размер 3D
+    // РЎРѕР·РґР°С‚СЊ СѓРіР»РѕРІРѕР№ СЂР°Р·РјРµСЂ 3D
     // ---
     bool CreateAngleDimension3D( ref IAngleDimension3D dim )
     {
@@ -723,16 +723,16 @@ namespace Step2_API7_3D
 
 	    if ( dim != null && doc3D != null )
 	    {
-			  // Указать в документе 1-й объект
+			  // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ 1-Р№ РѕР±СЉРµРєС‚
         ksEntity obj1 = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                         LoadString("IDS_OBJECT1"), 0, this );
-			  // Указать в документе 2-й объект
+			  // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ 2-Р№ РѕР±СЉРµРєС‚
         ksEntity obj2 = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                         LoadString("IDS_OBJECT2"), 0, this );
 
 			  if ( obj1 != null && obj2 != null )
 			  {
-				  // Преобразовать интерфейсы объектов из API5 в API7
+				  // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃС‹ РѕР±СЉРµРєС‚РѕРІ РёР· API5 РІ API7
           IModelObject mObj1 = (IModelObject)kompas.TransferInterface( obj1, 
                                (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
           IModelObject mObj2 = (IModelObject)kompas.TransferInterface( obj2, 
@@ -740,13 +740,13 @@ namespace Step2_API7_3D
 
 				  if ( mObj1 != null && mObj2 != null )
 				  {
-					  // 1-й объект
+					  // 1-Р№ РѕР±СЉРµРєС‚
 					  dim.Object1 = mObj1;
-					  // 2-й объект
+					  // 2-Р№ РѕР±СЉРµРєС‚
 					  dim.Object2 = mObj2;
-					  // Длина размерной линии
+					  // Р”Р»РёРЅР° СЂР°Р·РјРµСЂРЅРѕР№ Р»РёРЅРёРё
 					  dim.Length = 20;
-					  // Применить параметры
+					  // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 					  res = dim.Update();
 				  }
 			  }
@@ -756,79 +756,79 @@ namespace Step2_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Редактировать угловой размер 3D
+    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СѓРіР»РѕРІРѕР№ СЂР°Р·РјРµСЂ 3D
     // ---
     void EditAngleDimension3D( ref IAngleDimension3D dim )
     {
 	    if ( dim != null )
 	    {
-		    // Тип размера - на максимальный (тупой) угол
+		    // РўРёРї СЂР°Р·РјРµСЂР° - РЅР° РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ (С‚СѓРїРѕР№) СѓРіРѕР»
 		    dim.DimensionType = Kompas6Constants.ksAngleDimTypeEnum.ksADMaxAngle;
-		    // Увеличить длину размерной линии
+		    // РЈРІРµР»РёС‡РёС‚СЊ РґР»РёРЅСѓ СЂР°Р·РјРµСЂРЅРѕР№ Р»РёРЅРёРё
 		    dim.Length = dim.Length + 10;
 
-		    // Получить интерфейс параметров размера
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ СЂР°Р·РјРµСЂР°
 		    IDimensionParams dimPars = (IDimensionParams)dim;
 
 		    if ( dimPars != null )
-			    // Размещение размерной надписи - параллельно, в разрезе линии
+			    // Р Р°Р·РјРµС‰РµРЅРёРµ СЂР°Р·РјРµСЂРЅРѕР№ РЅР°РґРїРёСЃРё - РїР°СЂР°Р»Р»РµР»СЊРЅРѕ, РІ СЂР°Р·СЂРµР·Рµ Р»РёРЅРёРё
 			    dimPars.TextOnLine = Kompas6Constants.ksDimensionTextPosEnum.
                                ksDimTextParallelInCut;
 
-		    // Получить интерфейс текстов размера
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚РѕРІ СЂР°Р·РјРµСЂР°
 		    IDimensionText dimText = (IDimensionText)dim;
 
 		    if ( dimText != null )
-			    // Изменить формат отображения текста на десятичный
+			    // РР·РјРµРЅРёС‚СЊ С„РѕСЂРјР°С‚ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ С‚РµРєСЃС‚Р° РЅР° РґРµСЃСЏС‚РёС‡РЅС‹Р№
 			    dimText.TextFormat = Kompas6Constants.ksDimTextFormatEnum.ksDimTextFormatGDD;
 
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    dim.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование углового размера 3D
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СѓРіР»РѕРІРѕРіРѕ СЂР°Р·РјРµСЂР° 3D
     // ---
     void AngleDimension3DWork()
     {
-	    // Получить контейнер обозначений 3D
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 	    ISymbols3DContainer symbCont = GetSymbols3DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию угловых размеров 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ СѓРіР»РѕРІС‹С… СЂР°Р·РјРµСЂРѕРІ 3D
 		    IAngleDimensions3D dimsCol = symbCont.AngleDimensions3D;
     		
 		    if ( dimsCol != null )
 		    {
-			    // Добавить новый угловой размер 3D
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ СѓРіР»РѕРІРѕР№ СЂР°Р·РјРµСЂ 3D
 			    IAngleDimension3D newDim = dimsCol.Add();
     			
 			    if ( newDim != null )
 			    {
-				    // Создать угловой размер 3D
+				    // РЎРѕР·РґР°С‚СЊ СѓРіР»РѕРІРѕР№ СЂР°Р·РјРµСЂ 3D
 				    if ( CreateAngleDimension3D(ref newDim) )
 				    {	
 					    string name = "";
-					    // Получить интерфейс объекта дерева построения
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР° РїРѕСЃС‚СЂРѕРµРЅРёСЏ
 					    IFeature7 feature = (IFeature7)newDim;
     					
-					    // Получить имя объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р°
 					    if ( feature != null )
 						    name = feature.Name;
     					
 					    if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по имени
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РёРјРµРЅРё
 						    IAngleDimension3D angDim = dimsCol.get_AngleDimension3D( name );
-						    // Редактировать размер
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЂР°Р·РјРµСЂ
 						    EditAngleDimension3D( ref angDim );
 					    }
 				    }
 				    else
-					    // Выдать сообщение "Объект не создан"
+					    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ"
               kompas.ksMessage( LoadString("IDS_NOCREATE") );
 			    }
 		    }
@@ -838,12 +838,12 @@ namespace Step2_API7_3D
 
     
     #region COM Registration
-    // Эта функция выполняется при регистрации класса для COM
-    // Она добавляет в ветку реестра компонента раздел Kompas_Library,
-    // который сигнализирует о том, что класс является приложением Компас,
-    // а также заменяет имя InprocServer32 на полное, с указанием пути.
-    // Все это делается для того, чтобы иметь возможность подключить
-    // библиотеку на вкладке ActiveX.
+    // Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+    // РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+    // РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+    // Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+    // Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+    // Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
     [ComRegisterFunction]
     public static void RegisterKompasLib(Type t)
     {
@@ -859,11 +859,11 @@ namespace Step2_API7_3D
       }
       catch (Exception ex)
       {
-        MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+        MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
       }
     }
 		
-    // Эта функция удаляет раздел Kompas_Library из реестра
+    // Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
     [ComUnregisterFunction]
     public static void UnregisterKompasLib(Type t)
     {

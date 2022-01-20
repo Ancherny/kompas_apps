@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// DocumentFrameEvent  - обработчик событий от окна документа
+// DocumentFrameEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РѕРєРЅР° РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -20,7 +20,7 @@ namespace Steps.NET
 			: base(obj, typeof(ksDocumentFrameNotify).GUID, doc,
 			-1, null, selfAdvise) {}
 
-		// frBeginPaint - Начало отрисовки документа
+		// frBeginPaint - РќР°С‡Р°Р»Рѕ РѕС‚СЂРёСЃРѕРІРєРё РґРѕРєСѓРјРµРЅС‚Р°
 		public bool BeginPaint(IPaintObject paintObj)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -31,7 +31,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frClosePaint - Конец отрисовки документа
+		// frClosePaint - РљРѕРЅРµС† РѕС‚СЂРёСЃРѕРІРєРё РґРѕРєСѓРјРµРЅС‚Р°
 		public bool ClosePaint(IPaintObject paintObj)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -42,7 +42,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frMouseDown - Нажатие кнопки мыши
+		// frMouseDown - РќР°Р¶Р°С‚РёРµ РєРЅРѕРїРєРё РјС‹С€Рё
 		public bool MouseDown(short nButton, short nShiftState, int x, int y)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -55,7 +55,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frMouseUp - Отпускание кнопки мыши
+		// frMouseUp - РћС‚РїСѓСЃРєР°РЅРёРµ РєРЅРѕРїРєРё РјС‹С€Рё
 		public bool MouseUp(short nButton, short nShiftState, int x, int y)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -68,7 +68,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frMouseMove - Движение мыши
+		// frMouseMove - Р”РІРёР¶РµРЅРёРµ РјС‹С€Рё
 		public bool MouseMove(short nShiftState, int x, int y)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -81,7 +81,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frMouseDblClick - Двойной клик кнопки мыши
+		// frMouseDblClick - Р”РІРѕР№РЅРѕР№ РєР»РёРє РєРЅРѕРїРєРё РјС‹С€Рё
 		public bool MouseDblClick(short nButton, short nShiftState, int x, int y)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -94,7 +94,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frBeginPaintGL - Начало отрисовки в контексте OpenGL
+		// frBeginPaintGL - РќР°С‡Р°Р»Рѕ РѕС‚СЂРёСЃРѕРІРєРё РІ РєРѕРЅС‚РµРєСЃС‚Рµ OpenGL
 		public bool BeginPaintGL(ksGLObject glObj, int drawMode)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -105,7 +105,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frClosePaintGL - Окончание отрисовки в контексте OpenGL
+		// frClosePaintGL - РћРєРѕРЅС‡Р°РЅРёРµ РѕС‚СЂРёСЃРѕРІРєРё РІ РєРѕРЅС‚РµРєСЃС‚Рµ OpenGL
 		public bool ClosePaintGL(ksGLObject glObj, int drawMode)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -116,7 +116,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frAddGabarit - Определение габаритов документа
+		// frAddGabarit - РћРїСЂРµРґРµР»РµРЅРёРµ РіР°Р±Р°СЂРёС‚РѕРІ РґРѕРєСѓРјРµРЅС‚Р°
 		public bool AddGabarit(IGabaritObject gabObj)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -127,7 +127,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frBeginCurrentProcess - Начало текущего процесса
+		// frBeginCurrentProcess - РќР°С‡Р°Р»Рѕ С‚РµРєСѓС‰РµРіРѕ РїСЂРѕС†РµСЃСЃР°
 		public bool BeginCurrentProcess(int id)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -138,7 +138,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frStopCurrentProcess - Окончание текущего процесса
+		// frStopCurrentProcess - РћРєРѕРЅС‡Р°РЅРёРµ С‚РµРєСѓС‰РµРіРѕ РїСЂРѕС†РµСЃСЃР°
 		public bool StopCurrentProcess(int id)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -149,7 +149,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frActivate - Окно активизировалось
+		// frActivate - РћРєРЅРѕ Р°РєС‚РёРІРёР·РёСЂРѕРІР°Р»РѕСЃСЊ
 		public bool Activate()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -160,7 +160,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frDeactivate - Окно деактивизировалось
+		// frDeactivate - РћРєРЅРѕ РґРµР°РєС‚РёРІРёР·РёСЂРѕРІР°Р»РѕСЃСЊ
 		public bool Deactivate()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)
@@ -171,7 +171,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// frCloseFrame - Закрытие окна
+		// frCloseFrame - Р—Р°РєСЂС‹С‚РёРµ РѕРєРЅР°
 		public bool CloseFrame()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocFrameEvents.Checked)

@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// SpcDocumentEvent  - обработчик событий от документа спецификации
+// SpcDocumentEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -17,42 +17,42 @@ namespace Steps.NET
 		public SpcDocumentEvent(object obj, object doc)
 			: base(obj, typeof(ksSpcDocumentNotify).GUID, doc) {}
 
-		// sdDocumentBeginAdd - Начало добавления документа сборочного чертежа
+		// sdDocumentBeginAdd - РќР°С‡Р°Р»Рѕ РґРѕР±Р°РІР»РµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р° СЃР±РѕСЂРѕС‡РЅРѕРіРѕ С‡РµСЂС‚РµР¶Р°
 		public bool DocumentBeginAdd()
 		{
 			return true;
 		}
 
 
-		// sdDocumentAdd - Добавление документа сборочного чертежа
+		// sdDocumentAdd - Р”РѕР±Р°РІР»РµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° СЃР±РѕСЂРѕС‡РЅРѕРіРѕ С‡РµСЂС‚РµР¶Р°
 		public bool DocumentAdd(string docName)
 		{
 			return true;
 		}
       
 
-		// sdDocumentBeginRemove - Начало удаления документа сборочного чертежа
+		// sdDocumentBeginRemove - РќР°С‡Р°Р»Рѕ СѓРґР°Р»РµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р° СЃР±РѕСЂРѕС‡РЅРѕРіРѕ С‡РµСЂС‚РµР¶Р°
 		public bool DocumentBeginRemove(string docName)
 		{
 			return true;
 		}
 
 
-		// sdDocumentRemove - Удаление документа сборочного чертежа
+		// sdDocumentRemove - РЈРґР°Р»РµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° СЃР±РѕСЂРѕС‡РЅРѕРіРѕ С‡РµСЂС‚РµР¶Р°
 		public bool DocumentRemove(string docName)
 		{
 			return true;
 		}
 
 
-		// sdSpcStyleBeginChange - Начало изменения стиля спецификации
+		// sdSpcStyleBeginChange - РќР°С‡Р°Р»Рѕ РёР·РјРµРЅРµРЅРёСЏ СЃС‚РёР»СЏ СЃРїРµС†РёС„РёРєР°С†РёРё
 		public bool SpcStyleBeginChange(string libName, int numb)
 		{
 			return true;
 		}
 
 
-		// sdSpcStyleChange - Стиль спецификации изменился
+		// sdSpcStyleChange - РЎС‚РёР»СЊ СЃРїРµС†РёС„РёРєР°С†РёРё РёР·РјРµРЅРёР»СЃСЏ
 		public bool SpcStyleChange(string libName, int numb)
 		{
 			Global.UpdateSlideBox(null);
@@ -60,7 +60,7 @@ namespace Steps.NET
 		}	
 
 
-		// Создать обработчик событий документа cпецификации
+		// РЎРѕР·РґР°С‚СЊ РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РґРѕРєСѓРјРµРЅС‚Р° cРїРµС†РёС„РёРєР°С†РёРё
 		public static BaseEvent NewSpcDocEvent(object doc, int objType)
 		{
 			SpcDocumentEvent res = null;
@@ -71,7 +71,7 @@ namespace Steps.NET
 					ksSpcDocument spcDoc = (ksSpcDocument)doc;
 					if (spcDoc != null)
 					{
-						DocumentEvent.NewDocumentEvent(doc);	// чтобы при закрытии документа отписаться
+						DocumentEvent.NewDocumentEvent(doc);	// С‡С‚РѕР±С‹ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РїРёСЃР°С‚СЊСЃСЏ
 						res = new SpcDocumentEvent(spcDoc.GetSpcDocumentNotify(), doc);
 						res.Advise();
 					}

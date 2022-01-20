@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// StampEvent  - обработчик событий штампа
+// StampEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ С€С‚Р°РјРїР°
 //
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -19,14 +19,14 @@ namespace Steps.NET
 		public StampEvent(object obj, object doc)
 			: base(obj, typeof(ksStampNotify).GUID, doc) {}
 
-		// kdBeginEditStamp - Начало редактирования штампа
+		// kdBeginEditStamp - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С€С‚Р°РјРїР°
 		public bool BeginEditStamp()
 		{
 			return true;
 		}
 
 
-		// kdEndEditStamp - Завершение редактирования штампа
+		// kdEndEditStamp - Р—Р°РІРµСЂС€РµРЅРёРµ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С€С‚Р°РјРїР°
 		public bool EndEditStamp(bool editResult)
 		{
 			Global.UpdateSlideBox(null);
@@ -34,26 +34,26 @@ namespace Steps.NET
 		}
 
 
-		// kdStampCellDblClick - ДаблКлик по штампу
+		// kdStampCellDblClick - Р”Р°Р±Р»РљР»РёРє РїРѕ С€С‚Р°РјРїСѓ
 		public bool StampCellDblClick(int number)
 		{
 			return true; 
 		}
 
 
-		// kdStampCellBeginEdit - Начало редактирования ячейки штампа
+		// kdStampCellBeginEdit - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ СЏС‡РµР№РєРё С€С‚Р°РјРїР°
 		public bool StampCellBeginEdit(int number)
 		{
 			return true; 
 		}
 
-    // kdStampCellBeginEdit - Начало редактирования ячейки штампа
+    // kdStampCellBeginEdit - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ СЏС‡РµР№РєРё С€С‚Р°РјРїР°
     public bool StampBeginClearCells(object numbers)
     {
       return true; 
     }			
 
-    // Создать обработчик событий для штампа
+    // РЎРѕР·РґР°С‚СЊ РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РґР»СЏ С€С‚Р°РјРїР°
 		public static BaseEvent NewStampEvent(object doc, int docType)
 		{
 			StampEvent res = null;
@@ -85,7 +85,7 @@ namespace Steps.NET
 
 				if (stamp != null && !BaseEvent.FindEvent(typeof(StampEvent), doc)) 
 				{
-					DocumentEvent.NewDocumentEvent(doc);	// чтобы при закрытии документа отписаться
+					DocumentEvent.NewDocumentEvent(doc);	// С‡С‚РѕР±С‹ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РїРёСЃР°С‚СЊСЃСЏ
 					res = new StampEvent(stamp, doc);
 					res.Advise();
 				}

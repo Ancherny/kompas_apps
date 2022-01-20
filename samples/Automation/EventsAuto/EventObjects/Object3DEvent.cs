@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// Object3DEvent - обработчик событий объектов 3D документа
+// Object3DEvent - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚РѕРІ 3D РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -40,7 +40,7 @@ namespace Steps.NET
 		}
 
 
-		// o3BeginDelete - Начало удаления объектов
+		// o3BeginDelete - РќР°С‡Р°Р»Рѕ СѓРґР°Р»РµРЅРёСЏ РѕР±СЉРµРєС‚РѕРІ
 		public bool BeginDelete(object obj)
 		{
 			bool res = false;
@@ -55,14 +55,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginDelete\nobj = {1}\n", m_LibName, obj);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -73,7 +73,7 @@ namespace Steps.NET
 		}
 
 
-		// o3Delete - Oбъекты удалены
+		// o3Delete - OР±СЉРµРєС‚С‹ СѓРґР°Р»РµРЅС‹
 		public bool Delete(object obj)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb3DObjEvents.Checked)
@@ -87,14 +87,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> Delete\nobj = {1}\n", m_LibName, obj);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				Global.Kompas.ksMessage(str);
 
@@ -102,14 +102,14 @@ namespace Steps.NET
 					chooseMng.UnChoose(obj);
 			}
 
-			// Если удаляется объект удаляем и подписку на его события
+			// Р•СЃР»Рё СѓРґР°Р»СЏРµС‚СЃСЏ РѕР±СЉРµРєС‚ СѓРґР°Р»СЏРµРј Рё РїРѕРґРїРёСЃРєСѓ РЅР° РµРіРѕ СЃРѕР±С‹С‚РёСЏ
 			if (obj != null && m_Obj3D == obj)
 				this.Delete(obj);
 			return true;
 		}
 
 
-		// o3Excluded - Oбъект исключен/включен в расчет
+		// o3Excluded - OР±СЉРµРєС‚ РёСЃРєР»СЋС‡РµРЅ/РІРєР»СЋС‡РµРЅ РІ СЂР°СЃС‡РµС‚
 		public bool excluded(object obj, bool excluded)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb3DObjEvents.Checked)
@@ -123,14 +123,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> Excluded\nobj = {1}\nexcluded = {2}\n", m_LibName, obj, excluded);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				Global.Kompas.ksMessage(str);
 
@@ -141,7 +141,7 @@ namespace Steps.NET
 		}
 
 
-		// o3Hidden - Oбъект скрыт/показан
+		// o3Hidden - OР±СЉРµРєС‚ СЃРєСЂС‹С‚/РїРѕРєР°Р·Р°РЅ
 		public bool hidden(object obj, bool _hidden)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb3DObjEvents.Checked)
@@ -155,14 +155,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> Hidden\nobj = {1}\n_hidden = {2}\n", m_LibName, obj, _hidden);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				Global.Kompas.ksMessage(str);
 
@@ -173,7 +173,7 @@ namespace Steps.NET
 		}
 
 
-		// o3BeginPropertyChanged - Начало изменения свойств объета
+		// o3BeginPropertyChanged - РќР°С‡Р°Р»Рѕ РёР·РјРµРЅРµРЅРёСЏ СЃРІРѕР№СЃС‚РІ РѕР±СЉРµС‚Р°
 		public bool BeginPropertyChanged(object obj)
 		{
 			bool res = false;
@@ -188,14 +188,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginPropertyChanged\nobj = {1}\n", m_LibName, obj);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -206,7 +206,7 @@ namespace Steps.NET
 		}
 
 
-		// o3PropertyChanged - Изменены свойства объета
+		// o3PropertyChanged - РР·РјРµРЅРµРЅС‹ СЃРІРѕР№СЃС‚РІР° РѕР±СЉРµС‚Р°
 		public bool PropertyChanged(object obj)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb3DObjEvents.Checked)
@@ -220,14 +220,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> PropertyChanged\nobj = {1}\n", m_LibName, obj);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				Global.Kompas.ksMessage(str);
 
@@ -238,7 +238,7 @@ namespace Steps.NET
 		}
 
 
-		// o3BeginPlacementChanged - Начало изменения положения объета
+		// o3BeginPlacementChanged - РќР°С‡Р°Р»Рѕ РёР·РјРµРЅРµРЅРёСЏ РїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµС‚Р°
 		public bool BeginPlacementChanged(object obj)
 		{
 			bool res = false;
@@ -253,14 +253,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginPlacementChanged\nobj = {1}\n", m_LibName, obj);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -271,7 +271,7 @@ namespace Steps.NET
 		}
 
 
-		// o3PlacementChanged - Изменено положения объета
+		// o3PlacementChanged - РР·РјРµРЅРµРЅРѕ РїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµС‚Р°
 		public bool PlacementChanged(object obj)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb3DObjEvents.Checked)
@@ -285,14 +285,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> PlacementChanged\nobj = {1}\n", m_LibName, obj);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				Global.Kompas.ksMessage(str);
 
@@ -303,7 +303,7 @@ namespace Steps.NET
 		}
 
 
-		// o3BeginProcess - Начало редактирования\создания объекта
+		// o3BeginProcess - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginProcess(int pType, object obj)
 		{
 			bool res = false;
@@ -318,14 +318,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginProcess\npType = {1}\nobj = {2}\n", m_LibName, pType, obj);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -336,7 +336,7 @@ namespace Steps.NET
 		}
 
 
-		// o3EndProcess - Конец редактирования\создания объекта
+		// o3EndProcess - РљРѕРЅРµС† СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool EndProcess(int pType)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb3DObjEvents.Checked)
@@ -346,14 +346,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> EndProcess\npType = {1}\n", m_LibName, pType);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				Global.Kompas.ksMessage(str);
 			}
@@ -361,7 +361,7 @@ namespace Steps.NET
 		}
 
 
-		// o3CreateObject - Создание объекта
+		// o3CreateObject - РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool CreateObject(object obj)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb3DObjEvents.Checked)
@@ -375,14 +375,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> CreateObject\nobj = {1}\n", m_LibName, obj);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				Global.Kompas.ksMessage(str);
 
@@ -393,7 +393,7 @@ namespace Steps.NET
 		}
 
 
-		// o3UpdateObject - Редактирование объекта
+		// o3UpdateObject - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool UpdateObject(object obj)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb3DObjEvents.Checked)
@@ -407,14 +407,14 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> UpdateObject\nobj = {1}\n", m_LibName, obj);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				string strObj3DName = string.Empty;
 				if (m_Obj3D != null)
 					strObj3DName = m_Obj3D.name;
-				str += "\nИмя объекта = ";
+				str += "\nРРјСЏ РѕР±СЉРµРєС‚Р° = ";
 				str += strObj3DName;
 				Global.Kompas.ksMessage(str);
 

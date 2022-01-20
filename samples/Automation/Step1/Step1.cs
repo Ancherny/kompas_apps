@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 
 using System;
 using System.IO;
@@ -10,32 +10,32 @@ using KAPITypes;
 
 namespace Steps.NET
 {
-	// Класс Step1 - Самая простая библиотека на C#
+	// РљР»Р°СЃСЃ Step1 - РЎР°РјР°СЏ РїСЂРѕСЃС‚Р°СЏ Р±РёР±Р»РёРѕС‚РµРєР° РЅР° C#
   [ClassInterface(ClassInterfaceType.AutoDual)]
  	public class Step1
 	{
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
 		{
-			return "Step1 - Самая простая библиотека на C#";
+			return "Step1 - РЎР°РјР°СЏ РїСЂРѕСЃС‚Р°СЏ Р±РёР±Р»РёРѕС‚РµРєР° РЅР° C#";
 		}
 		
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			KompasObject kompas = (KompasObject) kompas_;
-			kompas.ksMessage("Привет!");
+			kompas.ksMessage("РџСЂРёРІРµС‚!");
 		}
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -51,11 +51,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 		
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

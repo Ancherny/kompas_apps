@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// PropertyManagerEvent - обрабокчик событий от панели свойств
+// PropertyManagerEvent - РѕР±СЂР°Р±РѕРєС‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РїР°РЅРµР»Рё СЃРІРѕР№СЃС‚РІ
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -23,7 +23,7 @@ namespace Steps.NET
 		}
 
 
-		// prChangeControlValue - Событие изменения значения контрола 
+		// prChangeControlValue - РЎРѕР±С‹С‚РёРµ РёР·РјРµРЅРµРЅРёСЏ Р·РЅР°С‡РµРЅРёСЏ РєРѕРЅС‚СЂРѕР»Р° 
 		public bool ChangeControlValue(IPropertyControl iCtrl)
 		{
 			Global.Kompas.ksMessage("PropertyManagerEvent.ChangeControlValue");
@@ -31,13 +31,13 @@ namespace Steps.NET
 		}
 
 
-		// Получение файла помощи
+		// РџРѕР»СѓС‡РµРЅРёРµ С„Р°Р№Р»Р° РїРѕРјРѕС‰Рё
 		public void OpenHelp(int Id) 
 		{
 		}
 
 
-		// prChangeControlValue - Событие изменения значения контрола 
+		// prChangeControlValue - РЎРѕР±С‹С‚РёРµ РёР·РјРµРЅРµРЅРёСЏ Р·РЅР°С‡РµРЅРёСЏ РєРѕРЅС‚СЂРѕР»Р° 
 		public bool ButtonClick(int buttonID)
 		{
 			if (buttonID == (int)SpecPropertyButtonEnum.pbHelp)
@@ -45,7 +45,7 @@ namespace Steps.NET
 			return true;
 		}
 
-		// prControlCommand Нажатие кнопки контрола
+		// prControlCommand РќР°Р¶Р°С‚РёРµ РєРЅРѕРїРєРё РєРѕРЅС‚СЂРѕР»Р°
 		public bool ControlCommand(IPropertyControl ctrl, int buttonID) 
 		{
 			Global.Kompas.ksMessage("PropertyManagerEvent.ControlCommand");
@@ -53,21 +53,21 @@ namespace Steps.NET
 		}
 
 
-		// prButtonUpdate - Установка состояния кнопки спецпанели.
+		// prButtonUpdate - РЈСЃС‚Р°РЅРѕРІРєР° СЃРѕСЃС‚РѕСЏРЅРёСЏ РєРЅРѕРїРєРё СЃРїРµС†РїР°РЅРµР»Рё.
 		public bool ButtonUpdate(int buttonID, ref int check, ref bool _enable) 
 		{
 			return true;
 		}
 
 
-		// prProcessActibate - Начало процесса.
+		// prProcessActibate - РќР°С‡Р°Р»Рѕ РїСЂРѕС†РµСЃСЃР°.
 		public bool ProcessActivate() 
 		{
 			return true;
 		}
 
 
-		// prProcessDeactivate   - Завершение процесса.
+		// prProcessDeactivate   - Р—Р°РІРµСЂС€РµРЅРёРµ РїСЂРѕС†РµСЃСЃР°.
 		public bool ProcessDeactivate() 
 		{
 			return true;
@@ -104,7 +104,7 @@ namespace Steps.NET
       return true;
     }
 
-		// prUserMenuCommand Выбор меню
+		// prUserMenuCommand Р’С‹Р±РѕСЂ РјРµРЅСЋ
 		public bool UserMenuCommand(IPropertyControl ctrl, int menuID) 
 		{
 			Global.Kompas.ksMessage("PropertyManagerEvent.ControlCommand");

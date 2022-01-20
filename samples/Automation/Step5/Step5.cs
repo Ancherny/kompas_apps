@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 using System;
 using Microsoft.Win32;
 using System.Reflection;
@@ -12,20 +12,20 @@ using reference = System.Int32;
 
 namespace Steps.NET
 {
-	// Класс Step5 - Редактирование
+	// РљР»Р°СЃСЃ Step5 - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ
   [ClassInterface(ClassInterfaceType.AutoDual)]
 	public class Step5
 	{
 		KompasObject kompas = null;
 
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
 		{
-			return "Step5 - Редактирование";
+			return "Step5 - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ";
 		}
 		
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			kompas = (KompasObject) kompas_;
@@ -36,24 +36,24 @@ namespace Steps.NET
 				{
 					switch (command)
 					{
-						case 1  : DrawTransform(doc);         break; //трансформация объекта по матрице
-						case 2  : DrawCopy(doc);              break; //копирование объекта
-						case 3  : DrawSymmetry(doc);          break; //симметрия объекта
-						case 4  : EditTolerance(doc);         break; //просмотр допуска формы
-						case 5  : EditTable(doc);             break; //просмотр таблицы
-						case 6  : EditStamp(doc);             break; //взять тексты граф и редактировать штамп
-						case 7  : GetTextTT(doc);             break; //получить текст ТТ
-						case 8	: ChangeTechnicalDemand(doc); break; //редактирование TT
-						case 9	: ShowInsertFragment(doc);    break; //вставка фрагмента
-						case 10 : EditFragmentLibrary(doc);   break; //работа с библиотекой фрагментов
-						case 11 : ShowInsertFragment1(doc);   break; //вставка фрагмента россыпью
+						case 1  : DrawTransform(doc);         break; //С‚СЂР°РЅСЃС„РѕСЂРјР°С†РёСЏ РѕР±СЉРµРєС‚Р° РїРѕ РјР°С‚СЂРёС†Рµ
+						case 2  : DrawCopy(doc);              break; //РєРѕРїРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
+						case 3  : DrawSymmetry(doc);          break; //СЃРёРјРјРµС‚СЂРёСЏ РѕР±СЉРµРєС‚Р°
+						case 4  : EditTolerance(doc);         break; //РїСЂРѕСЃРјРѕС‚СЂ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
+						case 5  : EditTable(doc);             break; //РїСЂРѕСЃРјРѕС‚СЂ С‚Р°Р±Р»РёС†С‹
+						case 6  : EditStamp(doc);             break; //РІР·СЏС‚СЊ С‚РµРєСЃС‚С‹ РіСЂР°С„ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С€С‚Р°РјРї
+						case 7  : GetTextTT(doc);             break; //РїРѕР»СѓС‡РёС‚СЊ С‚РµРєСЃС‚ РўРў
+						case 8	: ChangeTechnicalDemand(doc); break; //СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ TT
+						case 9	: ShowInsertFragment(doc);    break; //РІСЃС‚Р°РІРєР° С„СЂР°РіРјРµРЅС‚Р°
+						case 10 : EditFragmentLibrary(doc);   break; //СЂР°Р±РѕС‚Р° СЃ Р±РёР±Р»РёРѕС‚РµРєРѕР№ С„СЂР°РіРјРµРЅС‚РѕРІ
+						case 11 : ShowInsertFragment1(doc);   break; //РІСЃС‚Р°РІРєР° С„СЂР°РіРјРµРЅС‚Р° СЂРѕСЃСЃС‹РїСЊСЋ
 					}
 				}
 			}
 		}
 
 
-		// Формирование меню библиотеки
+		// Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РјРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
 		public string ExternalMenuItem(short number, ref short itemType, ref short command)
 		{
 			string result = string.Empty;
@@ -61,47 +61,47 @@ namespace Steps.NET
 			switch (number)
 			{
 				case 1:
-					result = "Tрансформация объекта";
+					result = "TСЂР°РЅСЃС„РѕСЂРјР°С†РёСЏ РѕР±СЉРµРєС‚Р°";
 					command = 1;
 					break;
 				case 2:
-					result = "Копия  объекта";
+					result = "РљРѕРїРёСЏ  РѕР±СЉРµРєС‚Р°";
 					command = 2;
 					break;
 				case 3:
-					result = "Симметрия объекта";
+					result = "РЎРёРјРјРµС‚СЂРёСЏ РѕР±СЉРµРєС‚Р°";
 					command = 3;
 					break;
 				case 4:
-					result = "Просмотр и редактирование допуска формы";
+					result = "РџСЂРѕСЃРјРѕС‚СЂ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹";
 					command = 4;
 					break;
 				case 5:
-					result = "Просмотр и редактирование таблицы";
+					result = "РџСЂРѕСЃРјРѕС‚СЂ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹";
 					command = 5;
 					break;
 				case 6:
-					result = "Взять тексты граф и редактировать штамп";
+					result = "Р’Р·СЏС‚СЊ С‚РµРєСЃС‚С‹ РіСЂР°С„ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С€С‚Р°РјРї";
 					command = 6;
 					break;
 				case 7:
-					result = "Получить текст ТТ";
+					result = "РџРѕР»СѓС‡РёС‚СЊ С‚РµРєСЃС‚ РўРў";
 					command = 7;
 					break;
 				case 8:
-					result = "Редактировать ТТ";
+					result = "Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РўРў";
 					command = 8;
 					break;
 				case 9:
-					result = "Вставка фрагмента из библиотеки фрагментов";
+					result = "Р’СЃС‚Р°РІРєР° С„СЂР°РіРјРµРЅС‚Р° РёР· Р±РёР±Р»РёРѕС‚РµРєРё С„СЂР°РіРјРµРЅС‚РѕРІ";
 					command = 9;
 					break;
 				case 10:
-					result = "Работа с библиотекой фрагментов";
+					result = "Р Р°Р±РѕС‚Р° СЃ Р±РёР±Р»РёРѕС‚РµРєРѕР№ С„СЂР°РіРјРµРЅС‚РѕРІ";
 					command = 10;
 					break;
 				case 11:
-					result = "Вставка фрагмента россыпью";
+					result = "Р’СЃС‚Р°РІРєР° С„СЂР°РіРјРµРЅС‚Р° СЂРѕСЃСЃС‹РїСЊСЋ";
 					command = 11;
 					break;
 				case 12:
@@ -115,7 +115,7 @@ namespace Steps.NET
 
 		void DrawTransform(ksDocument2D doc)
 		{
-			//трансформация  рабочей группы
+			//С‚СЂР°РЅСЃС„РѕСЂРјР°С†РёСЏ  СЂР°Р±РѕС‡РµР№ РіСЂСѓРїРїС‹
 			doc.ksMtr(-30, -30, 0, 1, 1);
 			reference rf = doc.ksNewGroup(0);
 			doc.ksLineSeg(30, 30, 60, 30, 1);
@@ -131,14 +131,14 @@ namespace Steps.NET
 			doc.ksEndGroup();
 			doc.ksDeleteMtr();
   
-			kompas.ksMessage("Создали матрицу 20, 20, 45, 2");
+			kompas.ksMessage("РЎРѕР·РґР°Р»Рё РјР°С‚СЂРёС†Сѓ 20, 20, 45, 2");
 
 			doc.ksMtr(20, 20, 45, 2, 2);
 			doc.ksTransformObj(rf);
 			doc.ksDeleteMtr();
 
 			kompas.ksMessageBoxResult();
-			kompas.ksMessage("вернем обратно");
+			kompas.ksMessage("РІРµСЂРЅРµРј РѕР±СЂР°С‚РЅРѕ");
 
 			doc.ksMtr(-20, -20, 0, 1, 1);
 			doc.ksTransformObj(rf);
@@ -170,9 +170,9 @@ namespace Steps.NET
 				par.name = "user view";
 
 				int number = 5;
-				//создали вид
+				//СЃРѕР·РґР°Р»Рё РІРёРґ
 				reference v = doc.ksCreateSheetView(par, ref number);
-				//создали слой
+				//СЃРѕР·РґР°Р»Рё СЃР»РѕР№
 				doc.ksLayer(5);
 
 				doc.ksLineSeg(20, 10, 20, 30, 1);
@@ -180,7 +180,7 @@ namespace Steps.NET
 				doc.ksLineSeg(40, 30, 40, 10, 1);
 				doc.ksLineSeg(40, 10, 20, 10, 1);
 
-				//копируем вид (для вида точки задаются в листовых координатах)
+				//РєРѕРїРёСЂСѓРµРј РІРёРґ (РґР»СЏ РІРёРґР° С‚РѕС‡РєРё Р·Р°РґР°СЋС‚СЃСЏ РІ Р»РёСЃС‚РѕРІС‹С… РєРѕРѕСЂРґРёРЅР°С‚Р°С…)
 				doc.ksCopyObj(v, 20, 60, 40, 80, 1, 0);
 
 				kompas.ksMessageBoxResult();
@@ -203,37 +203,37 @@ namespace Steps.NET
 
 		void EditTolerance(ksDocument2D doc)
 		{
-			// редактирование допуска формы
+			// СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
 			reference pObj;
 
 			ksRequestInfo info = (ksRequestInfo) kompas.GetParamStruct((short)StructType2DEnum.ko_RequestInfo);
 			if (info == null) 
 				return;
 			double x = 0, y = 0;
-			info.prompt = "Укажите допуск формы" ;
+			info.prompt = "РЈРєР°Р¶РёС‚Рµ РґРѕРїСѓСЃРє С„РѕСЂРјС‹" ;
 			int cursor = doc.ksCursor(info, ref x ,ref y, 0);
 			if (cursor != 0) 
 			{
 				if (doc.ksExistObj(pObj = doc.ksFindObj(x, y, 1000000)) == 1)
 				{
-					//узнаем тип объекта
-					int type = doc.ksGetObjParam(pObj, 0, 0);   //указатель на графический объект
+					//СѓР·РЅР°РµРј С‚РёРї РѕР±СЉРµРєС‚Р°
+					int type = doc.ksGetObjParam(pObj, 0, 0);   //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РіСЂР°С„РёС‡РµСЃРєРёР№ РѕР±СЉРµРєС‚
 					if (type == ldefin2d.TOLERANCE_OBJ) 
 					{
 						int numb = 0;
 						string buf = string.Empty;
-						//открыть допуск формы для редактирования
+						//РѕС‚РєСЂС‹С‚СЊ РґРѕРїСѓСЃРє С„РѕСЂРјС‹ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
 						doc.ksOpenTolerance(pObj);
 
 						ksToleranceParam par = (ksToleranceParam) kompas.GetParamStruct((short)StructType2DEnum.ko_ToleranceParam);
-						//параметры допуска формы
-						doc.ksGetObjParam( pObj,	//указатель на графический объект
-							par,					//указатель на структуру параметров
-							ldefin2d.ALLPARAM);		//тип считывания параметров
+						//РїР°СЂР°РјРµС‚СЂС‹ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
+						doc.ksGetObjParam( pObj,	//СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РіСЂР°С„РёС‡РµСЃРєРёР№ РѕР±СЉРµРєС‚
+							par,					//СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂСѓРєС‚СѓСЂСѓ РїР°СЂР°РјРµС‚СЂРѕРІ
+							ldefin2d.ALLPARAM);		//С‚РёРї СЃС‡РёС‚С‹РІР°РЅРёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ
 
-						buf = string.Format("базовая точка = {0} стиль = {1} расположение - {2}\nx = {3:0.##} y = {4:0.##}",
+						buf = string.Format("Р±Р°Р·РѕРІР°СЏ С‚РѕС‡РєР° = {0} СЃС‚РёР»СЊ = {1} СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ - {2}\nx = {3:0.##} y = {4:0.##}",
 							par.tBase, par.style,
-							par.type != 0 ? "вертикальное" : "горизонтальное",
+							par.type != 0 ? "РІРµСЂС‚РёРєР°Р»СЊРЅРѕРµ" : "РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕРµ",
 							par.x, par.y);
 						kompas.ksMessage(buf);
 
@@ -244,7 +244,7 @@ namespace Steps.NET
 				
 						par1.Init();
         
-						//в цикле будем брать все существующие ячейки
+						//РІ С†РёРєР»Рµ Р±СѓРґРµРј Р±СЂР°С‚СЊ РІСЃРµ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ СЏС‡РµР№РєРё
 						while (doc.ksGetToleranceColumnText(ref numb, par1) != 0) 
 						{
 							buf = string.Format("numb = {0}\nstyle = {1}", numb, par1.style);
@@ -263,31 +263,31 @@ namespace Steps.NET
 								arrpTextItem.ksGetArrayItem(i, item);
 								ksTextItemFont textItemFont = (ksTextItemFont) item.GetItemFont();
 								if (item.type == 0)
-									buf = string.Format("компонента = {0} h = {1:0.##}\ns = {2}\nfontName = {3}\nбитвектор = {4}",
+									buf = string.Format("РєРѕРјРїРѕРЅРµРЅС‚Р° = {0} h = {1:0.##}\ns = {2}\nfontName = {3}\nР±РёС‚РІРµРєС‚РѕСЂ = {4}",
 										i, textItemFont.height, item.s, textItemFont.fontName, textItemFont.bitVector);
 								else
-									buf = string.Format("компонента = {0} тип = {1} номер спецзнака = {3}", i, item.type, item.iSNumb);
-								item.s = "Допуск формы";
+									buf = string.Format("РєРѕРјРїРѕРЅРµРЅС‚Р° = {0} С‚РёРї = {1} РЅРѕРјРµСЂ СЃРїРµС†Р·РЅР°РєР° = {3}", i, item.type, item.iSNumb);
+								item.s = "Р”РѕРїСѓСЃРє С„РѕСЂРјС‹";
 								kompas.ksMessage(buf);
 							}
 							arrpTextItem.ksClearArray();
 							arrpTextItem.ksAddArrayItem(-1, item);
 							doc.ksSetToleranceColumnText(numb, par1);
-							arrpTextItem.ksDeleteArray();  //очистим массив компонент
+							arrpTextItem.ksDeleteArray();  //РѕС‡РёСЃС‚РёРј РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚
 						}
-						//заменим параметры
+						//Р·Р°РјРµРЅРёРј РїР°СЂР°РјРµС‚СЂС‹
 						par.x =  par.x + 10 ;
 						par.y = par.y + 10 ;
-						doc.ksSetObjParam(pObj,	//указатель на графический объект
-							par,				//указатель на структуру параметров
-							ldefin2d.ALLPARAM);	//тип считывания параметров
-						doc.ksEndObj();			//закрыли объект "допуск формы"
+						doc.ksSetObjParam(pObj,	//СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РіСЂР°С„РёС‡РµСЃРєРёР№ РѕР±СЉРµРєС‚
+							par,				//СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂСѓРєС‚СѓСЂСѓ РїР°СЂР°РјРµС‚СЂРѕРІ
+							ldefin2d.ALLPARAM);	//С‚РёРї СЃС‡РёС‚С‹РІР°РЅРёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ
+						doc.ksEndObj();			//Р·Р°РєСЂС‹Р»Рё РѕР±СЉРµРєС‚ "РґРѕРїСѓСЃРє С„РѕСЂРјС‹"
 					}
 					else
-						kompas.ksError("Это не допуск формы");
+						kompas.ksError("Р­С‚Рѕ РЅРµ РґРѕРїСѓСЃРє С„РѕСЂРјС‹");
 				}
 				else
-					kompas.ksError("Нет объекта");
+					kompas.ksError("РќРµС‚ РѕР±СЉРµРєС‚Р°");
 			}
 
 			kompas.ksMessageBoxResult();
@@ -295,36 +295,36 @@ namespace Steps.NET
 
 		void EditTable(ksDocument2D doc)
 		{
-			// редактирование таблицы
+			// СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹
 			reference pObj;
 
 			ksRequestInfo info = (ksRequestInfo) kompas.GetParamStruct((short)StructType2DEnum.ko_RequestInfo);
 			if (info == null) 
 				return;
 			double x = 0, y = 0;
-			info.prompt = "Укажите таблицу";
-			// взять таблицу на чертеже
+			info.prompt = "РЈРєР°Р¶РёС‚Рµ С‚Р°Р±Р»РёС†Сѓ";
+			// РІР·СЏС‚СЊ С‚Р°Р±Р»РёС†Сѓ РЅР° С‡РµСЂС‚РµР¶Рµ
 			int cursor = doc.ksCursor(info, ref x, ref y, 0);
 			if (cursor != 0) 
 			{
 				if(doc.ksExistObj(pObj = doc.ksFindObj(x, y, 100000)) == 1)
 				{
-					//узнаем тип объекта
-					int type = doc.ksGetObjParam(pObj, 0, 0);	//указатель на графический объект
-					//проверить полученный объкет  - таблица
+					//СѓР·РЅР°РµРј С‚РёРї РѕР±СЉРµРєС‚Р°
+					int type = doc.ksGetObjParam(pObj, 0, 0);	//СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РіСЂР°С„РёС‡РµСЃРєРёР№ РѕР±СЉРµРєС‚
+					//РїСЂРѕРІРµСЂРёС‚СЊ РїРѕР»СѓС‡РµРЅРЅС‹Р№ РѕР±СЉРєРµС‚  - С‚Р°Р±Р»РёС†Р°
 					if (type == ldefin2d.TABLE_OBJ) 
 					{
 						int numb = 0;
 						//reference p;
 						string buf = string.Empty;
-						//открыть таблицу для редактирования
+						//РѕС‚РєСЂС‹С‚СЊ С‚Р°Р±Р»РёС†Сѓ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
 						doc.ksOpenTable(pObj);
 
 						ksTextParam par = (ksTextParam) kompas.GetParamStruct((short)StructType2DEnum.ko_TextParam);
 						if (par == null)
 							return;
 						par.Init();
-						//в цикле будем брать все существующие ячейки
+						//РІ С†РёРєР»Рµ Р±СѓРґРµРј Р±СЂР°С‚СЊ РІСЃРµ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ СЏС‡РµР№РєРё
 						while (doc.ksGetTableColumnText(ref numb, par)!=0) 
 						{
 							buf = string.Format("numb = {0}", numb);
@@ -355,34 +355,34 @@ namespace Steps.NET
 									ksTextItemFont textItemFont = (ksTextItemFont) item.GetItemFont() ;
 
 									if (item.type == 0)
-										buf = string.Format("Компонента = {0} h = {1:0.##}\ns = {2}\nfontName = {3}\nбитвектор = {4}",
+										buf = string.Format("РљРѕРјРїРѕРЅРµРЅС‚Р° = {0} h = {1:0.##}\ns = {2}\nfontName = {3}\nР±РёС‚РІРµРєС‚РѕСЂ = {4}",
 											j, textItemFont.height, item.s, textItemFont.fontName, textItemFont.bitVector);
 									else
-										buf = string.Format("компонента = {0} тип = {1} номер спецзнака = {2}",
+										buf = string.Format("РєРѕРјРїРѕРЅРµРЅС‚Р° = {0} С‚РёРї = {1} РЅРѕРјРµСЂ СЃРїРµС†Р·РЅР°РєР° = {2}",
 											j, item.type, item.iSNumb);
 									kompas.ksMessage(buf);
 								}
-								arrpTextItem.ksDeleteArray();  //очистим массив компонент
+								arrpTextItem.ksDeleteArray();  //РѕС‡РёСЃС‚РёРј РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚
 							}
-							//очистим массив текстовых строк
+							//РѕС‡РёСЃС‚РёРј РјР°СЃСЃРёРІ С‚РµРєСЃС‚РѕРІС‹С… СЃС‚СЂРѕРє
 							arrpLineText.ksDeleteArray();
 						}
 
-						//берем ячейку 2
+						//Р±РµСЂРµРј СЏС‡РµР№РєСѓ 2
 						doc.ksColumnNumber(2);
-						doc.ksText(0, 0, 0, 5, 1, 0, "вторая ячейка");
+						doc.ksText(0, 0, 0, 5, 1, 0, "РІС‚РѕСЂР°СЏ СЏС‡РµР№РєР°");
 
 						doc.ksDivideTableItem(3, true, 2);
 						doc.ksColumnNumber(4);
 						doc.ksText(0, 0, 0, 5, 1, 0, "4");
 
-						doc.ksEndObj();	//закрыли объект "таблица"
+						doc.ksEndObj();	//Р·Р°РєСЂС‹Р»Рё РѕР±СЉРµРєС‚ "С‚Р°Р±Р»РёС†Р°"
 					}
 					else
-						kompas.ksError("Это не таблица");
+						kompas.ksError("Р­С‚Рѕ РЅРµ С‚Р°Р±Р»РёС†Р°");
 				}
 				else
-					kompas.ksError("Нет объекта");
+					kompas.ksError("РќРµС‚ РѕР±СЉРµРєС‚Р°");
 			}
 
 			kompas.ksMessageBoxResult();
@@ -394,7 +394,7 @@ namespace Steps.NET
 			if (stamp != null && stamp.ksOpenStamp() == 1) 
 			{
 				int numb = 0;
-				//в цикле будем брать все существующие графы
+				//РІ С†РёРєР»Рµ Р±СѓРґРµРј Р±СЂР°С‚СЊ РІСЃРµ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ РіСЂР°С„С‹
 				ksDynamicArray arr = (ksDynamicArray) stamp.ksGetStampColumnText(ref numb);
 				ksTextItemParam item = null;
 				while (numb != 0 && arr != null) 
@@ -426,19 +426,19 @@ namespace Steps.NET
 						{
 							arrpTextItem.ksGetArrayItem(j, item);
 							ksTextItemFont textItemFont = (ksTextItemFont) item.GetItemFont() ;
-							buf = string.Format("Компонента = {0} h = {1:0.##}\ns = {2}\nfontName = {3}",
+							buf = string.Format("РљРѕРјРїРѕРЅРµРЅС‚Р° = {0} h = {1:0.##}\ns = {2}\nfontName = {3}",
 								j, textItemFont.height, item.s, textItemFont.fontName);
 							kompas.ksMessage(buf);
 						}
-						arrpTextItem.ksDeleteArray();  //очистим массив компонент
+						arrpTextItem.ksDeleteArray();  //РѕС‡РёСЃС‚РёРј РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚
 					}
-					//очистим массив текстовых строк
+					//РѕС‡РёСЃС‚РёРј РјР°СЃСЃРёРІ С‚РµРєСЃС‚РѕРІС‹С… СЃС‚СЂРѕРє
 					arrpLineText.ksDeleteArray();
 
 					arr.ksDeleteArray();
 					arr = (ksDynamicArray) stamp.ksGetStampColumnText(ref numb);
 				}
-				//заменим  графу 2
+				//Р·Р°РјРµРЅРёРј  РіСЂР°С„Сѓ 2
 				doc.ksColumnNumber(2);
 				item = (ksTextItemParam) kompas.GetParamStruct((short)StructType2DEnum.ko_TextItemParam) ;
 				if (item == null) 
@@ -451,37 +451,37 @@ namespace Steps.NET
 				if (item != null && itemFont != null) 
 				{
 					itemFont.SetBitVectorValue(ldefin2d.NEW_LINE, true);
-					item.s = "Графа 2";
+					item.s = "Р“СЂР°С„Р° 2";
 					doc.ksTextLine(item);
 				}
 				stamp.ksCloseStamp();
 			}
 			else
-				kompas.ksError ("Штамп не найден");
+				kompas.ksError ("РЁС‚Р°РјРї РЅРµ РЅР°Р№РґРµРЅ");
 
 			kompas.ksMessageBoxResult();
 		}
 
 		void GetTextTT(ksDocument2D doc)
 		{
-			//получим указатель на технические трбования
+			//РїРѕР»СѓС‡РёРј СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С‚РµС…РЅРёС‡РµСЃРєРёРµ С‚СЂР±РѕРІР°РЅРёСЏ
 			reference pTT = doc.ksGetReferenceDocumentPart(1);
 			ksTechnicalDemandParam technicalDemandParam = (ksTechnicalDemandParam) kompas.GetParamStruct((short)StructType2DEnum.ko_TechnicalDemandParam) ;
 			if (pTT != 0 && technicalDemandParam != null) 
 			{
 				technicalDemandParam.Init();
-				//получим параметры описания ТТ
+				//РїРѕР»СѓС‡РёРј РїР°СЂР°РјРµС‚СЂС‹ РѕРїРёСЃР°РЅРёСЏ РўРў
 				doc.ksGetObjParam(pTT, technicalDemandParam, ldefin2d.TECHNICAL_DEMAND_PAR);
 				string buf = string.Empty;
 				ksDynamicArray pGab = (ksDynamicArray) technicalDemandParam.GetPGab();
 				int count = pGab.ksGetArrayCount();
-				buf = string.Format("стиль = {0} число страниц  TT = {1}",
+				buf = string.Format("СЃС‚РёР»СЊ = {0} С‡РёСЃР»Рѕ СЃС‚СЂР°РЅРёС†  TT = {1}",
 					technicalDemandParam.style, count);
 				kompas.ksMessage(buf);
 
-				// создадим массив текстовых строк
+				// СЃРѕР·РґР°РґРёРј РјР°СЃСЃРёРІ С‚РµРєСЃС‚РѕРІС‹С… СЃС‚СЂРѕРє
 				ksDynamicArray pTextLine = (ksDynamicArray) kompas.GetDynamicArray(ldefin2d.TEXT_LINE_ARR);
-				//пройдемся по листам ТТ и получим текст
+				//РїСЂРѕР№РґРµРјСЃСЏ РїРѕ Р»РёСЃС‚Р°Рј РўРў Рё РїРѕР»СѓС‡РёРј С‚РµРєСЃС‚
 				for(int i = 0; i < count; i++) 
 				{
 					doc.ksGetObjParam(pTT, pTextLine, i);//ALLPARAM);
@@ -494,7 +494,7 @@ namespace Steps.NET
 					for(int i1 = 0, count1 = pTextLine.ksGetArrayCount(); i1 < count1; i1 ++) 
 					{
 						pTextLine.ksGetArrayItem(i1, itemLineText);
-						buf = string.Format("компонента = {0} style = {1}",
+						buf = string.Format("РєРѕРјРїРѕРЅРµРЅС‚Р° = {0} style = {1}",
 							i1, itemLineText.style);
 						kompas.ksMessage(buf);
 
@@ -509,14 +509,14 @@ namespace Steps.NET
 						{
 							arrpTextItem.ksGetArrayItem(j, item);
 							ksTextItemFont textItemFont = (ksTextItemFont) item.GetItemFont() ;
-							buf = string.Format("Компонента = {0} h = {1:0.##}\ns = {2}\nfontName = {3}",
+							buf = string.Format("РљРѕРјРїРѕРЅРµРЅС‚Р° = {0} h = {1:0.##}\ns = {2}\nfontName = {3}",
 								j, textItemFont.height, item.s, textItemFont.fontName);
 							kompas.ksMessage(buf);
 						}
-						arrpTextItem.ksDeleteArray(); //очистим массив компонент
+						arrpTextItem.ksDeleteArray(); //РѕС‡РёСЃС‚РёРј РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚
 					}
 				}
-				pTextLine.ksDeleteArray(); //очистим массив текстовых строк
+				pTextLine.ksDeleteArray(); //РѕС‡РёСЃС‚РёРј РјР°СЃСЃРёРІ С‚РµРєСЃС‚РѕРІС‹С… СЃС‚СЂРѕРє
 			}
 
 			kompas.ksMessageBoxResult();
@@ -526,28 +526,28 @@ namespace Steps.NET
 		{
 			string libName = string.Empty;
 			int res = 0;
-			//выберем  библиотеку фрагментов
-			libName = kompas.ksChoiceFile("*.lfr", "Библиотки фрагментов(*.lfr)|*.lfr|Все файлы (*.*)|*.*|", true) ;
+			//РІС‹Р±РµСЂРµРј  Р±РёР±Р»РёРѕС‚РµРєСѓ С„СЂР°РіРјРµРЅС‚РѕРІ
+			libName = kompas.ksChoiceFile("*.lfr", "Р‘РёР±Р»РёРѕС‚РєРё С„СЂР°РіРјРµРЅС‚РѕРІ(*.lfr)|*.lfr|Р’СЃРµ С„Р°Р№Р»С‹ (*.*)|*.*|", true) ;
 			if (libName.Length > 0)
 			{ 
 				string buf = string.Empty; 
 				do 
 				{
-					//выбрать фрагмент в библиотеке фрагментов
+					//РІС‹Р±СЂР°С‚СЊ С„СЂР°РіРјРµРЅС‚ РІ Р±РёР±Р»РёРѕС‚РµРєРµ С„СЂР°РіРјРµРЅС‚РѕРІ
 					ksFragment fr = (ksFragment) doc.GetFragment() ;
 					// ABB K6    ksFragmentLibrary
 					ksFragmentLibrary frLib = (ksFragmentLibrary) kompas.GetFragmentLibrary() ; 
 					if  (fr == null && frLib == null)
 						return;
 					buf = frLib.ksChoiceFragmentFromLib(libName, out res) ;
-					if (buf != null && res == 3) // res = 3 - выбран фрагмент
+					if (buf != null && res == 3) // res = 3 - РІС‹Р±СЂР°РЅ С„СЂР°РіРјРµРЅС‚
 					{
-						// выделим имя вставки 
+						// РІС‹РґРµР»РёРј РёРјСЏ РІСЃС‚Р°РІРєРё 
 						string insertName = buf.Substring(buf.IndexOf('|'));
 						if (insertName != null && insertName != string.Empty) 
 						{
 							double x = 0, y = 0;
-							//подготовим структуры фанома и запросов для Placement
+							//РїРѕРґРіРѕС‚РѕРІРёРј СЃС‚СЂСѓРєС‚СѓСЂС‹ С„Р°РЅРѕРјР° Рё Р·Р°РїСЂРѕСЃРѕРІ РґР»СЏ Placement
 							ksPhantom rub = (ksPhantom) kompas.GetParamStruct((short)StructType2DEnum.ko_Phantom) ;
 							rub.phantom = 1;
 							ksType1 type1 = (ksType1) rub.GetPhantomParam() ;
@@ -560,15 +560,15 @@ namespace Steps.NET
 							rub.phantom = 1;
 
 							reference pDefFrg;
-							// создадим описание  всавки фрагментов
-							pDefFrg = fr.ksFragmentDefinition(buf,	//имя файла фрагмента
-								insertName + 1,						//имя вставки
-								1);									//тип вставки -действителен для внешнего фрагмента
-																	// 0- взять в документ, 1-внешней ссылкой
+							// СЃРѕР·РґР°РґРёРј РѕРїРёСЃР°РЅРёРµ  РІСЃР°РІРєРё С„СЂР°РіРјРµРЅС‚РѕРІ
+							pDefFrg = fr.ksFragmentDefinition(buf,	//РёРјСЏ С„Р°Р№Р»Р° С„СЂР°РіРјРµРЅС‚Р°
+								insertName + 1,						//РёРјСЏ РІСЃС‚Р°РІРєРё
+								1);									//С‚РёРї РІСЃС‚Р°РІРєРё -РґРµР№СЃС‚РІРёС‚РµР»РµРЅ РґР»СЏ РІРЅРµС€РЅРµРіРѕ С„СЂР°РіРјРµРЅС‚Р°
+																	// 0- РІР·СЏС‚СЊ РІ РґРѕРєСѓРјРµРЅС‚, 1-РІРЅРµС€РЅРµР№ СЃСЃС‹Р»РєРѕР№
 
 							if(pDefFrg > 0) 
 							{
-								//во временную группу положим вставку фрагмента, взятую из библиотеки фрагментов 
+								//РІРѕ РІСЂРµРјРµРЅРЅСѓСЋ РіСЂСѓРїРїСѓ РїРѕР»РѕР¶РёРј РІСЃС‚Р°РІРєСѓ С„СЂР°РіРјРµРЅС‚Р°, РІР·СЏС‚СѓСЋ РёР· Р±РёР±Р»РёРѕС‚РµРєРё С„СЂР°РіРјРµРЅС‚РѕРІ 
 								type1.gr = doc.ksNewGroup(1);
    
 								ksPlacementParam par = (ksPlacementParam) kompas.GetParamStruct((short)StructType2DEnum.ko_PlacementParam) ;
@@ -587,20 +587,20 @@ namespace Steps.NET
 									if ((j = doc.ksPlacement(null, ref x, ref y, ref ang, rub))!=0) 
 									{
 										type1.angle = ang;
-										doc.ksCopyObj(p,	// указатель на графический объект
-											0, 0,			// базовая точка объекта
-											x, y,			// точка куда копировать
-											1, type1.angle);// масштаб и угол поворота а градусах
+										doc.ksCopyObj(p,	// СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РіСЂР°С„РёС‡РµСЃРєРёР№ РѕР±СЉРµРєС‚
+											0, 0,			// Р±Р°Р·РѕРІР°СЏ С‚РѕС‡РєР° РѕР±СЉРµРєС‚Р°
+											x, y,			// С‚РѕС‡РєР° РєСѓРґР° РєРѕРїРёСЂРѕРІР°С‚СЊ
+											1, type1.angle);// РјР°СЃС€С‚Р°Р± Рё СѓРіРѕР» РїРѕРІРѕСЂРѕС‚Р° Р° РіСЂР°РґСѓСЃР°С…
 									}
 								}
 								while (j > 0); 
 								doc.ksDeleteObj(type1.gr);
 							}
 							else
-								kompas.ksError ("Ошибка создания описания вставки фрагмента");
+								kompas.ksError ("РћС€РёР±РєР° СЃРѕР·РґР°РЅРёСЏ РѕРїРёСЃР°РЅРёСЏ РІСЃС‚Р°РІРєРё С„СЂР°РіРјРµРЅС‚Р°");
 						}
 						else
-							kompas.ksError("Имя вставки не определено");
+							kompas.ksError("РРјСЏ РІСЃС‚Р°РІРєРё РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ");
 					}
 				} while(res > 0);
 			}
@@ -614,12 +614,12 @@ namespace Steps.NET
 			ksFragment fr = (ksFragment) doc.GetFragment() ;
 			if (fr == null)
 				return;
-			//выберем  фрагмент
-			frwName = kompas.ksChoiceFile("*.frw", "фрагменты(*.frw)|*.frw|Все файлы (*.*)|*.*|", true);
+			//РІС‹Р±РµСЂРµРј  С„СЂР°РіРјРµРЅС‚
+			frwName = kompas.ksChoiceFile("*.frw", "С„СЂР°РіРјРµРЅС‚С‹(*.frw)|*.frw|Р’СЃРµ С„Р°Р№Р»С‹ (*.*)|*.*|", true);
 			if(frwName != null && frwName != string.Empty) 
 			{ 
 				double x = 0, y = 0;
-				//подготовим структуры фанома и запросов для Placement
+				//РїРѕРґРіРѕС‚РѕРІРёРј СЃС‚СЂСѓРєС‚СѓСЂС‹ С„Р°РЅРѕРјР° Рё Р·Р°РїСЂРѕСЃРѕРІ РґР»СЏ Placement
 				ksPhantom rub = (ksPhantom) kompas.GetParamStruct((short)StructType2DEnum.ko_Phantom);
 				rub.phantom = 1;
 				ksType1 type1 = (ksType1) rub.GetPhantomParam();
@@ -631,7 +631,7 @@ namespace Steps.NET
 				type1.scale_ = 1;
 				rub.phantom = 1;
 
-				//во временную группу положим вставку фрагмента, взятую из библиотеки фрагментов
+				//РІРѕ РІСЂРµРјРµРЅРЅСѓСЋ РіСЂСѓРїРїСѓ РїРѕР»РѕР¶РёРј РІСЃС‚Р°РІРєСѓ С„СЂР°РіРјРµРЅС‚Р°, РІР·СЏС‚СѓСЋ РёР· Р±РёР±Р»РёРѕС‚РµРєРё С„СЂР°РіРјРµРЅС‚РѕРІ
 				ksPlacementParam par = (ksPlacementParam) kompas.GetParamStruct((short)StructType2DEnum.ko_PlacementParam);
 				if (par == null)
 					return; 
@@ -641,22 +641,22 @@ namespace Steps.NET
 				int j;
 				do 
 				{
-					//если нужно вставить несколько фрагментов, группу лучше порождать новую,
-					//так как вместе с геометрией могут придти атрибуты, объекты спецификации, стили,
-					//которые связаны с геометрией. При простом копировании группы эта связь будет
-					//потеряна.
+					//РµСЃР»Рё РЅСѓР¶РЅРѕ РІСЃС‚Р°РІРёС‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ С„СЂР°РіРјРµРЅС‚РѕРІ, РіСЂСѓРїРїСѓ Р»СѓС‡С€Рµ РїРѕСЂРѕР¶РґР°С‚СЊ РЅРѕРІСѓСЋ,
+					//С‚Р°Рє РєР°Рє РІРјРµСЃС‚Рµ СЃ РіРµРѕРјРµС‚СЂРёРµР№ РјРѕРіСѓС‚ РїСЂРёРґС‚Рё Р°С‚СЂРёР±СѓС‚С‹, РѕР±СЉРµРєС‚С‹ СЃРїРµС†РёС„РёРєР°С†РёРё, СЃС‚РёР»Рё,
+					//РєРѕС‚РѕСЂС‹Рµ СЃРІСЏР·Р°РЅС‹ СЃ РіРµРѕРјРµС‚СЂРёРµР№. РџСЂРё РїСЂРѕСЃС‚РѕРј РєРѕРїРёСЂРѕРІР°РЅРёРё РіСЂСѓРїРїС‹ СЌС‚Р° СЃРІСЏР·СЊ Р±СѓРґРµС‚
+					//РїРѕС‚РµСЂСЏРЅР°.
 					type1.gr = fr.ksReadFragmentToGroup(frwName, false, par);
 					if (type1.gr > 0) 
 					{
 						double ang = type1.angle;
 						if ((j = doc.ksPlacement(null, ref x, ref y, ref ang, rub)) != 0) 
 						{
-							//сдвигаем группу
+							//СЃРґРІРёРіР°РµРј РіСЂСѓРїРїСѓ
 							doc.ksMoveObj(type1.gr, x, y);
-							//поворачиваем группу
+							//РїРѕРІРѕСЂР°С‡РёРІР°РµРј РіСЂСѓРїРїСѓ
 							if(Math.Abs(ang) > 0.001)
 								doc.ksRotateObj(type1.gr, x, y, ang);
-							//ставим группу в модель
+							//СЃС‚Р°РІРёРј РіСЂСѓРїРїСѓ РІ РјРѕРґРµР»СЊ
 							doc.ksStoreTmpGroup(type1.gr);
 							doc.ksClearGroup(type1.gr, true);
 							doc.ksDeleteObj(type1.gr);
@@ -678,19 +678,19 @@ namespace Steps.NET
 		{
 			string libName = string.Empty;
 			string buf = string.Empty;
-			//выберем  библиотеку фрагментов
-			libName =  kompas.ksChoiceFile("*.lfr", "Библиотки фрагментов(*.lfr)|*.lfr|Все файлы (*.*)|*.*|", true) ;
+			//РІС‹Р±РµСЂРµРј  Р±РёР±Р»РёРѕС‚РµРєСѓ С„СЂР°РіРјРµРЅС‚РѕРІ
+			libName =  kompas.ksChoiceFile("*.lfr", "Р‘РёР±Р»РёРѕС‚РєРё С„СЂР°РіРјРµРЅС‚РѕРІ(*.lfr)|*.lfr|Р’СЃРµ С„Р°Р№Р»С‹ (*.*)|*.*|", true) ;
 			if (libName != null && libName != string.Empty) 
 			{ 
 				ksRequestInfo info = (ksRequestInfo) kompas.GetParamStruct((short)StructType2DEnum.ko_RequestInfo) ;
 				ksFragment fr = (ksFragment) doc.GetFragment() ;
-				// АВВ К6 ksFragmentLibrary
+				// РђР’Р’ Рљ6 ksFragmentLibrary
 				ksFragmentLibrary frLib = (ksFragmentLibrary) kompas.GetFragmentLibrary(); 
 				if  (info == null || fr == null || frLib == null)
 					return;
 				info.Init();
 
-				info.commandsString = "!Новый фрагмент !Редактировать фрагмент !Удалить фрагмент ";
+				info.commandsString = "!РќРѕРІС‹Р№ С„СЂР°РіРјРµРЅС‚ !Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С„СЂР°РіРјРµРЅС‚ !РЈРґР°Р»РёС‚СЊ С„СЂР°РіРјРµРЅС‚ ";
 				int j;
 				int typeEdit = 0;
 				string nameFrg = string.Empty;
@@ -699,28 +699,28 @@ namespace Steps.NET
 					j = doc.ksCommandWindow(info);
 					switch (j) 
 					{
-						case 1:  //!Новый_фрагмент
-							buf =  kompas.ksReadString("Введите имя нового фрагмента", "") ;
+						case 1:  //!РќРѕРІС‹Р№_С„СЂР°РіРјРµРЅС‚
+							buf =  kompas.ksReadString("Р’РІРµРґРёС‚Рµ РёРјСЏ РЅРѕРІРѕРіРѕ С„СЂР°РіРјРµРЅС‚Р°", "") ;
 							if (buf != null && buf != string.Empty) 
 							{
 								nameFrg = libName;
 								if (buf[0] != '|')
 									nameFrg += "|";
 								nameFrg += buf;
-								typeEdit = 2; //запустить на редактирование
+								typeEdit = 2; //Р·Р°РїСѓСЃС‚РёС‚СЊ РЅР° СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ
 							}
 							else
 								typeEdit = 0;
 							break;
-						case 2 : //Редактировать_фрагмент
-						case 3 : //Удалить_фрагмент
-							//выберем имя файла фрагмента
+						case 2 : //Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ_С„СЂР°РіРјРµРЅС‚
+						case 3 : //РЈРґР°Р»РёС‚СЊ_С„СЂР°РіРјРµРЅС‚
+							//РІС‹Р±РµСЂРµРј РёРјСЏ С„Р°Р№Р»Р° С„СЂР°РіРјРµРЅС‚Р°
 							int res = 0;
 							buf = frLib.ksChoiceFragmentFromLib(libName, out res);
 							if (res > 0 && buf != null && buf != string.Empty && (j == 2 || j == 3))
 							{
 								nameFrg = buf;
-								typeEdit = j; // 2- запустить на редактирование, 3-удалить ;
+								typeEdit = j; // 2- Р·Р°РїСѓСЃС‚РёС‚СЊ РЅР° СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ, 3-СѓРґР°Р»РёС‚СЊ ;
 							}
 							else
 								typeEdit = 0;
@@ -733,24 +733,24 @@ namespace Steps.NET
 						{
 							if (typeEdit == 2) 
 							{
-								frLib.ksFragmentLibraryOperation(nameFrg, 4 /*минимизировать окно библиотекаря*/);
-								//редактируем фрагмент из библиотеки
-								doc.ksText(0, 100,	//точка привязки текста
-									0,				//угол наклона текста
-									5,				//высота текста
-									1,				//сужение текста
-									0,				//свойства строки, которые задаются вкл.-выкл.
-									"Редактируем фрагмент из библиотеки");	//строка символов
+								frLib.ksFragmentLibraryOperation(nameFrg, 4 /*РјРёРЅРёРјРёР·РёСЂРѕРІР°С‚СЊ РѕРєРЅРѕ Р±РёР±Р»РёРѕС‚РµРєР°СЂСЏ*/);
+								//СЂРµРґР°РєС‚РёСЂСѓРµРј С„СЂР°РіРјРµРЅС‚ РёР· Р±РёР±Р»РёРѕС‚РµРєРё
+								doc.ksText(0, 100,	//С‚РѕС‡РєР° РїСЂРёРІСЏР·РєРё С‚РµРєСЃС‚Р°
+									0,				//СѓРіРѕР» РЅР°РєР»РѕРЅР° С‚РµРєСЃС‚Р°
+									5,				//РІС‹СЃРѕС‚Р° С‚РµРєСЃС‚Р°
+									1,				//СЃСѓР¶РµРЅРёРµ С‚РµРєСЃС‚Р°
+									0,				//СЃРІРѕР№СЃС‚РІР° СЃС‚СЂРѕРєРё, РєРѕС‚РѕСЂС‹Рµ Р·Р°РґР°СЋС‚СЃСЏ РІРєР».-РІС‹РєР».
+									"Р РµРґР°РєС‚РёСЂСѓРµРј С„СЂР°РіРјРµРЅС‚ РёР· Р±РёР±Р»РёРѕС‚РµРєРё");	//СЃС‚СЂРѕРєР° СЃРёРјРІРѕР»РѕРІ
 
 								doc.ksLineSeg (0, 100, 110, 100, 1);
-								//редактируем фрагмент в интерактивном режиме 
-								//после выбора в меню "Сервис" команды "Закончить редактирование фрагмента", 
-								//возвращаемся в библиотеку
-								if (kompas.ksSystemControlStart("Закончить редактирование фрагмента") != 1)
+								//СЂРµРґР°РєС‚РёСЂСѓРµРј С„СЂР°РіРјРµРЅС‚ РІ РёРЅС‚РµСЂР°РєС‚РёРІРЅРѕРј СЂРµР¶РёРјРµ 
+								//РїРѕСЃР»Рµ РІС‹Р±РѕСЂР° РІ РјРµРЅСЋ "РЎРµСЂРІРёСЃ" РєРѕРјР°РЅРґС‹ "Р—Р°РєРѕРЅС‡РёС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„СЂР°РіРјРµРЅС‚Р°", 
+								//РІРѕР·РІСЂР°С‰Р°РµРјСЃСЏ РІ Р±РёР±Р»РёРѕС‚РµРєСѓ
+								if (kompas.ksSystemControlStart("Р—Р°РєРѕРЅС‡РёС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„СЂР°РіРјРµРЅС‚Р°") != 1)
 									kompas.ksStrResult();
 								if (!kompas.ksSystemControlStop())
 									kompas.ksStrResult();
-								frLib.ksFragmentLibraryOperation(nameFrg, 0 /*закрыть c сохранением*/);
+								frLib.ksFragmentLibraryOperation(nameFrg, 0 /*Р·Р°РєСЂС‹С‚СЊ c СЃРѕС…СЂР°РЅРµРЅРёРµРј*/);
 							}
 						}  
 						else
@@ -768,7 +768,7 @@ namespace Steps.NET
 			if (doc.ksGetObjParam(rf, par, ldefin2d.TECHNICAL_DEMAND_PAR) != 0) 
 			{
 				string buf = string.Empty;
-				buf = string.Format("число строк TT = {0}", par.strCount);
+				buf = string.Format("С‡РёСЃР»Рѕ СЃС‚СЂРѕРє TT = {0}", par.strCount);
 				kompas.ksMessage(buf);
 	
 				doc.ksOpenTechnicalDemand(par.GetPGab(), par.style);
@@ -789,7 +789,7 @@ namespace Steps.NET
 							{
 								arr.ksGetArrayItem(j, parItem);
 								kompas.ksMessage(parItem.s);
-								parItem.s = string.Format("{0}-я строка", i + 1);  
+								parItem.s = string.Format("{0}-СЏ СЃС‚СЂРѕРєР°", i + 1);  
 								arr.ksSetArrayItem(j, parItem);
 							}
 						}
@@ -804,12 +804,12 @@ namespace Steps.NET
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -825,11 +825,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 		
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

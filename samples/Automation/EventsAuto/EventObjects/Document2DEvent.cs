@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// Document2DEvent - обработчик событий от 2D документа
+// Document2DEvent - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ 2D РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -17,40 +17,40 @@ namespace Steps.NET
 			: base(obj, typeof(ksDocument2DNotify).GUID, doc,
 			-1, null, selfAdvise) {}
 
-		// d3BeginRebuild - Начало перестроения модели
+		// d3BeginRebuild - РќР°С‡Р°Р»Рѕ РїРµСЂРµСЃС‚СЂРѕРµРЅРёСЏ РјРѕРґРµР»Рё
 		public bool BeginRebuild()
 		{ 
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DDocEvents.Checked)
 			{
 				string str = m_LibName + " --> BeginRebuild";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// d3Rebuild - Модель перестроена
+		// d3Rebuild - РњРѕРґРµР»СЊ РїРµСЂРµСЃС‚СЂРѕРµРЅР°
 		public bool Rebuild()
 		{   
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DDocEvents.Checked)
 			{
 				string str = m_LibName + " --> Rebuild";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
 		}
 
 
-		// d3BeginChoiceMaterial - Начало выбора материала
+		// d3BeginChoiceMaterial - РќР°С‡Р°Р»Рѕ РІС‹Р±РѕСЂР° РјР°С‚РµСЂРёР°Р»Р°
 		public bool BeginChoiceMaterial()
 		{ 
 			bool res = false;
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DDocEvents.Checked)
 			{
 				string str = m_LibName + " --> BeginChoiceMaterial";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
 				if (!res)
@@ -58,41 +58,41 @@ namespace Steps.NET
 					ksTextLineParam parLine = (ksTextLineParam)Global.Kompas.GetParamStruct((short)StructType2DEnum.ko_TextLineParam);
 					ksTextItemParam parItem = (ksTextItemParam)Global.Kompas.GetParamStruct((short)StructType2DEnum.ko_TextItemParam);
 
-					// Cоздали массив строк текста
+					// CРѕР·РґР°Р»Рё РјР°СЃСЃРёРІ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р°
 					ksDynamicArray arMaterial = (ksDynamicArray)Global.Kompas.GetDynamicArray(ldefin2d.TEXT_LINE_ARR);
 					if (arMaterial != null && parLine != null && parItem != null)
 					{
 						parLine.Init();
 						parItem.Init();
 
-						// Массив компонент строки текста
+						// РњР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚ СЃС‚СЂРѕРєРё С‚РµРєСЃС‚Р°
 						ksDynamicArray item = (ksDynamicArray)parLine.GetTextItemArr();
 						if (item != null) 
 						{
 							ksTextItemFont font = (ksTextItemFont)parItem.GetItemFont();
 							if (font != null) 
 							{
-								// Создаем первую строку текста
-								font.height = 10;   // Высота текста
-								font.ksu = 1;       // Сужение текста
-								font.color = 1000;  // Цвет
-								font.bitVector = 1; // Битовый вектор (наклон, толщина, подчеркивание, тип составной части(дробь, отклонение, выражение типа суммы))
-								parItem.s = "(1-я компонента)";
-								// Добавили 1-ю компоненту  в массив компонент
+								// РЎРѕР·РґР°РµРј РїРµСЂРІСѓСЋ СЃС‚СЂРѕРєСѓ С‚РµРєСЃС‚Р°
+								font.height = 10;   // Р’С‹СЃРѕС‚Р° С‚РµРєСЃС‚Р°
+								font.ksu = 1;       // РЎСѓР¶РµРЅРёРµ С‚РµРєСЃС‚Р°
+								font.color = 1000;  // Р¦РІРµС‚
+								font.bitVector = 1; // Р‘РёС‚РѕРІС‹Р№ РІРµРєС‚РѕСЂ (РЅР°РєР»РѕРЅ, С‚РѕР»С‰РёРЅР°, РїРѕРґС‡РµСЂРєРёРІР°РЅРёРµ, С‚РёРї СЃРѕСЃС‚Р°РІРЅРѕР№ С‡Р°СЃС‚Рё(РґСЂРѕР±СЊ, РѕС‚РєР»РѕРЅРµРЅРёРµ, РІС‹СЂР°Р¶РµРЅРёРµ С‚РёРїР° СЃСѓРјРјС‹))
+								parItem.s = "(1-СЏ РєРѕРјРїРѕРЅРµРЅС‚Р°)";
+								// Р”РѕР±Р°РІРёР»Рё 1-СЋ РєРѕРјРїРѕРЅРµРЅС‚Сѓ  РІ РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚
 								item.ksAddArrayItem(-1, parItem);
 
-								font.height = 20;   // Высота текста
-								font.ksu = 2;       // Сужение текста
-								font.color = 2000;  // Цвет
-								font.bitVector = 2; // Битовый вектор (наклон, толщина, подчеркивание, тип составной части(дробь, отклонение, выражение типа суммы))
-								parItem.s = "(2-я компонента)";
-								// Добавили 2-ю компоненту  в массив компонент
+								font.height = 20;   // Р’С‹СЃРѕС‚Р° С‚РµРєСЃС‚Р°
+								font.ksu = 2;       // РЎСѓР¶РµРЅРёРµ С‚РµРєСЃС‚Р°
+								font.color = 2000;  // Р¦РІРµС‚
+								font.bitVector = 2; // Р‘РёС‚РѕРІС‹Р№ РІРµРєС‚РѕСЂ (РЅР°РєР»РѕРЅ, С‚РѕР»С‰РёРЅР°, РїРѕРґС‡РµСЂРєРёРІР°РЅРёРµ, С‚РёРї СЃРѕСЃС‚Р°РІРЅРѕР№ С‡Р°СЃС‚Рё(РґСЂРѕР±СЊ, РѕС‚РєР»РѕРЅРµРЅРёРµ, РІС‹СЂР°Р¶РµРЅРёРµ С‚РёРїР° СЃСѓРјРјС‹))
+								parItem.s = "(2-СЏ РєРѕРјРїРѕРЅРµРЅС‚Р°)";
+								// Р”РѕР±Р°РІРёР»Рё 2-СЋ РєРѕРјРїРѕРЅРµРЅС‚Сѓ  РІ РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚
 								item.ksAddArrayItem(-1, parItem);
 				    
 								parLine.style = 1;
 
-								// 1-я строка текста состоит из двух компонент добавим 
-								// строку текста в массив строк текста
+								// 1-СЏ СЃС‚СЂРѕРєР° С‚РµРєСЃС‚Р° СЃРѕСЃС‚РѕРёС‚ РёР· РґРІСѓС… РєРѕРјРїРѕРЅРµРЅС‚ РґРѕР±Р°РІРёРј 
+								// СЃС‚СЂРѕРєСѓ С‚РµРєСЃС‚Р° РІ РјР°СЃСЃРёРІ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р°
 								arMaterial.ksAddArrayItem(-1, parLine);
 
 								ksDocument2D doc2D = (ksDocument2D)m_Doc;
@@ -109,27 +109,27 @@ namespace Steps.NET
 		}
 
 
-		// d3СhoiceMaterial - Закончен выбор материала
+		// d3РЎhoiceMaterial - Р—Р°РєРѕРЅС‡РµРЅ РІС‹Р±РѕСЂ РјР°С‚РµСЂРёР°Р»Р°
 		public bool ChoiceMaterial(string material, double density)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DDocEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> ChoiceMaterial\nmaterial = {1}\ndensity = {2}", m_LibName, material, density);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
 		}
 
 
-		// d2BeginInsertFragment - Начало вставки фрагмента (до диалога выбора имени)
+		// d2BeginInsertFragment - РќР°С‡Р°Р»Рѕ РІСЃС‚Р°РІРєРё С„СЂР°РіРјРµРЅС‚Р° (РґРѕ РґРёР°Р»РѕРіР° РІС‹Р±РѕСЂР° РёРјРµРЅРё)
 		public bool BeginInsertFragment()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DDocEvents.Checked)
 			{
 				string str = m_LibName + " --> BeginInsertFragment";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
@@ -142,7 +142,7 @@ namespace Steps.NET
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DDocEvents.Checked)
 			{
 				string str = m_LibName + " --> LocalFragmentEdit";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;

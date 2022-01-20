@@ -1,4 +1,4 @@
-
+п»ї
 using Kompas6API5;
 
 using System;
@@ -15,7 +15,7 @@ using reference = System.Int32;
 
 namespace Steps.NET
 {
-	// Класс EventsAuto - Тест событий на C#
+	// РљР»Р°СЃСЃ EventsAuto - РўРµСЃС‚ СЃРѕР±С‹С‚РёР№ РЅР° C#
   [ClassInterface(ClassInterfaceType.AutoDual)]
 	public class EventsAuto
 	{
@@ -24,12 +24,12 @@ namespace Steps.NET
 		#endregion
 
 		#region Constants
-		private const int SPC_BASE_OBJECT = 1;	// базовый объект
-		private const int SPC_COMMENT = 2;		// комментарий
+		private const int SPC_BASE_OBJECT = 1;	// Р±Р°Р·РѕРІС‹Р№ РѕР±СЉРµРєС‚
+		private const int SPC_COMMENT = 2;		// РєРѕРјРјРµРЅС‚Р°СЂРёР№
 		private const int IDM_REQUEST_OBJECT_2D = 10001;
 		#endregion
 
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
 		{
 			ResourceManager rm = new ResourceManager(typeof (EventsAuto));
@@ -37,7 +37,7 @@ namespace Steps.NET
 		}
 		
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			kompas = (KompasObject) kompas_;
@@ -45,24 +45,24 @@ namespace Steps.NET
 
 			switch ((int)command)
 			{
-					#region События приложения
-				case 1 : // Подписаться
+					#region РЎРѕР±С‹С‚РёСЏ РїСЂРёР»РѕР¶РµРЅРёСЏ
+				case 1 : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ
 					if (!BaseEvent.FindEvent(typeof(ApplicationEvent), null, -1, null)) 
 					{
-						ApplicationEvent aplEvent = new ApplicationEvent(kompas, true);	// Обработчик событий приложения КОМПАС
+						ApplicationEvent aplEvent = new ApplicationEvent(kompas, true);	// РћР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РїСЂРёР»РѕР¶РµРЅРёСЏ РљРћРњРџРђРЎ
 						aplEvent.Advise();
 					}
 					else 
-						kompas.ksError("На события приложения Компас уже подписались");
+						kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РїСЂРёР»РѕР¶РµРЅРёСЏ РљРѕРјРїР°СЃ СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					break;
 
-				case 2 : // Отписаться
+				case 2 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ
 					BaseEvent.TerminateEvents(typeof(ApplicationEvent), null, -1, null);
 					break;
 					#endregion
 
-					#region События документов
-				case 3 : // Подписаться
+					#region РЎРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚РѕРІ
+				case 3 : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ
 					object doc = kompas.ksGetDocumentByReference(0);
 					int docType = kompas.ksGetDocumentType(0);
 					if (doc != null) 
@@ -72,23 +72,23 @@ namespace Steps.NET
 								false, false, false, false, -1);
 					}
 					else
-						kompas.ksError("Нет активного документа"); 
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°"); 
 					break;
 
-				case 4 : // Отписаться от всех событий документа
+				case 4 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РІСЃРµС… СЃРѕР±С‹С‚РёР№ РґРѕРєСѓРјРµРЅС‚Р°
 					if (kompas != null) 
 					{
 						doc = kompas.ksGetDocumentByReference(0);
 						if (doc != null)
 							BaseEvent.TerminateEvents(typeof(DocumentEvent), doc, -1, null);
 						else
-							kompas.ksError("Нет активного документа");
+							kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°");
 					} 
 					break;
 					#endregion
 
-					#region События объекта 2D документа
-				case 5 : // Подписаться
+					#region РЎРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° 2D РґРѕРєСѓРјРµРЅС‚Р°
+				case 5 : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ
 					ksDocument2D doc2D = (ksDocument2D)kompas.ActiveDocument2D();
 					docType = kompas.ksGetDocumentType(0);
 					if (doc2D != null)
@@ -103,10 +103,10 @@ namespace Steps.NET
 								false, objType);
 					}
 					else
-						kompas.ksError("Нет активного 2D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-				case 6  : // Отписаться
+				case 6  : // РћС‚РїРёСЃР°С‚СЊСЃСЏ
 					doc2D = (ksDocument2D)kompas.ActiveDocument2D();
 					docType = kompas.ksGetDocumentType(0);
 					if (doc2D != null) 
@@ -116,23 +116,23 @@ namespace Steps.NET
 							BaseEvent.TerminateEvents(typeof(Object2DEvent), doc2D, objType, null); 
 					}
 					else
-						kompas.ksError("Нет активного 2D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-				case 7  : // Отписаться от всех событий объектов 2D
+				case 7  : // РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РІСЃРµС… СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚РѕРІ 2D
 					doc2D = (ksDocument2D)kompas.ActiveDocument2D();
 					if (doc2D != null) 
 						BaseEvent.TerminateEvents(typeof(Object2DEvent), doc2D, -1, null); 
 					else
-						kompas.ksError("Нет активного 2D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-				case 8  : // Подписаться на события вида по номеру
+				case 8  : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° СЃРѕР±С‹С‚РёСЏ РІРёРґР° РїРѕ РЅРѕРјРµСЂСѓ
 					doc2D = (ksDocument2D)kompas.ActiveDocument2D();
 					if (doc2D != null) 
 					{
 						int view = 0;
-						if (kompas.ksReadInt("Введите номер вида", 0, 0, 254, ref view) != 0) 
+						if (kompas.ksReadInt("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РІРёРґР°", 0, 0, 254, ref view) != 0) 
 						{
 							reference refView = doc2D.ksGetViewReference(view);
 							if (refView != 0)       
@@ -147,40 +147,40 @@ namespace Steps.NET
 									}
 								}
 								else
-									kompas.ksError("На события объекта 2D документа уже подписались");
+									kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° 2D РґРѕРєСѓРјРµРЅС‚Р° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 							}
 							else
-								kompas.ksError("Вид с таким номером не существует");
+								kompas.ksError("Р’РёРґ СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
 						}
 					}
 					else
-						kompas.ksError("Нет активного 2D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-				case 9 : // Отписаться от событий для вида по номеру
+				case 9 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ СЃРѕР±С‹С‚РёР№ РґР»СЏ РІРёРґР° РїРѕ РЅРѕРјРµСЂСѓ
 					doc2D = (ksDocument2D)kompas.ActiveDocument2D();
 					if (doc2D != null) 
 					{
 						int view = 0;
-						if (kompas.ksReadInt("Введите номер вида", 0, 0, 254, ref view) != 0) 
+						if (kompas.ksReadInt("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РІРёРґР°", 0, 0, 254, ref view) != 0) 
 						{
 							reference refView = doc2D.ksGetViewReference(view);
 							if (refView != 0) 
 								BaseEvent.TerminateEvents(typeof(Object2DEvent), doc2D, refView, null);
 							else
-								kompas.ksError("Вид с таким номером не существует");
+								kompas.ksError("Р’РёРґ СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
 						}
 					}
 					else
-						kompas.ksError("Нет активного 2D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-				case 10 : // Подписаться на события слоя по номеру
+				case 10 : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° СЃРѕР±С‹С‚РёСЏ СЃР»РѕСЏ РїРѕ РЅРѕРјРµСЂСѓ
 					doc2D  = (ksDocument2D)kompas.ActiveDocument2D();
 					if (doc2D != null)
 					{
 						int layer = 0;
-						if (kompas.ksReadInt("Введите номер слоя", 0, 0, 254, ref layer) != 0)
+						if (kompas.ksReadInt("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЃР»РѕСЏ", 0, 0, 254, ref layer) != 0)
 						{
 							reference refLayer = doc2D.ksGetLayerReference(layer);
 							if (refLayer != 0) 
@@ -195,37 +195,37 @@ namespace Steps.NET
 									}
 								}
 								else
-									kompas.ksError("На события объекта 2D документа уже подписались");
+									kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° 2D РґРѕРєСѓРјРµРЅС‚Р° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 							}
 							else
-								kompas.ksError("Слой с таким номером не существует");
+								kompas.ksError("РЎР»РѕР№ СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
 						}
 					}
 					else
-						kompas.ksError("Нет активного 2D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-				case 11 : // Отписаться от событий для слоя по номеру
+				case 11 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ СЃРѕР±С‹С‚РёР№ РґР»СЏ СЃР»РѕСЏ РїРѕ РЅРѕРјРµСЂСѓ
 					doc2D = (ksDocument2D)kompas.ActiveDocument2D();
 					if (doc2D != null) 
 					{
 						int layer = 0;
-						if (kompas.ksReadInt("Введите номер слоя", 0, 0, 254, ref layer) != 0) 
+						if (kompas.ksReadInt("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЃР»РѕСЏ", 0, 0, 254, ref layer) != 0) 
 						{
 							reference refLayer = doc2D.ksGetLayerReference(layer);
 							if (refLayer != 0) 
 								BaseEvent.TerminateEvents(typeof(Object2DEvent), doc2D, refLayer, null);
 							else
-								kompas.ksError("Слой с таким номером не существует");
+								kompas.ksError("РЎР»РѕР№ СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
 						}
 					}
 					else
-						kompas.ksError("Нет активного 2D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 					#endregion
 
-					#region События селектирования  
-				case 12 : // Подписаться 
+					#region РЎРѕР±С‹С‚РёСЏ СЃРµР»РµРєС‚РёСЂРѕРІР°РЅРёСЏ  
+				case 12 : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ 
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
 					if (doc != null &&  
@@ -242,10 +242,10 @@ namespace Steps.NET
 							false,
 							-1);
 					else
-						kompas.ksError("Нет активного 2D или 3D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РёР»Рё 3D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-				case 13 : // Отписаться
+				case 13 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
 					if (doc != null &&  
@@ -256,12 +256,12 @@ namespace Steps.NET
 						docType == (int)DocType.lt_DocFragment))
 						BaseEvent.TerminateEvents(typeof(SelectMngEvent), doc, -1, null); 
 					else
-						kompas.ksError("Нет активного 2D или 3D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РёР»Рё 3D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 					#endregion
 
-					#region События редактирования штампа
-				case 14 : // Подписаться 
+					#region РЎРѕР±С‹С‚РёСЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С€С‚Р°РјРїР°
+				case 14 : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ 
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
 					if (doc != null && 
@@ -275,10 +275,10 @@ namespace Steps.NET
 							false,
 							-1);
 					else
-						kompas.ksError("Нет активного 2D, текстового документа или документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D, С‚РµРєСЃС‚РѕРІРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° РёР»Рё РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 
-				case 15 : // Отписаться
+				case 15 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
 					if (doc != null && 
@@ -286,13 +286,13 @@ namespace Steps.NET
 						docType != (int)DocType.lt_DocAssemble3D) 
 						BaseEvent.TerminateEvents(typeof(StampEvent), doc, -1, null); 
 					else
-						kompas.ksError("Нет активного 2D, текстового документа или документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D, С‚РµРєСЃС‚РѕРІРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° РёР»Рё РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 					#endregion
 			
-					#region События объектов 3D документа
-      				// Подписаться
-				case 16: // Указать объект в модели 
+					#region РЎРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚РѕРІ 3D РґРѕРєСѓРјРµРЅС‚Р°
+      				// РџРѕРґРїРёСЃР°С‚СЊСЃСЏ
+				case 16: // РЈРєР°Р·Р°С‚СЊ РѕР±СЉРµРєС‚ РІ РјРѕРґРµР»Рё 
 					ksDocument3D doc3D = (ksDocument3D)kompas.ActiveDocument3D();
 					docType = kompas.ksGetDocumentType(0);
 					if (doc3D != null) 
@@ -304,11 +304,11 @@ namespace Steps.NET
 							false,
 							-1);
 					else
-						kompas.ksError("Нет активного 3D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 3D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-					// Отписаться
-				case 17: // Указать объект в модели 
+					// РћС‚РїРёСЃР°С‚СЊСЃСЏ
+				case 17: // РЈРєР°Р·Р°С‚СЊ РѕР±СЉРµРєС‚ РІ РјРѕРґРµР»Рё 
 					doc3D = (ksDocument3D)kompas.ActiveDocument3D();
 					docType = kompas.ksGetDocumentType(0);
 					if (doc3D != null) 
@@ -319,20 +319,20 @@ namespace Steps.NET
 							BaseEvent.TerminateEvents(typeof(Object3DEvent), doc3D, objType, obj3D); 
 					}
 					else
-						kompas.ksError("Нет активного 3D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 3D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-				case 18: // Отписаться от всех объектов 3D документа
+				case 18: // РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РІСЃРµС… РѕР±СЉРµРєС‚РѕРІ 3D РґРѕРєСѓРјРµРЅС‚Р°
 					doc3D = (ksDocument3D)kompas.ActiveDocument3D();
 					if (doc3D != null) 
 						BaseEvent.TerminateEvents(typeof(Object3DEvent), doc3D, -1, null); 
 					else
-						kompas.ksError("Нет активного 3D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 3D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 					#endregion
 
-					#region Cобытия спецификации 
-				case 19 : // Подписаться 
+					#region CРѕР±С‹С‚РёСЏ СЃРїРµС†РёС„РёРєР°С†РёРё 
+				case 19 : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ 
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
 					if (doc != null && 
@@ -346,10 +346,10 @@ namespace Steps.NET
 							false,
 							-1);
 					else
-						kompas.ksError("Нет активного 2D, 3D документа или документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D, 3D РґРѕРєСѓРјРµРЅС‚Р° РёР»Рё РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 
-				case 20 : // Отписаться
+				case 20 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
 					if (doc != null && 
@@ -357,20 +357,20 @@ namespace Steps.NET
 						docType != (int)DocType.lt_DocTxtUser) 
 						BaseEvent.TerminateEvents(typeof(SpecificationEvent), doc, -1, null); 
 					else
-						kompas.ksError("Нет активного 2D, 3D документа или документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D, 3D РґРѕРєСѓРјРµРЅС‚Р° РёР»Рё РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 					#endregion
 
-					#region События объекта спецификации
-    				// Подписаться
-				case 21 : // Текущий объект
+					#region РЎРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
+    				// РџРѕРґРїРёСЃР°С‚СЊСЃСЏ
+				case 21 : // РўРµРєСѓС‰РёР№ РѕР±СЉРµРєС‚
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
-					// Документ не должен быть текстовым (2D, 3D документ или документ спецификации)
+					// Р”РѕРєСѓРјРµРЅС‚ РЅРµ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‚РµРєСЃС‚РѕРІС‹Рј (2D, 3D РґРѕРєСѓРјРµРЅС‚ РёР»Рё РґРѕРєСѓРјРµРЅС‚ СЃРїРµС†РёС„РёРєР°С†РёРё)
 					ksSpecification specification = GetSpecification();
 					reference refSpcObj = specification.ksGetCurrentSpcObject();
 					if (refSpcObj == 0)
-						kompas.ksError("Нет текущего объекта спецификации");
+						kompas.ksError("РќРµС‚ С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					if (doc != null && 
 						docType != (int)DocType.lt_DocTxtStandart && 
 						docType != (int)DocType.lt_DocTxtUser) 
@@ -382,15 +382,15 @@ namespace Steps.NET
 							true, 
 							refSpcObj);
 					else
-						kompas.ksError("Нет активного 2D, 3D документа или документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D, 3D РґРѕРєСѓРјРµРЅС‚Р° РёР»Рё РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 
-				case 22 : // Все объекты
-				case SPC_BASE_OBJECT + 350 : // Базовый объект
-				case SPC_COMMENT     + 350 : // Комментарий
+				case 22 : // Р’СЃРµ РѕР±СЉРµРєС‚С‹
+				case SPC_BASE_OBJECT + 350 : // Р‘Р°Р·РѕРІС‹Р№ РѕР±СЉРµРєС‚
+				case SPC_COMMENT     + 350 : // РљРѕРјРјРµРЅС‚Р°СЂРёР№
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
-					// Документ не должен быть текстовым (2D, 3D документ или документ спецификации)
+					// Р”РѕРєСѓРјРµРЅС‚ РЅРµ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‚РµРєСЃС‚РѕРІС‹Рј (2D, 3D РґРѕРєСѓРјРµРЅС‚ РёР»Рё РґРѕРєСѓРјРµРЅС‚ СЃРїРµС†РёС„РёРєР°С†РёРё)
 					if (doc != null && 
 						docType != (int)DocType.lt_DocTxtStandart && 
 						docType != (int)DocType.lt_DocTxtUser) 
@@ -404,14 +404,14 @@ namespace Steps.NET
 							true, objType);
 					}
 					else
-						kompas.ksError("Нет активного 2D, 3D документа или документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D, 3D РґРѕРєСѓРјРµРЅС‚Р° РёР»Рё РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 
-					// Отписаться    
-				case 23 : // Текущий объект
+					// РћС‚РїРёСЃР°С‚СЊСЃСЏ    
+				case 23 : // РўРµРєСѓС‰РёР№ РѕР±СЉРµРєС‚
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
-					// Документ не должен быть текстовым (2D, 3D документ или документ спецификации)
+					// Р”РѕРєСѓРјРµРЅС‚ РЅРµ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‚РµРєСЃС‚РѕРІС‹Рј (2D, 3D РґРѕРєСѓРјРµРЅС‚ РёР»Рё РґРѕРєСѓРјРµРЅС‚ СЃРїРµС†РёС„РёРєР°С†РёРё)
 					if (doc != null && 
 						docType != (int)DocType.lt_DocTxtStandart && 
 						docType != (int)DocType.lt_DocTxtUser) 
@@ -421,18 +421,18 @@ namespace Steps.NET
 						{
 							refSpcObj = specification.ksGetCurrentSpcObject();
 							if (refSpcObj == 0)
-								kompas.ksError("Нет текущего объекта спецификации");
+								kompas.ksError("РќРµС‚ С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 							else
 								BaseEvent.TerminateEvents(typeof(SpcObjectEvent), doc, refSpcObj, null);        
 						}
 					}
 					else
-						kompas.ksError("Нет активного 2D, 3D документа или документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D, 3D РґРѕРєСѓРјРµРЅС‚Р° РёР»Рё РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 
-				case 24 : // Все объекты
-				case SPC_BASE_OBJECT + 400 : // Базовый объект
-				case SPC_COMMENT     + 400 : // Комментарий
+				case 24 : // Р’СЃРµ РѕР±СЉРµРєС‚С‹
+				case SPC_BASE_OBJECT + 400 : // Р‘Р°Р·РѕРІС‹Р№ РѕР±СЉРµРєС‚
+				case SPC_COMMENT     + 400 : // РљРѕРјРјРµРЅС‚Р°СЂРёР№
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
 					if (doc != null && 
@@ -443,10 +443,10 @@ namespace Steps.NET
 						BaseEvent.TerminateEvents(typeof(SpcObjectEvent), doc, objType, null); 
 					}
 					else
-						kompas.ksError("Нет активного 2D, 3D документа или документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D, 3D РґРѕРєСѓРјРµРЅС‚Р° РёР»Рё РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 
-				case 25 : // Отписаться от всех объектов спецификации
+				case 25 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РІСЃРµС… РѕР±СЉРµРєС‚РѕРІ СЃРїРµС†РёС„РёРєР°С†РёРё
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
 					if (doc != null && 
@@ -454,12 +454,12 @@ namespace Steps.NET
 						docType != (int)DocType.lt_DocTxtUser) 
 						BaseEvent.TerminateEvents(typeof(SpcObjectEvent), doc, -1, null); 
 					else
-						kompas.ksError("Нет активного 2D, 3D документа или документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D, 3D РґРѕРєСѓРјРµРЅС‚Р° РёР»Рё РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 					#endregion
 
-					#region События 3D документа
-				case 26 : // Подписаться
+					#region РЎРѕР±С‹С‚РёСЏ 3D РґРѕРєСѓРјРµРЅС‚Р°
+				case 26 : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ
 					doc3D = (ksDocument3D)kompas.ActiveDocument3D();
 					docType = kompas.ksGetDocumentType(0);
 					if (doc3D != null) 
@@ -471,20 +471,20 @@ namespace Steps.NET
 							false,
 							-1);
 					else
-						kompas.ksError("Нет активного 3D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 3D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-				case 27 : // Отписаться
+				case 27 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ
 					doc3D = (ksDocument3D)kompas.ActiveDocument3D();
 					if (doc3D != null) 
 						BaseEvent.TerminateEvents(typeof(Document3DEvent), doc3D, -1, null); 
 					else
-						kompas.ksError("Нет активного 3D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 3D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 					#endregion
 
-					#region События документа спецификации
-				case 28 : // Подписаться
+					#region РЎРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
+				case 28 : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
 					if (doc != null && 
@@ -498,10 +498,10 @@ namespace Steps.NET
 							false,
 							-1);
 					else
-						kompas.ksError("Нет активного документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 
-				case 29 : // Отписаться
+				case 29 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ
 					doc = kompas.ksGetDocumentByReference(0);
 					docType = kompas.ksGetDocumentType(0);
 					if (doc != null && 
@@ -509,12 +509,12 @@ namespace Steps.NET
 						docType == (int)DocType.lt_DocSpc)) 
 						BaseEvent.TerminateEvents(typeof(SpcDocumentEvent), doc, -1, null); 
 					else
-						kompas.ksError("Нет активного документа спецификации");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 					break;
 					#endregion
 
-					#region События 2D документа
-				case 30 : // Подписаться
+					#region РЎРѕР±С‹С‚РёСЏ 2D РґРѕРєСѓРјРµРЅС‚Р°
+				case 30 : // РџРѕРґРїРёСЃР°С‚СЊСЃСЏ
 					doc2D = (ksDocument2D)kompas.ActiveDocument2D();
 					docType = kompas.ksGetDocumentType(0);
 					if (doc2D != null) 
@@ -526,36 +526,36 @@ namespace Steps.NET
 							false,
 							-1);
 					else
-						kompas.ksError("Нет активного 2D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 
-				case 31 : // Отписаться
+				case 31 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ
 					doc2D = (ksDocument2D)kompas.ActiveDocument2D();
 					if (doc2D != null) 
 						BaseEvent.TerminateEvents(typeof(Document2DEvent), doc2D, -1, null); 
 					else
-						kompas.ksError("Нет активного 2D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 2D РґРѕРєСѓРјРµРЅС‚Р°");
 					break;
 					#endregion
 
-					#region Вспомогательные
-				case 32 : // Отписаться от всех событий
+					#region Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ
+				case 32 : // РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РІСЃРµС… СЃРѕР±С‹С‚РёР№
 					BaseEvent.TerminateEvents();
 					break;
 
-				case 33 : // Конфигурация
+				case 33 : // РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ
 					FrmConfig.Instance.ShowDialog();
 					break;
 
-				case 34 : // Подписанные события
+				case 34 : // РџРѕРґРїРёСЃР°РЅРЅС‹Рµ СЃРѕР±С‹С‚РёСЏ
 					BaseEvent.ListEvents();
 					break; 
 					#endregion
       
-					#region Общее
+					#region РћР±С‰РµРµ
 				default :
-					// События объекта 3D документа
-					// Подписаться
+					// РЎРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° 3D РґРѕРєСѓРјРµРЅС‚Р°
+					// РџРѕРґРїРёСЃР°С‚СЊСЃСЏ
 					if (command >= (int)Obj3dType.o3d_unknown + 50 && command <= (int)Obj3dType.o3d_feature + 50)
 					{
 						doc3D = (ksDocument3D)kompas.ActiveDocument3D();
@@ -572,9 +572,9 @@ namespace Steps.NET
 						}
 					}
 					else
-						kompas.ksError("Нет активного 3D документа");
+						kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 3D РґРѕРєСѓРјРµРЅС‚Р°");
       
-					// Отписаться
+					// РћС‚РїРёСЃР°С‚СЊСЃСЏ
 					if (command >= (int)Obj3dType.o3d_unknown + 200 && command <= (int)Obj3dType.o3d_feature + 200)
 					{
 						if (command >= (int)Obj3dType.o3d_unknown + 50 && command <= (int)Obj3dType.o3d_feature + 50)
@@ -588,7 +588,7 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("Нет активного 3D документа");
+							kompas.ksError("РќРµС‚ Р°РєС‚РёРІРЅРѕРіРѕ 3D РґРѕРєСѓРјРµРЅС‚Р°");
 					}
 					break;
 					#endregion
@@ -596,10 +596,10 @@ namespace Steps.NET
 		}
 
 
-		// Формирование меню библиотеки
+		// Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РјРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)]	public string ExternalMenuItem(short number, ref short itemType, ref short command)
 		{
-			string result = string.Empty;	//По уполчанию - пустая строка
+			string result = string.Empty;	//РџРѕ СѓРїРѕР»С‡Р°РЅРёСЋ - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°
 			itemType = 1;					//MENUITEM
 			command = -1;
 
@@ -607,14 +607,14 @@ namespace Steps.NET
 			{
 				case 1:
 					itemType = 2;			//POPUP
-					result = "События Компаса";
+					result = "РЎРѕР±С‹С‚РёСЏ РљРѕРјРїР°СЃР°";
 					break;
 				case 2:
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 1;
 					break;
 				case 3:
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					command = 2;
 					break;
 				case 4:
@@ -622,14 +622,14 @@ namespace Steps.NET
 					break;
 				case 5:
 					itemType = 2;			//POPUP
-					result = "События документов";
+					result = "РЎРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚РѕРІ";
 					break;
 				case 6:
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 3;
 					break;
 				case 7:
-					result = "Отписаться от всех событий документа";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РІСЃРµС… СЃРѕР±С‹С‚РёР№ РґРѕРєСѓРјРµРЅС‚Р°";
 					command = 4;
 					break;
 				case 8:
@@ -637,40 +637,40 @@ namespace Steps.NET
 					break;
 				case 9:
 					itemType = 2;			//POPUP
-					result = "События объекта 2D документа";
+					result = "РЎРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° 2D РґРѕРєСѓРјРµРЅС‚Р°";
 					break;
 				case 10:
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 5;
 					break;
 				case 11:
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					command = 6;
 					break;
 				case 12:
-					result = "Отписаться от всех событий объектов 2D";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РІСЃРµС… СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚РѕРІ 2D";
 					command = 7;
 					break;
 				case 13:
 					itemType = 0;			//SEPARATOR
 					break;
 				case 14:
-					result = "Подписаться на события вида по номеру";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° СЃРѕР±С‹С‚РёСЏ РІРёРґР° РїРѕ РЅРѕРјРµСЂСѓ";
 					command = 8;
 					break;
 				case 15:
-					result = "Отписаться от событий для вида по номеру";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ СЃРѕР±С‹С‚РёР№ РґР»СЏ РІРёРґР° РїРѕ РЅРѕРјРµСЂСѓ";
 					command = 9;
 					break;
 				case 16:
 					itemType = 0;			//SEPARATOR
 					break;
 				case 17:
-					result = "Подписаться на события слоя по номеру";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° СЃРѕР±С‹С‚РёСЏ СЃР»РѕСЏ РїРѕ РЅРѕРјРµСЂСѓ";
 					command = 10;
 					break;
 				case 18:
-					result = "Отписаться от событий для слоя по номеру";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ СЃРѕР±С‹С‚РёР№ РґР»СЏ СЃР»РѕСЏ РїРѕ РЅРѕРјРµСЂСѓ";
 					command = 11;
 					break;
 				case 19:
@@ -678,14 +678,14 @@ namespace Steps.NET
 					break;
 				case 20:
 					itemType = 2;			//POPUP
-					result = "События селектирования";
+					result = "РЎРѕР±С‹С‚РёСЏ СЃРµР»РµРєС‚РёСЂРѕРІР°РЅРёСЏ";
 					break;
 				case 21:
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 12;
 					break;
 				case 22:
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					command = 13;
 					break;
 				case 23:
@@ -693,14 +693,14 @@ namespace Steps.NET
 					break;
 				case 24:
 					itemType = 2;			//POPUP
-					result = "События штампа";
+					result = "РЎРѕР±С‹С‚РёСЏ С€С‚Р°РјРїР°";
 					break;
 				case 25:
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 14;
 					break;
 				case 26:
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					command = 15;
 					break;
 				case 27:
@@ -708,249 +708,249 @@ namespace Steps.NET
 					break;
 				case 28:
 					itemType = 2;			//POPUP
-					result = "События объекта 3D документа";
+					result = "РЎРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° 3D РґРѕРєСѓРјРµРЅС‚Р°";
 					break;
 				case 29:
 					itemType = 2;			//POPUP
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					break;
 				case 30:
-					result = "Указать объект в модели";
+					result = "РЈРєР°Р·Р°С‚СЊ РѕР±СЉРµРєС‚ РІ РјРѕРґРµР»Рё";
 					command = 16;
 					break;
 				case 31:
 					itemType = 0;			//SEPARATOR
 					break;
 				case 32:
-					result = "Все объекты";
+					result = "Р’СЃРµ РѕР±СЉРµРєС‚С‹";
 					command = (short)Obj3dType.o3d_unknown + 50;
 					break;
 				case 33:
-					result = "Плоскость XOY";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ XOY";
 					command = (short)Obj3dType.o3d_planeXOY + 50;
 					break;
 				case 34:
-					result = "Плоскость XOZ";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ XOZ";
 					command = (short)Obj3dType.o3d_planeXOZ + 50;
 					break;
 				case 35:
-					result = "Плоскость YOZ";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ YOZ";
 					command = (short)Obj3dType.o3d_planeYOZ + 50;
 					break;
 				case 36:
-					result = "Точка начала системы координат";
+					result = "РўРѕС‡РєР° РЅР°С‡Р°Р»Р° СЃРёСЃС‚РµРјС‹ РєРѕРѕСЂРґРёРЅР°С‚";
 					command = (short)Obj3dType.o3d_pointCS + 50;
 					break;
 				case 37:
-					result = "Эскиз";
+					result = "Р­СЃРєРёР·";
 					command = (short)Obj3dType.o3d_sketch + 50;
 					break;
 				case 38:
-					result = "Ось по двум плоскостям";
+					result = "РћСЃСЊ РїРѕ РґРІСѓРј РїР»РѕСЃРєРѕСЃС‚СЏРј";
 					command = (short)Obj3dType.o3d_axis2Planes + 50;
 					break;
 				case 39:
-					result = "Ось по двум точкам";
+					result = "РћСЃСЊ РїРѕ РґРІСѓРј С‚РѕС‡РєР°Рј";
 					command = (short)Obj3dType.o3d_axis2Points + 50;
 					break;
 				case 40:
-					result = "Ось конической грани";
+					result = "РћСЃСЊ РєРѕРЅРёС‡РµСЃРєРѕР№ РіСЂР°РЅРё";
 					command = (short)Obj3dType.o3d_axisConeFace + 50;
 					break;
 				case 41:
-					result = "Ось проходящая через ребро";
+					result = "РћСЃСЊ РїСЂРѕС…РѕРґСЏС‰Р°СЏ С‡РµСЂРµР· СЂРµР±СЂРѕ";
 					command = (short)Obj3dType.o3d_axisEdge + 50;
 					break;
 				case 42:
-					result = "Ось операции";
+					result = "РћСЃСЊ РѕРїРµСЂР°С†РёРё";
 					command = (short)Obj3dType.o3d_axisOperation + 50;
 					break;
 				case 43:
-					result = "Смещённая плоскость";
+					result = "РЎРјРµС‰С‘РЅРЅР°СЏ РїР»РѕСЃРєРѕСЃС‚СЊ";
 					command = (short)Obj3dType.o3d_planeOffset + 50;
 					break;
 				case 44:
-					result = "Плоскость под углом";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ РїРѕРґ СѓРіР»РѕРј";
 					command = (short)Obj3dType.o3d_planeAngle + 50;
 					break;
 				case 45:
-					result = "Плоскость по 3-м точкам";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ РїРѕ 3-Рј С‚РѕС‡РєР°Рј";
 					command = (short)Obj3dType.o3d_plane3Points + 50;
 					break;
 				case 46:
-					result = "Нормальная плоскость";
+					result = "РќРѕСЂРјР°Р»СЊРЅР°СЏ РїР»РѕСЃРєРѕСЃС‚СЊ";
 					command = (short)Obj3dType.o3d_planeNormal + 50;
 					break;
 				case 47:
-					result = "Касательная плоскость";
+					result = "РљР°СЃР°С‚РµР»СЊРЅР°СЏ РїР»РѕСЃРєРѕСЃС‚СЊ";
 					command = (short)Obj3dType.o3d_planeTangent + 50;
 					break;
 				case 48:
-					result = "Плоскость через ребро и вершину";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ С‡РµСЂРµР· СЂРµР±СЂРѕ Рё РІРµСЂС€РёРЅСѓ";
 					command = (short)Obj3dType.o3d_planeEdgePoint + 50;
 					break;
 				case 49:
-					result = "Плоскость через вершину параллельно другой плоскости";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ С‡РµСЂРµР· РІРµСЂС€РёРЅСѓ РїР°СЂР°Р»Р»РµР»СЊРЅРѕ РґСЂСѓРіРѕР№ РїР»РѕСЃРєРѕСЃС‚Рё";
 					command = (short)Obj3dType.o3d_planeParallel + 50;
 					break;
 				case 50:
-					result = "Плоскость через вершину перпендикулярно ребру";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ С‡РµСЂРµР· РІРµСЂС€РёРЅСѓ РїРµСЂРїРµРЅРґРёРєСѓР»СЏСЂРЅРѕ СЂРµР±СЂСѓ";
 					command = (short)Obj3dType.o3d_planePerpendicular + 50;
 					break;
 				case 51:
-					result = "Плоскость через ребро пар-но/пер-но другому ребру";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ С‡РµСЂРµР· СЂРµР±СЂРѕ РїР°СЂ-РЅРѕ/РїРµСЂ-РЅРѕ РґСЂСѓРіРѕРјСѓ СЂРµР±СЂСѓ";
 					command = (short)Obj3dType.o3d_planeLineToEdge + 50;
 					break;
 				case 52:
-					result = "Плоскость через ребро пар-но/пер-но грани";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ С‡РµСЂРµР· СЂРµР±СЂРѕ РїР°СЂ-РЅРѕ/РїРµСЂ-РЅРѕ РіСЂР°РЅРё";
 					command = (short)Obj3dType.o3d_planeLineToPlane + 50;
 					break;
 				case 53:
-					result = "Базовая операция выдавливания";
+					result = "Р‘Р°Р·РѕРІР°СЏ РѕРїРµСЂР°С†РёСЏ РІС‹РґР°РІР»РёРІР°РЅРёСЏ";
 					command = (short)Obj3dType.o3d_baseExtrusion + 50;
 					break;
 				case 54:
-					result = "Приклеивание выдавливанием";
+					result = "РџСЂРёРєР»РµРёРІР°РЅРёРµ РІС‹РґР°РІР»РёРІР°РЅРёРµРј";
 					command = (short)Obj3dType.o3d_bossExtrusion + 50;
 					break;
 				case 55:
-					result = "Вырезать выдавливанием";
+					result = "Р’С‹СЂРµР·Р°С‚СЊ РІС‹РґР°РІР»РёРІР°РЅРёРµРј";
 					command = (short)Obj3dType.o3d_cutExtrusion + 50;
 					break;
 				case 56:
-					result = "Базовая операция вращения";
+					result = "Р‘Р°Р·РѕРІР°СЏ РѕРїРµСЂР°С†РёСЏ РІСЂР°С‰РµРЅРёСЏ";
 					command = (short)Obj3dType.o3d_baseRotated + 50;
 					break;
 				case 57:
-					result = "Приклеивание вращением";
+					result = "РџСЂРёРєР»РµРёРІР°РЅРёРµ РІСЂР°С‰РµРЅРёРµРј";
 					command = (short)Obj3dType.o3d_bossRotated + 50;
 					break;
 				case 58:
-					result = "Вырезать вращением";
+					result = "Р’С‹СЂРµР·Р°С‚СЊ РІСЂР°С‰РµРЅРёРµРј";
 					command = (short)Obj3dType.o3d_cutRotated + 50;
 					break;
 				case 59:
-					result = "Базовая операция по сечениям";
+					result = "Р‘Р°Р·РѕРІР°СЏ РѕРїРµСЂР°С†РёСЏ РїРѕ СЃРµС‡РµРЅРёСЏРј";
 					command = (short)Obj3dType.o3d_baseLoft + 50;
 					break;
 				case 60:
-					result = "Приклеивание по сечениям";
+					result = "РџСЂРёРєР»РµРёРІР°РЅРёРµ РїРѕ СЃРµС‡РµРЅРёСЏРј";
 					command = (short)Obj3dType.o3d_bossLoft + 50;
 					break;
 				case 61:
-					result = "Вырезать по сечениям";
+					result = "Р’С‹СЂРµР·Р°С‚СЊ РїРѕ СЃРµС‡РµРЅРёСЏРј";
 					command = (short)Obj3dType.o3d_cutLoft + 50;
 					break;
 				case 62:
-					result = "Операция \"Фаска\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"Р¤Р°СЃРєР°\"";
 					command = (short)Obj3dType.o3d_chamfer + 50;
 					break;
 				case 63:
-					result = "Операция \"Скругления\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"РЎРєСЂСѓРіР»РµРЅРёСЏ\"";
 					command = (short)Obj3dType.o3d_fillet + 50;
 					break;
 				case 64:
-					result = "Операция копирования по сетке";
+					result = "РћРїРµСЂР°С†РёСЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РїРѕ СЃРµС‚РєРµ";
 					command = (short)Obj3dType.o3d_meshCopy + 50;
 					break;
 				case 65:
-					result = "Операция копирования по концентрической сетке";
+					result = "РћРїРµСЂР°С†РёСЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РїРѕ РєРѕРЅС†РµРЅС‚СЂРёС‡РµСЃРєРѕР№ СЃРµС‚РєРµ";
 					command = (short)Obj3dType.o3d_circularCopy + 50;
 					break;
 				case 66:
-					result = "Операция копирования по кривой";
+					result = "РћРїРµСЂР°С†РёСЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РїРѕ РєСЂРёРІРѕР№";
 					command = (short)Obj3dType.o3d_curveCopy + 50;
 					break;
 				case 67:
-					result = "Операция массив по концентрической сетке для сборки";
+					result = "РћРїРµСЂР°С†РёСЏ РјР°СЃСЃРёРІ РїРѕ РєРѕРЅС†РµРЅС‚СЂРёС‡РµСЃРєРѕР№ СЃРµС‚РєРµ РґР»СЏ СЃР±РѕСЂРєРё";
 					command = (short)Obj3dType.o3d_circPartArray + 50;
 					break;
 				case 68:
-					result = "Операция массив по сетке для сборки";
+					result = "РћРїРµСЂР°С†РёСЏ РјР°СЃСЃРёРІ РїРѕ СЃРµС‚РєРµ РґР»СЏ СЃР±РѕСЂРєРё";
 					command = (short)Obj3dType.o3d_meshPartArray + 50;
 					break;
 				case 69:
-					result = "Операция массив по кривой для сборки";
+					result = "РћРїРµСЂР°С†РёСЏ РјР°СЃСЃРёРІ РїРѕ РєСЂРёРІРѕР№ РґР»СЏ СЃР±РѕСЂРєРё";
 					command = (short)Obj3dType.o3d_curvePartArray + 50;
 					break;
 				case 70:
-					result = "Операция массив по образцу для сборки";
+					result = "РћРїРµСЂР°С†РёСЏ РјР°СЃСЃРёРІ РїРѕ РѕР±СЂР°Р·С†Сѓ РґР»СЏ СЃР±РѕСЂРєРё";
 					command = (short)Obj3dType.o3d_derivPartArray + 50;
 					break;
 				case 71:
-					result = "Операция \"Уклон\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"РЈРєР»РѕРЅ\"";
 					command = (short)Obj3dType.o3d_incline + 50;
 					break;
 				case 72:
-					result = "Операция \"Оболочка\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"РћР±РѕР»РѕС‡РєР°\"";
 					command = (short)Obj3dType.o3d_shellOperation + 50;
 					break;
 				case 73:
-					result = "Операция \"Ребро жесткости\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"Р РµР±СЂРѕ Р¶РµСЃС‚РєРѕСЃС‚Рё\"";
 					command = (short)Obj3dType.o3d_ribOperation + 50;
 					break;
 				case 74:
-					result = "Кинематическая операция";
+					result = "РљРёРЅРµРјР°С‚РёС‡РµСЃРєР°СЏ РѕРїРµСЂР°С†РёСЏ";
 					command = (short)Obj3dType.o3d_baseEvolution + 50;
 					break;
 				case 75:
-					result = "Приклеить кинематически";
+					result = "РџСЂРёРєР»РµРёС‚СЊ РєРёРЅРµРјР°С‚РёС‡РµСЃРєРё";
 					command = (short)Obj3dType.o3d_bossEvolution + 50;
 					break;
 				case 76:
-					result = "Вырезать кинематически";
+					result = "Р’С‹СЂРµР·Р°С‚СЊ РєРёРЅРµРјР°С‚РёС‡РµСЃРєРё";
 					command = (short)Obj3dType.o3d_cutEvolution + 50;
 					break;
 				case 77:
-					result = "Операция \"Зеркальный массив\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"Р—РµСЂРєР°Р»СЊРЅС‹Р№ РјР°СЃСЃРёРІ\"";
 					command = (short)Obj3dType.o3d_mirrorOperation + 50;
 					break;
 				case 78:
-					result = "Операция \"Зеркально отразить все\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"Р—РµСЂРєР°Р»СЊРЅРѕ РѕС‚СЂР°Р·РёС‚СЊ РІСЃРµ\"";
 					command = (short)Obj3dType.o3d_mirrorAllOperation + 50;
 					break;
 				case 79:
-					result = "Операция \"Сечение поверхностью\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"РЎРµС‡РµРЅРёРµ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊСЋ\"";
 					command = (short)Obj3dType.o3d_cutByPlane + 50;
 					break;
 				case 80:
-					result = "Операция \"Сечение эскизом\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"РЎРµС‡РµРЅРёРµ СЌСЃРєРёР·РѕРј\"";
 					command = (short)Obj3dType.o3d_cutBySketch + 50;
 					break;
 				case 81:
-					result = "Отверстие";
+					result = "РћС‚РІРµСЂСЃС‚РёРµ";
 					command = (short)Obj3dType.o3d_holeOperation + 50;
 					break;
 				case 82:
-					result = "Ломаная";
+					result = "Р›РѕРјР°РЅР°СЏ";
 					command = (short)Obj3dType.o3d_polyline + 50;
 					break;
 				case 83:
-					result = "Коническая спираль";
+					result = "РљРѕРЅРёС‡РµСЃРєР°СЏ СЃРїРёСЂР°Р»СЊ";
 					command = (short)Obj3dType.o3d_conicSpiral + 50;
 					break;
 				case 84:
-					result = "Сплайн";
+					result = "РЎРїР»Р°Р№РЅ";
 					command = (short)Obj3dType.o3d_spline + 50;
 					break;
 				case 85:
-					result = "Цилиндрическая спираль";
+					result = "Р¦РёР»РёРЅРґСЂРёС‡РµСЃРєР°СЏ СЃРїРёСЂР°Р»СЊ";
 					command = (short)Obj3dType.o3d_cylindricSpiral + 50;
 					break;
 				case 86:
-					result = "Импортирванная поверхность";
+					result = "РРјРїРѕСЂС‚РёСЂРІР°РЅРЅР°СЏ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ";
 					command = (short)Obj3dType.o3d_importedSurface + 50;
 					break;
 				case 87:
-					result = "Условное изображение резьбы";
+					result = "РЈСЃР»РѕРІРЅРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ СЂРµР·СЊР±С‹";
 					command = (short)Obj3dType.o3d_thread + 50;
 					break;
 				case 88:
-					result = "Компонента";
+					result = "РљРѕРјРїРѕРЅРµРЅС‚Р°";
 					command = (short)Obj3dType.o3d_part + 50;
 					break;
 				case 89:
-					result = "Объект дерева";
+					result = "РћР±СЉРµРєС‚ РґРµСЂРµРІР°";
 					command = (short)Obj3dType.o3d_feature + 50;
 					break;
 				case 90:
@@ -958,252 +958,252 @@ namespace Steps.NET
 					break;
 				case 91:
 					itemType = 2;			//POPUP
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					break;
 				case 92:
-					result = "Указать объект в модели";
+					result = "РЈРєР°Р·Р°С‚СЊ РѕР±СЉРµРєС‚ РІ РјРѕРґРµР»Рё";
 					command = 16;
 					break;
 				case 93:
 					itemType = 0;			//SEPARATOR
 					break;
 				case 94:
-					result = "Все объекты";
+					result = "Р’СЃРµ РѕР±СЉРµРєС‚С‹";
 					command = (short)Obj3dType.o3d_unknown + 50;
 					break;
 				case 95:
-					result = "Плоскость XOY";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ XOY";
 					command = (short)Obj3dType.o3d_planeXOY + 50;
 					break;
 				case 96:
-					result = "Плоскость XOZ";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ XOZ";
 					command = (short)Obj3dType.o3d_planeXOZ + 50;
 					break;
 				case 97:
-					result = "Плоскость YOZ";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ YOZ";
 					command = (short)Obj3dType.o3d_planeYOZ + 50;
 					break;
 				case 98:
-					result = "Точка начала системы координат";
+					result = "РўРѕС‡РєР° РЅР°С‡Р°Р»Р° СЃРёСЃС‚РµРјС‹ РєРѕРѕСЂРґРёРЅР°С‚";
 					command = (short)Obj3dType.o3d_pointCS + 50;
 					break;
 				case 99:
-					result = "Эскиз";
+					result = "Р­СЃРєРёР·";
 					command = (short)Obj3dType.o3d_sketch + 50;
 					break;
 				case 100:
-					result = "Ось по двум плоскостям";
+					result = "РћСЃСЊ РїРѕ РґРІСѓРј РїР»РѕСЃРєРѕСЃС‚СЏРј";
 					command = (short)Obj3dType.o3d_axis2Planes + 50;
 					break;
 				case 101:
-					result = "Ось по двум точкам";
+					result = "РћСЃСЊ РїРѕ РґРІСѓРј С‚РѕС‡РєР°Рј";
 					command = (short)Obj3dType.o3d_axis2Points + 50;
 					break;
 				case 102:
-					result = "Ось конической грани";
+					result = "РћСЃСЊ РєРѕРЅРёС‡РµСЃРєРѕР№ РіСЂР°РЅРё";
 					command = (short)Obj3dType.o3d_axisConeFace + 50;
 					break;
 				case 103:
-					result = "Ось проходящая через ребро";
+					result = "РћСЃСЊ РїСЂРѕС…РѕРґСЏС‰Р°СЏ С‡РµСЂРµР· СЂРµР±СЂРѕ";
 					command = (short)Obj3dType.o3d_axisEdge + 50;
 					break;
 				case 104:
-					result = "Ось операции";
+					result = "РћСЃСЊ РѕРїРµСЂР°С†РёРё";
 					command = (short)Obj3dType.o3d_axisOperation + 50;
 					break;
 				case 105:
-					result = "Смещённая плоскость";
+					result = "РЎРјРµС‰С‘РЅРЅР°СЏ РїР»РѕСЃРєРѕСЃС‚СЊ";
 					command = (short)Obj3dType.o3d_planeOffset + 50;
 					break;
 				case 106:
-					result = "Плоскость под углом";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ РїРѕРґ СѓРіР»РѕРј";
 					command = (short)Obj3dType.o3d_planeAngle + 50;
 					break;
 				case 107:
-					result = "Плоскость по 3-м точкам";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ РїРѕ 3-Рј С‚РѕС‡РєР°Рј";
 					command = (short)Obj3dType.o3d_plane3Points + 50;
 					break;
 				case 108:
-					result = "Нормальная плоскость";
+					result = "РќРѕСЂРјР°Р»СЊРЅР°СЏ РїР»РѕСЃРєРѕСЃС‚СЊ";
 					command = (short)Obj3dType.o3d_planeNormal + 50;
 					break;
 				case 109:
-					result = "Касательная плоскость";
+					result = "РљР°СЃР°С‚РµР»СЊРЅР°СЏ РїР»РѕСЃРєРѕСЃС‚СЊ";
 					command = (short)Obj3dType.o3d_planeTangent + 50;
 					break;
 				case 110:
-					result = "Плоскость через ребро и вершину";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ С‡РµСЂРµР· СЂРµР±СЂРѕ Рё РІРµСЂС€РёРЅСѓ";
 					command = (short)Obj3dType.o3d_planeEdgePoint + 50;
 					break;
 				case 111:
-					result = "Плоскость через вершину параллельно другой плоскости";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ С‡РµСЂРµР· РІРµСЂС€РёРЅСѓ РїР°СЂР°Р»Р»РµР»СЊРЅРѕ РґСЂСѓРіРѕР№ РїР»РѕСЃРєРѕСЃС‚Рё";
 					command = (short)Obj3dType.o3d_planeParallel + 50;
 					break;
 				case 112:
-					result = "Плоскость через вершину перпендикулярно ребру";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ С‡РµСЂРµР· РІРµСЂС€РёРЅСѓ РїРµСЂРїРµРЅРґРёРєСѓР»СЏСЂРЅРѕ СЂРµР±СЂСѓ";
 					command = (short)Obj3dType.o3d_planePerpendicular + 50;
 					break;
 				case 113:
-					result = "Плоскость через ребро пар-но/пер-но другому ребру";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ С‡РµСЂРµР· СЂРµР±СЂРѕ РїР°СЂ-РЅРѕ/РїРµСЂ-РЅРѕ РґСЂСѓРіРѕРјСѓ СЂРµР±СЂСѓ";
 					command = (short)Obj3dType.o3d_planeLineToEdge + 50;
 					break;
 				case 114:
-					result = "Плоскость через ребро пар-но/пер-но грани";
+					result = "РџР»РѕСЃРєРѕСЃС‚СЊ С‡РµСЂРµР· СЂРµР±СЂРѕ РїР°СЂ-РЅРѕ/РїРµСЂ-РЅРѕ РіСЂР°РЅРё";
 					command = (short)Obj3dType.o3d_planeLineToPlane + 50;
 					break;
 				case 115:
-					result = "Базовая операция выдавливания";
+					result = "Р‘Р°Р·РѕРІР°СЏ РѕРїРµСЂР°С†РёСЏ РІС‹РґР°РІР»РёРІР°РЅРёСЏ";
 					command = (short)Obj3dType.o3d_baseExtrusion + 50;
 					break;
 				case 116:
-					result = "Приклеивание выдавливанием";
+					result = "РџСЂРёРєР»РµРёРІР°РЅРёРµ РІС‹РґР°РІР»РёРІР°РЅРёРµРј";
 					command = (short)Obj3dType.o3d_bossExtrusion + 50;
 					break;
 				case 117:
-					result = "Вырезать выдавливанием";
+					result = "Р’С‹СЂРµР·Р°С‚СЊ РІС‹РґР°РІР»РёРІР°РЅРёРµРј";
 					command = (short)Obj3dType.o3d_cutExtrusion + 50;
 					break;
 				case 118:
-					result = "Базовая операция вращения";
+					result = "Р‘Р°Р·РѕРІР°СЏ РѕРїРµСЂР°С†РёСЏ РІСЂР°С‰РµРЅРёСЏ";
 					command = (short)Obj3dType.o3d_baseRotated + 50;
 					break;
 				case 119:
-					result = "Приклеивание вращением";
+					result = "РџСЂРёРєР»РµРёРІР°РЅРёРµ РІСЂР°С‰РµРЅРёРµРј";
 					command = (short)Obj3dType.o3d_bossRotated + 50;
 					break;
 				case 120:
-					result = "Вырезать вращением";
+					result = "Р’С‹СЂРµР·Р°С‚СЊ РІСЂР°С‰РµРЅРёРµРј";
 					command = (short)Obj3dType.o3d_cutRotated + 50;
 					break;
 				case 121:
-					result = "Базовая операция по сечениям";
+					result = "Р‘Р°Р·РѕРІР°СЏ РѕРїРµСЂР°С†РёСЏ РїРѕ СЃРµС‡РµРЅРёСЏРј";
 					command = (short)Obj3dType.o3d_baseLoft + 50;
 					break;
 				case 122:
-					result = "Приклеивание по сечениям";
+					result = "РџСЂРёРєР»РµРёРІР°РЅРёРµ РїРѕ СЃРµС‡РµРЅРёСЏРј";
 					command = (short)Obj3dType.o3d_bossLoft + 50;
 					break;
 				case 123:
-					result = "Вырезать по сечениям";
+					result = "Р’С‹СЂРµР·Р°С‚СЊ РїРѕ СЃРµС‡РµРЅРёСЏРј";
 					command = (short)Obj3dType.o3d_cutLoft + 50;
 					break;
 				case 124:
-					result = "Операция \"Фаска\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"Р¤Р°СЃРєР°\"";
 					command = (short)Obj3dType.o3d_chamfer + 50;
 					break;
 				case 125:
-					result = "Операция \"Скругления\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"РЎРєСЂСѓРіР»РµРЅРёСЏ\"";
 					command = (short)Obj3dType.o3d_fillet + 50;
 					break;
 				case 126:
-					result = "Операция копирования по сетке";
+					result = "РћРїРµСЂР°С†РёСЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РїРѕ СЃРµС‚РєРµ";
 					command = (short)Obj3dType.o3d_meshCopy + 50;
 					break;
 				case 127:
-					result = "Операция копирования по концентрической сетке";
+					result = "РћРїРµСЂР°С†РёСЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РїРѕ РєРѕРЅС†РµРЅС‚СЂРёС‡РµСЃРєРѕР№ СЃРµС‚РєРµ";
 					command = (short)Obj3dType.o3d_circularCopy + 50;
 					break;
 				case 128:
-					result = "Операция копирования по кривой";
+					result = "РћРїРµСЂР°С†РёСЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РїРѕ РєСЂРёРІРѕР№";
 					command = (short)Obj3dType.o3d_curveCopy + 50;
 					break;
 				case 129:
-					result = "Операция массив по концентрической сетке для сборки";
+					result = "РћРїРµСЂР°С†РёСЏ РјР°СЃСЃРёРІ РїРѕ РєРѕРЅС†РµРЅС‚СЂРёС‡РµСЃРєРѕР№ СЃРµС‚РєРµ РґР»СЏ СЃР±РѕСЂРєРё";
 					command = (short)Obj3dType.o3d_circPartArray + 50;
 					break;
 				case 130:
-					result = "Операция массив по сетке для сборки";
+					result = "РћРїРµСЂР°С†РёСЏ РјР°СЃСЃРёРІ РїРѕ СЃРµС‚РєРµ РґР»СЏ СЃР±РѕСЂРєРё";
 					command = (short)Obj3dType.o3d_meshPartArray + 50;
 					break;
 				case 131:
-					result = "Операция массив по кривой для сборки";
+					result = "РћРїРµСЂР°С†РёСЏ РјР°СЃСЃРёРІ РїРѕ РєСЂРёРІРѕР№ РґР»СЏ СЃР±РѕСЂРєРё";
 					command = (short)Obj3dType.o3d_curvePartArray + 50;
 					break;
 				case 132:
-					result = "Операция массив по образцу для сборки";
+					result = "РћРїРµСЂР°С†РёСЏ РјР°СЃСЃРёРІ РїРѕ РѕР±СЂР°Р·С†Сѓ РґР»СЏ СЃР±РѕСЂРєРё";
 					command = (short)Obj3dType.o3d_derivPartArray + 50;
 					break;
 				case 133:
-					result = "Операция \"Уклон\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"РЈРєР»РѕРЅ\"";
 					command = (short)Obj3dType.o3d_incline + 50;
 					break;
 				case 134:
-					result = "Операция \"Оболочка\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"РћР±РѕР»РѕС‡РєР°\"";
 					command = (short)Obj3dType.o3d_shellOperation + 50;
 					break;
 				case 135:
-					result = "Операция \"Ребро жесткости\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"Р РµР±СЂРѕ Р¶РµСЃС‚РєРѕСЃС‚Рё\"";
 					command = (short)Obj3dType.o3d_ribOperation + 50;
 					break;
 				case 136:
-					result = "Кинематическая операция";
+					result = "РљРёРЅРµРјР°С‚РёС‡РµСЃРєР°СЏ РѕРїРµСЂР°С†РёСЏ";
 					command = (short)Obj3dType.o3d_baseEvolution + 50;
 					break;
 				case 137:
-					result = "Приклеить кинематически";
+					result = "РџСЂРёРєР»РµРёС‚СЊ РєРёРЅРµРјР°С‚РёС‡РµСЃРєРё";
 					command = (short)Obj3dType.o3d_bossEvolution + 50;
 					break;
 				case 138:
-					result = "Вырезать кинематически";
+					result = "Р’С‹СЂРµР·Р°С‚СЊ РєРёРЅРµРјР°С‚РёС‡РµСЃРєРё";
 					command = (short)Obj3dType.o3d_cutEvolution + 50;
 					break;
 				case 139:
-					result = "Операция \"Зеркальный массив\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"Р—РµСЂРєР°Р»СЊРЅС‹Р№ РјР°СЃСЃРёРІ\"";
 					command = (short)Obj3dType.o3d_mirrorOperation + 50;
 					break;
 				case 140:
-					result = "Операция \"Зеркально отразить все\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"Р—РµСЂРєР°Р»СЊРЅРѕ РѕС‚СЂР°Р·РёС‚СЊ РІСЃРµ\"";
 					command = (short)Obj3dType.o3d_mirrorAllOperation + 50;
 					break;
 				case 141:
-					result = "Операция \"Сечение поверхностью\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"РЎРµС‡РµРЅРёРµ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊСЋ\"";
 					command = (short)Obj3dType.o3d_cutByPlane + 50;
 					break;
 				case 142:
-					result = "Операция \"Сечение эскизом\"";
+					result = "РћРїРµСЂР°С†РёСЏ \"РЎРµС‡РµРЅРёРµ СЌСЃРєРёР·РѕРј\"";
 					command = (short)Obj3dType.o3d_cutBySketch + 50;
 					break;
 				case 143:
-					result = "Отверстие";
+					result = "РћС‚РІРµСЂСЃС‚РёРµ";
 					command = (short)Obj3dType.o3d_holeOperation + 50;
 					break;
 				case 144:
-					result = "Ломаная";
+					result = "Р›РѕРјР°РЅР°СЏ";
 					command = (short)Obj3dType.o3d_polyline + 50;
 					break;
 				case 145:
-					result = "Коническая спираль";
+					result = "РљРѕРЅРёС‡РµСЃРєР°СЏ СЃРїРёСЂР°Р»СЊ";
 					command = (short)Obj3dType.o3d_conicSpiral + 50;
 					break;
 				case 146:
-					result = "Сплайн";
+					result = "РЎРїР»Р°Р№РЅ";
 					command = (short)Obj3dType.o3d_spline + 50;
 					break;
 				case 147:
-					result = "Цилиндрическая спираль";
+					result = "Р¦РёР»РёРЅРґСЂРёС‡РµСЃРєР°СЏ СЃРїРёСЂР°Р»СЊ";
 					command = (short)Obj3dType.o3d_cylindricSpiral + 50;
 					break;
 				case 148:
-					result = "Импортирванная поверхность";
+					result = "РРјРїРѕСЂС‚РёСЂРІР°РЅРЅР°СЏ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ";
 					command = (short)Obj3dType.o3d_importedSurface + 50;
 					break;
 				case 149:
-					result = "Условное изображение резьбы";
+					result = "РЈСЃР»РѕРІРЅРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ СЂРµР·СЊР±С‹";
 					command = (short)Obj3dType.o3d_thread + 50;
 					break;
 				case 150:
-					result = "Компонента";
+					result = "РљРѕРјРїРѕРЅРµРЅС‚Р°";
 					command = (short)Obj3dType.o3d_part + 50;
 					break;
 				case 151:
-					result = "Объект дерева";
+					result = "РћР±СЉРµРєС‚ РґРµСЂРµРІР°";
 					command = (short)Obj3dType.o3d_feature + 50;
 					break;
 				case 152:
 					itemType = 3;			//ENDMENU
 					break;
 				case 153:
-					result = "Отписаться от всех объектов 3D документа";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РІСЃРµС… РѕР±СЉРµРєС‚РѕРІ 3D РґРѕРєСѓРјРµРЅС‚Р°";
 					command = 18;
 					break;
 				case 154:
@@ -1211,14 +1211,14 @@ namespace Steps.NET
 					break;
 				case 155:
 					itemType = 2;			//POPUP
-					result = "События спецификации";
+					result = "РЎРѕР±С‹С‚РёСЏ СЃРїРµС†РёС„РёРєР°С†РёРё";
 					break;
 				case 156:
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 19;
 					break;
 				case 157:
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					command = 20;
 					break;
 				case 158:
@@ -1226,30 +1226,30 @@ namespace Steps.NET
 					break;
 				case 159:
 					itemType = 2;			//POPUP
-					result = "События объекта спецификации";
+					result = "РЎРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё";
 					break;
 				case 160:
 					itemType = 2;			//POPUP
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 0;
 					break;
 				case 161:
-					result = "Текущий объект";
+					result = "РўРµРєСѓС‰РёР№ РѕР±СЉРµРєС‚";
 					command = 21;
 					break;
 				case 162:
 					itemType = 0;			//SEPARATOR
 					break;
 				case 163:
-					result = "Все объекты";
+					result = "Р’СЃРµ РѕР±СЉРµРєС‚С‹";
 					command = 22;
 					break;
 				case 164:
-					result = "Базовый объект";
+					result = "Р‘Р°Р·РѕРІС‹Р№ РѕР±СЉРµРєС‚";
 					command = ldefin2d.SPC_BASE_OBJECT + 350;
 					break;
 				case 165:
-					result = "Комментарий";
+					result = "РљРѕРјРјРµРЅС‚Р°СЂРёР№";
 					command = ldefin2d.SPC_COMMENT + 350;
 					break;
 				case 166:
@@ -1257,32 +1257,32 @@ namespace Steps.NET
 					break;
 				case 167:
 					itemType = 2;			//POPUP
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					break;
 				case 168:
-					result = "Текущий объект";
+					result = "РўРµРєСѓС‰РёР№ РѕР±СЉРµРєС‚";
 					command = 23;
 					break;
 				case 169:
 					itemType = 0;			//SEPARATOR
 					break;
 				case 170:
-					result = "Все объекты";
+					result = "Р’СЃРµ РѕР±СЉРµРєС‚С‹";
 					command = 24;
 					break;
 				case 171:
-					result = "Базовый объект";
+					result = "Р‘Р°Р·РѕРІС‹Р№ РѕР±СЉРµРєС‚";
 					command = ldefin2d.SPC_BASE_OBJECT + 400;
 					break;
 				case 172:
-					result = "Комментарий";
+					result = "РљРѕРјРјРµРЅС‚Р°СЂРёР№";
 					command = ldefin2d.SPC_COMMENT + 400;
 					break;
 				case 173:
 					itemType = 3;			//ENDMENU
 					break;
 				case 174:
-					result = "Отписаться от всех объектов спецификации";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РІСЃРµС… РѕР±СЉРµРєС‚РѕРІ СЃРїРµС†РёС„РёРєР°С†РёРё";
 					command = 25;
 					break;
 				case 175:
@@ -1290,14 +1290,14 @@ namespace Steps.NET
 					break;
 				case 176:
 					itemType = 2;			//POPUP
-					result = "События 3D документа";
+					result = "РЎРѕР±С‹С‚РёСЏ 3D РґРѕРєСѓРјРµРЅС‚Р°";
 					break;
 				case 177:
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 26;
 					break;
 				case 178:
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					command = 27;
 					break;
 				case 179:
@@ -1305,14 +1305,14 @@ namespace Steps.NET
 					break;
 				case 180:
 					itemType = 2;			//POPUP
-					result = "События документа спецификации";
+					result = "РЎРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё";
 					break;
 				case 181:
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 28;
 					break;
 				case 182:
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					command = 29;
 					break;
 				case 183:
@@ -1320,29 +1320,29 @@ namespace Steps.NET
 					break;
 				case 184:
 					itemType = 2;			//POPUP
-					result = "События 2D документа";
+					result = "РЎРѕР±С‹С‚РёСЏ 2D РґРѕРєСѓРјРµРЅС‚Р°";
 					break;
 				case 185:
-					result = "Подписаться";
+					result = "РџРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 30;
 					break;
 				case 186:
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					command = 31;
 					break;
 				case 187:
 					itemType = 3;			//ENDMENU
 					break;
 				case 188:
-					result = "Отписаться от всех";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РІСЃРµС…";
 					command = 32;
 					break;
 				case 189:
-					result = "Конфигурация";
+					result = "РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ";
 					command = 33;
 					break;
 				case 190:
-					result = "Подписанные события";
+					result = "РџРѕРґРїРёСЃР°РЅРЅС‹Рµ СЃРѕР±С‹С‚РёСЏ";
 					command = 34;
 					break;
 				case 191:
@@ -1354,14 +1354,14 @@ namespace Steps.NET
 		}
 
 
-		// Подписка на события
+		// РџРѕРґРїРёСЃРєР° РЅР° СЃРѕР±С‹С‚РёСЏ
 		public bool LibInterfaceNotifyEntry(object application)
 		{
 			bool result = true;
 
 			if (FrmConfig.Instance.chbAutoAdvise.Checked)
 			{
-				// Захват интерфейса приложения КОМПАС
+				// Р—Р°С…РІР°С‚ РёРЅС‚РµСЂС„РµР№СЃР° РїСЂРёР»РѕР¶РµРЅРёСЏ РљРћРњРџРђРЎ
 				if (kompas == null && application != null)
 				{
 					kompas = (KompasObject)application;
@@ -1370,11 +1370,11 @@ namespace Steps.NET
 
 				if (kompas != null) 
 				{
-					// Обработчик событий приложения КОМПАС
+					// РћР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РїСЂРёР»РѕР¶РµРЅРёСЏ РљРћРњРџРђРЎ
 					ksKompasObjectNotify_Event kompasNotify = (ksKompasObjectNotify_Event)application;
 					ApplicationEvent aplEvent = new ApplicationEvent(application, true);        
 
-					// Подписка на события приложения КОМПАС
+					// РџРѕРґРїРёСЃРєР° РЅР° СЃРѕР±С‹С‚РёСЏ РїСЂРёР»РѕР¶РµРЅРёСЏ РљРћРњРџРђРЎ
 					aplEvent.Advise();
     				AdviseDocuments();
 				}
@@ -1384,7 +1384,7 @@ namespace Steps.NET
 		}
 
 
-		// Выбор 2D объекта для подписки
+		// Р’С‹Р±РѕСЂ 2D РѕР±СЉРµРєС‚Р° РґР»СЏ РїРѕРґРїРёСЃРєРё
 		bool Request2DObject(ref int objType)
 		{
 			objType = -1;
@@ -1395,7 +1395,7 @@ namespace Steps.NET
 				info.Init();
 	
 				info.menuId = IDM_REQUEST_OBJECT_2D;
-				info.title = "Укажите объект";
+				info.title = "РЈРєР°Р¶РёС‚Рµ РѕР±СЉРµРєС‚";
 
 				double x = 0, y = 0;
 				int command = doc2D.ksCursor(info, ref x, ref y, null);
@@ -1406,35 +1406,35 @@ namespace Steps.NET
 						reference refObject = doc2D.ksFindObj(x, y, 1000);
 						if (doc2D.ksExistObj(refObject) == 1) 
 						{
-							objType = refObject; // Объект
+							objType = refObject; // РћР±СЉРµРєС‚
 							return true;
 						}
 					}
 					else
 					{
-						objType = --command; // Номер объекта
+						objType = --command; // РќРѕРјРµСЂ РѕР±СЉРµРєС‚Р°
 						return true;
 					}
 				}
 			}
-			return false; // Отмена
+			return false; // РћС‚РјРµРЅР°
 		}
 
 
-		// Выбор объекта для подписки
+		// Р’С‹Р±РѕСЂ РѕР±СЉРµРєС‚Р° РґР»СЏ РїРѕРґРїРёСЃРєРё
 		bool Request3DObject(ref ksFeature obj3D, ref int objType)
 		{
 			obj3D = null;
 			objType = (int)Obj3dType.o3d_unknown;
 			bool res = true;
 			ksDocument3D doc3D = (ksDocument3D)kompas.ActiveDocument3D();
-			ksEntity entity = doc3D != null ? (ksEntity)doc3D.UserSelectEntity(null, "", "Укажите объект", 0, null) : null;
+			ksEntity entity = doc3D != null ? (ksEntity)doc3D.UserSelectEntity(null, "", "РЈРєР°Р¶РёС‚Рµ РѕР±СЉРµРєС‚", 0, null) : null;
 			if (entity != null)
 			{
 				objType = entity.type;
 				if (objType == (int)Obj3dType.o3d_face || objType == (int)Obj3dType.o3d_edge || objType == (int)Obj3dType.o3d_vertex) 
 				{
-					int resYesNo = kompas.ksYesNo("Данный тип не поддерживается\nДа - Подписаться на Part\nНет - Подписаться на Feature\nОтмена - не подписываться");
+					int resYesNo = kompas.ksYesNo("Р”Р°РЅРЅС‹Р№ С‚РёРї РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ\nР”Р° - РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° Part\nРќРµС‚ - РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° Feature\nРћС‚РјРµРЅР° - РЅРµ РїРѕРґРїРёСЃС‹РІР°С‚СЊСЃСЏ");
 					switch (resYesNo) 
 					{
 						case 1 :    
@@ -1462,25 +1462,25 @@ namespace Steps.NET
 
 			switch (docType) 
 			{
-				case (int)DocType.lt_DocSheetStandart : // Чертеж стандартный
-				case (int)DocType.lt_DocSheetUser :     // Чертеж нестандартный
-				case (int)DocType.lt_DocFragment :      // Фрагмент
+				case (int)DocType.lt_DocSheetStandart : // Р§РµСЂС‚РµР¶ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№
+				case (int)DocType.lt_DocSheetUser :     // Р§РµСЂС‚РµР¶ РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№
+				case (int)DocType.lt_DocFragment :      // Р¤СЂР°РіРјРµРЅС‚
 				{
-					ksDocument2D doc2D = (ksDocument2D)doc; // Интерфейс документа
+					ksDocument2D doc2D = (ksDocument2D)doc; // РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р°
 					specification = (ksSpecification)doc2D.GetSpecification();
 					break;
 				}
-				case (int)DocType.lt_DocPart3D :     // 3d-документ модель
-				case (int)DocType.lt_DocAssemble3D : // 3d-документ сборка
+				case (int)DocType.lt_DocPart3D :     // 3d-РґРѕРєСѓРјРµРЅС‚ РјРѕРґРµР»СЊ
+				case (int)DocType.lt_DocAssemble3D : // 3d-РґРѕРєСѓРјРµРЅС‚ СЃР±РѕСЂРєР°
 				{
-					ksDocument3D doc3D = (ksDocument3D)doc; // Интерфейс документа
+					ksDocument3D doc3D = (ksDocument3D)doc; // РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р°
 					specification = (ksSpecification)doc3D.GetSpecification(); 
 					break;
 				}
-				case (int)DocType.lt_DocSpc :		// Спецификация
-				case (int)DocType.lt_DocSpcUser :	// Спецификация нестандартный формат
+				case (int)DocType.lt_DocSpc :		// РЎРїРµС†РёС„РёРєР°С†РёСЏ
+				case (int)DocType.lt_DocSpcUser :	// РЎРїРµС†РёС„РёРєР°С†РёСЏ РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ С„РѕСЂРјР°С‚
 				{
-					ksSpcDocument spcDoc = (ksSpcDocument)doc;	// Интерфейс документа
+					ksSpcDocument spcDoc = (ksSpcDocument)doc;	// РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р°
 					specification = (ksSpecification)spcDoc.GetSpecification();
 					break;
 				}
@@ -1493,26 +1493,26 @@ namespace Steps.NET
 		{
 			if (kompas != null)	
 			{
-				// Интерфейс итератора
+				// РРЅС‚РµСЂС„РµР№СЃ РёС‚РµСЂР°С‚РѕСЂР°
 				ksIterator iter	= (ksIterator)kompas.GetIterator();		  
 
-				// Создаем итератор	для	хождения по	документам
+				// РЎРѕР·РґР°РµРј РёС‚РµСЂР°С‚РѕСЂ	РґР»СЏ	С…РѕР¶РґРµРЅРёСЏ РїРѕ	РґРѕРєСѓРјРµРЅС‚Р°Рј
 				if (iter !=	null &&	iter.ksCreateIterator(134, 0))
 				{
-					reference refDoc = iter.ksMoveIterator("F"); //	Первый документ
+					reference refDoc = iter.ksMoveIterator("F"); //	РџРµСЂРІС‹Р№ РґРѕРєСѓРјРµРЅС‚
 					while (refDoc != 0)
 					{
-						// Подписка	на события документа
+						// РџРѕРґРїРёСЃРєР°	РЅР° СЃРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 						AdviseDoc((ksDocumentFileNotify_Event)kompas.ksGetDocumentByReference(refDoc), 
 							kompas.ksGetDocumentType(refDoc),
 							true, true,	true,
 							true, true,	true, -1);
 
-						// Cледующий документ
+						// CР»РµРґСѓСЋС‰РёР№ РґРѕРєСѓРјРµРЅС‚
 						refDoc = iter.ksMoveIterator("N");			 
 					}
 		
-					// Удалить итератор
+					// РЈРґР°Р»РёС‚СЊ РёС‚РµСЂР°С‚РѕСЂ
 					iter.ksDeleteIterator();					   
 				}
 			}
@@ -1533,14 +1533,14 @@ namespace Steps.NET
 
 			ksEntity objEntity = null;
 
-			// События документа, необходимы для своевременной отписки
+			// РЎРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°, РЅРµРѕР±С…РѕРґРёРјС‹ РґР»СЏ СЃРІРѕРµРІСЂРµРјРµРЅРЅРѕР№ РѕС‚РїРёСЃРєРё
 			if (!BaseEvent.FindEvent(typeof(DocumentEvent), doc, -1, null)) 
 			{
 				bool fFileDoc = !fSelectMng && !fObject && !fStamp && !fDocument && !fSpecification && !fSpcObject;
 
-				// Обработчик событий от документа
+				// РћР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РґРѕРєСѓРјРµРЅС‚Р°
 				DocumentEvent docEvent = new DocumentEvent((ksDocumentFileNotify_Event)doc, fFileDoc); 
-				// Подписка на события документа
+				// РџРѕРґРїРёСЃРєР° РЅР° СЃРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 				int advise = docEvent.Advise();
 
 				if (!BaseEvent.FindEvent(typeof(DocumentFrameEvent), (object)doc, 0, null))
@@ -1557,21 +1557,21 @@ namespace Steps.NET
 				}
 
 
-				// Неудачная подписка на события документа
+				// РќРµСѓРґР°С‡РЅР°СЏ РїРѕРґРїРёСЃРєР° РЅР° СЃРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 				if (advise == 0)
 					return;
 			}
 			else
-				kompas.ksError("На события документа уже подписались");
+				kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 
 			switch (docType) 
 			{
-				case (int)DocType.lt_DocSheetStandart :		// 1 - чертеж стандартный
-				case (int)DocType.lt_DocSheetUser :			// 2 - чертеж нестандартный
-				case (int)DocType.lt_DocFragment :			// 3 - фрагмент
-					ksDocument2D doc2D = (ksDocument2D)doc;	// Интерфейс документа
+				case (int)DocType.lt_DocSheetStandart :		// 1 - С‡РµСЂС‚РµР¶ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№
+				case (int)DocType.lt_DocSheetUser :			// 2 - С‡РµСЂС‚РµР¶ РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№
+				case (int)DocType.lt_DocFragment :			// 3 - С„СЂР°РіРјРµРЅС‚
+					ksDocument2D doc2D = (ksDocument2D)doc;	// РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р°
 
-					// Документ 2D
+					// Р”РѕРєСѓРјРµРЅС‚ 2D
 					if (fDocument) 
 					{
 						if (!BaseEvent.FindEvent(typeof(Document2DEvent), doc2D, -1, null))
@@ -1584,10 +1584,10 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события 3D документа уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ 3D РґРѕРєСѓРјРµРЅС‚Р° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
 
-					// Спецификация в 2D документе
+					// РЎРїРµС†РёС„РёРєР°С†РёСЏ РІ 2D РґРѕРєСѓРјРµРЅС‚Рµ
 					if (fSpecification) 
 					{
 						if (!BaseEvent.FindEvent(typeof(SpecificationEvent), doc2D, -1, null))
@@ -1600,10 +1600,10 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события спецификации уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ СЃРїРµС†РёС„РёРєР°С†РёРё СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
 
-					// Объект спецификации
+					// РћР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё
 					if (fSpcObject) 
 					{ 
 						ksSpecification specification = doc2D != null ? (ksSpecification)doc2D.GetSpecification() : null;
@@ -1611,7 +1611,7 @@ namespace Steps.NET
 						{
 							reference refSpcObj = specification.ksGetCurrentSpcObject();
 							if (refSpcObj == 0)
-								kompas.ksError("Нет текущего объекта спецификации");
+								kompas.ksError("РќРµС‚ С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 							else
 							{
 								if (!BaseEvent.FindEvent(typeof(SpcObjectEvent), doc2D, refSpcObj, null)) 
@@ -1624,12 +1624,12 @@ namespace Steps.NET
 									}
 								}
 								else
-									kompas.ksError("На события объекта спецификации (2D) уже подписались");
+									kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё (2D) СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 							}
 						}
 					}   
 
-					// Селектирование
+					// РЎРµР»РµРєС‚РёСЂРѕРІР°РЅРёРµ
 					if (fSelectMng) 
 					{ 
 						if (!BaseEvent.FindEvent(typeof(SelectMngEvent), doc2D, -1, null))
@@ -1642,10 +1642,10 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события селектирования уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ СЃРµР»РµРєС‚РёСЂРѕРІР°РЅРёСЏ СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
 
-					// Штамп
+					// РЁС‚Р°РјРї
 					if (fStamp && docType != (int)DocType.lt_DocFragment)
 					{
 						if (!BaseEvent.FindEvent(typeof(StampEvent), doc2D, -1, null)) 
@@ -1658,11 +1658,11 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события редактирования штампа уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С€С‚Р°РјРїР° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
 
-					// Объект 2D документа
-					if (fObject && objType >= 0) // Тип приходит всегда
+					// РћР±СЉРµРєС‚ 2D РґРѕРєСѓРјРµРЅС‚Р°
+					if (fObject && objType >= 0) // РўРёРї РїСЂРёС…РѕРґРёС‚ РІСЃРµРіРґР°
 					{ 
 						if (!BaseEvent.FindEvent(typeof(Object2DEvent), doc2D, objType, null)) 
 						{          
@@ -1674,15 +1674,15 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события объекта 2D документа уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° 2D РґРѕРєСѓРјРµРЅС‚Р° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}  
 					break;      
 
-				case (short)DocType.lt_DocPart3D :			// 5 - 3d-документ модель
-				case (short)DocType.lt_DocAssemble3D :		// 6 - 3d-документ сборка
-					ksDocument3D doc3D = (ksDocument3D)doc;	// Интерфейс документа
+				case (short)DocType.lt_DocPart3D :			// 5 - 3d-РґРѕРєСѓРјРµРЅС‚ РјРѕРґРµР»СЊ
+				case (short)DocType.lt_DocAssemble3D :		// 6 - 3d-РґРѕРєСѓРјРµРЅС‚ СЃР±РѕСЂРєР°
+					ksDocument3D doc3D = (ksDocument3D)doc;	// РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р°
 
-					// Документ 3D
+					// Р”РѕРєСѓРјРµРЅС‚ 3D
 					if (fDocument) 
 					{
 						if (!BaseEvent.FindEvent(typeof(Document3DEvent), doc3D, -1, null))
@@ -1695,10 +1695,10 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события 3D документа уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ 3D РґРѕРєСѓРјРµРЅС‚Р° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
 
-					// Спецификация в 3D документе
+					// РЎРїРµС†РёС„РёРєР°С†РёСЏ РІ 3D РґРѕРєСѓРјРµРЅС‚Рµ
 					if (fSpecification) 
 					{
 						if (!BaseEvent.FindEvent(typeof(SpecificationEvent), doc3D, -1, null))
@@ -1711,10 +1711,10 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события спецификации уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ СЃРїРµС†РёС„РёРєР°С†РёРё СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
 
-					// Объект спецификации
+					// РћР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё
 					if (fSpcObject) 
 					{ 
 						ksSpecification specification = doc3D != null ? (ksSpecification)doc3D.GetSpecification() : null;
@@ -1722,7 +1722,7 @@ namespace Steps.NET
 						{
 							reference refSpcObj = specification.ksGetCurrentSpcObject();
 							if (refSpcObj == 0)
-								kompas.ksError("Нет текущего объекта спецификации");
+								kompas.ksError("РќРµС‚ С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё");
 							else
 							{
 								if (!BaseEvent.FindEvent(typeof(SpcObjectEvent), doc3D, refSpcObj, null))
@@ -1735,12 +1735,12 @@ namespace Steps.NET
 									}
 								}
 								else
-									kompas.ksError("На события объекта спецификации (3D) уже подписались");
+									kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё (3D) СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 							}
 						}
 					}  
 
-					// Селектирование
+					// РЎРµР»РµРєС‚РёСЂРѕРІР°РЅРёРµ
 					if (fSelectMng)
 					{
 						if (!BaseEvent.FindEvent(typeof(SelectMngEvent), doc3D, -1, null)) 
@@ -1753,10 +1753,10 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события селектирования уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ СЃРµР»РµРєС‚РёСЂРѕРІР°РЅРёСЏ СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
       
-					// Объект 3D документа
+					// РћР±СЉРµРєС‚ 3D РґРѕРєСѓРјРµРЅС‚Р°
 					if (fObject) 
 					{ 
 						if (objType >= 0)
@@ -1772,7 +1772,7 @@ namespace Steps.NET
 								}
 							}
 							else
-								kompas.ksError("На события объекта 3D документа уже подписались");
+								kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° 3D РґРѕРєСѓРјРµРЅС‚Р° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 						}
 						else
 						{
@@ -1828,17 +1828,17 @@ namespace Steps.NET
 									}
 								}
 								else
-									kompas.ksError("На события объекта 3D документа уже подписались");
+									kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° 3D РґРѕРєСѓРјРµРЅС‚Р° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 							}
 						}
 					}
 					break; 
 
-				case (int)DocType.lt_DocTxtStandart :	// 7 - текстовый документ стандартный
-				case (int)DocType.lt_DocTxtUser :		// 8 - текстовый документ нестандартный
-					ksDocumentTxt docTxt = (ksDocumentTxt)doc; // Интерфейс документа
+				case (int)DocType.lt_DocTxtStandart :	// 7 - С‚РµРєСЃС‚РѕРІС‹Р№ РґРѕРєСѓРјРµРЅС‚ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№
+				case (int)DocType.lt_DocTxtUser :		// 8 - С‚РµРєСЃС‚РѕРІС‹Р№ РґРѕРєСѓРјРµРЅС‚ РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№
+					ksDocumentTxt docTxt = (ksDocumentTxt)doc; // РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р°
 
-					// Штамп
+					// РЁС‚Р°РјРї
 					if (fStamp)
 					{
 						if (!BaseEvent.FindEvent(typeof(StampEvent), docTxt, -1, null)) 
@@ -1851,16 +1851,16 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события редактирования штампа уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С€С‚Р°РјРїР° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
 					break;
 
-				case (int)DocType.lt_DocSpcUser :	// 9 - спецификация нестандартный формат
-				case (int)DocType.lt_DocSpc :		// 4 - спецификация
+				case (int)DocType.lt_DocSpcUser :	// 9 - СЃРїРµС†РёС„РёРєР°С†РёСЏ РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ С„РѕСЂРјР°С‚
+				case (int)DocType.lt_DocSpc :		// 4 - СЃРїРµС†РёС„РёРєР°С†РёСЏ
 				{
-					ksSpcDocument spcDoc = (ksSpcDocument)doc;	// Интерфейс документа
+					ksSpcDocument spcDoc = (ksSpcDocument)doc;	// РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р°
 
-					// Документ спецификации
+					// Р”РѕРєСѓРјРµРЅС‚ СЃРїРµС†РёС„РёРєР°С†РёРё
 					if (fDocument) 
 					{
 						if (!BaseEvent.FindEvent(typeof(SpcDocumentEvent), spcDoc, -1, null))
@@ -1873,10 +1873,10 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события документа спецификации уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
 
-					// Спецификация в документе спецификации
+					// РЎРїРµС†РёС„РёРєР°С†РёСЏ РІ РґРѕРєСѓРјРµРЅС‚Рµ СЃРїРµС†РёС„РёРєР°С†РёРё
 					if (fSpecification) 
 					{
 						if (!BaseEvent.FindEvent(typeof(SpecificationEvent), spcDoc, -1, null))
@@ -1889,10 +1889,10 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события спецификации уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ СЃРїРµС†РёС„РёРєР°С†РёРё СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
 
-					// Объект документа спецификации
+					// РћР±СЉРµРєС‚ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
 					if (fSpcObject) 
 					{ 
 						ksSpecification specification = spcDoc != null ? (ksSpecification)spcDoc.GetSpecification() : null;
@@ -1908,11 +1908,11 @@ namespace Steps.NET
 								}
 							}
 							else
-								kompas.ksError("На события объекта спецификации (Spc) уже подписались");
+								kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё (Spc) СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 						}
 					}  
 
-					// Штамп
+					// РЁС‚Р°РјРї
 					if (fStamp)
 					{
 						if (!BaseEvent.FindEvent(typeof(StampEvent), spcDoc, -1, null))
@@ -1925,7 +1925,7 @@ namespace Steps.NET
 							}
 						}
 						else
-							kompas.ksError("На события редактирования штампа уже подписались");
+							kompas.ksError("РќР° СЃРѕР±С‹С‚РёСЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С€С‚Р°РјРїР° СѓР¶Рµ РїРѕРґРїРёСЃР°Р»РёСЃСЊ");
 					}
 
 					break;
@@ -1933,7 +1933,7 @@ namespace Steps.NET
 			}
 		}
 
-    #region Реализаця интерфейса IDisposable
+    #region Р РµР°Р»РёР·Р°С†СЏ РёРЅС‚РµСЂС„РµР№СЃР° IDisposable
     public void Dispose()
     {
       if (kompas != null)
@@ -1948,12 +1948,12 @@ namespace Steps.NET
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -1969,12 +1969,12 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 	
 		
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

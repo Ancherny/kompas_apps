@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 using KompasAPI7;
 using Kompas6Constants;
 using KAPITypes;
@@ -14,14 +14,14 @@ namespace Step3_API7_2D
 	public class SamplesSymbols
 	{
     private KompasObject      kompas;
-    private IApplication      appl;         // Интерфейс приложения
-    private IKompasDocument2D doc;          // Интерфейс документа 2D в API7 
-    private ksDocument2D      doc2D;        // Интерфейс документа 2D в API5
-    private ResourceManager   resMng = new ResourceManager( typeof(SamplesSymbols) );       // Менеджер ресурсов
+    private IApplication      appl;         // РРЅС‚РµСЂС„РµР№СЃ РїСЂРёР»РѕР¶РµРЅРёСЏ
+    private IKompasDocument2D doc;          // РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р° 2D РІ API7 
+    private ksDocument2D      doc2D;        // РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р° 2D РІ API5
+    private ResourceManager   resMng = new ResourceManager( typeof(SamplesSymbols) );       // РњРµРЅРµРґР¶РµСЂ СЂРµСЃСѓСЂСЃРѕРІ
 
 
     //-------------------------------------------------------------------------------
-    // Загрузить строку из ресурса
+    // Р—Р°РіСЂСѓР·РёС‚СЊ СЃС‚СЂРѕРєСѓ РёР· СЂРµСЃСѓСЂСЃР°
     // ---
     string LoadString( string name )
     {
@@ -29,7 +29,7 @@ namespace Step3_API7_2D
     }
     
     //-------------------------------------------------------------------------------
-    // Имя библиотеки
+    // РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
     // ---
     [return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
     {
@@ -37,7 +37,7 @@ namespace Step3_API7_2D
     }
 
     //-------------------------------------------------------------------------------
-    // Меню библиотеки
+    // РњРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
     // ---
     [return: MarshalAs(UnmanagedType.BStr)] public string ExternalMenuItem(short number, ref short itemType, ref short command)
     {
@@ -46,52 +46,52 @@ namespace Step3_API7_2D
       switch (number)
       {
         case 1:
-          result = "Создание и редактирование простой линии выноски";
+          result = "РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїСЂРѕСЃС‚РѕР№ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё";
           command = 1;
         break;
 
         case 2:
-          result = "Создание и редактирование знака маркировки";
+          result = "РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РјР°СЂРєРёСЂРѕРІРєРё";
           command = 2;
         break;
 
         case 3:
-          result = "Создание и редактирование знака изменения";
+          result = "РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РёР·РјРµРЅРµРЅРёСЏ";
           command = 3;
         break;
 
         case 4:
-          result = "Создание и редактирование знака клеймения";
+          result = "РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РєР»РµР№РјРµРЅРёСЏ";
           command = 4;
         break;
 
         case 5:
-          result = "Создание и редактирование обозначения шероховатости";
+          result = "РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё";
           command = 5;
         break;
 
         case 6:
-          result = "Создание и редактирование обозначения базы";
+          result = "РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹";
           command = 6;
         break;
 
         case 7:
-          result = "Создание и редактирование линии разреза/сечения";
+          result = "РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р»РёРЅРёРё СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ";
           command = 7;
         break;
 
         case 8:
-          result = "Создание и редактирование стрелки направления взгляда";
+          result = "РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃС‚СЂРµР»РєРё РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°";
           command = 8;
         break;
 
         case 9:
-          result = "Создание и редактирование допуска формы";
+          result = "РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹";
           command = 9;
         break;
 
         case 10:
-          result = "Навигация по массиву объектов вида";
+          result = "РќР°РІРёРіР°С†РёСЏ РїРѕ РјР°СЃСЃРёРІСѓ РѕР±СЉРµРєС‚РѕРІ РІРёРґР°";
           command = 10;
         break;
 
@@ -105,7 +105,7 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Головная функция библиотеки
+    // Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
     // ---
     public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
     {
@@ -114,19 +114,19 @@ namespace Step3_API7_2D
       if ( kompas == null )
         return;
       
-      // Получаем интерфейс приложения
+      // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ РїСЂРёР»РѕР¶РµРЅРёСЏ
       appl = (IApplication)kompas.ksGetApplication7();
 
       if ( appl == null )
         return;
 
-      // Получаем интерфейс активного документа 2D в API7
+      // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ Р°РєС‚РёРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° 2D РІ API7
       doc = (IKompasDocument2D)appl.ActiveDocument;
 
       if ( doc == null )
         return;
 
-      // Получаем интерфейс активного документа 2D в API5
+      // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ Р°РєС‚РёРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° 2D РІ API5
       doc2D = (ksDocument2D)kompas.ActiveDocument2D();
 
       if ( doc2D == null )
@@ -134,38 +134,38 @@ namespace Step3_API7_2D
 
       switch ( command )
       {
-        case 1: LeaderWork();       break;  // Создание и редактирование простой линии выноски
-        case 2: MarkLeaderWork();   break;  // Создание и редактирование знака маркировки
-        case 3: ChangeLeaderWork(); break;  // Создание и редактирование знака изменения
-        case 4: BrandLeaderWork();  break;  // Создание и редактирование знака клеймения
-        case 5: RoughWork();        break;  // Создание и редактирование обозначения шероховатости
-        case 6: BaseWork();         break;  // Создание и редактирование обозначения базы
-        case 7: CutLineWork();      break;  // Создание и редактирование линии разреза/сечения
-        case 8: ViewPointerWork();  break;  // Создание и редактирование стрелки направления взгляда
-        case 9: ToleranceWork();    break;  // Создание и редактирование допуска формы
-        case 10: ObjectsNavigation(); break;  // Навигация по массиву объектов вида
+        case 1: LeaderWork();       break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїСЂРѕСЃС‚РѕР№ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
+        case 2: MarkLeaderWork();   break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РјР°СЂРєРёСЂРѕРІРєРё
+        case 3: ChangeLeaderWork(); break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РёР·РјРµРЅРµРЅРёСЏ
+        case 4: BrandLeaderWork();  break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РєР»РµР№РјРµРЅРёСЏ
+        case 5: RoughWork();        break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
+        case 6: BaseWork();         break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹
+        case 7: CutLineWork();      break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р»РёРЅРёРё СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
+        case 8: ViewPointerWork();  break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃС‚СЂРµР»РєРё РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
+        case 9: ToleranceWork();    break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
+        case 10: ObjectsNavigation(); break;  // РќР°РІРёРіР°С†РёСЏ РїРѕ РјР°СЃСЃРёРІСѓ РѕР±СЉРµРєС‚РѕРІ РІРёРґР°
       }
     }
 
-    #region Вспомогательные функции
+    #region Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё
     //-------------------------------------------------------------------------------
-    //  Получить контейнер обозначений 2D
+    //  РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 2D
     // ---
     ISymbols2DContainer GetSymbols2DContainer()
     {
       if ( doc != null )
       {
-        // Получим менеджер для работы с видами и слоями
+        // РџРѕР»СѓС‡РёРј РјРµРЅРµРґР¶РµСЂ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РІРёРґР°РјРё Рё СЃР»РѕСЏРјРё
         ViewsAndLayersManager viewsMng = doc.ViewsAndLayersManager;
     		
         if ( viewsMng != null )
         {
-          // Получим коллекцию видов
+          // РџРѕР»СѓС‡РёРј РєРѕР»Р»РµРєС†РёСЋ РІРёРґРѕРІ
           IViews views = viewsMng.Views;
     			
           if ( views != null )
           {
-            // Получаем контейнер у активного вида
+            // РџРѕР»СѓС‡Р°РµРј РєРѕРЅС‚РµР№РЅРµСЂ Сѓ Р°РєС‚РёРІРЅРѕРіРѕ РІРёРґР°
             IView view = views.ActiveView;
 
             if ( view != null )
@@ -178,32 +178,32 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Создать текст с заданным размером шрифта
+    // РЎРѕР·РґР°С‚СЊ С‚РµРєСЃС‚ СЃ Р·Р°РґР°РЅРЅС‹Рј СЂР°Р·РјРµСЂРѕРј С€СЂРёС„С‚Р°
     // ---
     void SetTextSmallFont( ref IText txt, string str, double size )
     {
 	    if ( txt != null )
 	    {
-		    // Получить интерфейс строки текста
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СЃС‚СЂРѕРєРё С‚РµРєСЃС‚Р°
 		    ITextLine line = txt.Add();
 
 		    if ( line != null )
 		    {
-			    // Получить интерфейс компоненты текста
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РєРѕРјРїРѕРЅРµРЅС‚С‹ С‚РµРєСЃС‚Р°
 			    ITextItem item = line.Add();
 
 			    if ( item != null )
 			    {
-				    // Получить интерфейс шрифта
+				    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С€СЂРёС„С‚Р°
 				    ITextFont font = (ITextFont)item;
 
 				    if ( font != null )
-					    // Задать высоту шрифта
+					    // Р—Р°РґР°С‚СЊ РІС‹СЃРѕС‚Сѓ С€СЂРёС„С‚Р°
 					    font.Height = size;
 
-				    // Задать значение строки
+				    // Р—Р°РґР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ СЃС‚СЂРѕРєРё
 				    item.Str = str;
-				    // Применить параметры
+				    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 				    item.Update();
 			    }
 		    }
@@ -212,9 +212,9 @@ namespace Step3_API7_2D
     #endregion
 
 
-    #region Простая линия выноски
+    #region РџСЂРѕСЃС‚Р°СЏ Р»РёРЅРёСЏ РІС‹РЅРѕСЃРєРё
     //-------------------------------------------------------------------------------
-    // Создание простой линии выноски
+    // РЎРѕР·РґР°РЅРёРµ РїСЂРѕСЃС‚РѕР№ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
     // ---
     bool CreateLeader( ref ILeader leader )
     {
@@ -222,61 +222,61 @@ namespace Step3_API7_2D
 
 	    if ( leader != null )
 	    {
-		    // Направление полки - вправо
+		    // РќР°РїСЂР°РІР»РµРЅРёРµ РїРѕР»РєРё - РІРїСЂР°РІРѕ
 		    leader.ShelfDirection = Kompas6Constants.ksShelfDirectionEnum.ksLSRight;
 
-		    // Получаем интерфейс ответвлений
+		    // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 		    IBranchs branchs = (IBranchs)leader;
 
 		    if ( branchs != null )
 		    {
-			    // Координаты начала полки или точка привязки
+			    // РљРѕРѕСЂРґРёРЅР°С‚С‹ РЅР°С‡Р°Р»Р° РїРѕР»РєРё РёР»Рё С‚РѕС‡РєР° РїСЂРёРІСЏР·РєРё
 			    branchs.X0 = 100;
 			    branchs.Y0 = 150;
-			    // Добавить прямолинейные ответвления
+			    // Р”РѕР±Р°РІРёС‚СЊ РїСЂСЏРјРѕР»РёРЅРµР№РЅС‹Рµ РѕС‚РІРµС‚РІР»РµРЅРёСЏ
 			    branchs.AddBranchByPoint( -1, 60, 120 );
 			    branchs.AddBranchByPoint( -1, 65, 105 );
 		    }
 
-		    // Получить интерфейс текста над полкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РЅР°Рґ РїРѕР»РєРѕР№
 		    IText txtOnSh = leader.TextOnShelf;
 
 		    if ( txtOnSh != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txtOnSh.Str = "1";
 
-		    // Получить интерфейс текста под полкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РїРѕРґ РїРѕР»РєРѕР№
 		    IText txtUnderSh = leader.TextUnderShelf;
 
 		    if ( txtUnderSh != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txtUnderSh.Str = "2";
 
-		    // Получить интерфейс текста над ножкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РЅР°Рґ РЅРѕР¶РєРѕР№
 		    IText txtOnBr = leader.TextOnBranch;
     		
 		    if ( txtOnBr != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txtOnBr.Str = "3";
 
-		    // Получить интерфейс текста под ножкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РїРѕРґ РЅРѕР¶РєРѕР№
 		    IText txtUnderBr = leader.TextUnderBranch;
     		
 		    if ( txtUnderBr != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txtUnderBr.Str = "4";
 
-		    // Получить интерфейс текста за полкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° Р·Р° РїРѕР»РєРѕР№
 		    IText txtAfterSh = leader.TextAfterShelf;
     		
 		    if ( txtAfterSh != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txtAfterSh.Str = "5";
 
 		    IBaseLeader baseLeader = (IBaseLeader)leader;
 
 		    if ( baseLeader != null )
-			    // Применить параметры
+			    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 			    res = baseLeader.Update();
 	    }
       return res;
@@ -284,22 +284,22 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Задать компоненту текста
+    // Р—Р°РґР°С‚СЊ РєРѕРјРїРѕРЅРµРЅС‚Сѓ С‚РµРєСЃС‚Р°
     // ---
     void AddTextItem( ref ITextLine line, string str, Kompas6Constants.ksTextItemEnum type )
     {
 	    if ( line != null )
 	    {
-		    // Получить интерфейс компоненты текста
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РєРѕРјРїРѕРЅРµРЅС‚С‹ С‚РµРєСЃС‚Р°
 		    ITextItem item = line.Add();
     		
 		    if ( item != null )
 		    {
-			    // Задать строковое значение
+			    // Р—Р°РґР°С‚СЊ СЃС‚СЂРѕРєРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ
 			    item.Str = str;
-			    // Задать тип
+			    // Р—Р°РґР°С‚СЊ С‚РёРї
 			    item.ItemType = type;
-			    // Применить параметры
+			    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 			    item.Update();
 		    }
 	    }
@@ -307,28 +307,28 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование линии выноски
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
     // ---
     void EditLeader( ref ILeader leader )
     {
 	    if ( leader != null )
 	    {
-		    // Тип значка - знак склеивания
+		    // РўРёРї Р·РЅР°С‡РєР° - Р·РЅР°Рє СЃРєР»РµРёРІР°РЅРёСЏ
 		    leader.SignType = Kompas6Constants.ksLeaderSignEnum.ksLGlueSign;
-		    // Включить признак обоработки по контуру
+		    // Р’РєР»СЋС‡РёС‚СЊ РїСЂРёР·РЅР°Рє РѕР±РѕСЂР°Р±РѕС‚РєРё РїРѕ РєРѕРЅС‚СѓСЂСѓ
 		    leader.Arround = true;
 
-		    // Получаем интерфейс ответвлений
+		    // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 		    IBranchs branchs = (IBranchs)leader;
     		
 		    if ( branchs != null )
-			    // Добавить прямолинейное ответвление
+			    // Р”РѕР±Р°РІРёС‚СЊ РїСЂСЏРјРѕР»РёРЅРµР№РЅРѕРµ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 			    branchs.AddBranchByPoint( -1, 140, 120 );
 
-		    // Начало созданного ответвления - от конца полки
+		    // РќР°С‡Р°Р»Рѕ СЃРѕР·РґР°РЅРЅРѕРіРѕ РѕС‚РІРµС‚РІР»РµРЅРёСЏ - РѕС‚ РєРѕРЅС†Р° РїРѕР»РєРё
 		    leader.set_BranchBegin( 2, false );
 
-		    // Получить текст над полкой
+		    // РџРѕР»СѓС‡РёС‚СЊ С‚РµРєСЃС‚ РЅР°Рґ РїРѕР»РєРѕР№
 		    IText txt = leader.TextOnShelf;
 
 		    if ( txt != null )
@@ -339,13 +339,13 @@ namespace Step3_API7_2D
 
 			    if ( line != null )
 			    {
-				    // Добавить строку
+				    // Р”РѕР±Р°РІРёС‚СЊ СЃС‚СЂРѕРєСѓ
 				    AddTextItem( ref line, "1", Kompas6Constants.ksTextItemEnum.ksTItString );
-				    // Добавить числитель дроби
+				    // Р”РѕР±Р°РІРёС‚СЊ С‡РёСЃР»РёС‚РµР»СЊ РґСЂРѕР±Рё
 				    AddTextItem( ref line, "1", Kompas6Constants.ksTextItemEnum.ksTItNumerator );
-				    // Добавить знаментатель дроби
+				    // Р”РѕР±Р°РІРёС‚СЊ Р·РЅР°РјРµРЅС‚Р°С‚РµР»СЊ РґСЂРѕР±Рё
 				    AddTextItem( ref line, "1", Kompas6Constants.ksTextItemEnum.ksTItDenominator );
-				    // Закончить дробь
+				    // Р—Р°РєРѕРЅС‡РёС‚СЊ РґСЂРѕР±СЊ
 				    AddTextItem( ref line, "1", Kompas6Constants.ksTextItemEnum.ksTItFractionEnd );
 			    }
 		    }
@@ -353,54 +353,54 @@ namespace Step3_API7_2D
 		    IBaseLeader baseLeader = (IBaseLeader)leader;
     		
 		    if ( baseLeader != null )
-			    // Применить параметры
+			    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 			    baseLeader.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование простой линии выноски
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїСЂРѕСЃС‚РѕР№ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
     // ---
     void LeaderWork()
     {
-	    // Получить контейнер условных обозначений
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ СѓСЃР»РѕРІРЅС‹С… РѕР±РѕР·РЅР°С‡РµРЅРёР№
 	    ISymbols2DContainer symbCont = GetSymbols2DContainer();
 
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию линий выноски
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ Р»РёРЅРёР№ РІС‹РЅРѕСЃРєРё
 		    ILeaders leadersCol = symbCont.Leaders;
 
 		    if ( leadersCol != null )
 		    {
-			    // Добавить простую линию выноски
+			    // Р”РѕР±Р°РІРёС‚СЊ РїСЂРѕСЃС‚СѓСЋ Р»РёРЅРёСЋ РІС‹РЅРѕСЃРєРё
 			    ILeader leader = (ILeader)leadersCol.Add( Kompas6Constants.DrawingObjectTypeEnum.
                                            ksDrLeader );
 
 			    if ( leader != null && doc2D != null )
 			    {
-				    // Создать линию выноски
+				    // РЎРѕР·РґР°С‚СЊ Р»РёРЅРёСЋ РІС‹РЅРѕСЃРєРё
 				    bool create = CreateLeader( ref leader );
 
-				    // Получить референс объекта
+				    // РџРѕР»СѓС‡РёС‚СЊ СЂРµС„РµСЂРµРЅСЃ РѕР±СЉРµРєС‚Р°
 				    IBaseLeader bLeader = (IBaseLeader)leader;
 				    int refr = 0;
 
 				    if ( bLeader != null )
 					    refr = bLeader.Reference; 
     				
-				    // Подсветить созданный объект
-            doc2D.ksLightObj( refr, 1/*включить подсветку*/ );
+				    // РџРѕРґСЃРІРµС‚РёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ РѕР±СЉРµРєС‚
+            doc2D.ksLightObj( refr, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 
             if ( create && kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 				    {		
-					    // Получить объект из коллекции по референсу
+					    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ СЂРµС„РµСЂРµРЅСЃСѓ
 					    ILeader lead = (ILeader)leadersCol.get_Leader( refr );				
-					    // Редактировать линию выноски
+					    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р»РёРЅРёСЋ РІС‹РЅРѕСЃРєРё
 					    EditLeader( ref lead );
 				    }
-            doc2D.ksLightObj( refr, 0/*выключить подсветку*/ );
+            doc2D.ksLightObj( refr, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 			    }
 		    }
 	    }
@@ -408,9 +408,9 @@ namespace Step3_API7_2D
     #endregion
 
 
-    #region Знак маркировки
+    #region Р—РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё
     //-------------------------------------------------------------------------------
-    // Создание знака маркировки
+    // РЎРѕР·РґР°РЅРёРµ Р·РЅР°РєР° РјР°СЂРєРёСЂРѕРІРєРё
     // ---
     bool CreateMarkLeader( ref IMarkLeader markLeader )
     {
@@ -418,44 +418,44 @@ namespace Step3_API7_2D
 
 	    if ( markLeader != null )
 	    {
-		    // Получить интерфейс ответвлений
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 		    IBranchs branchs = (IBranchs)markLeader;
     		
 		    if ( branchs != null )
 		    {
-			    // Точка привязки 
+			    // РўРѕС‡РєР° РїСЂРёРІСЏР·РєРё 
 			    branchs.X0 = 100;
 			    branchs.Y0 = 190;
-			    // Добавить прямолинейное ответвление
+			    // Р”РѕР±Р°РІРёС‚СЊ РїСЂСЏРјРѕР»РёРЅРµР№РЅРѕРµ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 			    branchs.AddBranchByPoint( -1, 60, 120 );
 		    }
 
-		    // Получить интерфейс текста обозначения
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 		    IText des = markLeader.Designation;
 
 		    if ( des != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    des.Str = LoadString( "IDS_MARK" );
 
-		    // Получить интерфейс текста над ножкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РЅР°Рґ РЅРѕР¶РєРѕР№
 		    IText textOnBranch = markLeader.TextOnBranch;
 
 		    if ( textOnBranch != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    textOnBranch.Str = "2";
 
-		    // Получить интерфейс текста под ножкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РїРѕРґ РЅРѕР¶РєРѕР№
 		    IText textUnderBranch = markLeader.TextUnderBranch;
     		
 		    if ( textUnderBranch != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    textUnderBranch.Str = "3";
 
-		    // Получить базовый интерфейс линии выноски
+		    // РџРѕР»СѓС‡РёС‚СЊ Р±Р°Р·РѕРІС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
 		    IBaseLeader baseLeader = (IBaseLeader)markLeader;
 
 		    if ( baseLeader != null )
-			    // Применить параметры
+			    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 			    res = baseLeader.Update();
 	    }
       return res;
@@ -463,27 +463,27 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование знака маркировки
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РјР°СЂРєРёСЂРѕРІРєРё
     // ---
     void EditMarkLeader( ref IMarkLeader markLeader )
     {
 	    if ( markLeader != null )
 	    {
-		    // Получить интерфейс ответвлений
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 		    IBranchs branchs = (IBranchs)markLeader;
 
 		    if ( branchs != null )
-			    // Добавить прямолинейное ответвление
+			    // Р”РѕР±Р°РІРёС‚СЊ РїСЂСЏРјРѕР»РёРЅРµР№РЅРѕРµ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 			    branchs.AddBranchByPoint( -1, 70, 110 );
 
-		    // Получить базовый интерфейс линии выноски
+		    // РџРѕР»СѓС‡РёС‚СЊ Р±Р°Р·РѕРІС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
 		    IBaseLeader baseLeader = (IBaseLeader)markLeader;
 
 		    if ( baseLeader != null )
 		    {
-			    // Тип стрелки
+			    // РўРёРї СЃС‚СЂРµР»РєРё
 			    baseLeader.ArrowType = Kompas6Constants.ksArrowEnum.ksLeaderArrow;
-			    // Применить изменения
+			    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 			    baseLeader.Update();
 		    }
 	    }
@@ -491,47 +491,47 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование знака маркировки
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РјР°СЂРєРёСЂРѕРІРєРё
     // ---
     void MarkLeaderWork()
     {
-	    // Получить контейнер условных обозначений
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ СѓСЃР»РѕРІРЅС‹С… РѕР±РѕР·РЅР°С‡РµРЅРёР№
 	    ISymbols2DContainer symbCont = GetSymbols2DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию линий выноски
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ Р»РёРЅРёР№ РІС‹РЅРѕСЃРєРё
 		    ILeaders leadersCol = symbCont.Leaders;
     		
 		    if ( leadersCol != null )
 		    {
-			    // Добавить знак маркировки
+			    // Р”РѕР±Р°РІРёС‚СЊ Р·РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё
 			    IMarkLeader mLeader = (IMarkLeader)leadersCol.Add( Kompas6Constants.
                                  DrawingObjectTypeEnum.ksDrMarkerLeader);
     			
 			    if ( mLeader != null && doc2D != null )
 			    {
-				    // Создать знак маркировки
+				    // РЎРѕР·РґР°С‚СЊ Р·РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё
 				    bool create = CreateMarkLeader( ref mLeader );
     				
-				    // Получить референс объекта
+				    // РџРѕР»СѓС‡РёС‚СЊ СЂРµС„РµСЂРµРЅСЃ РѕР±СЉРµРєС‚Р°
 				    IBaseLeader bLeader = (IBaseLeader)mLeader;
 				    int refr = 0;
     				
 				    if ( bLeader != null )
 					    refr = bLeader.Reference;
     				
-				    // Подсветить созданный объект
-            doc2D.ksLightObj( refr, 1/*включить подсветку*/ );
+				    // РџРѕРґСЃРІРµС‚РёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ РѕР±СЉРµРєС‚
+            doc2D.ksLightObj( refr, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
     				
             if ( create && kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 				    {
-					    // Получить объект из коллекции по референсу
+					    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ СЂРµС„РµСЂРµРЅСЃСѓ
 					    IMarkLeader markLead = (IMarkLeader)leadersCol.get_Leader( refr );				
-					    // Редактировать знак маркировки
+					    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё
 					    EditMarkLeader( ref markLead );
 				    }
-            doc2D.ksLightObj( refr, 0/*выключить подсветку*/ );
+            doc2D.ksLightObj( refr, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 			    }
 		    }
 	    }
@@ -539,9 +539,9 @@ namespace Step3_API7_2D
     #endregion
 
 
-    #region Знак изменения
+    #region Р—РЅР°Рє РёР·РјРµРЅРµРЅРёСЏ
     //-------------------------------------------------------------------------------
-    // Создание знака изменения
+    // РЎРѕР·РґР°РЅРёРµ Р·РЅР°РєР° РёР·РјРµРЅРµРЅРёСЏ
     // ---
     bool CreateChangeLeader( ref IChangeLeader changeLeader )
     {
@@ -549,33 +549,33 @@ namespace Step3_API7_2D
 
 	    if ( changeLeader != null )
 	    {
-		    // Тип значка - квадрат
+		    // РўРёРї Р·РЅР°С‡РєР° - РєРІР°РґСЂР°С‚
 		    changeLeader.SignType = Kompas6Constants.ksChangeLeaderSignEnum.ksCLSSquare;
 
-		    // Получить интерфейс ответвлений
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 		    IBranchs branchs = (IBranchs)changeLeader;
 
 		    if ( branchs != null )
 		    {
-			    // Точка привязки
+			    // РўРѕС‡РєР° РїСЂРёРІСЏР·РєРё
 			    branchs.X0 = 70;
 			    branchs.Y0 = 150;
-			    // Добавить ответвление
+			    // Р”РѕР±Р°РІРёС‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 			    branchs.AddBranchByPoint( -1, 40, 130 );
 		    }
 
-		    // Получить интерфейс текста обозначения
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 		    IText des = changeLeader.Designation;
     		
 		    if ( des != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    des.Str = "1";
 
-		    // Получить базовый интерфейс линии выноски
+		    // РџРѕР»СѓС‡РёС‚СЊ Р±Р°Р·РѕРІС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
 		    IBaseLeader baseLeader = (IBaseLeader)changeLeader;
 
 		    if ( baseLeader != null )
-			    // Применить параметры
+			    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 			    res = baseLeader.Update();
 	    }
       return res;
@@ -583,70 +583,70 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование знака изменения
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РёР·РјРµРЅРµРЅРёСЏ
     // ---
     void EditChangeLeader( ref IChangeLeader changeLeader )
     {
 	    if ( changeLeader != null )
 	    {
-		    // Тип значка - круг
+		    // РўРёРї Р·РЅР°С‡РєР° - РєСЂСѓРі
 		    changeLeader.SignType = Kompas6Constants.ksChangeLeaderSignEnum.ksCLSCircle;
-		    // Полная длина выноски отключена
+		    // РџРѕР»РЅР°СЏ РґР»РёРЅР° РІС‹РЅРѕСЃРєРё РѕС‚РєР»СЋС‡РµРЅР°
 		    changeLeader.FullLeaderLength = false;
-		    // Длина выноски
+		    // Р”Р»РёРЅР° РІС‹РЅРѕСЃРєРё
 		    changeLeader.LeaderLength = 5;
 
-		    // Получить базовый интерфейс линии выноски
+		    // РџРѕР»СѓС‡РёС‚СЊ Р±Р°Р·РѕРІС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
 		    IBaseLeader baseLeader = (IBaseLeader)changeLeader;
     		
 		    if ( baseLeader != null )
-			    // Применить изменения
+			    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 			    baseLeader.Update();
 	    }
     }
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование знака изменения
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РёР·РјРµРЅРµРЅРёСЏ
     // ---
     void ChangeLeaderWork()
     {
-	    // Получить контейнер условных обозначений
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ СѓСЃР»РѕРІРЅС‹С… РѕР±РѕР·РЅР°С‡РµРЅРёР№
 	    ISymbols2DContainer symbCont = GetSymbols2DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию линий выноски
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ Р»РёРЅРёР№ РІС‹РЅРѕСЃРєРё
 		    ILeaders leadersCol = symbCont.Leaders;
     		
 		    if ( leadersCol != null )
 		    {
-			    // Добавить знак изменения
+			    // Р”РѕР±Р°РІРёС‚СЊ Р·РЅР°Рє РёР·РјРµРЅРµРЅРёСЏ
 			    IChangeLeader chLeader = (IChangeLeader)leadersCol.Add( Kompas6Constants.
                                     DrawingObjectTypeEnum.ksDrChangeLeader );
     			
 			    if ( chLeader != null && doc2D != null )
 			    {
-				    // Создать знак изменения
+				    // РЎРѕР·РґР°С‚СЊ Р·РЅР°Рє РёР·РјРµРЅРµРЅРёСЏ
 				    bool create = CreateChangeLeader( ref chLeader );
     				
-				    // Получить референс объекта
+				    // РџРѕР»СѓС‡РёС‚СЊ СЂРµС„РµСЂРµРЅСЃ РѕР±СЉРµРєС‚Р°
 				    IBaseLeader bLeader = (IBaseLeader)chLeader;
 				    int refr = 0;
     				
 				    if ( bLeader != null )
 					    refr = bLeader.Reference;
     				
-				    // Подсветить созданный объект
-            doc2D.ksLightObj( refr, 1/*включить подсветку*/ );
+				    // РџРѕРґСЃРІРµС‚РёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ РѕР±СЉРµРєС‚
+            doc2D.ksLightObj( refr, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
     				
             if ( create && kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 				    {
-					    // Получить объект из коллекции по референсу
+					    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ СЂРµС„РµСЂРµРЅСЃСѓ
 					    IChangeLeader changeLead = (IChangeLeader)leadersCol.get_Leader( refr );				
-					    // Редактировать знак изменения
+					    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·РЅР°Рє РёР·РјРµРЅРµРЅРёСЏ
 					    EditChangeLeader( ref changeLead );
 				    }
-            doc2D.ksLightObj( refr, 0/*выключить подсветку*/ );
+            doc2D.ksLightObj( refr, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 			    }
 		    }
 	    }
@@ -654,9 +654,9 @@ namespace Step3_API7_2D
     #endregion
 
 
-    #region Знак клеймения
+    #region Р—РЅР°Рє РєР»РµР№РјРµРЅРёСЏ
     //-------------------------------------------------------------------------------
-    // Создание знака клеймения
+    // РЎРѕР·РґР°РЅРёРµ Р·РЅР°РєР° РєР»РµР№РјРµРЅРёСЏ
     // ---
     bool CreateBrandLeader( ref IBrandLeader brandLeader )
     {
@@ -664,33 +664,33 @@ namespace Step3_API7_2D
 
 	    if ( brandLeader != null )
 	    {
-		    // Направление
+		    // РќР°РїСЂР°РІР»РµРЅРёРµ
 		    brandLeader.Direction = false;
 
-		    // Получить интерфейс текста обозначения
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 		    IText des = brandLeader.Designation;
 
 		    if ( des != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    des.Str = LoadString( "IDS_MARK2" );
 
-		    // Получить интерфейс ответвлений
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 		    IBranchs branchs = (IBranchs)brandLeader;
 
 		    if ( branchs != null )
 		    {
-			    // Точка привязки
+			    // РўРѕС‡РєР° РїСЂРёРІСЏР·РєРё
 			    branchs.X0 = 100;
 			    branchs.Y0 = 150;
-			    // Добавить ответвление
+			    // Р”РѕР±Р°РІРёС‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 			    branchs.AddBranchByPoint( -1, 60, 110 );
 		    }
 
-		    // Получить базовый интерфейс линии выноски
+		    // РџРѕР»СѓС‡РёС‚СЊ Р±Р°Р·РѕРІС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
 		    IBaseLeader baseLeader = (IBaseLeader)brandLeader;
     		
 		    if ( baseLeader != null )
-			    // Применить параметры
+			    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 			    res = baseLeader.Update();
 	    }
       return res;
@@ -698,87 +698,87 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование знака изменения
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РёР·РјРµРЅРµРЅРёСЏ
     // ---
     void EditBrandLeader( ref IBrandLeader brandLeader )
     {
 	    if ( brandLeader != null )
 	    {
-		    // Направление
+		    // РќР°РїСЂР°РІР»РµРЅРёРµ
 		    brandLeader.Direction = true;
 
-		    // Получить интерфейс текста над ножкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РЅР°Рґ РЅРѕР¶РєРѕР№
 		    IText textOn = brandLeader.TextOnBranch;
     		
 		    if ( textOn != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    textOn.Str = "2";
     		
-		    // Получить интерфейс текста под ножкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РїРѕРґ РЅРѕР¶РєРѕР№
 		    IText textUnder = brandLeader.TextUnderBranch;
     		
 		    if ( textUnder != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    textUnder.Str = "3";
 
-		    // Получить интерфейс текста обозначения
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 		    IText des = brandLeader.Designation;
     		
 		    if ( des != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    des.Str = LoadString( "IDS_MARK3" );
 
-		    // Получить базовый интерфейс линии выноски
+		    // РџРѕР»СѓС‡РёС‚СЊ Р±Р°Р·РѕРІС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
 		    IBaseLeader baseLeader = (IBaseLeader)brandLeader;
     		
 		    if ( baseLeader != null )
-			    // Применить параметры
+			    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 			    baseLeader.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование знака клеймения
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РєР»РµР№РјРµРЅРёСЏ
     // ---
     void BrandLeaderWork()
     {
-	    // Получить контейнер условных обозначений
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ СѓСЃР»РѕРІРЅС‹С… РѕР±РѕР·РЅР°С‡РµРЅРёР№
 	    ISymbols2DContainer symbCont = GetSymbols2DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию линий выноски
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ Р»РёРЅРёР№ РІС‹РЅРѕСЃРєРё
 		    ILeaders leadersCol = symbCont.Leaders;
     		
 		    if ( leadersCol != null )
 		    {
-			    // Добавить знак клеймения
+			    // Р”РѕР±Р°РІРёС‚СЊ Р·РЅР°Рє РєР»РµР№РјРµРЅРёСЏ
 			    IBrandLeader brLeader = (IBrandLeader)leadersCol.Add( Kompas6Constants.DrawingObjectTypeEnum.ksDrBrandLeader );
     			
 			    if ( brLeader != null && doc2D != null )
 			    {
-				    // Создать знак клеймения
+				    // РЎРѕР·РґР°С‚СЊ Р·РЅР°Рє РєР»РµР№РјРµРЅРёСЏ
 				    bool create = CreateBrandLeader( ref brLeader );
     				
-				    // Получить референс объекта
+				    // РџРѕР»СѓС‡РёС‚СЊ СЂРµС„РµСЂРµРЅСЃ РѕР±СЉРµРєС‚Р°
 				    IBaseLeader bLeader = (IBaseLeader)brLeader;
 				    int refObj = 0;
     				
 				    if ( bLeader != null )
 					    refObj = bLeader.Reference;
     				
-				    // Подсветить созданный объект
-            doc2D.ksLightObj( refObj, 1/*включить подсветку*/ );
+				    // РџРѕРґСЃРІРµС‚РёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ РѕР±СЉРµРєС‚
+            doc2D.ksLightObj( refObj, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
     				
             if ( create && kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 				    {
-					    // Получить объект из коллекции по референсу
+					    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ СЂРµС„РµСЂРµРЅСЃСѓ
 					    IBrandLeader brandLead = (IBrandLeader)leadersCol.get_Leader( refObj );				
-					    // Редактировать знак клеймения
+					    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·РЅР°Рє РєР»РµР№РјРµРЅРёСЏ
 					    EditBrandLeader( ref brandLead );
 				    }
-            doc2D.ksLightObj( refObj, 0/*выключить подсветку*/ );
+            doc2D.ksLightObj( refObj, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 			    }
 		    }
 	    }
@@ -786,9 +786,9 @@ namespace Step3_API7_2D
     #endregion
 
 
-    #region Обозначение шероховатости
+    #region РћР±РѕР·РЅР°С‡РµРЅРёРµ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
     //-------------------------------------------------------------------------------
-    // Создание обозначения шероховатости
+    // РЎРѕР·РґР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
     // ---
     bool CreateRough( ref IRough rough )
     {
@@ -796,7 +796,7 @@ namespace Step3_API7_2D
 
 	    if ( rough != null && doc2D != null )
 	    {
-		    // Структура параметров запроса к системе
+		    // РЎС‚СЂСѓРєС‚СѓСЂР° РїР°СЂР°РјРµС‚СЂРѕРІ Р·Р°РїСЂРѕСЃР° Рє СЃРёСЃС‚РµРјРµ
 		    ksRequestInfo info = (ksRequestInfo)kompas.GetParamStruct( (int)Kompas6Constants.
                               StructType2DEnum.ko_RequestInfo );
 		    info.Init();
@@ -804,40 +804,40 @@ namespace Step3_API7_2D
         info.cursorId = ldefin2d.OCR_CATCH;
 		    double x = 0, y = 0;
 
-		    // Отключить привязки
+		    // РћС‚РєР»СЋС‡РёС‚СЊ РїСЂРёРІСЏР·РєРё
 		    SnapOptions sOpt = (SnapOptions)kompas.GetParamStruct( (int)Kompas6Constants.
                             StructType2DEnum.ko_SnapOptions );
         kompas.ksGetSysOptions( ldefin2d.SNAP_OPTIONS, sOpt );
 		    sOpt.commonOpt = 0;
 		    kompas.ksSetSysOptions( ldefin2d.SNAP_OPTIONS, sOpt );
 
-		    // Указать базовый объект
+		    // РЈРєР°Р·Р°С‚СЊ Р±Р°Р·РѕРІС‹Р№ РѕР±СЉРµРєС‚
         if ( doc2D.ksCursorEx(info, ref x, ref y, null, null) != 0 )
 		    {
-			    // Найти объект по указанным координатам
+			    // РќР°Р№С‚Рё РѕР±СЉРµРєС‚ РїРѕ СѓРєР°Р·Р°РЅРЅС‹Рј РєРѕРѕСЂРґРёРЅР°С‚Р°Рј
           int pObj = doc2D.ksFindObj( x, y, doc2D.ksGetCursorLimit() );
-			    // Подсветить объект
-          doc2D.ksLightObj( pObj, 1/*включить подсветку*/ );
-			    // Получить интерфейс графического объекта из референса
+			    // РџРѕРґСЃРІРµС‚РёС‚СЊ РѕР±СЉРµРєС‚
+          doc2D.ksLightObj( pObj, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РіСЂР°С„РёС‡РµСЃРєРѕРіРѕ РѕР±СЉРµРєС‚Р° РёР· СЂРµС„РµСЂРµРЅСЃР°
 			    IDrawingObject baseObj = (IDrawingObject)kompas.TransferReference( pObj, doc2D.reference );
 			    info.commandsString = LoadString( "IDS_COMMAND2" );
 			    info.cursorId = 0;
 
-			    // Если привязки выключены, включить
+			    // Р•СЃР»Рё РїСЂРёРІСЏР·РєРё РІС‹РєР»СЋС‡РµРЅС‹, РІРєР»СЋС‡РёС‚СЊ
 			    if ( sOpt.commonOpt == 0 )
 			    {
 				    sOpt.commonOpt = 1;
 				    kompas.ksSetSysOptions( ldefin2d.SNAP_OPTIONS, sOpt );
 			    }
 
-			    // Указать точку привязки
+			    // РЈРєР°Р·Р°С‚СЊ С‚РѕС‡РєСѓ РїСЂРёРІСЏР·РєРё
           if ( doc2D.ksCursorEx(info, ref x, ref y, null, null) != 0 )
 			    {
 				    if ( baseObj != null )
-					    // Базовый объект
+					    // Р‘Р°Р·РѕРІС‹Р№ РѕР±СЉРµРєС‚
 					    rough.BaseObject = baseObj;
 
-				    // Точка привязки
+				    // РўРѕС‡РєР° РїСЂРёРІСЏР·РєРё
 				    rough.BranchX0 = x;
 				    rough.BranchY0 = y;
     				
@@ -847,44 +847,44 @@ namespace Step3_API7_2D
 				    {
 					    roughPar.ShelfDirection = Kompas6Constants.ksShelfDirectionEnum.ksLSRight;
 					    rough.Update();
-					    // Обработка по контуру включена
+					    // РћР±СЂР°Р±РѕС‚РєР° РїРѕ РєРѕРЅС‚СѓСЂСѓ РІРєР»СЋС‡РµРЅР°
 					    roughPar.ProcessingByContour = true;
-					    // Длина линии выноски
+					    // Р”Р»РёРЅР° Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
 					    roughPar.LeaderLength = 20;
-					    // Угол наклона линии выноски
+					    // РЈРіРѕР» РЅР°РєР»РѕРЅР° Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
 					    roughPar.LeaderAngle = 45;
 
-					    // Получить интерфейс текста параметров шероховатости
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РїР°СЂР°РјРµС‚СЂРѕРІ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 					    IText txt1 = roughPar.RoughParamText;
 
 					    if ( txt1 != null )
 						    txt1.Str = "1";
     					
-					    // Получить интерфейс текста способа обработки поверхности
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° СЃРїРѕСЃРѕР±Р° РѕР±СЂР°Р±РѕС‚РєРё РїРѕРІРµСЂС…РЅРѕСЃС‚Рё
 					    IText txt2 = roughPar.ProcessText;
     					
 					    if ( txt2 != null )
 						    txt2.Str = "2";
 
-					    // Получить интерфейс текста базовой длины
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° Р±Р°Р·РѕРІРѕР№ РґР»РёРЅС‹
 					    IText txt3 = roughPar.BaseLengthText;
     					
 					    if ( txt3 != null )
 						    txt3.Str = "3";
 				    }
 
-				    // Применить параметры
+				    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 				    res = rough.Update();
 			    }
 			    else
             kompas.ksMessage( LoadString("IDS_NOPOINT") );
 
-			    doc2D.ksLightObj( pObj, 0/*выключить подсветку*/ );
+			    doc2D.ksLightObj( pObj, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 		    }
 		    else
           kompas.ksMessage( LoadString("IDS_NOOBJ") );
 
-		    // Если привязки выключены, включить
+		    // Р•СЃР»Рё РїСЂРёРІСЏР·РєРё РІС‹РєР»СЋС‡РµРЅС‹, РІРєР»СЋС‡РёС‚СЊ
 		    if ( sOpt.commonOpt == 0 )
 		    {
 			    sOpt.commonOpt = 1;
@@ -896,64 +896,64 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование обозначения шероховатости
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
     // ---
     void EditRough( ref IRough rough )
     {
 	    if ( rough != null )
 	    {
-		    // Получить интерфейс параметров шероховатости
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 		    IRoughParams roughPar = (IRoughParams)rough;
 
 		    if ( roughPar != null )
 		    {
-			    // Убрать стрелку
+			    // РЈР±СЂР°С‚СЊ СЃС‚СЂРµР»РєСѓ
 			    roughPar.ArrowType = Kompas6Constants.ksArrowEnum.ksWithoutArrow;
-			    // Обработка по контуру отключена
+			    // РћР±СЂР°Р±РѕС‚РєР° РїРѕ РєРѕРЅС‚СѓСЂСѓ РѕС‚РєР»СЋС‡РµРЅР°
 			    roughPar.ProcessingByContour = false;
 		    }
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    rough.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование обозначения шероховатости
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
     // ---
     void RoughWork()
     {
-	    // Получить контейнер условных обозначений
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ СѓСЃР»РѕРІРЅС‹С… РѕР±РѕР·РЅР°С‡РµРЅРёР№
 	    ISymbols2DContainer symbCont = GetSymbols2DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию обозначений шероховатости
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ РѕР±РѕР·РЅР°С‡РµРЅРёР№ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 		    IRoughs roughsCol = symbCont.Roughs;
     		
 		    if ( roughsCol != null )
 		    {
-			    // Добавить обозначение шероховатости
+			    // Р”РѕР±Р°РІРёС‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёРµ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 			    IRough newRough = roughsCol.Add();
     			
 			    if ( newRough != null && doc2D != null )
 			    {
-				    // Создать обозначение шероховатости
+				    // РЎРѕР·РґР°С‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёРµ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 				    if ( CreateRough(ref newRough) )
 				    {			
-					    // Получить референс объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ СЂРµС„РµСЂРµРЅСЃ РѕР±СЉРµРєС‚Р°
 					    int objRef = newRough.Reference;
-					    // Подсветить созданный объект
-              doc2D.ksLightObj( objRef, 1/*включить подсветку*/ );
+					    // РџРѕРґСЃРІРµС‚РёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ РѕР±СЉРµРєС‚
+              doc2D.ksLightObj( objRef, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
     					
               if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по референсу
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ СЂРµС„РµСЂРµРЅСЃСѓ
 						    IRough rough = roughsCol.get_Rough( objRef );				
-						    // Редактировать обозначение шероховатости
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёРµ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 						    EditRough( ref rough );
 					    }
-              doc2D.ksLightObj( objRef, 0/*выключить подсветку*/ );
+              doc2D.ksLightObj( objRef, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 				    }
 			    }
 		    }
@@ -962,9 +962,9 @@ namespace Step3_API7_2D
     #endregion
 
 
-    #region Обозначение базы
+    #region РћР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹
     //-------------------------------------------------------------------------------
-    // Создание обозначения базы
+    // РЎРѕР·РґР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹
     // ---
     bool CreateBase( ref IBase pBase )
     {
@@ -972,7 +972,7 @@ namespace Step3_API7_2D
 
 	    if ( pBase != null )
 	    {
-        // Структура параметров запроса к системе
+        // РЎС‚СЂСѓРєС‚СѓСЂР° РїР°СЂР°РјРµС‚СЂРѕРІ Р·Р°РїСЂРѕСЃР° Рє СЃРёСЃС‚РµРјРµ
         ksRequestInfo info = (ksRequestInfo)kompas.GetParamStruct( (int)Kompas6Constants.
                               StructType2DEnum.ko_RequestInfo );
         info.Init();
@@ -980,56 +980,56 @@ namespace Step3_API7_2D
         info.cursorId = ldefin2d.OCR_CATCH;
         double x = 0, y = 0;
 
-        // Отключить привязки
+        // РћС‚РєР»СЋС‡РёС‚СЊ РїСЂРёРІСЏР·РєРё
         SnapOptions sOpt = (SnapOptions)kompas.GetParamStruct( (int)Kompas6Constants.
                             StructType2DEnum.ko_SnapOptions );
         kompas.ksGetSysOptions( ldefin2d.SNAP_OPTIONS, sOpt );
         sOpt.commonOpt = 0;
         kompas.ksSetSysOptions( ldefin2d.SNAP_OPTIONS, sOpt );
     		
-		    // Указать базовый объект
+		    // РЈРєР°Р·Р°С‚СЊ Р±Р°Р·РѕРІС‹Р№ РѕР±СЉРµРєС‚
         if ( doc2D.ksCursorEx(info, ref x, ref y, null, null) != 0 )
 		    {
-			    // Найти объект по указанным координатам
+			    // РќР°Р№С‚Рё РѕР±СЉРµРєС‚ РїРѕ СѓРєР°Р·Р°РЅРЅС‹Рј РєРѕРѕСЂРґРёРЅР°С‚Р°Рј
           int pObj = doc2D.ksFindObj( x, y, doc2D.ksGetCursorLimit() );
-			    // Подсветить объект
-          doc2D.ksLightObj( pObj, 1/*включить подсветку*/ );
-			    // Получить интерфейс графического объекта из референса
+			    // РџРѕРґСЃРІРµС‚РёС‚СЊ РѕР±СЉРµРєС‚
+          doc2D.ksLightObj( pObj, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РіСЂР°С„РёС‡РµСЃРєРѕРіРѕ РѕР±СЉРµРєС‚Р° РёР· СЂРµС„РµСЂРµРЅСЃР°
 			    IDrawingObject baseObj = (IDrawingObject)kompas.TransferReference( pObj, doc2D.reference );
 			    info.commandsString = LoadString( "IDS_COMMAND2" );
 			    info.cursorId = 0;
 
-			    // Если привязки выключены, включить
+			    // Р•СЃР»Рё РїСЂРёРІСЏР·РєРё РІС‹РєР»СЋС‡РµРЅС‹, РІРєР»СЋС‡РёС‚СЊ
 			    if ( sOpt.commonOpt == 0 )
 			    {
 				    sOpt.commonOpt = 1;
 				    kompas.ksSetSysOptions( ldefin2d.SNAP_OPTIONS, sOpt );
 			    }
     			
-			    // Указать положение знака
+			    // РЈРєР°Р·Р°С‚СЊ РїРѕР»РѕР¶РµРЅРёРµ Р·РЅР°РєР°
           if ( doc2D.ksCursorEx(info, ref x, ref y, null, null) != 0 )
 			    {
 				    if ( baseObj != null )
-					    // Базовый объект
+					    // Р‘Р°Р·РѕРІС‹Р№ РѕР±СЉРµРєС‚
 					    pBase.BaseObject = baseObj;
 
-				    // Точка положения знака
+				    // РўРѕС‡РєР° РїРѕР»РѕР¶РµРЅРёСЏ Р·РЅР°РєР°
 				    pBase.X0 = x;
 				    pBase.Y0 = y;
-				    // Способ отрисовки - перпендикулярно к объекту
+				    // РЎРїРѕСЃРѕР± РѕС‚СЂРёСЃРѕРІРєРё - РїРµСЂРїРµРЅРґРёРєСѓР»СЏСЂРЅРѕ Рє РѕР±СЉРµРєС‚Сѓ
 				    pBase.DrawType = true;
-				    // Применить параметры
+				    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 				    res = pBase.Update();
 			    }
 			    else
             kompas.ksMessage( LoadString("IDS_NOPOINT") );
 
-          doc2D.ksLightObj( pObj, 0/*выключить подсветку*/ );
+          doc2D.ksLightObj( pObj, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 		    }
 		    else
           kompas.ksMessage( LoadString("IDS_NOOBJ") );
 
-		    // Если привязки выключены, включить
+		    // Р•СЃР»Рё РїСЂРёРІСЏР·РєРё РІС‹РєР»СЋС‡РµРЅС‹, РІРєР»СЋС‡РёС‚СЊ
 		    if ( sOpt.commonOpt == 0 )
 		    {
 			    sOpt.commonOpt = 1;
@@ -1041,69 +1041,69 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование обозначения базы
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹
     // ---
     void EditBase( ref IBase pBase )
     {
 	    if ( pBase != null )
 	    {
-		    // Тип отрисовки - произвольно
+		    // РўРёРї РѕС‚СЂРёСЃРѕРІРєРё - РїСЂРѕРёР·РІРѕР»СЊРЅРѕ
 		    pBase.DrawType = false;
-		    // Отключить автосортировку
+		    // РћС‚РєР»СЋС‡РёС‚СЊ Р°РІС‚РѕСЃРѕСЂС‚РёСЂРѕРІРєСѓ
 		    pBase.AutoSorted = false;
-		    // Конечная точка выноски
+		    // РљРѕРЅРµС‡РЅР°СЏ С‚РѕС‡РєР° РІС‹РЅРѕСЃРєРё
 		    pBase.BranchX = pBase.X0 + 10;
 		    pBase.BranchY = pBase.Y0 + 10;
 
-		    // Получить интерфейс текста обозначения базы
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹
 		    IText txt = pBase.Text;
 
 		    if ( txt != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txt.Str = "B";
 
-		    // Применить параметры
+		    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		    pBase.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование обозначения базы
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹
     // ---
     void BaseWork()
     {
-	    // Получить контейнер условных обозначений
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ СѓСЃР»РѕРІРЅС‹С… РѕР±РѕР·РЅР°С‡РµРЅРёР№
 	    ISymbols2DContainer symbCont = GetSymbols2DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию обозначений базы
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ РѕР±РѕР·РЅР°С‡РµРЅРёР№ Р±Р°Р·С‹
 		    IBases basesCol = symbCont.Bases;
     		
 		    if ( basesCol != null )
 		    {
-			    // Добавить обозначение базы
+			    // Р”РѕР±Р°РІРёС‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹
 			    IBase newBase = basesCol.Add();
     			
 			    if ( newBase != null )
 			    {
-				    // Создать обозначение базы
+				    // РЎРѕР·РґР°С‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹
 				    if ( CreateBase( ref newBase) )
 				    {			
-					    // Получить референс объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ СЂРµС„РµСЂРµРЅСЃ РѕР±СЉРµРєС‚Р°
 					    int objRef = newBase.Reference;
-					    // Подсветить созданный объект
-              doc2D.ksLightObj( objRef, 1/*включить подсветку*/ );
+					    // РџРѕРґСЃРІРµС‚РёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ РѕР±СЉРµРєС‚
+              doc2D.ksLightObj( objRef, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
     					
               if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по референсу
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ СЂРµС„РµСЂРµРЅСЃСѓ
 						    IBase pBase = basesCol.get_Base( objRef );				
-						    // Редактировать обозначение базы
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹
 						    EditBase( ref pBase );
 					    }
-              doc2D.ksLightObj( objRef, 0/*выключить подсветку*/ );
+              doc2D.ksLightObj( objRef, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 				    }
 			    }
 		    }
@@ -1112,9 +1112,9 @@ namespace Step3_API7_2D
     #endregion
 
 
-    #region Линия разреза/сечения
+    #region Р›РёРЅРёСЏ СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
     //-------------------------------------------------------------------------------
-    // Создание линии разреза/сечения
+    // РЎРѕР·РґР°РЅРёРµ Р»РёРЅРёРё СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
     // ---
     bool CreateCutLine( ref ICutLine cutLine )
     {
@@ -1122,33 +1122,33 @@ namespace Step3_API7_2D
  
 	    if ( cutLine != null )
 	    {
-		    // Координаты начального текста
+		    // РљРѕРѕСЂРґРёРЅР°С‚С‹ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ С‚РµРєСЃС‚Р°
 		    cutLine.X1 = 80;
 		    cutLine.Y1 = 165;
-		    // Координаты конечного текста
+		    // РљРѕРѕСЂРґРёРЅР°С‚С‹ РєРѕРЅРµС‡РЅРѕРіРѕ С‚РµРєСЃС‚Р°
 		    cutLine.X2 = 120;
 		    cutLine.Y2 = 200;
-		    // Расположение стрелок - слева
+		    // Р Р°СЃРїРѕР»РѕР¶РµРЅРёРµ СЃС‚СЂРµР»РѕРє - СЃР»РµРІР°
 		    cutLine.ArrowPos = true;
-		    // Размещение дополнительного текста - у первой стрелки
+		    // Р Р°Р·РјРµС‰РµРЅРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ С‚РµРєСЃС‚Р° - Сѓ РїРµСЂРІРѕР№ СЃС‚СЂРµР»РєРё
 		    cutLine.AdditionalTextPos = true;
 
-		    // Создать массив точек линии разреза
+		    // РЎРѕР·РґР°С‚СЊ РјР°СЃСЃРёРІ С‚РѕС‡РµРє Р»РёРЅРёРё СЂР°Р·СЂРµР·Р°
 		    double[] points = new double[4];
 		    points[0] = 80;
 		    points[1] = 165;
 		    points[2] = 120;
 		    points[3] = 200;
-			  // Задать массив точек линии разреза
+			  // Р—Р°РґР°С‚СЊ РјР°СЃСЃРёРІ С‚РѕС‡РµРє Р»РёРЅРёРё СЂР°Р·СЂРµР·Р°
 			  cutLine.Points = points;
 
-		    // Получить интерфейс дополнительного текста
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ С‚РµРєСЃС‚Р°
 		    IText adText = cutLine.AdditionalText;
     		
 		    if ( adText != null )
 			    SetTextSmallFont( ref adText, "(1)", 7 );
 
-		    // Применить параметры
+		    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		    res = cutLine.Update();
 	    }
       return res;
@@ -1156,20 +1156,20 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование линии разреза/сечения
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р»РёРЅРёРё СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
     // ---
     void EditCutLine( ref ICutLine cutLine )
     {
 	    if ( cutLine != null )
 	    {
-		    // Расположение стрелок - справа по направлению ломаной
+		    // Р Р°СЃРїРѕР»РѕР¶РµРЅРёРµ СЃС‚СЂРµР»РѕРє - СЃРїСЂР°РІР° РїРѕ РЅР°РїСЂР°РІР»РµРЅРёСЋ Р»РѕРјР°РЅРѕР№
 		    cutLine.ArrowPos = false;
-		    // Расположение дополнительного текста - у второй стрелки
+		    // Р Р°СЃРїРѕР»РѕР¶РµРЅРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ С‚РµРєСЃС‚Р° - Сѓ РІС‚РѕСЂРѕР№ СЃС‚СЂРµР»РєРё
 		    cutLine.AdditionalTextPos = false;
-		    // Отключить автосортировку
+		    // РћС‚РєР»СЋС‡РёС‚СЊ Р°РІС‚РѕСЃРѕСЂС‚РёСЂРѕРІРєСѓ
 		    cutLine.AutoSorted = false;
 
-		    // Создать массив точек линии разреза
+		    // РЎРѕР·РґР°С‚СЊ РјР°СЃСЃРёРІ С‚РѕС‡РµРє Р»РёРЅРёРё СЂР°Р·СЂРµР·Р°
 		    double[] points = new double[6];
 		    points[0] = 80;
 		    points[1] = 165;
@@ -1179,48 +1179,48 @@ namespace Step3_API7_2D
 		    points[5] = 200;
 			  cutLine.Points = points;
 
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    cutLine.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование линии разреза/сечения
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р»РёРЅРёРё СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
     // ---
     void CutLineWork()
     {
-	    // Получить контейнер условных обозначений
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ СѓСЃР»РѕРІРЅС‹С… РѕР±РѕР·РЅР°С‡РµРЅРёР№
 	    ISymbols2DContainer symbCont = GetSymbols2DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию линий разреза/сечения
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ Р»РёРЅРёР№ СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
 		    ICutLines cutCol = symbCont.CutLines;
     		
 		    if ( cutCol != null && doc2D != null )
 		    {
-			    // Добавить линию разреза/сечения
+			    // Р”РѕР±Р°РІРёС‚СЊ Р»РёРЅРёСЋ СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
 			    ICutLine newCut = cutCol.Add();
     			
 			    if ( newCut != null )
 			    {
-				    // Создать линию разреза/сечения
+				    // РЎРѕР·РґР°С‚СЊ Р»РёРЅРёСЋ СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
 				    bool create = CreateCutLine( ref newCut );
     				
-				    // Получить референс объекта
+				    // РџРѕР»СѓС‡РёС‚СЊ СЂРµС„РµСЂРµРЅСЃ РѕР±СЉРµРєС‚Р°
 				    int objRef = newCut.Reference;
-				    // Подсветить созданный объект
-            doc2D.ksLightObj( objRef, 1/*включить подсветку*/ );
+				    // РџРѕРґСЃРІРµС‚РёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ РѕР±СЉРµРєС‚
+            doc2D.ksLightObj( objRef, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
     				
             if ( create && kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 				    {
-					    // Получить объект из коллекции по референсу
+					    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ СЂРµС„РµСЂРµРЅСЃСѓ
 					    ICutLine cutLine = cutCol.get_CutLine( objRef );				
-					    // Редактировать линию разреза/сечения
+					    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р»РёРЅРёСЋ СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
 					    EditCutLine( ref cutLine );
 				    }
-            doc2D.ksLightObj( objRef, 0/*выключить подсветку*/ );
+            doc2D.ksLightObj( objRef, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 			    }
 		    }
 	    }
@@ -1228,9 +1228,9 @@ namespace Step3_API7_2D
     #endregion
 
 
-    #region Стрелка направления взгляда
+    #region РЎС‚СЂРµР»РєР° РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
     //-------------------------------------------------------------------------------
-    // Создание стрелки направления взгляда
+    // РЎРѕР·РґР°РЅРёРµ СЃС‚СЂРµР»РєРё РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
     // ---
     bool CreateViewPointer( ref IViewPointer viewPointer )
     {
@@ -1238,13 +1238,13 @@ namespace Step3_API7_2D
 
 	    if ( viewPointer != null )
 	    {
-		    // Начальная точка стрелки
+		    // РќР°С‡Р°Р»СЊРЅР°СЏ С‚РѕС‡РєР° СЃС‚СЂРµР»РєРё
 		    viewPointer.X1 = 100;
 		    viewPointer.Y1 = 150;
-		    // Конечная точка стрелки
+		    // РљРѕРЅРµС‡РЅР°СЏ С‚РѕС‡РєР° СЃС‚СЂРµР»РєРё
 		    viewPointer.X2 = 120;
 		    viewPointer.Y2 = 160;
-		    // Применить параметры
+		    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		    res = viewPointer.Update();
 	    }
       return res;
@@ -1252,67 +1252,67 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование стрелки направления взгляда
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃС‚СЂРµР»РєРё РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
     // ---
     void EditViewPointer( ref IViewPointer viewPointer )
     {
 	    if ( viewPointer != null )
 	    {
-		    // Конечная точка стрелки
+		    // РљРѕРЅРµС‡РЅР°СЏ С‚РѕС‡РєР° СЃС‚СЂРµР»РєРё
 		    viewPointer.X2 = 90;
 		    viewPointer.Y2 = 140;
-		    // Включить автосортировку
+		    // Р’РєР»СЋС‡РёС‚СЊ Р°РІС‚РѕСЃРѕСЂС‚РёСЂРѕРІРєСѓ
 		    viewPointer.AutoSorted = true;
 
-		    // Получить интерфейс текста обозначения направления взгляда
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РѕР±РѕР·РЅР°С‡РµРЅРёСЏ РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
 		    IText adText = viewPointer.AdditionalText;
     		
 		    if ( adText != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    SetTextSmallFont( ref adText, "(1)", 7 );
     		
-		    // Применить параметры
+		    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		    viewPointer.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование стрелки направления взгляда
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃС‚СЂРµР»РєРё РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
     // ---
     void ViewPointerWork()
     {
-	    // Получить контейнер условных обозначений
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ СѓСЃР»РѕРІРЅС‹С… РѕР±РѕР·РЅР°С‡РµРЅРёР№
 	    ISymbols2DContainer symbCont = GetSymbols2DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию стрелок направления взгляда
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ СЃС‚СЂРµР»РѕРє РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
 		    IViewPointers viewPointsCol = symbCont.ViewPointers;
     		
 		    if ( viewPointsCol != null )
 		    {
-			    // Добавить стрелку направления взгляда
+			    // Р”РѕР±Р°РІРёС‚СЊ СЃС‚СЂРµР»РєСѓ РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
 			    IViewPointer newPointer = viewPointsCol.Add();
     			
 			    if ( newPointer != null && doc2D != null )
 			    {
-				    // Создать стрелку направления взгляда
+				    // РЎРѕР·РґР°С‚СЊ СЃС‚СЂРµР»РєСѓ РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
 				    bool create = CreateViewPointer( ref newPointer );
     				
-				    // Получить референс объекта
+				    // РџРѕР»СѓС‡РёС‚СЊ СЂРµС„РµСЂРµРЅСЃ РѕР±СЉРµРєС‚Р°
 				    int objRef = newPointer.Reference;
-				    // Подсветить созданный объект
-            doc2D.ksLightObj( objRef, 1/*включить подсветку*/ );
+				    // РџРѕРґСЃРІРµС‚РёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ РѕР±СЉРµРєС‚
+            doc2D.ksLightObj( objRef, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
     				
             if ( create && kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 				    {
-					    // Получить объект из коллекции по референсу
+					    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ СЂРµС„РµСЂРµРЅСЃСѓ
 					    IViewPointer viewPointer = viewPointsCol.get_ViewPointer( objRef );				
-					    // Редактировать стрелку направления взгляда
+					    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЃС‚СЂРµР»РєСѓ РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
 					    EditViewPointer( ref viewPointer );
 				    }
-            doc2D.ksLightObj( objRef, 0/*выключить подсветку*/ );
+            doc2D.ksLightObj( objRef, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 			    }
 		    }
 	    }
@@ -1320,25 +1320,25 @@ namespace Step3_API7_2D
     #endregion
 
 
-    #region Допуск формы
+    #region Р”РѕРїСѓСЃРє С„РѕСЂРјС‹
     //-------------------------------------------------------------------------------
-    // Задать текст в ячейках допуска формы
+    // Р—Р°РґР°С‚СЊ С‚РµРєСЃС‚ РІ СЏС‡РµР№РєР°С… РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
     // ---
     void SetToleranceText( ref IToleranceParam tolPar )
     {
 	    if ( tolPar != null )
 	    {
-		    // Получить интерфейс таблицы с текстом допуска формы
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚Р°Р±Р»РёС†С‹ СЃ С‚РµРєСЃС‚РѕРј РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
 		    ITable tolTable = tolPar.Table;
     		
 		    if ( tolTable != null )
 		    {
-			    // Добавить 3 столбца (1 уже есть)
-			    tolTable.AddColumn( -1, true/*справа*/ );
-			    tolTable.AddColumn( -1, true/*справа*/ );
-			    tolTable.AddColumn( -1, true/*справа*/ );
+			    // Р”РѕР±Р°РІРёС‚СЊ 3 СЃС‚РѕР»Р±С†Р° (1 СѓР¶Рµ РµСЃС‚СЊ)
+			    tolTable.AddColumn( -1, true/*СЃРїСЂР°РІР°*/ );
+			    tolTable.AddColumn( -1, true/*СЃРїСЂР°РІР°*/ );
+			    tolTable.AddColumn( -1, true/*СЃРїСЂР°РІР°*/ );
     			
-			    // Записать текст в 1-ю ячейку
+			    // Р—Р°РїРёСЃР°С‚СЊ С‚РµРєСЃС‚ РІ 1-СЋ СЏС‡РµР№РєСѓ
 			    ITableCell cell = tolTable.get_Cell( 0, 0 );
 			    ITextLine txt = null;
     			
@@ -1350,7 +1350,7 @@ namespace Step3_API7_2D
 					    txt.Str = "@22~";
 			    }
     			
-			    // Записать текст во 2-ю ячейку
+			    // Р—Р°РїРёСЃР°С‚СЊ С‚РµРєСЃС‚ РІРѕ 2-СЋ СЏС‡РµР№РєСѓ
 			    cell = tolTable.get_Cell( 0, 1 );
     			
 			    if ( cell != null )
@@ -1361,7 +1361,7 @@ namespace Step3_API7_2D
 					    txt.Str = "@2~";
 			    }
 
-			    // Записать текст в 3-ю ячейку
+			    // Р—Р°РїРёСЃР°С‚СЊ С‚РµРєСЃС‚ РІ 3-СЋ СЏС‡РµР№РєСѓ
 			    cell = tolTable.get_Cell( 0, 2 );
     			
 			    if ( cell != null )
@@ -1372,7 +1372,7 @@ namespace Step3_API7_2D
 					    txt.Str = "B";
 			    }
 
-			    // Записать текст в 4-ю ячейку
+			    // Р—Р°РїРёСЃР°С‚СЊ С‚РµРєСЃС‚ РІ 4-СЋ СЏС‡РµР№РєСѓ
 			    cell = tolTable.get_Cell( 0, 3 );
     			
 			    if ( cell != null )
@@ -1388,7 +1388,7 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Создание допуска формы
+    // РЎРѕР·РґР°РЅРёРµ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
     // ---
     bool CreateTolerance( ref ITolerance tolerance )
     {
@@ -1396,38 +1396,38 @@ namespace Step3_API7_2D
 
 	    if ( tolerance != null )
 	    {
-		    // Получить интерфейс ответвления
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёСЏ
 		    IBranchs branchs = (IBranchs)tolerance;
 
 		    if ( branchs != null )
 		    {
-			    // Задать точку привязки
+			    // Р—Р°РґР°С‚СЊ С‚РѕС‡РєСѓ РїСЂРёРІСЏР·РєРё
 			    branchs.X0 = 100;
 			    branchs.Y0 = 150;
-			    // Добавить 2 ответвления
+			    // Р”РѕР±Р°РІРёС‚СЊ 2 РѕС‚РІРµС‚РІР»РµРЅРёСЏ
 			    branchs.AddBranchByPoint( -1, 100, 120 );
 			    branchs.AddBranchByPoint( -1, 50, 155 );
 		    }
 
-		    // Получить интерфейс параметров допуска формы
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
 		    IToleranceParam tolPar = (IToleranceParam)tolerance;
     		
 		    if ( tolPar != null )
 		    {
-			    // Создать текст в ячейках
+			    // РЎРѕР·РґР°С‚СЊ С‚РµРєСЃС‚ РІ СЏС‡РµР№РєР°С…
 			    SetToleranceText( ref tolPar );
-			    // Положение базовой точки относительно таблицы - внизу посередине
+			    // РџРѕР»РѕР¶РµРЅРёРµ Р±Р°Р·РѕРІРѕР№ С‚РѕС‡РєРё РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ С‚Р°Р±Р»РёС†С‹ - РІРЅРёР·Сѓ РїРѕСЃРµСЂРµРґРёРЅРµ
 			    tolPar.BasePointPos = Kompas6Constants.ksTablePointEnum.ksTPBottomCenter;
 		    }
-		    // Тип стрелки 1-го ответвления - треугольник
+		    // РўРёРї СЃС‚СЂРµР»РєРё 1-РіРѕ РѕС‚РІРµС‚РІР»РµРЅРёСЏ - С‚СЂРµСѓРіРѕР»СЊРЅРёРє
 		    tolerance.set_ArrowType( 0, false );
-		    // Положение 1-го ответвления относительно таблицы - внизу посередине
+		    // РџРѕР»РѕР¶РµРЅРёРµ 1-РіРѕ РѕС‚РІРµС‚РІР»РµРЅРёСЏ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ С‚Р°Р±Р»РёС†С‹ - РІРЅРёР·Сѓ РїРѕСЃРµСЂРµРґРёРЅРµ
 		    tolerance.set_BranchPos( 0, Kompas6Constants.ksTablePointEnum.ksTPBottomCenter );
-		    // Тип стрелки 2-го ответвления - стрелка
+		    // РўРёРї СЃС‚СЂРµР»РєРё 2-РіРѕ РѕС‚РІРµС‚РІР»РµРЅРёСЏ - СЃС‚СЂРµР»РєР°
 		    tolerance.set_ArrowType( 1, true );
-		    // Положение 2-го ответвления относительно таблицы - слева посередине
+		    // РџРѕР»РѕР¶РµРЅРёРµ 2-РіРѕ РѕС‚РІРµС‚РІР»РµРЅРёСЏ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ С‚Р°Р±Р»РёС†С‹ - СЃР»РµРІР° РїРѕСЃРµСЂРµРґРёРЅРµ
 		    tolerance.set_BranchPos( 1, Kompas6Constants.ksTablePointEnum.ksTPLeftCenter );
-		    // Применить параметры
+		    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		    res = tolerance.Update();
 	    }
       return res;
@@ -1435,23 +1435,23 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование допуска формы
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
     // ---
     void EditTolerance( ref ITolerance tolerance )
     {	
 	    if ( tolerance != null )
 	    {
-		    // Получитьинтерфейс параметров допуска формы
+		    // РџРѕР»СѓС‡РёС‚СЊРёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
 		    IToleranceParam tolPar = (IToleranceParam)tolerance;
 
 		    if ( tolPar != null )
 		    {
-			    // Получить интерфейс таблицы с текстом допуска формы
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚Р°Р±Р»РёС†С‹ СЃ С‚РµРєСЃС‚РѕРј РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
 			    ITable tolTable = tolPar.Table;
     			
 			    if ( tolTable != null )
 			    {
-				    // Изменить текст во 2-й ячейке
+				    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚ РІРѕ 2-Р№ СЏС‡РµР№РєРµ
 				    ITableCell cell = tolTable.get_Cell( 0, 1 );
     				
 				    if ( cell != null )
@@ -1462,64 +1462,64 @@ namespace Step3_API7_2D
 						    txt.Str = "@2~15";
 				    }
 			    }
-			    // Задать признак вертикальности
+			    // Р—Р°РґР°С‚СЊ РїСЂРёР·РЅР°Рє РІРµСЂС‚РёРєР°Р»СЊРЅРѕСЃС‚Рё
 			    tolPar.Vertical = true;
 		    }
 
-		    // Получить интерфейс ответвлений
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 		    IBranchs branchs = (IBranchs)tolerance;
 
 		    if ( branchs != null )
 		    {
-			    // Удалить ответвление
+			    // РЈРґР°Р»РёС‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 			    branchs.DeleteBranch( 0 );
-			    // Добавить новое ответвление
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІРѕРµ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 			    branchs.AddBranchByPoint( -1, 130, 120 );
 		    }
 		    tolerance.set_ArrowType( 1, false );
 		    tolerance.set_BranchPos( 1, Kompas6Constants.ksTablePointEnum.ksTPBottomCenter );
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    tolerance.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование допуска формы
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
     // ---
     void ToleranceWork()
     {
-	    // Получить контейнер условных обозначений
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ СѓСЃР»РѕРІРЅС‹С… РѕР±РѕР·РЅР°С‡РµРЅРёР№
 	    ISymbols2DContainer symbCont = GetSymbols2DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию допусков формы
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ РґРѕРїСѓСЃРєРѕРІ С„РѕСЂРјС‹
 		    ITolerances tolerancesCol = symbCont.Tolerances;
     		
 		    if ( tolerancesCol != null )
 		    {
-			    // Добавить допуск формы
+			    // Р”РѕР±Р°РІРёС‚СЊ РґРѕРїСѓСЃРє С„РѕСЂРјС‹
 			    ITolerance newTol = tolerancesCol.Add();
     			
 			    if ( newTol != null )
 			    {
-				    // Создать допуск формы
+				    // РЎРѕР·РґР°С‚СЊ РґРѕРїСѓСЃРє С„РѕСЂРјС‹
 				    bool create = CreateTolerance( ref  newTol );
     				
-				    // Получить референс объекта
+				    // РџРѕР»СѓС‡РёС‚СЊ СЂРµС„РµСЂРµРЅСЃ РѕР±СЉРµРєС‚Р°
 				    int objRef = newTol.Reference;
-				    // Подсветить созданный объект
-            doc2D.ksLightObj( objRef, 1/*включить подсветку*/ );
+				    // РџРѕРґСЃРІРµС‚РёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ РѕР±СЉРµРєС‚
+            doc2D.ksLightObj( objRef, 1/*РІРєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
     				
             if ( create && kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 				    {
-					    // Получить объект из коллекции по референсу
+					    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ СЂРµС„РµСЂРµРЅСЃСѓ
 					    ITolerance tolerance = tolerancesCol.get_Tolerance( objRef );				
-					    // Редактировать допуск формы
+					    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РґРѕРїСѓСЃРє С„РѕСЂРјС‹
 					    EditTolerance( ref tolerance );
 				    }
-            doc2D.ksLightObj( objRef, 0/*выключить подсветку*/ );
+            doc2D.ksLightObj( objRef, 0/*РІС‹РєР»СЋС‡РёС‚СЊ РїРѕРґСЃРІРµС‚РєСѓ*/ );
 			    }
 		    }
 	    }
@@ -1527,30 +1527,30 @@ namespace Step3_API7_2D
     #endregion
 
 
-    #region Навигация по объектам вида
+    #region РќР°РІРёРіР°С†РёСЏ РїРѕ РѕР±СЉРµРєС‚Р°Рј РІРёРґР°
     //-------------------------------------------------------------------------------
-    // Получить контейнер графических объектов
+    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РіСЂР°С„РёС‡РµСЃРєРёС… РѕР±СЉРµРєС‚РѕРІ
     // ---
     IDrawingContainer GetDrawingContainer()
     {
 	    if ( doc != null )
 	    {
-		    // Получить менеджер видов и слоев
+		    // РџРѕР»СѓС‡РёС‚СЊ РјРµРЅРµРґР¶РµСЂ РІРёРґРѕРІ Рё СЃР»РѕРµРІ
 		    IViewsAndLayersManager mng = doc.ViewsAndLayersManager;
 
 		    if ( mng != null )
 		    {
-			    // Получить коллекцию видов
+			    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ РІРёРґРѕРІ
 			    IViews viewsCol = mng.Views;
 
 			    if ( viewsCol != null )
 			    {
-				    // Получить активный вид
+				    // РџРѕР»СѓС‡РёС‚СЊ Р°РєС‚РёРІРЅС‹Р№ РІРёРґ
 				    IView view = viewsCol.ActiveView;
 
 				    if ( view != null )
 				    {
-					    // Получить контейнер графических объектов
+					    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РіСЂР°С„РёС‡РµСЃРєРёС… РѕР±СЉРµРєС‚РѕРІ
 					    IDrawingContainer drawCont = (IDrawingContainer)view;
 					    return drawCont;
 				    }
@@ -1562,7 +1562,7 @@ namespace Step3_API7_2D
 
 
     //-------------------------------------------------------------------------------
-    // Выдать сообщение с параметрами простой линии выноски
+    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё РїСЂРѕСЃС‚РѕР№ Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
     // ---
     void GetLeaderPar( ref ILeader leader )
     {
@@ -1570,7 +1570,7 @@ namespace Step3_API7_2D
 	    {
 		    double x0 = 0, y0 = 0;
 
-		    // Получить координаты точки привязки
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕС‡РєРё РїСЂРёРІСЏР·РєРё
 		    IBranchs branchs = (IBranchs)leader;
 
 		    if ( branchs != null )
@@ -1579,49 +1579,49 @@ namespace Step3_API7_2D
 			    y0 = branchs.Y0;
 		    }
 
-		    // Сформировать сообщение для выдачи
-		    // "Простая линия выноски"
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РґР»СЏ РІС‹РґР°С‡Рё
+		    // "РџСЂРѕСЃС‚Р°СЏ Р»РёРЅРёСЏ РІС‹РЅРѕСЃРєРё"
 		    string buf = LoadString( "IDS_LEADER" );
         buf += "\n\r" + LoadString( "IDS_POINT" ) + "\n\r";
         buf += string.Format( LoadString("IDS_COORDS"), x0, y0 );
-		    // "\nПризнак обработки по контуру: "
+		    // "\nРџСЂРёР·РЅР°Рє РѕР±СЂР°Р±РѕС‚РєРё РїРѕ РєРѕРЅС‚СѓСЂСѓ: "
         buf += "\n\r" + LoadString( "IDS_ARROUND" );
 
 		    if ( leader.Arround )
-			    // "включен"
+			    // "РІРєР»СЋС‡РµРЅ"
           buf += LoadString( "IDS_ON" );
 		    else
-			    // "отключен"
+			    // "РѕС‚РєР»СЋС‡РµРЅ"
           buf += LoadString( "IDS_OFF" );
 
-		    // "\nНачало ответвления: "
+		    // "\nРќР°С‡Р°Р»Рѕ РѕС‚РІРµС‚РІР»РµРЅРёСЏ: "
         buf += "\n\r" + LoadString( "IDS_BRANCHBEGIN" );
 
 		    if ( leader.get_BranchBegin(0) )
-			    // "от начала полки"
+			    // "РѕС‚ РЅР°С‡Р°Р»Р° РїРѕР»РєРё"
           buf += LoadString( "IDS_BEGINSHELF" );
 		    else
-			    // "от конца полки"
+			    // "РѕС‚ РєРѕРЅС†Р° РїРѕР»РєРё"
           buf = buf + LoadString( "IDS_ENDSHELF" );
 
-		    // "\nПризнак параллельности ответвлений: "
+		    // "\nРџСЂРёР·РЅР°Рє РїР°СЂР°Р»Р»РµР»СЊРЅРѕСЃС‚Рё РѕС‚РІРµС‚РІР»РµРЅРёР№: "
         buf += "\n\r" + LoadString( "IDS_PARALLEL" );
 
 		    if ( leader.ParallelBranch )
-			    // "включен"
+			    // "РІРєР»СЋС‡РµРЅ"
           buf += LoadString( "IDS_ON" );
 		    else
-			    // "отключен"
+			    // "РѕС‚РєР»СЋС‡РµРЅ"
           buf += LoadString( "IDS_OFF" );
     		
-		    // Выдать сообщение 
+		    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ 
 		    kompas.ksMessage( buf );
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Выдать сообщение с параметрами знака маркировки
+    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё Р·РЅР°РєР° РјР°СЂРєРёСЂРѕРІРєРё
     // ---
     void GetMarkLeaderPar( ref IMarkLeader markLeader )
     {
@@ -1634,172 +1634,172 @@ namespace Step3_API7_2D
     		
 		    if ( branchs != null )
 		    {
-			    // Получить координаты точки привязки
+			    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕС‡РєРё РїСЂРёРІСЏР·РєРё
 			    x0 = branchs.X0;
 			    y0 = branchs.Y0;
-			    // Получить количество ответвлений
+			    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РІРµС‚РІР»РµРЅРёР№
 			    count = branchs.BranchCount;
 		    }
 
-		    // Сформировать сообщение для выдачи
-		    // "Знак маркировки"
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РґР»СЏ РІС‹РґР°С‡Рё
+		    // "Р—РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё"
         string buf = LoadString( "IDS_MARKLEADER" );
-		    // "\nТочка привязки:\nX0 = %4.2f, Y0 = %4.2f"
+		    // "\nРўРѕС‡РєР° РїСЂРёРІСЏР·РєРё:\nX0 = %4.2f, Y0 = %4.2f"
         buf += "\n\r" + LoadString( "IDS_POINT" ) + "\n\r";
         buf += string.Format( LoadString("IDS_COORDS"), x0, y0 );
-		    // "\nКоличество ответвлений: %d"
+		    // "\nРљРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РІРµС‚РІР»РµРЅРёР№: %d"
         buf += "\n\r" + string.Format( LoadString("IDS_BRANCHCOUNT"), count );
 
-		    // Выдать сообщение 
+		    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ 
         kompas.ksMessage( buf );
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Выдать сообщение с параметрами знака клеймения
+    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё Р·РЅР°РєР° РєР»РµР№РјРµРЅРёСЏ
     // ---
     void GetBrandLeaderPar( ref IBrandLeader brandLeader )
     {
 	    if ( brandLeader != null )
 	    {
-		    // Сформировать сообщение
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ
         string buf = LoadString( "IDS_BRANDLEADER" );
-		    // Выдать сообщение 
+		    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ 
 		    kompas.ksMessage( buf );
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Выдать сообщение с параметрами знака изменения
+    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё Р·РЅР°РєР° РёР·РјРµРЅРµРЅРёСЏ
     // ---
     void GetChangeLeaderPar( ref IChangeLeader changeLeader )
     {
 	    if ( changeLeader != null )
 	    {
-		    // Сформировать сообщение
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ
         string buf = LoadString( "IDS_CHANLEADER" );
-		    // Выдать сообщение 
+		    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ 
 		    kompas.ksMessage( buf );
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Выдать сообщение с параметрами обозначения шероховатости
+    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё РѕР±РѕР·РЅР°С‡РµРЅРёСЏ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
     // ---
     void GetRoughPar( ref IRough rough )
     {
 	    if ( rough != null )
 	    {
-		    // Сформировать сообщение
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ
         string buf = LoadString( "IDS_ROUGH" );
-		    // Выдать сообщение 
+		    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ 
 		    kompas.ksMessage( buf );
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Выдать сообщение с параметрами обозначения базы
+    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹
     // ---
     void GetBasePar( ref IBase pBase )
     {
 	    if ( pBase != null )
 	    {
-		    // Сформировать сообщение
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ
         string buf = LoadString( "IDS_BASE" );
-		    // Выдать сообщение 
+		    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ 
 		    kompas.ksMessage( buf );
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Выдать сообщение с параметрами линии разреза/сечения
+    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё Р»РёРЅРёРё СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
     // ---
     void GetCutLinePar( ref ICutLine cutLine )
     {
 	    if ( cutLine != null )
 	    {
-		    // Сформировать сообщение
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ
         string buf = LoadString( "IDS_CUTLINE" );
-		    // Выдать сообщение 
+		    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ 
 		    kompas.ksMessage( buf );
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Выдать сообщение с параметрами стрелки направления взгляда
+    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё СЃС‚СЂРµР»РєРё РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
     // ---
     void GetViewPointerPar( ref IViewPointer viewPointer )
     {
 	    if ( viewPointer != null )
 	    {
-		    // Сформировать сообщение
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ
         string buf = LoadString( "IDS_VIEWPOINTER" );
-		    // Выдать сообщение 
+		    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ 
 		    kompas.ksMessage( buf );
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Выдать сообщение с параметрами допуска формы
+    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
     // ---
     void GetTolerancePar( ref ITolerance tolerance )
     {
 	    if ( tolerance != null )
 	    {
-		    // Сформировать сообщение
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ
         string buf = LoadString( "IDS_TOLERANCE" );
-		    // Выдать сообщение 
+		    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ 
 		    kompas.ksMessage( buf );
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Навигация по массиву объектов вида
+    // РќР°РІРёРіР°С†РёСЏ РїРѕ РјР°СЃСЃРёРІСѓ РѕР±СЉРµРєС‚РѕРІ РІРёРґР°
     // ---
     void ObjectsNavigation()
     {
-	    // Получить контейнер графических объектов
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РіСЂР°С„РёС‡РµСЃРєРёС… РѕР±СЉРµРєС‚РѕРІ
 	    IDrawingContainer drawCont = GetDrawingContainer();
 
 	    if ( drawCont != null )
 	    {
-		    // Получить массив объектов 
-        Array arr = (Array)drawCont.get_Objects( 0/*все объекты*/ );
+		    // РџРѕР»СѓС‡РёС‚СЊ РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ 
+        Array arr = (Array)drawCont.get_Objects( 0/*РІСЃРµ РѕР±СЉРµРєС‚С‹*/ );
 
-        // Если массив есть
+        // Р•СЃР»Рё РјР°СЃСЃРёРІ РµСЃС‚СЊ
 		    if ( arr != null )
 		    {    	
 			    for ( long j = 0; j < arr.Length; j++ )
 			    {
-				    // Получить элемент из массива
+				    // РџРѕР»СѓС‡РёС‚СЊ СЌР»РµРјРµРЅС‚ РёР· РјР°СЃСЃРёРІР°
 				    stdole.IDispatch pObj = (stdole.IDispatch)arr.GetValue( j );
     				
 				    if ( pObj != null )
 				    {
-					    // Получить интерфейс графического объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РіСЂР°С„РёС‡РµСЃРєРѕРіРѕ РѕР±СЉРµРєС‚Р°
 					    IDrawingObject pDrawObj = (IDrawingObject)pObj;
     					
 					    if ( pDrawObj != null )
 					    {
-						    // Получить тип объекта
+						    // РџРѕР»СѓС‡РёС‚СЊ С‚РёРї РѕР±СЉРµРєС‚Р°
 						    long type = (int)pDrawObj.DrawingObjectType;
-						    // Получить референс объекта
+						    // РџРѕР»СѓС‡РёС‚СЊ СЂРµС„РµСЂРµРЅСЃ РѕР±СЉРµРєС‚Р°
 						    int objRef = pDrawObj.Reference;
-						    // Подсветить объект
-						    doc2D.ksLightObj( objRef, 1/*включить*/ );
+						    // РџРѕРґСЃРІРµС‚РёС‚СЊ РѕР±СЉРµРєС‚
+						    doc2D.ksLightObj( objRef, 1/*РІРєР»СЋС‡РёС‚СЊ*/ );
 
-						    // В зависимости от типа вывести сообщение для данного типа объектов
+						    // Р’ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ С‚РёРїР° РІС‹РІРµСЃС‚Рё СЃРѕРѕР±С‰РµРЅРёРµ РґР»СЏ РґР°РЅРЅРѕРіРѕ С‚РёРїР° РѕР±СЉРµРєС‚РѕРІ
 						    switch( type )
 						    {
-							    // Простая линия выноски
+							    // РџСЂРѕСЃС‚Р°СЏ Р»РёРЅРёСЏ РІС‹РЅРѕСЃРєРё
 							    case (int)Kompas6Constants.DrawingObjectTypeEnum.ksDrLeader:
 							    {
 								    ILeader leader = (ILeader)pDrawObj;
@@ -1807,7 +1807,7 @@ namespace Step3_API7_2D
 								    break;
 							    }
 
-							    // Знак маркировки
+							    // Р—РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё
 							    case (int)Kompas6Constants.DrawingObjectTypeEnum.ksDrMarkerLeader:
 							    {
 								    IMarkLeader markLeader = (IMarkLeader)pDrawObj;
@@ -1815,7 +1815,7 @@ namespace Step3_API7_2D
 								    break;
 							    }
 
-							    // Знак клеймения
+							    // Р—РЅР°Рє РєР»РµР№РјРµРЅРёСЏ
 							    case (int)Kompas6Constants.DrawingObjectTypeEnum.ksDrBrandLeader:
 							    {
 								    IBrandLeader brandLeader = (IBrandLeader)pDrawObj;
@@ -1823,7 +1823,7 @@ namespace Step3_API7_2D
 								    break;
 							    }
 
-							    // Знак изменения
+							    // Р—РЅР°Рє РёР·РјРµРЅРµРЅРёСЏ
 							    case (int)Kompas6Constants.DrawingObjectTypeEnum.ksDrChangeLeader:
 							    {
 								    IChangeLeader changeLeader = (IChangeLeader)pDrawObj;
@@ -1831,7 +1831,7 @@ namespace Step3_API7_2D
 								    break;
 							    }
 
-							    // Обозначение шероховатости
+							    // РћР±РѕР·РЅР°С‡РµРЅРёРµ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 							    case (int)Kompas6Constants.DrawingObjectTypeEnum.ksDrRough:
 							    {
 								    IRough rough = (IRough)pDrawObj;
@@ -1839,7 +1839,7 @@ namespace Step3_API7_2D
 								    break;
 							    }
 
-							    // Обозначение базы
+							    // РћР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹
 							    case (int)Kompas6Constants.DrawingObjectTypeEnum.ksDrBase:
 							    {
 								    IBase pBase = (IBase)pDrawObj;
@@ -1847,7 +1847,7 @@ namespace Step3_API7_2D
 								    break;
 							    }
 
-							    // Линия разреза/сечения
+							    // Р›РёРЅРёСЏ СЂР°Р·СЂРµР·Р°/СЃРµС‡РµРЅРёСЏ
 							    case (int)Kompas6Constants.DrawingObjectTypeEnum.ksDrCut:
 							    {
 								    ICutLine cutLine = (ICutLine)pDrawObj;
@@ -1855,7 +1855,7 @@ namespace Step3_API7_2D
 								    break;
 							    }
 
-							    // Стрелка направления взгляда
+							    // РЎС‚СЂРµР»РєР° РЅР°РїСЂР°РІР»РµРЅРёСЏ РІР·РіР»СЏРґР°
 							    case (int)Kompas6Constants.DrawingObjectTypeEnum.ksDrWPointer:
 							    {
 								    IViewPointer viewPointer = (IViewPointer)pDrawObj;
@@ -1863,7 +1863,7 @@ namespace Step3_API7_2D
 								    break;
 							    }
 
-							    // Допуск формы
+							    // Р”РѕРїСѓСЃРє С„РѕСЂРјС‹
 							    case (int)Kompas6Constants.DrawingObjectTypeEnum.ksDrTolerance:
 							    {
 								    ITolerance tolerance = (ITolerance)pDrawObj;
@@ -1871,8 +1871,8 @@ namespace Step3_API7_2D
 								    break;
 							    }
 						    }
-						    // Убрать подсветку
-						    doc2D.ksLightObj( objRef, 0/*выключить*/ );
+						    // РЈР±СЂР°С‚СЊ РїРѕРґСЃРІРµС‚РєСѓ
+						    doc2D.ksLightObj( objRef, 0/*РІС‹РєР»СЋС‡РёС‚СЊ*/ );
 					    } 
 				    }
 			    }
@@ -1883,12 +1883,12 @@ namespace Step3_API7_2D
 
 
     #region COM Registration
-    // Эта функция выполняется при регистрации класса для COM
-    // Она добавляет в ветку реестра компонента раздел Kompas_Library,
-    // который сигнализирует о том, что класс является приложением Компас,
-    // а также заменяет имя InprocServer32 на полное, с указанием пути.
-    // Все это делается для того, чтобы иметь возможность подключить
-    // библиотеку на вкладке ActiveX.
+    // Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+    // РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+    // РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+    // Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+    // Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+    // Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
     [ComRegisterFunction]
     public static void RegisterKompasLib(Type t)
     {
@@ -1904,11 +1904,11 @@ namespace Step3_API7_2D
       }
       catch (Exception ex)
       {
-        MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+        MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
       }
     }
 		
-    // Эта функция удаляет раздел Kompas_Library из реестра
+    // Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
     [ComUnregisterFunction]
     public static void UnregisterKompasLib(Type t)
     {

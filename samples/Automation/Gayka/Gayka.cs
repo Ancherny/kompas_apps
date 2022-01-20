@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 using KompasAPI7;
 
 using System;
@@ -17,41 +17,41 @@ namespace Steps.NET
 		const short ID_SIDEVID = 2;
 		const short ID_TOPVID = 3;
 		const short ID_VIDSEC = 4;
-		const double MODSTEP_REAL = 0.5412765877;	// коэффициент для расчета диаметра резьбы по шагу резьбы
+		const double MODSTEP_REAL = 0.5412765877;	// РєРѕСЌС„С„РёС†РёРµРЅС‚ РґР»СЏ СЂР°СЃС‡РµС‚Р° РґРёР°РјРµС‚СЂР° СЂРµР·СЊР±С‹ РїРѕ С€Р°РіСѓ СЂРµР·СЊР±С‹
 
 
-		#region Название колонок для спецификации
-		short SPC_NAME = 5;			// наименование
-		short SPC_CLEAR_GEOM = 0;	// очищать геометрию при редактировании объекта спецификации
+		#region РќР°Р·РІР°РЅРёРµ РєРѕР»РѕРЅРѕРє РґР»СЏ СЃРїРµС†РёС„РёРєР°С†РёРё
+		short SPC_NAME = 5;			// РЅР°РёРјРµРЅРѕРІР°РЅРёРµ
+		short SPC_CLEAR_GEOM = 0;	// РѕС‡РёС‰Р°С‚СЊ РіРµРѕРјРµС‚СЂРёСЋ РїСЂРё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРё РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
 		short STANDART_SECTION = 25;
 		#endregion
 	
-		#region Контролы панели свойств
-		const short DIAM_ID = 10001;			// Комбобокс диаметров резьбы
-		const short VIEWSIDE_ID = 10002;		// Кнопки отображения
-		const short PERFORMANCE_ID = 10003;		// Кнопки исполнений
-		const short SIMPLES_ID = 10004;			// Кнопки упрощений
-		const short ADD_PARAM_ID = 10005;		// Кнопки доп. параметров
-		const short SPC_CHECK_ID = 10006;		// Чекбокс объекта сп
-		const short ANGLE_HATCH_ID = 10007;		// угол штриховки
-		const short STEP_HATCH_ID = 10008;		// шаг штриховки
-		const short PARAMS_ID = 10009;			// список параметров
-		const short VIEW_BOX_ID = 10010;		// окно просмотра
+		#region РљРѕРЅС‚СЂРѕР»С‹ РїР°РЅРµР»Рё СЃРІРѕР№СЃС‚РІ
+		const short DIAM_ID = 10001;			// РљРѕРјР±РѕР±РѕРєСЃ РґРёР°РјРµС‚СЂРѕРІ СЂРµР·СЊР±С‹
+		const short VIEWSIDE_ID = 10002;		// РљРЅРѕРїРєРё РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
+		const short PERFORMANCE_ID = 10003;		// РљРЅРѕРїРєРё РёСЃРїРѕР»РЅРµРЅРёР№
+		const short SIMPLES_ID = 10004;			// РљРЅРѕРїРєРё СѓРїСЂРѕС‰РµРЅРёР№
+		const short ADD_PARAM_ID = 10005;		// РљРЅРѕРїРєРё РґРѕРї. РїР°СЂР°РјРµС‚СЂРѕРІ
+		const short SPC_CHECK_ID = 10006;		// Р§РµРєР±РѕРєСЃ РѕР±СЉРµРєС‚Р° СЃРї
+		const short ANGLE_HATCH_ID = 10007;		// СѓРіРѕР» С€С‚СЂРёС…РѕРІРєРё
+		const short STEP_HATCH_ID = 10008;		// С€Р°Рі С€С‚СЂРёС…РѕРІРєРё
+		const short PARAMS_ID = 10009;			// СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ
+		const short VIEW_BOX_ID = 10010;		// РѕРєРЅРѕ РїСЂРѕСЃРјРѕС‚СЂР°
 		const short STR_EDIT_ID = 10011;
 		const short STR_LIST_ID = 10012;
 		#endregion
 	
-		#region Кнопки панели свойств
-		short BASE_VIEW = 2001;		// Главный вид
-		short LEFT_VIEW = 2002;		// Вид слева
-		short TOP_VIEW = 2003;		// Вид сверху
-		short SEC_VIEW = 2004;		// Вид\разрез
-		short PERF1_VIEW = 2005;	// Исполнение 1
-		short PERF2_VIEW = 2006;	// Исполнение 2
-		short SIMPLE_VIEW = 2007;	// Упрошено
-		short DRAW_AXIS = 2008;		// Рисовать ось
-		short ADDSTEP_BUTT = 2009;	// Мелкий шаг
-		short KEY_BUTT = 2010;		// Доп. размер под ключ
+		#region РљРЅРѕРїРєРё РїР°РЅРµР»Рё СЃРІРѕР№СЃС‚РІ
+		short BASE_VIEW = 2001;		// Р“Р»Р°РІРЅС‹Р№ РІРёРґ
+		short LEFT_VIEW = 2002;		// Р’РёРґ СЃР»РµРІР°
+		short TOP_VIEW = 2003;		// Р’РёРґ СЃРІРµСЂС…Сѓ
+		short SEC_VIEW = 2004;		// Р’РёРґ\СЂР°Р·СЂРµР·
+		short PERF1_VIEW = 2005;	// РСЃРїРѕР»РЅРµРЅРёРµ 1
+		short PERF2_VIEW = 2006;	// РСЃРїРѕР»РЅРµРЅРёРµ 2
+		short SIMPLE_VIEW = 2007;	// РЈРїСЂРѕС€РµРЅРѕ
+		short DRAW_AXIS = 2008;		// Р РёСЃРѕРІР°С‚СЊ РѕСЃСЊ
+		short ADDSTEP_BUTT = 2009;	// РњРµР»РєРёР№ С€Р°Рі
+		short KEY_BUTT = 2010;		// Р”РѕРї. СЂР°Р·РјРµСЂ РїРѕРґ РєР»СЋС‡
 		#endregion
 		
 		public struct GaykaParam
@@ -63,55 +63,55 @@ namespace Steps.NET
 			public float H;
 			public float d2;
 			public float p;
-			public short cls;			// класс точности
-			public short gost;			// номер госта
-			public float hatchAng;		// угол штриховки
-			public float hatchStep;		// шаг штриховки
-			public float massa;			// масса
-			public short indexMassa;	// 0-металл 1- алюмин сплав 2-латунь
-			public byte perform;		// исполнение
-			public bool simple;			// упрощенно
-			public byte axis_off;		// выкл/вкл ось
-			public bool pitch;			// мелкий шаг
-			public byte pitch_off;		// мелкий шаг не возможен
-			public bool key_s;			// дополнительный размер под ключ
-			public byte key_s_on;		// дополнительный размер под ключ вкл
-			public byte key_s_gray;		// дополнительный размер под ключ не возможен
-			public byte koef_mat_on;	// коэф материала
-			public short ver;			// версия макро
+			public short cls;			// РєР»Р°СЃСЃ С‚РѕС‡РЅРѕСЃС‚Рё
+			public short gost;			// РЅРѕРјРµСЂ РіРѕСЃС‚Р°
+			public float hatchAng;		// СѓРіРѕР» С€С‚СЂРёС…РѕРІРєРё
+			public float hatchStep;		// С€Р°Рі С€С‚СЂРёС…РѕРІРєРё
+			public float massa;			// РјР°СЃСЃР°
+			public short indexMassa;	// 0-РјРµС‚Р°Р»Р» 1- Р°Р»СЋРјРёРЅ СЃРїР»Р°РІ 2-Р»Р°С‚СѓРЅСЊ
+			public byte perform;		// РёСЃРїРѕР»РЅРµРЅРёРµ
+			public bool simple;			// СѓРїСЂРѕС‰РµРЅРЅРѕ
+			public byte axis_off;		// РІС‹РєР»/РІРєР» РѕСЃСЊ
+			public bool pitch;			// РјРµР»РєРёР№ С€Р°Рі
+			public byte pitch_off;		// РјРµР»РєРёР№ С€Р°Рі РЅРµ РІРѕР·РјРѕР¶РµРЅ
+			public bool key_s;			// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РїРѕРґ РєР»СЋС‡
+			public byte key_s_on;		// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РїРѕРґ РєР»СЋС‡ РІРєР»
+			public byte key_s_gray;		// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РїРѕРґ РєР»СЋС‡ РЅРµ РІРѕР·РјРѕР¶РµРЅ
+			public byte koef_mat_on;	// РєРѕСЌС„ РјР°С‚РµСЂРёР°Р»Р°
+			public short ver;			// РІРµСЂСЃРёСЏ РјР°РєСЂРѕ
 		}
 
 		public struct BaseMakroParam
 		{
-			public float ang;			// угол поворота
-			public short flagAttr;		// флаг создания объекта спецификации
-			public short drawType;		// тип изображения
-			public byte typeSwitch;		// тип запроса положения базовой точки элемента 0 Placement 1 Curso
-										// 0 - точка + направление оси 0X ( Placement );
-										// 1 - точка, направление совпадает с осью 0X текущей СК ( Cursor ).
+			public float ang;			// СѓРіРѕР» РїРѕРІРѕСЂРѕС‚Р°
+			public short flagAttr;		// С„Р»Р°Рі СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
+			public short drawType;		// С‚РёРї РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
+			public byte typeSwitch;		// С‚РёРї Р·Р°РїСЂРѕСЃР° РїРѕР»РѕР¶РµРЅРёСЏ Р±Р°Р·РѕРІРѕР№ С‚РѕС‡РєРё СЌР»РµРјРµРЅС‚Р° 0 Placement 1 Curso
+										// 0 - С‚РѕС‡РєР° + РЅР°РїСЂР°РІР»РµРЅРёРµ РѕСЃРё 0X ( Placement );
+										// 1 - С‚РѕС‡РєР°, РЅР°РїСЂР°РІР»РµРЅРёРµ СЃРѕРІРїР°РґР°РµС‚ СЃ РѕСЃСЊСЋ 0X С‚РµРєСѓС‰РµР№ РЎРљ ( Cursor ).
 		}
 
 		public struct SimpleBase
 		{
-			public int bg;	// указатель базы
-			public int rg;	// указатель отношения
+			public int bg;	// СѓРєР°Р·Р°С‚РµР»СЊ Р±Р°Р·С‹
+			public int rg;	// СѓРєР°Р·Р°С‚РµР»СЊ РѕС‚РЅРѕС€РµРЅРёСЏ
 		}
 
 
-		#region Базовые параметры
-		private BaseMakroParam par;			// базовые параметры
-		private GaykaParam tmp;				// структура параметров гайки ГОСТ 5915-70
-		private SimpleBase base_;			// референсы БД
+		#region Р‘Р°Р·РѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹
+		private BaseMakroParam par;			// Р±Р°Р·РѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹
+		private GaykaParam tmp;				// СЃС‚СЂСѓРєС‚СѓСЂР° РїР°СЂР°РјРµС‚СЂРѕРІ РіР°Р№РєРё Р“РћРЎРў 5915-70
+		private SimpleBase base_;			// СЂРµС„РµСЂРµРЅСЃС‹ Р‘Р”
 	
-		private int flagMode;				// true - режим редактирования
-		private int refMacr;				// референс МАКРО
-		private ksUserParam paramTmp;		// ksUserParam параметры для чтения БД
-		private ksUserParam Param;			// ksUserParam параметры для Get/SetMacroParam
-		private ksDataBaseObject data;		// объект для работы
-		private int[] spcObj = new int[4];	// массив референсов объектов спецификации
+		private int flagMode;				// true - СЂРµР¶РёРј СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
+		private int refMacr;				// СЂРµС„РµСЂРµРЅСЃ РњРђРљР Рћ
+		private ksUserParam paramTmp;		// ksUserParam РїР°СЂР°РјРµС‚СЂС‹ РґР»СЏ С‡С‚РµРЅРёСЏ Р‘Р”
+		private ksUserParam Param;			// ksUserParam РїР°СЂР°РјРµС‚СЂС‹ РґР»СЏ Get/SetMacroParam
+		private ksDataBaseObject data;		// РѕР±СЉРµРєС‚ РґР»СЏ СЂР°Р±РѕС‚С‹
+		private int[] spcObj = new int[4];	// РјР°СЃСЃРёРІ СЂРµС„РµСЂРµРЅСЃРѕРІ РѕР±СЉРµРєС‚РѕРІ СЃРїРµС†РёС„РёРєР°С†РёРё
 		public short countObj;
-		private bool flagSwitch;			// false переключения нет true переключение с
-		// Placement на Cursor
+		private bool flagSwitch;			// false РїРµСЂРµРєР»СЋС‡РµРЅРёСЏ РЅРµС‚ true РїРµСЂРµРєР»СЋС‡РµРЅРёРµ СЃ
+		// Placement РЅР° Cursor
 		public HatchControl hatchPar;
 		private PropertyUserControl userCtrl;
 		public ProcessParam processParam;
@@ -127,7 +127,7 @@ namespace Steps.NET
 		#endregion
 
 		/// <summary>
-		/// Инициализация
+		/// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
 		/// </summary>
 		public void InitUserParam()
 		{
@@ -202,7 +202,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Сохранить параметры
+		/// РЎРѕС…СЂР°РЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		/// </summary>
 		public void SetUserParam()
 		{
@@ -275,7 +275,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Получить параметры
+		/// РџРѕР»СѓС‡РёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		/// </summary>
 		public void GetUserParam()
 		{
@@ -351,7 +351,7 @@ namespace Steps.NET
 						
 			
 		/// <summary>
-		/// Сохранить параметры в модели
+		/// РЎРѕС…СЂР°РЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ РІ РјРѕРґРµР»Рё
 		/// </summary>
 		public void SetParam()
 		{
@@ -361,7 +361,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Функция обратной связи, вызываемая из Placement
+		/// Р¤СѓРЅРєС†РёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРІСЏР·Рё, РІС‹Р·С‹РІР°РµРјР°СЏ РёР· Placement
 		/// </summary>
 		/// <param name="comm"></param>
 		/// <param name="X"></param>
@@ -376,11 +376,11 @@ namespace Steps.NET
 			string ChoiceMenu = string.Empty;
 			ksType1 t1 = (ksType1)phan.GetPhantomParam();
 			int gr = 0;
-			if (dynamic == 0)	// фиксация
+			if (dynamic == 0)	// С„РёРєСЃР°С†РёСЏ
 			{
 				switch (comm)
 				{
-					case -1:	// поставить в модель
+					case -1:	// РїРѕСЃС‚Р°РІРёС‚СЊ РІ РјРѕРґРµР»СЊ
 						par.ang = Convert.ToSingle(ang);
 						SetParam();
 						Kompas.Instance.Document2D.ksSetMacroPlacement(refMacr, X, Y, ang, 0);
@@ -413,7 +413,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Процесс вставки гайки в модель
+		/// РџСЂРѕС†РµСЃСЃ РІСЃС‚Р°РІРєРё РіР°Р№РєРё РІ РјРѕРґРµР»СЊ
 		/// </summary>
 		public void Draw()
 		{
@@ -437,7 +437,7 @@ namespace Steps.NET
 				{
 					t1.Init();
 					t1.scale_ = 1;
-					t1.gr = 0;		// временная группа
+					t1.gr = 0;		// РІСЂРµРјРµРЅРЅР°СЏ РіСЂСѓРїРїР°
 					j = 1;
 					if (Kompas.Instance.KompasObject.ksReturnResult() == 0)
 					{
@@ -459,7 +459,7 @@ namespace Steps.NET
 									info.Init();
 									info.dynamic = 1;
 								
-									// указываем адрес обратной функции для Placement
+									// СѓРєР°Р·С‹РІР°РµРј Р°РґСЂРµСЃ РѕР±СЂР°С‚РЅРѕР№ С„СѓРЅРєС†РёРё РґР»СЏ Placement
 									info.SetCallBackP("CALLBACKPROCPLACEMENT", 0, this);
 									j = Kompas.Instance.Document2D.ksPlacementEx(info, ref X, ref Y, ref ang, phantom, processParam);
 								
@@ -469,7 +469,7 @@ namespace Steps.NET
 										count = countObj;
 										for (int i = 0; i < count; i ++)
 										{
-											// Олегово окно - редактируем параметры
+											// РћР»РµРіРѕРІРѕ РѕРєРЅРѕ - СЂРµРґР°РєС‚РёСЂСѓРµРј РїР°СЂР°РјРµС‚СЂС‹
 											if (spc != null && spc.ksEditWindowSpcObject(spcObj[i]) != 0)
 												DrawPosLeader(spcObj[i], spc);
 										}
@@ -497,7 +497,7 @@ namespace Steps.NET
 								}
 							}
 							while (j != 0);
-							CloseGaykaBase();	// закрытие базы
+							CloseGaykaBase();	// Р·Р°РєСЂС‹С‚РёРµ Р±Р°Р·С‹
 						}
 					}
 				}
@@ -506,7 +506,7 @@ namespace Steps.NET
 
 	
 		/// <summary>
-		/// Создание МАКРО гайки
+		/// РЎРѕР·РґР°РЅРёРµ РњРђРљР Рћ РіР°Р№РєРё
 		/// </summary>
 		public void GetGroup(ref int gr)
 		{
@@ -525,7 +525,7 @@ namespace Steps.NET
 			Kompas.Instance.Document2D.ksMacro(0);
 			switch (par.drawType)
 			{
-				case ID_VID:	// вид
+				case ID_VID:	// РІРёРґ
 					if (!tmp.simple)
 					{
 						gayka_k(0, 0, 0, tmp.s, tmp.d, 0, tmp.H, 1, 0, tmp.d2, k2);
@@ -540,7 +540,7 @@ namespace Steps.NET
 					if (tmp.axis_off == 0)
 						Kompas.Instance.Document2D.ksLineSeg(-3, 0, tmp.H + 3, 0, 3);
 					break;
-				case ID_SIDEVID: // вид сбоку
+				case ID_SIDEVID: // РІРёРґ СЃР±РѕРєСѓ
 					if (tmp.axis_off == 0)
 						Kompas.Instance.Document2D.ksLineSeg(-3, 0, tmp.H + 3, 0, 3);
 				
@@ -551,9 +551,9 @@ namespace Steps.NET
 					gayka_k_side(0, tmp.s, tmp.d, tmp.d2, tmp.H, -1, k2);
 					break;
 				case ID_TOPVID:
-					gayka_sverhu();	// вид ссверху
+					gayka_sverhu();	// РІРёРґ СЃСЃРІРµСЂС…Сѓ
 					break;
-				case ID_VIDSEC:		// пол-вида/пол-разреза
+				case ID_VIDSEC:		// РїРѕР»-РІРёРґР°/РїРѕР»-СЂР°Р·СЂРµР·Р°
 					if (!tmp.simple)
 						gayka_k(0, 0, 0, tmp.s, tmp.d, 0, tmp.H, 1, 0, tmp.d2, k2);
 					else
@@ -570,7 +570,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Создание и инициализация параметров гайки на панели свойств
+		/// РЎРѕР·РґР°РЅРёРµ Рё РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ РіР°Р№РєРё РЅР° РїР°РЅРµР»Рё СЃРІРѕР№СЃС‚РІ
 		/// </summary>
 		/// <returns></returns>
 		public bool MacroElementParam()
@@ -593,21 +593,21 @@ namespace Steps.NET
 			processParam.ChangeControlValue += new ksPropertyManagerNotify_ChangeControlValueEventHandler(processParam_ChangeControlValue);
 			processParam.ControlCommand += new ksPropertyManagerNotify_ControlCommandEventHandler(processParam_ControlCommand);
 			tabs = processParam.PropertyTabs;
-			tab = tabs.Add("Параметры гайки");
+			tab = tabs.Add("РџР°СЂР°РјРµС‚СЂС‹ РіР°Р№РєРё");
 			ctrls = tab.PropertyControls;
 			
-			// Диаметр резьбы
+			// Р”РёР°РјРµС‚СЂ СЂРµР·СЊР±С‹
 			diamEdit = (PropertyList)ctrls.Add(ControlTypeEnum.ksControlListReal);
-			diamEdit.Name = "&Диаметр";
+			diamEdit.Name = "&Р”РёР°РјРµС‚СЂ";
 			diamEdit.Id = DIAM_ID;
 			diamEdit.NameVisibility = PropertyControlNameVisibility.ksNameAlwaysVisible;
 			diamEdit.Sort = false;
 			diamEdit.Width = 7;
 			diamEdit.ReadOnly = true;
-			diamEdit.Hint = "Диаметр резьбы";
-			diamEdit.Tips = "Диаметр резьбы";
+			diamEdit.Hint = "Р”РёР°РјРµС‚СЂ СЂРµР·СЊР±С‹";
+			diamEdit.Tips = "Р”РёР°РјРµС‚СЂ СЂРµР·СЊР±С‹";
 			
-			// заполним список диаметров
+			// Р·Р°РїРѕР»РЅРёРј СЃРїРёСЃРѕРє РґРёР°РјРµС‚СЂРѕРІ
 			item = (ksLtVariant)Kompas.Instance.KompasObject.GetParamStruct((short)StructType2DEnum.ko_LtVariant);
 			arr = (ksDynamicArray)paramTmp.GetUserArray();
 
@@ -627,18 +627,18 @@ namespace Steps.NET
 				while (i != 0);
 			}
 			
-			diamEdit.Value = tmp.dr;	// выделим текущий диаметр гайки
+			diamEdit.Value = tmp.dr;	// РІС‹РґРµР»РёРј С‚РµРєСѓС‰РёР№ РґРёР°РјРµС‚СЂ РіР°Р№РєРё
 			
-			// Разделитель
+			// Р Р°Р·РґРµР»РёС‚РµР»СЊ
 			sep = (PropertySeparator)ctrls.Add(ControlTypeEnum.ksControlSeparator);
-			sep.Name = "Отображение";
+			sep.Name = "РћС‚РѕР±СЂР°Р¶РµРЅРёРµ";
 			sep.SeparatorType = SeparatorTypeEnum.ksSeparatorDownName;
 
 			viewButt = (PropertyMultiButton)ctrls.Add(ControlTypeEnum.ksControlMultiButton);
-			viewButt.Id = VIEWSIDE_ID;	// Кнопки отображения
-			viewButt.Name = "&Вид отображения";
-			viewButt.Tips = "Вид отображения";
-			viewButt.Hint = "Вид отображения гайки";
+			viewButt.Id = VIEWSIDE_ID;	// РљРЅРѕРїРєРё РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
+			viewButt.Name = "&Р’РёРґ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ";
+			viewButt.Tips = "Р’РёРґ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ";
+			viewButt.Hint = "Р’РёРґ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РіР°Р№РєРё";
 			viewButt.ButtonsType = ButtonTypeEnum.ksRadioButton;
 			viewButt.NameVisibility = PropertyControlNameVisibility.ksNameVerticalVisible;
 
@@ -646,134 +646,134 @@ namespace Steps.NET
 			
 			if (GetFullName("G_view.bmp", ref fullPath))
 			{
-				viewButt.AddButton(BASE_VIEW, fullPath, -1);	// Главный вид
+				viewButt.AddButton(BASE_VIEW, fullPath, -1);	// Р“Р»Р°РІРЅС‹Р№ РІРёРґ
 			}
 			else
 			{
-				viewButt.AddButton(BASE_VIEW, BASE_VIEW, -1);	// Главный вид
+				viewButt.AddButton(BASE_VIEW, BASE_VIEW, -1);	// Р“Р»Р°РІРЅС‹Р№ РІРёРґ
 			}
 			
 			if (GetFullName("G_left.bmp", ref fullPath))
 			{
-				viewButt.AddButton(LEFT_VIEW, fullPath, -1);	// Вид слева
+				viewButt.AddButton(LEFT_VIEW, fullPath, -1);	// Р’РёРґ СЃР»РµРІР°
 			}
 			else
 			{
-				viewButt.AddButton(LEFT_VIEW, LEFT_VIEW, -1);	// Вид слева
+				viewButt.AddButton(LEFT_VIEW, LEFT_VIEW, -1);	// Р’РёРґ СЃР»РµРІР°
 			}
 			
 			if (GetFullName("G_top.bmp", ref fullPath))
 			{
-				viewButt.AddButton(TOP_VIEW, fullPath, -1);	// Вид сверху
+				viewButt.AddButton(TOP_VIEW, fullPath, -1);	// Р’РёРґ СЃРІРµСЂС…Сѓ
 			}
 			else
 			{
-				viewButt.AddButton(TOP_VIEW, TOP_VIEW, -1);	// Вид сверху
+				viewButt.AddButton(TOP_VIEW, TOP_VIEW, -1);	// Р’РёРґ СЃРІРµСЂС…Сѓ
 			}
 			
 			if (GetFullName("G_sec.bmp", ref fullPath))
 			{
-				viewButt.AddButton(SEC_VIEW, fullPath, -1);	// Вид\разрез
+				viewButt.AddButton(SEC_VIEW, fullPath, -1);	// Р’РёРґ\СЂР°Р·СЂРµР·
 			}
 			else
 			{
-				viewButt.AddButton(SEC_VIEW, SEC_VIEW, -1);	// Вид\разрез
+				viewButt.AddButton(SEC_VIEW, SEC_VIEW, -1);	// Р’РёРґ\СЂР°Р·СЂРµР·
 			}
 			
-			switch (par.drawType)	// выделим текущий вид
+			switch (par.drawType)	// РІС‹РґРµР»РёРј С‚РµРєСѓС‰РёР№ РІРёРґ
 			{
-				case ID_VID: viewButt.set_ButtonChecked(BASE_VIEW, true);		break;	// главный вид
-				case ID_SIDEVID: viewButt.set_ButtonChecked(LEFT_VIEW, true);	break;	// вид сбоку
-				case ID_TOPVID: viewButt.set_ButtonChecked(TOP_VIEW, true);		break;	// вид сверху
-				case ID_VIDSEC: viewButt.set_ButtonChecked(SEC_VIEW, true);		break;	// главный вид \ разрез
+				case ID_VID: viewButt.set_ButtonChecked(BASE_VIEW, true);		break;	// РіР»Р°РІРЅС‹Р№ РІРёРґ
+				case ID_SIDEVID: viewButt.set_ButtonChecked(LEFT_VIEW, true);	break;	// РІРёРґ СЃР±РѕРєСѓ
+				case ID_TOPVID: viewButt.set_ButtonChecked(TOP_VIEW, true);		break;	// РІРёРґ СЃРІРµСЂС…Сѓ
+				case ID_VIDSEC: viewButt.set_ButtonChecked(SEC_VIEW, true);		break;	// РіР»Р°РІРЅС‹Р№ РІРёРґ \ СЂР°Р·СЂРµР·
 			}
 
-			viewButt.set_ButtonTips(BASE_VIEW, "Главный вид");
-			viewButt.set_ButtonHint(BASE_VIEW, "Главный вид отображения Гайки");
-			viewButt.set_ButtonTips(LEFT_VIEW, "Вид сбоку");
-			viewButt.set_ButtonTips(TOP_VIEW, "Вид сверху");
-			viewButt.set_ButtonTips(SEC_VIEW, @"Вид\разрез");
+			viewButt.set_ButtonTips(BASE_VIEW, "Р“Р»Р°РІРЅС‹Р№ РІРёРґ");
+			viewButt.set_ButtonHint(BASE_VIEW, "Р“Р»Р°РІРЅС‹Р№ РІРёРґ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ Р“Р°Р№РєРё");
+			viewButt.set_ButtonTips(LEFT_VIEW, "Р’РёРґ СЃР±РѕРєСѓ");
+			viewButt.set_ButtonTips(TOP_VIEW, "Р’РёРґ СЃРІРµСЂС…Сѓ");
+			viewButt.set_ButtonTips(SEC_VIEW, @"Р’РёРґ\СЂР°Р·СЂРµР·");
 			
-			// Кнопки исполнений
+			// РљРЅРѕРїРєРё РёСЃРїРѕР»РЅРµРЅРёР№
 			varButt = (PropertyMultiButton)ctrls.Add(ControlTypeEnum.ksControlMultiButton);
 			varButt.Id = PERFORMANCE_ID;
-			varButt.Name = "&Исполнение";
+			varButt.Name = "&РСЃРїРѕР»РЅРµРЅРёРµ";
 			varButt.ButtonsType = ButtonTypeEnum.ksRadioButton;
 			varButt.NameVisibility = PropertyControlNameVisibility.ksNameVerticalVisible;
 			varButt.ResModule = Assembly.GetExecutingAssembly().Location;
-			varButt.Hint = "Выбор исполнения";
-			varButt.Tips = "Исполнение";
+			varButt.Hint = "Р’С‹Р±РѕСЂ РёСЃРїРѕР»РЅРµРЅРёСЏ";
+			varButt.Tips = "РСЃРїРѕР»РЅРµРЅРёРµ";
 			
 			if (GetFullName("G_i1.bmp", ref fullPath))
-				varButt.AddButton(PERF1_VIEW, fullPath, -1);	// Исполнение 1
+				varButt.AddButton(PERF1_VIEW, fullPath, -1);	// РСЃРїРѕР»РЅРµРЅРёРµ 1
 			else
-				varButt.AddButton(PERF1_VIEW, PERF1_VIEW, -1);	// Исполнение 1
+				varButt.AddButton(PERF1_VIEW, PERF1_VIEW, -1);	// РСЃРїРѕР»РЅРµРЅРёРµ 1
 			
 			if (GetFullName("G_i2.bmp", ref fullPath))
-				varButt.AddButton(PERF2_VIEW, fullPath, -1);	// Исполнение 2
+				varButt.AddButton(PERF2_VIEW, fullPath, -1);	// РСЃРїРѕР»РЅРµРЅРёРµ 2
 			else
-				varButt.AddButton(PERF2_VIEW, PERF2_VIEW, -1);	// Исполнение 2
+				varButt.AddButton(PERF2_VIEW, PERF2_VIEW, -1);	// РСЃРїРѕР»РЅРµРЅРёРµ 2
 			
-			if (tmp.perform != 0)	// выделим исполнение
-				varButt.set_ButtonChecked(PERF2_VIEW, true);	// исполнение 2
+			if (tmp.perform != 0)	// РІС‹РґРµР»РёРј РёСЃРїРѕР»РЅРµРЅРёРµ
+				varButt.set_ButtonChecked(PERF2_VIEW, true);	// РёСЃРїРѕР»РЅРµРЅРёРµ 2
 			else
-				varButt.set_ButtonChecked(PERF1_VIEW, true);	// исполнение 1
+				varButt.set_ButtonChecked(PERF1_VIEW, true);	// РёСЃРїРѕР»РЅРµРЅРёРµ 1
 
-			varButt.set_ButtonTips(PERF1_VIEW, "Исполнение 1");
-			varButt.set_ButtonTips(PERF2_VIEW, "Исполнение 2");
+			varButt.set_ButtonTips(PERF1_VIEW, "РСЃРїРѕР»РЅРµРЅРёРµ 1");
+			varButt.set_ButtonTips(PERF2_VIEW, "РСЃРїРѕР»РЅРµРЅРёРµ 2");
 			
-			// Кнопки упрощений
+			// РљРЅРѕРїРєРё СѓРїСЂРѕС‰РµРЅРёР№
 			simpButt = (PropertyMultiButton)ctrls.Add(ControlTypeEnum.ksControlMultiButton);
 			simpButt.Id = SIMPLES_ID;
-			simpButt.Name = "&Упрощения";
+			simpButt.Name = "&РЈРїСЂРѕС‰РµРЅРёСЏ";
 			simpButt.ButtonsType = ButtonTypeEnum.ksCheckButton;
 			simpButt.NameVisibility = PropertyControlNameVisibility.ksNameVerticalVisible;
 			simpButt.ResModule = Assembly.GetExecutingAssembly().Location;
-			simpButt.Hint = "Упрощения отображения гайки";
-			simpButt.Tips = "Упрощения отображения";
+			simpButt.Hint = "РЈРїСЂРѕС‰РµРЅРёСЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РіР°Р№РєРё";
+			simpButt.Tips = "РЈРїСЂРѕС‰РµРЅРёСЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ";
 			
 			if (GetFullName("G_simple.bmp", ref fullPath))
-				simpButt.AddButton(SIMPLE_VIEW, fullPath, -1);		// Упрошено
+				simpButt.AddButton(SIMPLE_VIEW, fullPath, -1);		// РЈРїСЂРѕС€РµРЅРѕ
 			else
-				simpButt.AddButton(SIMPLE_VIEW, SIMPLE_VIEW, -1);	// Упрошено
+				simpButt.AddButton(SIMPLE_VIEW, SIMPLE_VIEW, -1);	// РЈРїСЂРѕС€РµРЅРѕ
 			
 			if (GetFullName("G_osx_on.bmp", ref fullPath))
-				simpButt.AddButton(DRAW_AXIS, fullPath, -1);		// Рисовать ось
+				simpButt.AddButton(DRAW_AXIS, fullPath, -1);		// Р РёСЃРѕРІР°С‚СЊ РѕСЃСЊ
 			else
-				simpButt.AddButton(DRAW_AXIS, DRAW_AXIS, -1);		// Рисовать ось
+				simpButt.AddButton(DRAW_AXIS, DRAW_AXIS, -1);		// Р РёСЃРѕРІР°С‚СЊ РѕСЃСЊ
 
 			if (tmp.simple)
-				simpButt.set_ButtonChecked(SIMPLE_VIEW, true);		// Упрошено
+				simpButt.set_ButtonChecked(SIMPLE_VIEW, true);		// РЈРїСЂРѕС€РµРЅРѕ
 
 			if (tmp.axis_off == 0)
-				simpButt.set_ButtonChecked(DRAW_AXIS, true);		// Рисовать ось
+				simpButt.set_ButtonChecked(DRAW_AXIS, true);		// Р РёСЃРѕРІР°С‚СЊ РѕСЃСЊ
 
-			simpButt.set_ButtonTips(SIMPLE_VIEW, "Упрошено");
-			simpButt.set_ButtonTips(DRAW_AXIS, "Рисовать ось");
+			simpButt.set_ButtonTips(SIMPLE_VIEW, "РЈРїСЂРѕС€РµРЅРѕ");
+			simpButt.set_ButtonTips(DRAW_AXIS, "Р РёСЃРѕРІР°С‚СЊ РѕСЃСЊ");
 			
-			// Разделитель
+			// Р Р°Р·РґРµР»РёС‚РµР»СЊ
 			sep = (PropertySeparator)ctrls.Add(ControlTypeEnum.ksControlSeparator);
 			sep.SeparatorType = SeparatorTypeEnum.ksSeparatorDownName;
 			
-			// Кнопки доп. параметров
+			// РљРЅРѕРїРєРё РґРѕРї. РїР°СЂР°РјРµС‚СЂРѕРІ
 			addButt = (PropertyMultiButton)ctrls.Add(ControlTypeEnum.ksControlMultiButton);
 			addButt.Id = ADD_PARAM_ID;
-			addButt.Name = "Дополнительные па&раметры";
+			addButt.Name = "Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїР°&СЂР°РјРµС‚СЂС‹";
 			addButt.ButtonsType = ButtonTypeEnum.ksCheckButton;
 			addButt.NameVisibility = PropertyControlNameVisibility.ksNameVerticalVisible;
 			addButt.ResModule = Assembly.GetExecutingAssembly().Location;
-			addButt.Hint = "Дополнительные параметры";
-			addButt.Tips = "Дополнительные параметры";
+			addButt.Hint = "Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹";
+			addButt.Tips = "Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹";
 			
 			if (GetFullName("G_step.bmp", ref fullPath))
-				addButt.AddButton(ADDSTEP_BUTT, fullPath, -1);	// Мелкий шаг
+				addButt.AddButton(ADDSTEP_BUTT, fullPath, -1);	// РњРµР»РєРёР№ С€Р°Рі
 			else
-				addButt.AddButton(ADDSTEP_BUTT, ADDSTEP_BUTT, -1);// Мелкий шаг
+				addButt.AddButton(ADDSTEP_BUTT, ADDSTEP_BUTT, -1);// РњРµР»РєРёР№ С€Р°Рі
 			
 			if (GetFullName("G_key.bmp", ref fullPath))
-				addButt.AddButton(KEY_BUTT, fullPath, -1);	// Доп. размер под ключ
+				addButt.AddButton(KEY_BUTT, fullPath, -1);	// Р”РѕРї. СЂР°Р·РјРµСЂ РїРѕРґ РєР»СЋС‡
 			else
-				addButt.AddButton(KEY_BUTT, KEY_BUTT, -1);	// Доп. размер под ключ
+				addButt.AddButton(KEY_BUTT, KEY_BUTT, -1);	// Р”РѕРї. СЂР°Р·РјРµСЂ РїРѕРґ РєР»СЋС‡
 
 			if (tmp.pitch)
 				addButt.set_ButtonChecked(ADDSTEP_BUTT, true);
@@ -781,57 +781,57 @@ namespace Steps.NET
 			if (tmp.key_s)
 				addButt.set_ButtonChecked(KEY_BUTT, true);
 
-			addButt.set_ButtonTips(ADDSTEP_BUTT, "Мелкий шаг");
-			addButt.set_ButtonTips(KEY_BUTT, "Дополнительный размер под ключ");
+			addButt.set_ButtonTips(ADDSTEP_BUTT, "РњРµР»РєРёР№ С€Р°Рі");
+			addButt.set_ButtonTips(KEY_BUTT, "Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РїРѕРґ РєР»СЋС‡");
 
-			// Чекбокс объекта сп
+			// Р§РµРєР±РѕРєСЃ РѕР±СЉРµРєС‚Р° СЃРї
 			spcCheck = (PropertyCheckBox)ctrls.Add(ControlTypeEnum.ksControlCheckBox);
 			spcCheck.Id = SPC_CHECK_ID;
-			spcCheck.Name = "&Создать объект спецификации";
+			spcCheck.Name = "&РЎРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё";
 			spcCheck.Value = par.flagAttr;
-			spcCheck.Hint = "Создать объект спецификации";
-			spcCheck.Tips = "Создать объект спецификации";
+			spcCheck.Hint = "РЎРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё";
+			spcCheck.Tips = "РЎРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё";
 
 			userCtrl = (PropertyUserControl)ctrls.Add(ControlTypeEnum.ksControlUser);
 			userCtrl.SetOCXControl("Steps.NET.HatchControl");
 			userCtrl.Id = 10011;
-			userCtrl.Name = "&Тест OCX";
+			userCtrl.Name = "&РўРµСЃС‚ OCX";
 			userCtrl.Width = 200;
 			userCtrl.Height = 200;
 			userCtrl.CreateOCX += new ksPropertyUserControlNotify_CreateOCXEventHandler(userCtrl_CreateOCX);
 			userCtrl.DestroyOCX += new ksPropertyUserControlNotify_DestroyOCXEventHandler(userCtrl_DestroyOCX);
 			
-//			// Разделитель
+//			// Р Р°Р·РґРµР»РёС‚РµР»СЊ
 //			sep = (PropertySeparator)ctrls.Add(ControlTypeEnum.ksControlSeparator);
-//			sep.Name = "Параметры штриховки";
+//			sep.Name = "РџР°СЂР°РјРµС‚СЂС‹ С€С‚СЂРёС…РѕРІРєРё";
 //			sep.SeparatorType = SeparatorTypeEnum.ksSeparatorDownName;
 //			
-//			// угол штриховки
+//			// СѓРіРѕР» С€С‚СЂРёС…РѕРІРєРё
 //			angleEdit = (PropertyEdit)ctrls.Add(ControlTypeEnum.ksControlEditReal);
 //			angleEdit.Id = ANGLE_HATCH_ID;
-//			angleEdit.Name = "У&гол, гр";
+//			angleEdit.Name = "РЈ&РіРѕР», РіСЂ";
 //			angleEdit.NameVisibility = PropertyControlNameVisibility.ksNameAlwaysVisible;
 //			angleEdit.Width = 7;
 //			angleEdit.Value = tmp.hatchAng;
 //			angleEdit.Enable = true;
 //			//par.drawType = ID_VIDSEC;
-//			angleEdit.Hint = "Угол штриховки";
-//			angleEdit.Tips = "Угол";
+//			angleEdit.Hint = "РЈРіРѕР» С€С‚СЂРёС…РѕРІРєРё";
+//			angleEdit.Tips = "РЈРіРѕР»";
 //			
-//			// шаг штриховки
+//			// С€Р°Рі С€С‚СЂРёС…РѕРІРєРё
 //			stepEdit = (PropertyEdit)ctrls.Add(ControlTypeEnum.ksControlEditReal);
 //			stepEdit.Id = STEP_HATCH_ID;
-//			stepEdit.Name = "&Шаг, мм";
+//			stepEdit.Name = "&РЁР°Рі, РјРј";
 //			stepEdit.NameVisibility = PropertyControlNameVisibility.ksNameAlwaysVisible;
 //			stepEdit.Width = 7;
 //			stepEdit.Value = tmp.hatchStep;
 //			stepEdit.Enable = true;
 //			//par.drawType = ID_VIDSEC;
-//			stepEdit.Hint = "Шаг штриховки";
-//			stepEdit.Tips = "Шаг";
+//			stepEdit.Hint = "РЁР°Рі С€С‚СЂРёС…РѕРІРєРё";
+//			stepEdit.Tips = "РЁР°Рі";
 			
-			//Const PARAMS_ID = 10009;     // список параметров
-			//Const VIEW_BOX_ID = 10010;   // окно просмотра
+			//Const PARAMS_ID = 10009;     // СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ
+			//Const VIEW_BOX_ID = 10010;   // РѕРєРЅРѕ РїСЂРѕСЃРјРѕС‚СЂР°
 
 			//Set hatchPar = CreateObject("HatchControl1.HatchControl");
 			//hatchPar.AngleEditValue = "10";
@@ -841,7 +841,7 @@ namespace Steps.NET
 		
 
 		/// <summary>
-		/// Отрисовка гайки
+		/// РћС‚СЂРёСЃРѕРІРєР° РіР°Р№РєРё
 		/// </summary>
 		/// <param name="ls"></param>
 		/// <param name="l"></param>
@@ -870,9 +870,9 @@ namespace Steps.NET
 			double ycml;
 			if (Kompas.Instance.Math != null)
 			{
-				// Координаты контура рез_части
-				// j1=1 - контровочное отверстие j1=0 - контров. отв. нет
-				// j2=1 исполнение 1 j2=2 исполнение 2
+				// РљРѕРѕСЂРґРёРЅР°С‚С‹ РєРѕРЅС‚СѓСЂР° СЂРµР·_С‡Р°СЃС‚Рё
+				// j1=1 - РєРѕРЅС‚СЂРѕРІРѕС‡РЅРѕРµ РѕС‚РІРµСЂСЃС‚РёРµ j1=0 - РєРѕРЅС‚СЂРѕРІ. РѕС‚РІ. РЅРµС‚
+				// j2=1 РёСЃРїРѕР»РЅРµРЅРёРµ 1 j2=2 РёСЃРїРѕР»РЅРµРЅРёРµ 2
 
 				d = s / Kompas.Instance.Math.ksCosD(30);
 				c = (d - d2) / 2 * Kompas.Instance.Math.ksTanD(30);
@@ -950,7 +950,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Отрисовка гайки
+		/// РћС‚СЂРёСЃРѕРІРєР° РіР°Р№РєРё
 		/// </summary>
 		/// <param name="ls"></param>
 		/// <returns></returns>
@@ -964,7 +964,7 @@ namespace Steps.NET
 
 			if (Kompas.Instance.Math != null)
 			{
-				// j2 = 1 исполнение 1 j2 = 2 упрощенное
+				// j2 = 1 РёСЃРїРѕР»РЅРµРЅРёРµ 1 j2 = 2 СѓРїСЂРѕС‰РµРЅРЅРѕРµ
 				c = Convert.ToInt16((d - d2) / 2 * Kompas.Instance.Math.ksTanD(30));
 				Y = j * s * 0.5;
 				if (j2 == 1)
@@ -1005,7 +1005,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Отрисовка гайки
+		/// РћС‚СЂРёСЃРѕРІРєР° РіР°Р№РєРё
 		/// </summary>
 		/// <param name="ls"></param>
 		/// <returns></returns>
@@ -1031,7 +1031,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Отрисовка гайки
+		/// РћС‚СЂРёСЃРѕРІРєР° РіР°Р№РєРё
 		/// </summary>
 		/// <param name="j"></param>
 		/// <returns></returns>
@@ -1139,7 +1139,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// отрисовка гайки
+		/// РѕС‚СЂРёСЃРѕРІРєР° РіР°Р№РєРё
 		/// </summary>
 		/// <returns></returns>
 		public void gayka_sverhu()
@@ -1193,9 +1193,9 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// отрисовать позиционную линию выноски
-		/// уже проверено , что объект спецификации есть
-		/// Функцию нужно запускать вне Cursor и Placement
+		/// РѕС‚СЂРёСЃРѕРІР°С‚СЊ РїРѕР·РёС†РёРѕРЅРЅСѓСЋ Р»РёРЅРёСЋ РІС‹РЅРѕСЃРєРё
+		/// СѓР¶Рµ РїСЂРѕРІРµСЂРµРЅРѕ , С‡С‚Рѕ РѕР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё РµСЃС‚СЊ
+		/// Р¤СѓРЅРєС†РёСЋ РЅСѓР¶РЅРѕ Р·Р°РїСѓСЃРєР°С‚СЊ РІРЅРµ Cursor Рё Placement
 		/// </summary>
 		/// <param name="spcObj"></param>
 		/// <param name="spc"></param>
@@ -1211,7 +1211,7 @@ namespace Steps.NET
 			int j1 = 0;
 			string menu = string.Empty;
 
-			// Создать новую линию выноски
+			// РЎРѕР·РґР°С‚СЊ РЅРѕРІСѓСЋ Р»РёРЅРёСЋ РІС‹РЅРѕСЃРєРё
 			if (info != null)
 			{
 				info.Init();
@@ -1219,8 +1219,8 @@ namespace Steps.NET
 				posLeader = 0;
 				do
 				{
-					info.commandsString = "!Подключить_существующую !Создать_новую_линию_выноски";
-					info.prompt = "Укажите линию выноски";
+					info.commandsString = "!РџРѕРґРєР»СЋС‡РёС‚СЊ_СЃСѓС‰РµСЃС‚РІСѓСЋС‰СѓСЋ !РЎРѕР·РґР°С‚СЊ_РЅРѕРІСѓСЋ_Р»РёРЅРёСЋ_РІС‹РЅРѕСЃРєРё";
+					info.prompt = "РЈРєР°Р¶РёС‚Рµ Р»РёРЅРёСЋ РІС‹РЅРѕСЃРєРё";
 					j1 = Kompas.Instance.Document2D.ksCursor(info, ref x1, ref y1, null);
 				
 					switch (j1)
@@ -1229,11 +1229,11 @@ namespace Steps.NET
 							posLeader = Kompas.Instance.Document2D.ksCreateViewObject(ldefin2d.POSLEADER_OBJ);
 							flag = false;
 							break;
-						case 1:	// Подключить существующую
+						case 1:	// РџРѕРґРєР»СЋС‡РёС‚СЊ СЃСѓС‰РµСЃС‚РІСѓСЋС‰СѓСЋ
 							info.commandsString = menu;
 							if (Kompas.Instance.Document2D.ksCursor(info, ref x1, ref y1, null) != 0)
 							{
-								posLeader = Kompas.Instance.Document2D.ksFindObj(x1, y1, 100);	// величина стороны окошка-ловушки с центром x,y
+								posLeader = Kompas.Instance.Document2D.ksFindObj(x1, y1, 100);	// РІРµР»РёС‡РёРЅР° СЃС‚РѕСЂРѕРЅС‹ РѕРєРѕС€РєР°-Р»РѕРІСѓС€РєРё СЃ С†РµРЅС‚СЂРѕРј x,y
 								if (posLeader == 0 && Kompas.Instance.Document2D.ksGetObjParam(posLeader, null, 0) == ldefin2d.POSLEADER_OBJ)
 								{
 									Kompas.Instance.KompasObject.ksError(menu);
@@ -1247,10 +1247,10 @@ namespace Steps.NET
 								flag = false;
 							break;
 						case -1:
-							posLeater = Kompas.Instance.Document2D.ksFindObj(x1, y1, 100);	// величина стороны окошка-ловушки с центром x,y
+							posLeater = Kompas.Instance.Document2D.ksFindObj(x1, y1, 100);	// РІРµР»РёС‡РёРЅР° СЃС‚РѕСЂРѕРЅС‹ РѕРєРѕС€РєР°-Р»РѕРІСѓС€РєРё СЃ С†РµРЅС‚СЂРѕРј x,y
 							if (posLeader == 0 || Kompas.Instance.Document2D.ksGetObjParam(posLeater, null, 0) != ldefin2d.POSLEADER_OBJ)
 							{
-								Kompas.Instance.KompasObject.ksError("Ошибка! Объект не позиционная линия выноски!");
+								Kompas.Instance.KompasObject.ksError("РћС€РёР±РєР°! РћР±СЉРµРєС‚ РЅРµ РїРѕР·РёС†РёРѕРЅРЅР°СЏ Р»РёРЅРёСЏ РІС‹РЅРѕСЃРєРё!");
 								posLeader = 0;
 								flag = true;
 							}
@@ -1261,15 +1261,15 @@ namespace Steps.NET
 				}
 				while (flag);
 			
-				// линия выноски есть, подключим ее к объекту спецификации
+				// Р»РёРЅРёСЏ РІС‹РЅРѕСЃРєРё РµСЃС‚СЊ, РїРѕРґРєР»СЋС‡РёРј РµРµ Рє РѕР±СЉРµРєС‚Сѓ СЃРїРµС†РёС„РёРєР°С†РёРё
 				if (posLeader > 0)
 				{
-					// ввойдем в режим редактирования объекта спецификации
+					// РІРІРѕР№РґРµРј РІ СЂРµР¶РёРј СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
 					if (spc.ksSpcObjectEdit(spcObj) == 1)
 					{
-						// подключим линию выноски
+						// РїРѕРґРєР»СЋС‡РёРј Р»РёРЅРёСЋ РІС‹РЅРѕСЃРєРё
 						spc.ksSpcIncludeReference(posLeader, 1);
-						// закроем объект спецификации
+						// Р·Р°РєСЂРѕРµРј РѕР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё
 						spc.ksSpcObjectEnd();
 					}
 				}
@@ -1284,7 +1284,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Объект спецификации
+		/// РћР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё
 		/// </summary>
 		/// <param name="geom"></param>
 		/// <returns></returns>
@@ -1296,7 +1296,7 @@ namespace Steps.NET
 			{
 				if (Kompas.Instance.KompasObject.ksReturnResult() == (int)ErrorType.etError10)
 				{
-					//  10  "Ошибка! Вырожденный объект"
+					//  10  "РћС€РёР±РєР°! Р’С‹СЂРѕР¶РґРµРЅРЅС‹Р№ РѕР±СЉРµРєС‚"
 					Kompas.Instance.KompasObject.ksResultNULL();
 					return false;
 				}
@@ -1308,12 +1308,12 @@ namespace Steps.NET
 					{
 						if (spcObj[i] != 0)
 						{
-							// ввойдем в режим редактирования объекта спецификации
+							// РІРІРѕР№РґРµРј РІ СЂРµР¶РёРј СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
 							if (spc.ksSpcObjectEdit(spcObj[i]) == 1)
 							{
-								// очистим геометрию, чтобы не удалялась в месте с объектом
+								// РѕС‡РёСЃС‚РёРј РіРµРѕРјРµС‚СЂРёСЋ, С‡С‚РѕР±С‹ РЅРµ СѓРґР°Р»СЏР»Р°СЃСЊ РІ РјРµСЃС‚Рµ СЃ РѕР±СЉРµРєС‚РѕРј
 								spc.ksSpcIncludeReference(0, 0);
-								// закроем объект спецификации
+								// Р·Р°РєСЂРѕРµРј РѕР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё
 								spc.ksSpcObjectEnd();
 							}
 							Kompas.Instance.Document2D.ksDeleteObj(spcObj[i]);
@@ -1331,7 +1331,7 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Создание или редактирование объекта спецификации
+		/// РЎРѕР·РґР°РЅРёРµ РёР»Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
 		/// </summary>
 		/// <param name="spcObj"></param>
 		/// <returns></returns>
@@ -1378,11 +1378,11 @@ namespace Steps.NET
 					create = Convert.ToBoolean(spc.ksSpcObjectCreate("", 0, STANDART_SECTION, 0, 297327484710, 0));
 					}
 
-				// создаем объект спецификации для умолчательногостиля СП
+				// СЃРѕР·РґР°РµРј РѕР±СЉРµРєС‚ СЃРїРµС†РёС„РёРєР°С†РёРё РґР»СЏ СѓРјРѕР»С‡Р°С‚РµР»СЊРЅРѕРіРѕСЃС‚РёР»СЏ РЎРџ
 				if (flMode > 0 || create)
 				{
 					arr.ksAddArrayItem(-1, item);
-					// исполнение
+					// РёСЃРїРѕР»РЅРµРЅРёРµ
 					if (tmp.perform == 1)
 					{
 						spc.ksSpcVisible(SPC_NAME, 2, 0);
@@ -1395,39 +1395,39 @@ namespace Steps.NET
 						spc.ksSpcChangeValue(SPC_NAME, 2, bufPar, ldefin2d.UINT_ATTR_TYPE);
 					}
 
-					// изменим диаметр
+					// РёР·РјРµРЅРёРј РґРёР°РјРµС‚СЂ
 					item.floatVal = tmp.dr;
 					arr.ksSetArrayItem(0, item);
 					spc.ksSpcChangeValue(SPC_NAME, 4, bufPar, ldefin2d.FLOAT_ATTR_TYPE);
 
-					// отследим мелкий шаг
-					if (!tmp.pitch)	// выключить шаг и его разделитель
+					// РѕС‚СЃР»РµРґРёРј РјРµР»РєРёР№ С€Р°Рі
+					if (!tmp.pitch)	// РІС‹РєР»СЋС‡РёС‚СЊ С€Р°Рі Рё РµРіРѕ СЂР°Р·РґРµР»РёС‚РµР»СЊ
 					{
 						spc.ksSpcVisible(SPC_NAME, 5, 0);
-						spc.ksSpcVisible(SPC_NAME, 6, 0);	// щаг
+						spc.ksSpcVisible(SPC_NAME, 6, 0);	// С‰Р°Рі
 					}
 					else
 					{
 						spc.ksSpcVisible(SPC_NAME, 5, 1);
-						spc.ksSpcVisible(SPC_NAME, 6, 1);	// щаг
+						spc.ksSpcVisible(SPC_NAME, 6, 1);	// С‰Р°Рі
 						item.floatVal = tmp.p;
 						arr.ksSetArrayItem(0, item);
 						spc.ksSpcChangeValue(SPC_NAME, 6, bufPar, ldefin2d.FLOAT_ATTR_TYPE);
 					}
 				
-					// выключим поле допуска
+					// РІС‹РєР»СЋС‡РёРј РїРѕР»Рµ РґРѕРїСѓСЃРєР°
 					if (flMode == 0)
 					{
 						spc.ksSpcVisible(SPC_NAME, 7, 0);
-						// выключим класс прочности
+						// РІС‹РєР»СЋС‡РёРј РєР»Р°СЃСЃ РїСЂРѕС‡РЅРѕСЃС‚Рё
 						spc.ksSpcVisible(SPC_NAME, 8, 0);
-						// выключим материал
+						// РІС‹РєР»СЋС‡РёРј РјР°С‚РµСЂРёР°Р»
 						spc.ksSpcVisible(SPC_NAME, 9, 0);
-						// выключим покрытие
+						// РІС‹РєР»СЋС‡РёРј РїРѕРєСЂС‹С‚РёРµ
 						spc.ksSpcVisible(SPC_NAME, 10, 0);
 					}
 				
-					// изменим ГОСТ
+					// РёР·РјРµРЅРёРј Р“РћРЎРў
 					item.uIntVal = tmp.gost;
 				
 					arr.ksSetArrayItem(0, item);
@@ -1439,9 +1439,9 @@ namespace Steps.NET
 						case 2: massa = Convert.ToSingle(1.08 * tmp.massa);		break;
 					}
 				
-					spc.ksSpcMassa(massa.ToString());// масса детали
+					spc.ksSpcMassa(massa.ToString());// РјР°СЃСЃР° РґРµС‚Р°Р»Рё
 		
-						// подключим геометрию
+						// РїРѕРґРєР»СЋС‡РёРј РіРµРѕРјРµС‚СЂРёСЋ
 						if (geom > 0)
 							spc.ksSpcIncludeReference(geom, SPC_CLEAR_GEOM);
 				
@@ -1454,7 +1454,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Инициализация параметров пользователя
+		/// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 		/// </summary>
 		public void InitUserParamTmp()
 		{
@@ -1539,18 +1539,18 @@ namespace Steps.NET
 				
 					if (tmp.key_s_on == 1 && tmp.key_s)
 					{
-						tmp.s = item1.floatVal;			// размер под ключ
+						tmp.s = item1.floatVal;			// СЂР°Р·РјРµСЂ РїРѕРґ РєР»СЋС‡
 						arr.ksGetArrayItem(10, item1);	// D1
-						tmp.d = item1.floatVal;			// диаметр описанной окружности
+						tmp.d = item1.floatVal;			// РґРёР°РјРµС‚СЂ РѕРїРёСЃР°РЅРЅРѕР№ РѕРєСЂСѓР¶РЅРѕСЃС‚Рё
 						arr.ksGetArrayItem(11, item1);	// m1
 						tmp.massa = item1.floatVal;
 					}
 					else
 					{
 						arr.ksGetArrayItem(3, item1);	// s
-						tmp.s = item1.floatVal;			// размер под ключ
+						tmp.s = item1.floatVal;			// СЂР°Р·РјРµСЂ РїРѕРґ РєР»СЋС‡
 						arr.ksGetArrayItem(4, item1);	// D
-						tmp.d = item1.floatVal;			// диаметр описанной окружности
+						tmp.d = item1.floatVal;			// РґРёР°РјРµС‚СЂ РѕРїРёСЃР°РЅРЅРѕР№ РѕРєСЂСѓР¶РЅРѕСЃС‚Рё
 						arr.ksGetArrayItem(8, item1);	// m
 						tmp.massa = item1.floatVal;
 					}
@@ -1560,7 +1560,7 @@ namespace Steps.NET
 	
 			
 		/// <summary>
-		/// Подключиться к базе данных
+		/// РџРѕРґРєР»СЋС‡РёС‚СЊСЃСЏ Рє Р±Р°Р·Рµ РґР°РЅРЅС‹С…
 		/// </summary>
 		/// <param name="bd"></param>
 		/// <param name="name"></param>
@@ -1576,7 +1576,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Получить полное имя файла
+		/// РџРѕР»СѓС‡РёС‚СЊ РїРѕР»РЅРѕРµ РёРјСЏ С„Р°Р№Р»Р°
 		/// </summary>
 		/// <param name="name"></param>
 		/// <param name="buf"></param>
@@ -1619,7 +1619,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Открыть базу данных
+		/// РћС‚РєСЂС‹С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С…
 		/// </summary>
 		/// <returns></returns>
 		public bool OpenGaykaBase()
@@ -1657,7 +1657,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Закрыть базу данных
+		/// Р—Р°РєСЂС‹С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С…
 		/// </summary>
 		public void CloseGaykaBase()
 		{
@@ -1667,8 +1667,8 @@ namespace Steps.NET
 
 
 		/// <summary>
-		/// Читать параметры гайки по диаметру
-		/// возвращает 1 - успех 0 - не найдено записи , ошибка связи с БД
+		/// Р§РёС‚Р°С‚СЊ РїР°СЂР°РјРµС‚СЂС‹ РіР°Р№РєРё РїРѕ РґРёР°РјРµС‚СЂСѓ
+		/// РІРѕР·РІСЂР°С‰Р°РµС‚ 1 - СѓСЃРїРµС… 0 - РЅРµ РЅР°Р№РґРµРЅРѕ Р·Р°РїРёСЃРё , РѕС€РёР±РєР° СЃРІСЏР·Рё СЃ Р‘Р”
 		/// </summary>
 		/// <param name="d"></param>
 		/// <returns></returns>
@@ -1700,7 +1700,7 @@ namespace Steps.NET
 	
 
 		/// <summary>
-		/// Инициализация параметров структуры гайки
+		/// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ СЃС‚СЂСѓРєС‚СѓСЂС‹ РіР°Р№РєРё
 		/// </summary>
 		public void init()
 		{
@@ -1716,7 +1716,7 @@ namespace Steps.NET
 			tmp.da = 21.6F;
 			tmp.H = 16;
 			tmp.d2 = 27.7F;
-			tmp.cls = 2;	// класс точности
+			tmp.cls = 2;	// РєР»Р°СЃСЃ С‚РѕС‡РЅРѕСЃС‚Рё
 			tmp.perform = 0;
 			tmp.axis_off = 0;
 			tmp.simple = false;
@@ -1725,7 +1725,7 @@ namespace Steps.NET
 	
 			
 		/// <summary>
-		/// Инициализация объекта класса
+		/// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РѕР±СЉРµРєС‚Р° РєР»Р°СЃСЃР°
 		/// </summary>
 		private void Class_Initialize()
 		{
@@ -1741,18 +1741,18 @@ namespace Steps.NET
 		
 			if (Kompas.Instance.Document2D.ksEditMacroMode() > 0 && Kompas.Instance.Document2D.ksGetMacroParam(0, Param) > 0)
 			{
-				GetUserParam();	// инициализация из макропараметров
+				GetUserParam();	// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РёР· РјР°РєСЂРѕРїР°СЂР°РјРµС‚СЂРѕРІ
 				tmp.ver = 1;
 				tmp.key_s_on = 1;
 				tmp.koef_mat_on = 1;
 			}
 			else
 			{
-				// инициализация по умолчанию
+				// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 				par.drawType = ID_VID;
 				par.ang = 0;
 				par.flagAttr = 0;
-				init();	// инициализация параметров структуры гайки
+				init();	// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ СЃС‚СЂСѓРєС‚СѓСЂС‹ РіР°Р№РєРё
 			}
 		}
 
@@ -1769,22 +1769,22 @@ namespace Steps.NET
 			float val_Renamed;
 			switch (control.Id)
 			{
-				case DIAM_ID:	// Комбобокс диаметров резьбы
+				case DIAM_ID:	// РљРѕРјР±РѕР±РѕРєСЃ РґРёР°РјРµС‚СЂРѕРІ СЂРµР·СЊР±С‹
 					val_Renamed = Convert.ToSingle(control.Value);
-					tmp.dr = val_Renamed;	// Установим диаметр гайке
-					ReadGaykaBase(val_Renamed);	// Прочитаем новые параметры из базы
-					redrawPhantom = true;	// перерисовать фантом
+					tmp.dr = val_Renamed;	// РЈСЃС‚Р°РЅРѕРІРёРј РґРёР°РјРµС‚СЂ РіР°Р№РєРµ
+					ReadGaykaBase(val_Renamed);	// РџСЂРѕС‡РёС‚Р°РµРј РЅРѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РёР· Р±Р°Р·С‹
+					redrawPhantom = true;	// РїРµСЂРµСЂРёСЃРѕРІР°С‚СЊ С„Р°РЅС‚РѕРј
 					break;
-				case SPC_CHECK_ID:	// Чекбокс объекта сп
+				case SPC_CHECK_ID:	// Р§РµРєР±РѕРєСЃ РѕР±СЉРµРєС‚Р° СЃРї
 					par.flagAttr = Convert.ToInt16(spcCheck.Value);
 					break;
-				case ANGLE_HATCH_ID:	// угол штриховки
+				case ANGLE_HATCH_ID:	// СѓРіРѕР» С€С‚СЂРёС…РѕРІРєРё
 					tmp.hatchAng = Convert.ToSingle(angleEdit.Value);
-					redrawPhantom = true;	// перерисовать фантом
+					redrawPhantom = true;	// РїРµСЂРµСЂРёСЃРѕРІР°С‚СЊ С„Р°РЅС‚РѕРј
 					break;
-				case STEP_HATCH_ID:	// шаг штриховки
+				case STEP_HATCH_ID:	// С€Р°Рі С€С‚СЂРёС…РѕРІРєРё
 					tmp.hatchStep = Convert.ToSingle(stepEdit.Value);
-					redrawPhantom = true;	// перерисовать фантом
+					redrawPhantom = true;	// РїРµСЂРµСЂРёСЃРѕРІР°С‚СЊ С„Р°РЅС‚РѕРј
 					break;
 			}
 		
@@ -1800,61 +1800,61 @@ namespace Steps.NET
 
 			switch (control.Id)
 			{
-				case VIEWSIDE_ID:	// Кнопки отображения
+				case VIEWSIDE_ID:	// РљРЅРѕРїРєРё РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
 					if (buttonID == BASE_VIEW)
 					{
-						// главный вид
+						// РіР»Р°РІРЅС‹Р№ РІРёРґ
 						par.drawType = ID_VID;
 						angleEdit.Enable = false;
 						stepEdit.Enable = false;
 					}
-					if (buttonID == LEFT_VIEW)	// вид сбоку
+					if (buttonID == LEFT_VIEW)	// РІРёРґ СЃР±РѕРєСѓ
 					{
 						par.drawType = ID_SIDEVID;
 						angleEdit.Enable = false;
 						stepEdit.Enable = false;
 					}
-					if (buttonID == TOP_VIEW)	// вид сверху
+					if (buttonID == TOP_VIEW)	// РІРёРґ СЃРІРµСЂС…Сѓ
 					{
 						par.drawType = ID_TOPVID;
 						angleEdit.Enable = false;
 						stepEdit.Enable = false;
 					}
-					if (buttonID == SEC_VIEW)	// вид \ разрез
+					if (buttonID == SEC_VIEW)	// РІРёРґ \ СЂР°Р·СЂРµР·
 					{
 						par.drawType = ID_VIDSEC;
 						angleEdit.Enable = true;
 						stepEdit.Enable = true;
 					}
-					redrawPhantom = true;	// перерисовать фантом
+					redrawPhantom = true;	// РїРµСЂРµСЂРёСЃРѕРІР°С‚СЊ С„Р°РЅС‚РѕРј
 					break;
-				case PERFORMANCE_ID:	// Кнопки исполнений
-					if (buttonID == PERF2_VIEW)	// исполнение 2
+				case PERFORMANCE_ID:	// РљРЅРѕРїРєРё РёСЃРїРѕР»РЅРµРЅРёР№
+					if (buttonID == PERF2_VIEW)	// РёСЃРїРѕР»РЅРµРЅРёРµ 2
 						tmp.perform = 1;
 					else
-						tmp.perform = 0;	// исполнение 1
+						tmp.perform = 0;	// РёСЃРїРѕР»РЅРµРЅРёРµ 1
 		
-					redrawPhantom = true;	// перерисовать фантом
+					redrawPhantom = true;	// РїРµСЂРµСЂРёСЃРѕРІР°С‚СЊ С„Р°РЅС‚РѕРј
 					break;
-				case SIMPLES_ID:	// Кнопки упрощений
-					if (buttonID == SIMPLE_VIEW)	// Упрошено
+				case SIMPLES_ID:	// РљРЅРѕРїРєРё СѓРїСЂРѕС‰РµРЅРёР№
+					if (buttonID == SIMPLE_VIEW)	// РЈРїСЂРѕС€РµРЅРѕ
 					{
 						tmp.simple = simpButt.get_ButtonChecked(SIMPLE_VIEW);
-						redrawPhantom = true;	// перерисовать фантом
+						redrawPhantom = true;	// РїРµСЂРµСЂРёСЃРѕРІР°С‚СЊ С„Р°РЅС‚РѕРј
 					}
-					if (buttonID == DRAW_AXIS)	// Рисовать ось
+					if (buttonID == DRAW_AXIS)	// Р РёСЃРѕРІР°С‚СЊ РѕСЃСЊ
 					{
 						if (simpButt.get_ButtonChecked(DRAW_AXIS))
 							tmp.axis_off = 0;
 						else
 							tmp.axis_off = 1;
 					}
-					redrawPhantom = true;	// перерисовать фантом
+					redrawPhantom = true;	// РїРµСЂРµСЂРёСЃРѕРІР°С‚СЊ С„Р°РЅС‚РѕРј
 					break;
-				case ADD_PARAM_ID:	// Кнопки доп. параметров
-					if (buttonID == ADDSTEP_BUTT)	// Мелкий шаг
+				case ADD_PARAM_ID:	// РљРЅРѕРїРєРё РґРѕРї. РїР°СЂР°РјРµС‚СЂРѕРІ
+					if (buttonID == ADDSTEP_BUTT)	// РњРµР»РєРёР№ С€Р°Рі
 						tmp.pitch = addButt.get_ButtonChecked(ADDSTEP_BUTT);
-					if (buttonID == KEY_BUTT)	// Доп. размер под ключ
+					if (buttonID == KEY_BUTT)	// Р”РѕРї. СЂР°Р·РјРµСЂ РїРѕРґ РєР»СЋС‡
 						tmp.key_s = addButt.get_ButtonChecked(KEY_BUTT);
 					break;
 			}
@@ -1869,7 +1869,7 @@ namespace Steps.NET
 		{
 			ksType1 pt1 = (ksType1)phantom.GetPhantomParam();
 			int gr = 0;
-			GetGroup(ref gr);	// новая геометрия
+			GetGroup(ref gr);	// РЅРѕРІР°СЏ РіРµРѕРјРµС‚СЂРёСЏ
 			pt1.gr = gr;
 		
 			Kompas.Instance.Document2D.ksChangeObjectInLibRequest(null, phantom);
@@ -1894,14 +1894,14 @@ namespace Steps.NET
 		{
 			if (hatchPar != null )
 				tmp.hatchAng = (float)System.Convert.ToDouble(hatchPar.AngleEditValue);
-			Kompas.Instance.KompasObject.ksMessage("Изменили угол");
+			Kompas.Instance.KompasObject.ksMessage("РР·РјРµРЅРёР»Рё СѓРіРѕР»");
 		}
 
 		private void hatchPar_StepChanged()
 		{
       if (hatchPar != null)
         tmp.hatchAng = (float)System.Convert.ToDouble(hatchPar.StepEditValue);
-      Kompas.Instance.KompasObject.ksMessage("Изменили шаг");
+      Kompas.Instance.KompasObject.ksMessage("РР·РјРµРЅРёР»Рё С€Р°Рі");
 		}
 	}
 }

@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// SpcDocumentEvent  - обработчик событий от документа спецификации
+// SpcDocumentEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,80 +18,80 @@ namespace Steps.NET
 			: base(obj, typeof(ksSpcDocumentNotify).GUID, doc,
 			-1, null, selfAdvise) {}
 
-		// sdDocumentBeginAdd - Начало добавления документа сборочного чертежа
+		// sdDocumentBeginAdd - РќР°С‡Р°Р»Рѕ РґРѕР±Р°РІР»РµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р° СЃР±РѕСЂРѕС‡РЅРѕРіРѕ С‡РµСЂС‚РµР¶Р°
 		public bool DocumentBeginAdd()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecDocEvents.Checked)
 			{
 				string str = m_LibName + " --> DocumentBeginAdd";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// sdDocumentAdd - Добавление документа сборочного чертежа
+		// sdDocumentAdd - Р”РѕР±Р°РІР»РµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° СЃР±РѕСЂРѕС‡РЅРѕРіРѕ С‡РµСЂС‚РµР¶Р°
 		public bool DocumentAdd(string docName)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecDocEvents.Checked)
 			{
 				string str = m_LibName + " --> DocumentAdd\ndocName = " + docName;
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
 		}
       
 
-		// sdDocumentBeginRemove - Начало удаления документа сборочного чертежа
+		// sdDocumentBeginRemove - РќР°С‡Р°Р»Рѕ СѓРґР°Р»РµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р° СЃР±РѕСЂРѕС‡РЅРѕРіРѕ С‡РµСЂС‚РµР¶Р°
 		public bool DocumentBeginRemove(string docName)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecDocEvents.Checked)
 			{
 				string str = m_LibName + " --> DocumentBeginRemove\ndocName =" + docName;
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// sdDocumentRemove - Удаление документа сборочного чертежа
+		// sdDocumentRemove - РЈРґР°Р»РµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° СЃР±РѕСЂРѕС‡РЅРѕРіРѕ С‡РµСЂС‚РµР¶Р°
 		public bool DocumentRemove(string docName)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecDocEvents.Checked)
 			{
 				string str = m_LibName + " --> DocumentRemove\ndocName =" + docName;
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
 		}
 
 
-		// sdSpcStyleBeginChange - Начало изменения стиля спецификации
+		// sdSpcStyleBeginChange - РќР°С‡Р°Р»Рѕ РёР·РјРµРЅРµРЅРёСЏ СЃС‚РёР»СЏ СЃРїРµС†РёС„РёРєР°С†РёРё
 		public bool SpcStyleBeginChange(string libName, int numb)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecDocEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> SpcStyleBeginChange\nlibName = {1}\nnumb = {2}", m_LibName, libName, numb);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// sdSpcStyleChange - Стиль спецификации изменился
+		// sdSpcStyleChange - РЎС‚РёР»СЊ СЃРїРµС†РёС„РёРєР°С†РёРё РёР·РјРµРЅРёР»СЃСЏ
 		public bool SpcStyleChange(string libName, int numb)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecDocEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> SpcStyleChange\nlibName = {1}\nnumb = {2}", m_LibName, libName, numb);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;

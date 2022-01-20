@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.IO;
 using System.Collections;
 using System.Windows.Forms;
@@ -40,7 +40,7 @@ namespace Steps.NET
 			catch (Exception ex)
 			{
 				error = true;
-				MessageBox.Show(string.Format("Ошибка при чтении файла {0}:\n{1}", fileName, ex), "Ошибка");
+				MessageBox.Show(string.Format("РћС€РёР±РєР° РїСЂРё С‡С‚РµРЅРёРё С„Р°Р№Р»Р° {0}:\n{1}", fileName, ex), "РћС€РёР±РєР°");
 			}
 		}
 
@@ -50,7 +50,7 @@ namespace Steps.NET
 		}
 
 		/// <summary>
-		/// Проверяет является ли считанная строка  комментарием или нет
+		/// РџСЂРѕРІРµСЂСЏРµС‚ СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЃС‡РёС‚Р°РЅРЅР°СЏ СЃС‚СЂРѕРєР°  РєРѕРјРјРµРЅС‚Р°СЂРёРµРј РёР»Рё РЅРµС‚
 		/// </summary>
 		/// <param name="s"></param>
 		/// <returns></returns>
@@ -69,29 +69,29 @@ namespace Steps.NET
 		}
 
 		/// <summary>
-		/// Вернуть номер оъекта из слайда
+		/// Р’РµСЂРЅСѓС‚СЊ РЅРѕРјРµСЂ РѕСЉРµРєС‚Р° РёР· СЃР»Р°Р№РґР°
 		/// </summary>
-		/// <param name="s">Строковое представление команды</param>
-		/// <returns>Номер команды</returns>
+		/// <param name="s">РЎС‚СЂРѕРєРѕРІРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РєРѕРјР°РЅРґС‹</param>
+		/// <returns>РќРѕРјРµСЂ РєРѕРјР°РЅРґС‹</returns>
 		public int ReturnNumberOperation(string s) 
 		{
 			int result = 0;
 
 			switch (s)
 			{
-				case "LN":	result = SlideRH.LN;	break;	//отрисовать отрезок
-				case "CR":	result = SlideRH.CR;	break;	//отрисовать окружность
-				case "AR":	result = SlideRH.AR;	break;	//отрисовать дугу по углам
-				case "AR1":	result = SlideRH.AR1;	break;	//отрисовать дугу  по точкам
-				case "MA":	result = SlideRH.MA;	break;	//позиционироваться в точку
-				case "LA":	result = SlideRH.LA;	break;	//отрисовать линию и позиционироваться
-				case "EL":	result = SlideRH.EL;	break;	//отрисовать эллипс
-				case "PS":	result = SlideRH.PS;	break;	//отрисовать сектор
-				case "RT":	result = SlideRH.RT;	break;	//отрисовать прямоугольник
-				case "BR":	result = SlideRH.BR;	break;	//отрисовать и заполнить прямоугольник
-				case "DP":	result = SlideRH.DP;	break;	//отрисовать ломанную линию
-				case "FP":	result = SlideRH.FP;	break;	//заполнить многоугольник
-				case "FF":	result = SlideRH.FF;	break;	//заполнить область
+				case "LN":	result = SlideRH.LN;	break;	//РѕС‚СЂРёСЃРѕРІР°С‚СЊ РѕС‚СЂРµР·РѕРє
+				case "CR":	result = SlideRH.CR;	break;	//РѕС‚СЂРёСЃРѕРІР°С‚СЊ РѕРєСЂСѓР¶РЅРѕСЃС‚СЊ
+				case "AR":	result = SlideRH.AR;	break;	//РѕС‚СЂРёСЃРѕРІР°С‚СЊ РґСѓРіСѓ РїРѕ СѓРіР»Р°Рј
+				case "AR1":	result = SlideRH.AR1;	break;	//РѕС‚СЂРёСЃРѕРІР°С‚СЊ РґСѓРіСѓ  РїРѕ С‚РѕС‡РєР°Рј
+				case "MA":	result = SlideRH.MA;	break;	//РїРѕР·РёС†РёРѕРЅРёСЂРѕРІР°С‚СЊСЃСЏ РІ С‚РѕС‡РєСѓ
+				case "LA":	result = SlideRH.LA;	break;	//РѕС‚СЂРёСЃРѕРІР°С‚СЊ Р»РёРЅРёСЋ Рё РїРѕР·РёС†РёРѕРЅРёСЂРѕРІР°С‚СЊСЃСЏ
+				case "EL":	result = SlideRH.EL;	break;	//РѕС‚СЂРёСЃРѕРІР°С‚СЊ СЌР»Р»РёРїСЃ
+				case "PS":	result = SlideRH.PS;	break;	//РѕС‚СЂРёСЃРѕРІР°С‚СЊ СЃРµРєС‚РѕСЂ
+				case "RT":	result = SlideRH.RT;	break;	//РѕС‚СЂРёСЃРѕРІР°С‚СЊ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
+				case "BR":	result = SlideRH.BR;	break;	//РѕС‚СЂРёСЃРѕРІР°С‚СЊ Рё Р·Р°РїРѕР»РЅРёС‚СЊ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
+				case "DP":	result = SlideRH.DP;	break;	//РѕС‚СЂРёСЃРѕРІР°С‚СЊ Р»РѕРјР°РЅРЅСѓСЋ Р»РёРЅРёСЋ
+				case "FP":	result = SlideRH.FP;	break;	//Р·Р°РїРѕР»РЅРёС‚СЊ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє
+				case "FF":	result = SlideRH.FF;	break;	//Р·Р°РїРѕР»РЅРёС‚СЊ РѕР±Р»Р°СЃС‚СЊ
 			}
 
 			return result;
@@ -252,11 +252,11 @@ namespace Steps.NET
 		}
 
 		/// <summary>
-		/// анализируется строка  sOld если сдвигаемый элемент
-		/// выделяется память под число компонент элем  (int*count)
-		/// переводятся строки в int, вычисляются новые значения и собирается s
+		/// Р°РЅР°Р»РёР·РёСЂСѓРµС‚СЃСЏ СЃС‚СЂРѕРєР°  sOld РµСЃР»Рё СЃРґРІРёРіР°РµРјС‹Р№ СЌР»РµРјРµРЅС‚
+		/// РІС‹РґРµР»СЏРµС‚СЃСЏ РїР°РјСЏС‚СЊ РїРѕРґ С‡РёСЃР»Рѕ РєРѕРјРїРѕРЅРµРЅС‚ СЌР»РµРј  (int*count)
+		/// РїРµСЂРµРІРѕРґСЏС‚СЃСЏ СЃС‚СЂРѕРєРё РІ int, РІС‹С‡РёСЃР»СЏСЋС‚СЃСЏ РЅРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ Рё СЃРѕР±РёСЂР°РµС‚СЃСЏ s
 		/// djpdhfoftncz 1
-		/// если не здвигаемый элемент ничего не делается возвращается 0
+		/// РµСЃР»Рё РЅРµ Р·РґРІРёРіР°РµРјС‹Р№ СЌР»РµРјРµРЅС‚ РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°РµС‚СЃСЏ РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ 0
 		/// </summary>
 		/// <param name="s"></param>
 		/// <param name="x"></param>
@@ -284,7 +284,7 @@ namespace Steps.NET
 						int i = 0;
 						int[] component =  new int[count];
 						c = s.Replace(name + ',', null);
-						// конвертирует строковые значения в int
+						// РєРѕРЅРІРµСЂС‚РёСЂСѓРµС‚ СЃС‚СЂРѕРєРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РІ int
 
 						while (c != string.Empty)
 						{

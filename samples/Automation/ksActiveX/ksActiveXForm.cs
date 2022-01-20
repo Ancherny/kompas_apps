@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +34,7 @@ namespace ksActiveX
         return;
       }
 
-      ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	//новый компонент
+      ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	//РЅРѕРІС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚
       if (part == null)
       {
         MessageBox.Show("BAD Part");
@@ -48,7 +48,7 @@ namespace ksActiveX
         return;
       }
 
-      // интерфейс свойств эскиза
+      // РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ СЌСЃРєРёР·Р°
       ksSketchDefinition sketchDef = (ksSketchDefinition)entitySketch.GetDefinition();
       if (sketchDef == null)
       {
@@ -56,20 +56,20 @@ namespace ksActiveX
         return;
       }
 
-      // получим интерфейс базовой плоскости XOY
+      // РїРѕР»СѓС‡РёРј РёРЅС‚РµСЂС„РµР№СЃ Р±Р°Р·РѕРІРѕР№ РїР»РѕСЃРєРѕСЃС‚Рё XOY
       ksEntity basePlane = (ksEntity)part.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);
-      sketchDef.SetPlane(basePlane);	// установим плоскость XOY базовой для эскиза
-      sketchDef.angle = 45;			// угол поворота эскиза
-      entitySketch.Create();			// создадим эскиз
+      sketchDef.SetPlane(basePlane);	// СѓСЃС‚Р°РЅРѕРІРёРј РїР»РѕСЃРєРѕСЃС‚СЊ XOY Р±Р°Р·РѕРІРѕР№ РґР»СЏ СЌСЃРєРёР·Р°
+      sketchDef.angle = 45;			// СѓРіРѕР» РїРѕРІРѕСЂРѕС‚Р° СЌСЃРєРёР·Р°
+      entitySketch.Create();			// СЃРѕР·РґР°РґРёРј СЌСЃРєРёР·
 
-      // интерфейс редактора эскиза
+      // РёРЅС‚РµСЂС„РµР№СЃ СЂРµРґР°РєС‚РѕСЂР° СЌСЃРєРёР·Р°
       ksDocument2D sketchEdit = (ksDocument2D)sketchDef.BeginEdit();
-      // введем новый эскиз - квадрат
+      // РІРІРµРґРµРј РЅРѕРІС‹Р№ СЌСЃРєРёР· - РєРІР°РґСЂР°С‚
       sketchEdit.ksLineSeg(50, 50, -50, 50, 1);
       sketchEdit.ksLineSeg(50, -50, -50, -50, 1);
       sketchEdit.ksLineSeg(50, -50, 50, 50, 1);
       sketchEdit.ksLineSeg(-50, -50, -50, 50, 1);
-      sketchDef.EndEdit();	//завершение редактирования эскиза
+      sketchDef.EndEdit();	//Р·Р°РІРµСЂС€РµРЅРёРµ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ СЌСЃРєРёР·Р°
 
       ksEntity entityExtr = (ksEntity)part.NewEntity((short)Obj3dType.o3d_bossExtrusion);
       if (entityExtr == null)
@@ -78,7 +78,7 @@ namespace ksActiveX
         return;
       }
 
-      // интерфейс свойств базовой операции выдавливания
+      // РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ Р±Р°Р·РѕРІРѕР№ РѕРїРµСЂР°С†РёРё РІС‹РґР°РІР»РёРІР°РЅРёСЏ
       ksBossExtrusionDefinition extrusionDef = (ksBossExtrusionDefinition)entityExtr.GetDefinition();
       if (extrusionDef == null)
       {
@@ -86,11 +86,11 @@ namespace ksActiveX
         return;
       }
 
-      extrusionDef.directionType = (short)Direction_Type.dtNormal;	// направление выдавливания
+      extrusionDef.directionType = (short)Direction_Type.dtNormal;	// РЅР°РїСЂР°РІР»РµРЅРёРµ РІС‹РґР°РІР»РёРІР°РЅРёСЏ
       extrusionDef.SetSideParam(true, (short)End_Type.etBlind, 200, 0, false);
-      extrusionDef.SetThinParam(true, (short)Direction_Type.dtBoth, 10, 10);		// тонкая стенка в два направления
-      extrusionDef.SetSketch(entitySketch);					// эскиз операции выдавливания
-      entityExtr.Create();									// создать операцию
+      extrusionDef.SetThinParam(true, (short)Direction_Type.dtBoth, 10, 10);		// С‚РѕРЅРєР°СЏ СЃС‚РµРЅРєР° РІ РґРІР° РЅР°РїСЂР°РІР»РµРЅРёСЏ
+      extrusionDef.SetSketch(entitySketch);					// СЌСЃРєРёР· РѕРїРµСЂР°С†РёРё РІС‹РґР°РІР»РёРІР°РЅРёСЏ
+      entityExtr.Create();									// СЃРѕР·РґР°С‚СЊ РѕРїРµСЂР°С†РёСЋ
 
       axKGAX3D.ZoomEntireDocument();
     }

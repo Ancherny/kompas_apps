@@ -1,4 +1,4 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ascon")]
 [assembly: AssemblyProduct("Step3_API7_2D")]
-[assembly: AssemblyCopyright("Copyright � ASCON 2011")]
+[assembly: AssemblyCopyright("Copyright © ASCON 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]		
 

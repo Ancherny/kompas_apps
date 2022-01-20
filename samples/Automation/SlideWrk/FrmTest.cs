@@ -1,4 +1,4 @@
-using Kompas6API5;
+Ôªøusing Kompas6API5;
 
 using System;
 using System.Drawing;
@@ -96,7 +96,7 @@ namespace Steps.NET
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(64, 23);
 			this.btnCancel.TabIndex = 0;
-			this.btnCancel.Text = "ŒÚÏÂÌ‡";
+			this.btnCancel.Text = "–û—Ç–º–µ–Ω–∞";
 			// 
 			// btnOK
 			// 
@@ -106,7 +106,7 @@ namespace Steps.NET
 			this.btnOK.Name = "btnOK";
 			this.btnOK.Size = new System.Drawing.Size(64, 23);
 			this.btnOK.TabIndex = 1;
-			this.btnOK.Text = "Œ ";
+			this.btnOK.Text = "–û–ö";
 			// 
 			// panel
 			// 
@@ -132,7 +132,7 @@ namespace Steps.NET
 			this.MinimizeBox = false;
 			this.Name = "FrmTest";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "“ÂÒÚ ÒÎ‡È‰";
+			this.Text = "–¢–µ—Å—Ç —Å–ª–∞–π–¥";
 			this.ResumeLayout(false);
 
 		}

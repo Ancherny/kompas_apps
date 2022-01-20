@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// DocumentEvent  - обработчик событий от документа
+// DocumentEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -20,26 +20,26 @@ namespace Steps.NET
 			-1, null, selfAdvise) {}
 
 
-		// kdBeginCloseDocument - Начало закрытия документа
+		// kdBeginCloseDocument - РќР°С‡Р°Р»Рѕ Р·Р°РєСЂС‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 		public bool BeginCloseDocument()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocEvents.Checked)
 			{
 				string str = m_LibName + " --> BeginCloseDocument";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// kdCloseDocument - Документ закрыт
+		// kdCloseDocument - Р”РѕРєСѓРјРµРЅС‚ Р·Р°РєСЂС‹С‚
 		public bool CloseDocument()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocEvents.Checked)
 			{
 				string str = m_LibName + " --> CloseDocument";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			TerminateEvents(null, m_Doc, -1, null);
@@ -47,68 +47,68 @@ namespace Steps.NET
 		}
 
 
-		// kdBeginSaveDocument - Начало сохранения документа
+		// kdBeginSaveDocument - РќР°С‡Р°Р»Рѕ СЃРѕС…СЂР°РЅРµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 		public bool BeginSaveDocument(string fileName)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocEvents.Checked)
 			{
 				string str = m_LibName + " --> BeginSaveDocument\nfileName = " + fileName;
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// kdSaveDocument - Документ сохранен
+		// kdSaveDocument - Р”РѕРєСѓРјРµРЅС‚ СЃРѕС…СЂР°РЅРµРЅ
 		public bool SaveDocument()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocEvents.Checked)
 			{
 				string str = m_LibName + " --> SaveDocument";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
 		}
 
 
-		// kdActiveDocument - Документ активизирован.
+		// kdActiveDocument - Р”РѕРєСѓРјРµРЅС‚ Р°РєС‚РёРІРёР·РёСЂРѕРІР°РЅ.
 		public bool Activate()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocEvents.Checked)
 			{
 				string str = m_LibName + " --> Activate";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
 		}
 
 
-		// kdDeactiveDocument - Документ деактивизирован.
+		// kdDeactiveDocument - Р”РѕРєСѓРјРµРЅС‚ РґРµР°РєС‚РёРІРёР·РёСЂРѕРІР°РЅ.
 		public bool Deactivate()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocEvents.Checked)
 			{
 				string str = m_LibName + " --> Deactivate";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
 		}
 
 
-		// kdBeginSaveAsDocument - Начало сохранения документа c другим именем (до диалога выбора имени)
+		// kdBeginSaveAsDocument - РќР°С‡Р°Р»Рѕ СЃРѕС…СЂР°РЅРµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р° c РґСЂСѓРіРёРј РёРјРµРЅРµРј (РґРѕ РґРёР°Р»РѕРіР° РІС‹Р±РѕСЂР° РёРјРµРЅРё)
 		public bool BeginSaveAsDocument()
 		{
 			bool res = true;
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocEvents.Checked)
 			{
 				string str = m_LibName + " --> BeginSaveAsDocument\n" +
-					"Да - Сохранить чертеж\n" +
-					"Нет - запустить стандартный диалог сохранения файла\n" +
-					"Отмена - не сохранять файл";
+					"Р”Р° - РЎРѕС…СЂР°РЅРёС‚СЊ С‡РµСЂС‚РµР¶\n" +
+					"РќРµС‚ - Р·Р°РїСѓСЃС‚РёС‚СЊ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РґРёР°Р»РѕРі СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р°\n" +
+					"РћС‚РјРµРЅР° - РЅРµ СЃРѕС…СЂР°РЅСЏС‚СЊ С„Р°Р№Р»";
 				int comm = Global.Kompas.ksYesNo(str);
 				switch (comm) 
 				{
@@ -172,13 +172,13 @@ namespace Steps.NET
 		}
 
 
-		// kdDocumentFrameOpen - Окно документа открылось
+		// kdDocumentFrameOpen - РћРєРЅРѕ РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РєСЂС‹Р»РѕСЃСЊ
 		public bool DocumentFrameOpen(object v) 
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocEvents.Checked)
 			{
 				string str = m_LibName + " --> DocumentFrameOpen";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
  
@@ -198,7 +198,7 @@ namespace Steps.NET
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocEvents.Checked)
 			{
 				string str = string.Format("{0} --> ProcessActivate, ProcessID = {1}", m_LibName, id);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
@@ -209,7 +209,7 @@ namespace Steps.NET
 			if (m_SelfAdvise && FrmConfig.Instance.chbDocEvents.Checked)
 			{
 				string str = string.Format("{0} --> ProcessDeactivate, ProcessID = {1}", m_LibName, id);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;

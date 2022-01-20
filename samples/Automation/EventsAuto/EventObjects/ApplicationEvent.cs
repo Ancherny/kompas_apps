@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// ApplicationEvent  - обработчик событий от приложения
+// ApplicationEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РїСЂРёР»РѕР¶РµРЅРёСЏ
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,7 +18,7 @@ namespace Steps.NET
       null, -1, null, selfAdvise) {}
 		
 
-    // koApplicatinDestroy - Закрытие приложения
+    // koApplicatinDestroy - Р—Р°РєСЂС‹С‚РёРµ РїСЂРёР»РѕР¶РµРЅРёСЏ
     public bool ApplicationDestroy()
     {
       if (m_SelfAdvise && FrmConfig.Instance.chbAppEvents.Checked)
@@ -27,28 +27,28 @@ namespace Steps.NET
         Global.Kompas.ksMessage(str);
       }
   
-      // Самоудаление
+      // РЎР°РјРѕСѓРґР°Р»РµРЅРёРµ
       TerminateEvents();
       Global.Kompas = null;
       return true;
     }
 
 
-    // koBeginCloseAllDocument - Начало закрытия всех открытых документов
+    // koBeginCloseAllDocument - РќР°С‡Р°Р»Рѕ Р·Р°РєСЂС‹С‚РёСЏ РІСЃРµС… РѕС‚РєСЂС‹С‚С‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ
     public bool BeginCloseAllDocument()
     {
       bool res = true;
       if (m_SelfAdvise && FrmConfig.Instance.chbAppEvents.Checked)
       {
         string str = string.Empty;
-        str = string.Format("{0} --> ApplicationEvent.BeginCloseAllDocument\nЗакрыть все?", m_LibName);
+        str = string.Format("{0} --> ApplicationEvent.BeginCloseAllDocument\nР—Р°РєСЂС‹С‚СЊ РІСЃРµ?", m_LibName);
         res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
       }
       return res;
     }
 
 
-    // koBeginCreate - Начало создания документа(до диалога выбора типа)
+    // koBeginCreate - РќР°С‡Р°Р»Рѕ СЃРѕР·РґР°РЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°(РґРѕ РґРёР°Р»РѕРіР° РІС‹Р±РѕСЂР° С‚РёРїР°)
     public bool BeginCreate(int docType)
     {
       bool res = true;
@@ -56,9 +56,9 @@ namespace Steps.NET
       {
         string str = string.Empty;
         str = string.Format("{0} --> ApplicationEvent.BeginCreate\ndocType = {1}\n", m_LibName, docType);
-        str += "Да - Создать чертеж\n" +
-          "Нет - запустить стандартный диалог открытия файла\n" +
-          "Отмена - не открывать файл";
+        str += "Р”Р° - РЎРѕР·РґР°С‚СЊ С‡РµСЂС‚РµР¶\n" +
+          "РќРµС‚ - Р·Р°РїСѓСЃС‚РёС‚СЊ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РґРёР°Р»РѕРі РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°\n" +
+          "РћС‚РјРµРЅР° - РЅРµ РѕС‚РєСЂС‹РІР°С‚СЊ С„Р°Р№Р»";
         int comm = Global.Kompas.ksYesNo(str);
         switch (comm) 
         {
@@ -69,7 +69,7 @@ namespace Steps.NET
             docParam.type =  (short)DocType.lt_DocSheetStandart;
             ksDocument2D doc = (ksDocument2D)Global.Kompas.Document2D();
             doc.ksCreateDocument(docParam);
-            res = (doc.reference == 0);	// Если документ создан стандартный диалог не нужен
+            res = (doc.reference == 0);	// Р•СЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЃРѕР·РґР°РЅ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РґРёР°Р»РѕРі РЅРµ РЅСѓР¶РµРЅ
             break;
           }	
           case -1:
@@ -81,7 +81,7 @@ namespace Steps.NET
     }
 
 
-    // koOpenDocumenBegin - Начало открытия документа
+    // koOpenDocumenBegin - РќР°С‡Р°Р»Рѕ РѕС‚РєСЂС‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°
     public bool BeginOpenDocument(string fileName)
     {
       if (m_SelfAdvise && FrmConfig.Instance.chbAppEvents.Checked)
@@ -94,16 +94,16 @@ namespace Steps.NET
     }
 
 
-    // koBeginOpenFile - Начало открытия документа(до диалога выбора имени)
+    // koBeginOpenFile - РќР°С‡Р°Р»Рѕ РѕС‚РєСЂС‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°(РґРѕ РґРёР°Р»РѕРіР° РІС‹Р±РѕСЂР° РёРјРµРЅРё)
     public bool BeginOpenFile()
     {
       bool res = true;
       if (m_SelfAdvise && FrmConfig.Instance.chbAppEvents.Checked)
       {
         string str = m_LibName + " --> ApplicationEvent.BeginOpenFile\n" + 
-          "Да - Создать чертеж\n" + 
-          "Нет - запустить стандартный диалог открытия файла\n" + 
-          "Отмена - не открывать файл";
+          "Р”Р° - РЎРѕР·РґР°С‚СЊ С‡РµСЂС‚РµР¶\n" + 
+          "РќРµС‚ - Р·Р°РїСѓСЃС‚РёС‚СЊ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РґРёР°Р»РѕРі РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°\n" + 
+          "РћС‚РјРµРЅР° - РЅРµ РѕС‚РєСЂС‹РІР°С‚СЊ С„Р°Р№Р»";
         int comm = Global.Kompas.ksYesNo(str);
         switch (comm) 
         {
@@ -125,7 +125,7 @@ namespace Steps.NET
     }
 
 
-    // koActiveDocument - Переключение на другой активный документ
+    // koActiveDocument - РџРµСЂРµРєР»СЋС‡РµРЅРёРµ РЅР° РґСЂСѓРіРѕР№ Р°РєС‚РёРІРЅС‹Р№ РґРѕРєСѓРјРµРЅС‚
     public bool ChangeActiveDocument(object newDoc, int docType)
     {
       if (m_SelfAdvise && FrmConfig.Instance.chbAppEvents.Checked)
@@ -138,7 +138,7 @@ namespace Steps.NET
     }
 
 
-    // koCreateDocument - Документ создан
+    // koCreateDocument - Р”РѕРєСѓРјРµРЅС‚ СЃРѕР·РґР°РЅ
     public bool CreateDocument(object newDoc, int docType)
     {
       if (m_SelfAdvise && FrmConfig.Instance.chbAppEvents.Checked)
@@ -151,7 +151,7 @@ namespace Steps.NET
     }
 
 
-    // koOpenDocumen - Документ открыт
+    // koOpenDocumen - Р”РѕРєСѓРјРµРЅС‚ РѕС‚РєСЂС‹С‚
     public bool OpenDocument(object newDoc, int docType)
     {
       if (m_SelfAdvise && FrmConfig.Instance.chbAppEvents.Checked)
@@ -163,19 +163,19 @@ namespace Steps.NET
       return true;
     }
 
-    // koKeyDown - Событие клавиатуры
+    // koKeyDown - РЎРѕР±С‹С‚РёРµ РєР»Р°РІРёР°С‚СѓСЂС‹
     public bool KeyDown( ref int key, int flags, bool system )
     {
       return true;
     }
 
-    // koKeyUp - Событие клавиатуры
+    // koKeyUp - РЎРѕР±С‹С‚РёРµ РєР»Р°РІРёР°С‚СѓСЂС‹
     public bool KeyUp( ref int key, int flags, bool system )
     {
       return true;
     }
 
-    // koKeyPress - Событие клавиатуры
+    // koKeyPress - РЎРѕР±С‹С‚РёРµ РєР»Р°РІРёР°С‚СѓСЂС‹
     public bool KeyPress( ref int key, bool system )
     {
       return true;

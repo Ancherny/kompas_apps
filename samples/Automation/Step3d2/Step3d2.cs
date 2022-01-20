@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 
 using System;
 using Microsoft.Win32;
@@ -14,21 +14,21 @@ using reference = System.Int32;
 
 namespace Steps.NET
 {
-	// Класс Step3d2 - Работа с компонентой (деталь или сборка)
+	// РљР»Р°СЃСЃ Step3d2 - Р Р°Р±РѕС‚Р° СЃ РєРѕРјРїРѕРЅРµРЅС‚РѕР№ (РґРµС‚Р°Р»СЊ РёР»Рё СЃР±РѕСЂРєР°)
 	public class Step3d2
 	{
 		private KompasObject kompas;
 		private ksDocument3D doc;
 		private string buf;
 
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
 		{
-			return "Step3d2 - Работа с компонентой (деталь или сборка)";
+			return "Step3d2 - Р Р°Р±РѕС‚Р° СЃ РєРѕРјРїРѕРЅРµРЅС‚РѕР№ (РґРµС‚Р°Р»СЊ РёР»Рё СЃР±РѕСЂРєР°)";
 		}
 		
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			kompas = (KompasObject) kompas_;
@@ -36,24 +36,24 @@ namespace Steps.NET
 			{
 				switch (command)
 				{
-					case 1 : CreateDocument3D();     break;  // Создание документа
-					case 2 : DocIterator();          break;  // итератор по документам
-					case 3 : UseEntityCollection();  break;  // использование массива элементов
+					case 1 : CreateDocument3D();     break;  // РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°
+					case 2 : DocIterator();          break;  // РёС‚РµСЂР°С‚РѕСЂ РїРѕ РґРѕРєСѓРјРµРЅС‚Р°Рј
+					case 3 : UseEntityCollection();  break;  // РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РјР°СЃСЃРёРІР° СЌР»РµРјРµРЅС‚РѕРІ
 					default:
 						doc = (ksDocument3D)kompas.ActiveDocument3D();
 						if (doc != null && doc.reference != 0)
 						{
 							switch (command)
 							{
-								case 4  : GetSetPartName();				break; // взять/изменить имя компоненты
-								case 5  : FixAndStandartComponent();	break; // фиксирование и установка стандартного объекта
-								case 6  : GetSetColorProperty();		break; // получить и заменить параметры цвета компоненты
-								case 7  : GetSetArrayVariable();		break; // взять и поменять внешние переменные компоненты
-								case 8  : GetSetPlacmentComponent();	break; // получить и изменить место расположения детали в сборке
-								case 9  : GetSetEntity();				break; // Получить интерфейс ksEntity объекта создаваемого системой по умолчанию и поменять параметры
-								case 10 : CreateSketch();				break; // создать эскиз
-								case 11 : GetArraySketch();				break; // Формирует массив объектов(здесь эскизов) и возвращает его интерфейс ksEntityCollection (IEntityCollection)
-								case 12 : GetSetUserParamComponent();	break; // Установить и получить параметры пользователя в компоненте
+								case 4  : GetSetPartName();				break; // РІР·СЏС‚СЊ/РёР·РјРµРЅРёС‚СЊ РёРјСЏ РєРѕРјРїРѕРЅРµРЅС‚С‹
+								case 5  : FixAndStandartComponent();	break; // С„РёРєСЃРёСЂРѕРІР°РЅРёРµ Рё СѓСЃС‚Р°РЅРѕРІРєР° СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ РѕР±СЉРµРєС‚Р°
+								case 6  : GetSetColorProperty();		break; // РїРѕР»СѓС‡РёС‚СЊ Рё Р·Р°РјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ С†РІРµС‚Р° РєРѕРјРїРѕРЅРµРЅС‚С‹
+								case 7  : GetSetArrayVariable();		break; // РІР·СЏС‚СЊ Рё РїРѕРјРµРЅСЏС‚СЊ РІРЅРµС€РЅРёРµ РїРµСЂРµРјРµРЅРЅС‹Рµ РєРѕРјРїРѕРЅРµРЅС‚С‹
+								case 8  : GetSetPlacmentComponent();	break; // РїРѕР»СѓС‡РёС‚СЊ Рё РёР·РјРµРЅРёС‚СЊ РјРµСЃС‚Рѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РґРµС‚Р°Р»Рё РІ СЃР±РѕСЂРєРµ
+								case 9  : GetSetEntity();				break; // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ ksEntity РѕР±СЉРµРєС‚Р° СЃРѕР·РґР°РІР°РµРјРѕРіРѕ СЃРёСЃС‚РµРјРѕР№ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Рё РїРѕРјРµРЅСЏС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
+								case 10 : CreateSketch();				break; // СЃРѕР·РґР°С‚СЊ СЌСЃРєРёР·
+								case 11 : GetArraySketch();				break; // Р¤РѕСЂРјРёСЂСѓРµС‚ РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ(Р·РґРµСЃСЊ СЌСЃРєРёР·РѕРІ) Рё РІРѕР·РІСЂР°С‰Р°РµС‚ РµРіРѕ РёРЅС‚РµСЂС„РµР№СЃ ksEntityCollection (IEntityCollection)
+								case 12 : GetSetUserParamComponent();	break; // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Рё РїРѕР»СѓС‡РёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ РєРѕРјРїРѕРЅРµРЅС‚Рµ
 							}
 						}
 						break;
@@ -62,60 +62,60 @@ namespace Steps.NET
 		}
 
 
-		// Формирование меню библиотеки
+		// Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РјРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)]	public string ExternalMenuItem(short number, ref short itemType, ref short command)
 		{
-			string result = string.Empty;	//По уполчанию - пустая строка
+			string result = string.Empty;	//РџРѕ СѓРїРѕР»С‡Р°РЅРёСЋ - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°
 			itemType = 1;					//MENUITEM
 
 			switch (number)
 			{
 				case 1:
-					result = "Создание 3D документа";
+					result = "РЎРѕР·РґР°РЅРёРµ 3D РґРѕРєСѓРјРµРЅС‚Р°";
 					command = 1;
 					break;
 				case 2:
-					result = "Итератор по документам";
+					result = "РС‚РµСЂР°С‚РѕСЂ РїРѕ РґРѕРєСѓРјРµРЅС‚Р°Рј";
 					command = 2;
 					break;
 				case 3:
-					result = "Массивы элементов";
+					result = "РњР°СЃСЃРёРІС‹ СЌР»РµРјРµРЅС‚РѕРІ";
 					command = 3;
 					break;
 				case 4:
-					result = "Взять и поменять имя компоненты";
+					result = "Р’Р·СЏС‚СЊ Рё РїРѕРјРµРЅСЏС‚СЊ РёРјСЏ РєРѕРјРїРѕРЅРµРЅС‚С‹";
 					command = 4;
 					break;
 				case 5:
-					result = "Фиксирование и установка стандартного объекта";
+					result = "Р¤РёРєСЃРёСЂРѕРІР°РЅРёРµ Рё СѓСЃС‚Р°РЅРѕРІРєР° СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ РѕР±СЉРµРєС‚Р°";
 					command = 5;
 					break;
 				case 6:
-					result = "Получить и заменить параметры цвета компоненты";
+					result = "РџРѕР»СѓС‡РёС‚СЊ Рё Р·Р°РјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ С†РІРµС‚Р° РєРѕРјРїРѕРЅРµРЅС‚С‹";
 					command = 6;
 					break;
 				case 7:
-					result = "Взять и поменять внешние переменные компоненты";
+					result = "Р’Р·СЏС‚СЊ Рё РїРѕРјРµРЅСЏС‚СЊ РІРЅРµС€РЅРёРµ РїРµСЂРµРјРµРЅРЅС‹Рµ РєРѕРјРїРѕРЅРµРЅС‚С‹";
 					command = 7;
 					break;
 				case 8:
-					result = "Получить и изменить расположение детали в сборке";
+					result = "РџРѕР»СѓС‡РёС‚СЊ Рё РёР·РјРµРЅРёС‚СЊ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ РґРµС‚Р°Р»Рё РІ СЃР±РѕСЂРєРµ";
 					command = 8;
 					break;
 				case 9:
-					result = "Получить и изменить парметры базовой плоскости";
+					result = "РџРѕР»СѓС‡РёС‚СЊ Рё РёР·РјРµРЅРёС‚СЊ РїР°СЂРјРµС‚СЂС‹ Р±Р°Р·РѕРІРѕР№ РїР»РѕСЃРєРѕСЃС‚Рё";
 					command = 9;
 					break;
 				case 10:
-					result = "Создать эскиз";
+					result = "РЎРѕР·РґР°С‚СЊ СЌСЃРєРёР·";
 					command = 10;
 					break;
 				case 11:
-					result = "Вернуть массив эскизов";
+					result = "Р’РµСЂРЅСѓС‚СЊ РјР°СЃСЃРёРІ СЌСЃРєРёР·РѕРІ";
 					command = 11;
 					break;
 				case 12:
-					result = "Установить и получить параметры пользователя в компоненте";
+					result = "РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Рё РїРѕР»СѓС‡РёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ РєРѕРјРїРѕРЅРµРЅС‚Рµ";
 					command = 12;
 					break;
 				case 13:
@@ -128,55 +128,55 @@ namespace Steps.NET
 		}
 
 
-		// Взять/изменить имя компоненты
+		// Р’Р·СЏС‚СЊ/РёР·РјРµРЅРёС‚СЊ РёРјСЏ РєРѕРјРїРѕРЅРµРЅС‚С‹
 		void GetSetPartName()
 		{
-			ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	// верхний компонент
+			ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	// РІРµСЂС…РЅРёР№ РєРѕРјРїРѕРЅРµРЅС‚
 			if (part != null)
 			{
-				buf = string.Format("Имя компоненты {0}", part.name);
+				buf = string.Format("РРјСЏ РєРѕРјРїРѕРЅРµРЅС‚С‹ {0}", part.name);
 				kompas.ksMessage(buf);
-				part.name = "Втулка";
+				part.name = "Р’С‚СѓР»РєР°";
 				part.Update();
 			}	 
 		}
 
 
-		// Фиксирование и установка стандартного объекта
+		// Р¤РёРєСЃРёСЂРѕРІР°РЅРёРµ Рё СѓСЃС‚Р°РЅРѕРІРєР° СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ РѕР±СЉРµРєС‚Р°
 		void FixAndStandartComponent()
 		{
 			if (doc.IsDetail())
 			{
-				kompas.ksError("Текущий документ должен быть сборкой");
+				kompas.ksError("РўРµРєСѓС‰РёР№ РґРѕРєСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЃР±РѕСЂРєРѕР№");
 				return;
 			}
-			ksPart part = (ksPart)doc.GetPart(0);	// первая деталь в сборке
+			ksPart part = (ksPart)doc.GetPart(0);	// РїРµСЂРІР°СЏ РґРµС‚Р°Р»СЊ РІ СЃР±РѕСЂРєРµ
 			if (part != null)
 			{
-				// Получить состояние фиксации компонента - в системе поддерживающей работу со свойствами - fixedComponent
+				// РџРѕР»СѓС‡РёС‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ С„РёРєСЃР°С†РёРё РєРѕРјРїРѕРЅРµРЅС‚Р° - РІ СЃРёСЃС‚РµРјРµ РїРѕРґРґРµСЂР¶РёРІР°СЋС‰РµР№ СЂР°Р±РѕС‚Сѓ СЃРѕ СЃРІРѕР№СЃС‚РІР°РјРё - fixedComponent
 				bool fix = part.fixedComponent;
-				// Получить состояние стандартного компонента - в системе поддерживающей работу со свойствами - standardComponent
+				// РџРѕР»СѓС‡РёС‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ РєРѕРјРїРѕРЅРµРЅС‚Р° - РІ СЃРёСЃС‚РµРјРµ РїРѕРґРґРµСЂР¶РёРІР°СЋС‰РµР№ СЂР°Р±РѕС‚Сѓ СЃРѕ СЃРІРѕР№СЃС‚РІР°РјРё - standardComponent
 				bool stand = part.standardComponent;
-				kompas.ksMessage(fix ? "Компонент зафиксирован" : "Компонент не зафиксирован");
-				// Изменить состояние фиксации компонента - в системе поддерживающей работу со свойствами - fixedComponent
+				kompas.ksMessage(fix ? "РљРѕРјРїРѕРЅРµРЅС‚ Р·Р°С„РёРєСЃРёСЂРѕРІР°РЅ" : "РљРѕРјРїРѕРЅРµРЅС‚ РЅРµ Р·Р°С„РёРєСЃРёСЂРѕРІР°РЅ");
+				// РР·РјРµРЅРёС‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ С„РёРєСЃР°С†РёРё РєРѕРјРїРѕРЅРµРЅС‚Р° - РІ СЃРёСЃС‚РµРјРµ РїРѕРґРґРµСЂР¶РёРІР°СЋС‰РµР№ СЂР°Р±РѕС‚Сѓ СЃРѕ СЃРІРѕР№СЃС‚РІР°РјРё - fixedComponent
 				part.fixedComponent = !fix;
-				kompas.ksMessage(stand ? "Компонент стандартный" : "Компонент нестандартный");
-				// Изменить состояние стандартного компонента - в системе поддерживающей работу со свойствами - standardComponent
+				kompas.ksMessage(stand ? "РљРѕРјРїРѕРЅРµРЅС‚ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№" : "РљРѕРјРїРѕРЅРµРЅС‚ РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№");
+				// РР·РјРµРЅРёС‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ РєРѕРјРїРѕРЅРµРЅС‚Р° - РІ СЃРёСЃС‚РµРјРµ РїРѕРґРґРµСЂР¶РёРІР°СЋС‰РµР№ СЂР°Р±РѕС‚Сѓ СЃРѕ СЃРІРѕР№СЃС‚РІР°РјРё - standardComponent
 				part.standardComponent = !stand;
 			}
 		}
 
 
-		// Получить и заменить параметры цвета компоненты
+		// РџРѕР»СѓС‡РёС‚СЊ Рё Р·Р°РјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ С†РІРµС‚Р° РєРѕРјРїРѕРЅРµРЅС‚С‹
 		void GetSetColorProperty()
 		{
-			ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part); // верхний компонент
+			ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part); // РІРµСЂС…РЅРёР№ РєРѕРјРїРѕРЅРµРЅС‚
 			if (part != null)
 			{
 				ksColorParam colorPr = (ksColorParam)part.ColorParam();
 				if (colorPr != null)
 				{
-					buf = string.Format("Номер цвета = {0}\nОбщий цвет = {1}\nДиффузия = {2}\nЗеркальность = {3}\nБлеск = {4}\nПрозрачность = {5}\nИзлучение = {6}", 
+					buf = string.Format("РќРѕРјРµСЂ С†РІРµС‚Р° = {0}\nРћР±С‰РёР№ С†РІРµС‚ = {1}\nР”РёС„С„СѓР·РёСЏ = {2}\nР—РµСЂРєР°Р»СЊРЅРѕСЃС‚СЊ = {3}\nР‘Р»РµСЃРє = {4}\nРџСЂРѕР·СЂР°С‡РЅРѕСЃС‚СЊ = {5}\nРР·Р»СѓС‡РµРЅРёРµ = {6}", 
 						colorPr.color, colorPr.ambient, colorPr.diffuse,
 						colorPr.specularity, colorPr.shininess,
 						colorPr.transparency, colorPr.emission);
@@ -186,7 +186,7 @@ namespace Steps.NET
 					colorPr.ambient = 0.1;
 					colorPr.diffuse = 0.1;
 					part.Update();
-					buf = string.Format("Номер цвета = {0}\nОбщий цвет = {1}\nДиффузия = {2}\nЗеркальность = {3}\nБлеск = {4}\nПрозрачность = {5}\nИзлучение = {6}", 
+					buf = string.Format("РќРѕРјРµСЂ С†РІРµС‚Р° = {0}\nРћР±С‰РёР№ С†РІРµС‚ = {1}\nР”РёС„С„СѓР·РёСЏ = {2}\nР—РµСЂРєР°Р»СЊРЅРѕСЃС‚СЊ = {3}\nР‘Р»РµСЃРє = {4}\nРџСЂРѕР·СЂР°С‡РЅРѕСЃС‚СЊ = {5}\nРР·Р»СѓС‡РµРЅРёРµ = {6}", 
 						colorPr.color, colorPr.ambient, colorPr.diffuse, 
 						colorPr.specularity, colorPr.shininess, 
 						colorPr.transparency, colorPr.emission);
@@ -196,18 +196,18 @@ namespace Steps.NET
 		}
 
 
-		// Взять и поменять внешние переменные компоненты
+		// Р’Р·СЏС‚СЊ Рё РїРѕРјРµРЅСЏС‚СЊ РІРЅРµС€РЅРёРµ РїРµСЂРµРјРµРЅРЅС‹Рµ РєРѕРјРїРѕРЅРµРЅС‚С‹
 		void GetSetArrayVariable()
 		{
 			if (doc.IsDetail())
 			{
-				kompas.ksError("Текущий документ должен быть сборкой");
+				kompas.ksError("РўРµРєСѓС‰РёР№ РґРѕРєСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЃР±РѕСЂРєРѕР№");
 				return;
 			}
-			ksPart part = (ksPart)doc.GetPart(0);	// первая деталь в сборке
+			ksPart part = (ksPart)doc.GetPart(0);	// РїРµСЂРІР°СЏ РґРµС‚Р°Р»СЊ РІ СЃР±РѕСЂРєРµ
 			if (part != null)
 			{
-				// работа с массивом внешних переменных
+				// СЂР°Р±РѕС‚Р° СЃ РјР°СЃСЃРёРІРѕРј РІРЅРµС€РЅРёС… РїРµСЂРµРјРµРЅРЅС‹С…
 				ksVariableCollection varCol = (ksVariableCollection)part.VariableCollection();
 				if (varCol != null)
 				{
@@ -217,39 +217,39 @@ namespace Steps.NET
 					for (int i = 0; i < varCol.GetCount(); i ++)
 					{
 						var = (ksVariable)varCol.GetByIndex(i);
-						buf = string.Format("Номер переменной {0}\nИмя переменной {1}\nЗначение переменной {2}\nКомментарий {3}", i, var.name, var.value, var.note);
+						buf = string.Format("РќРѕРјРµСЂ РїРµСЂРµРјРµРЅРЅРѕР№ {0}\nРРјСЏ РїРµСЂРµРјРµРЅРЅРѕР№ {1}\nР—РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ {2}\nРљРѕРјРјРµРЅС‚Р°СЂРёР№ {3}", i, var.name, var.value, var.note);
 						kompas.ksMessage(buf);
 						if (i == 0)
 						{
 							var.note = "qwerty";
 							double d = 0;
-							kompas.ksReadDouble("Введи переменную", 10, 0, 100, ref d);
+							kompas.ksReadDouble("Р’РІРµРґРё РїРµСЂРµРјРµРЅРЅСѓСЋ", 10, 0, 100, ref d);
 							var.value = d;
 						}
 					}
 			
 					for (int j = 0; j < varCol.GetCount(); j ++)
 					{
-						// просмотр изменненных переменных
+						// РїСЂРѕСЃРјРѕС‚СЂ РёР·РјРµРЅРЅРµРЅРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 						var = (ksVariable)varCol.GetByIndex(j);
-						buf = string.Format("Номер переменной {0}\nИмя переменной {1}\nЗначение переменной {2}\nКомментарий {3}", j, var.name, var.value, var.note);
+						buf = string.Format("РќРѕРјРµСЂ РїРµСЂРµРјРµРЅРЅРѕР№ {0}\nРРјСЏ РїРµСЂРµРјРµРЅРЅРѕР№ {1}\nР—РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ {2}\nРљРѕРјРјРµРЅС‚Р°СЂРёР№ {3}", j, var.name, var.value, var.note);
 						kompas.ksMessage(buf);
 					}
-					part.RebuildModel();	// перестроение модели
+					part.RebuildModel();	// РїРµСЂРµСЃС‚СЂРѕРµРЅРёРµ РјРѕРґРµР»Рё
 				}
 			}
 		}
 
 
-		// Получить и изменить место расположения детали в сборке
+		// РџРѕР»СѓС‡РёС‚СЊ Рё РёР·РјРµРЅРёС‚СЊ РјРµСЃС‚Рѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РґРµС‚Р°Р»Рё РІ СЃР±РѕСЂРєРµ
 		void GetSetPlacmentComponent()
 		{
 			if (doc.IsDetail())
 			{
-				kompas.ksError("Текущий документ должен быть сборкой");
+				kompas.ksError("РўРµРєСѓС‰РёР№ РґРѕРєСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЃР±РѕСЂРєРѕР№");
 				return;
 			}
-			ksPart part = (ksPart)doc.GetPart(0);	// первая деталь в сборке
+			ksPart part = (ksPart)doc.GetPart(0);	// РїРµСЂРІР°СЏ РґРµС‚Р°Р»СЊ РІ СЃР±РѕСЂРєРµ
 			if (part != null)
 			{
 				ksPlacement plac = (ksPlacement)part.GetPlacement();
@@ -268,13 +268,13 @@ namespace Steps.NET
 		}
 
 
-		// Получить интерфейс ksEntity объекта создаваемого системой по умолчанию и поменять параметры
+		// РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ ksEntity РѕР±СЉРµРєС‚Р° СЃРѕР·РґР°РІР°РµРјРѕРіРѕ СЃРёСЃС‚РµРјРѕР№ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Рё РїРѕРјРµРЅСЏС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		void GetSetEntity()
 		{
-			ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	// верхний компонент
+			ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	// РІРµСЂС…РЅРёР№ РєРѕРјРїРѕРЅРµРЅС‚
 			if (part != null)
 			{
-				ksEntity planeXOY = (ksEntity)part.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);	// 1-интерфейс на плоскость XOY
+				ksEntity planeXOY = (ksEntity)part.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);	// 1-РёРЅС‚РµСЂС„РµР№СЃ РЅР° РїР»РѕСЃРєРѕСЃС‚СЊ XOY
 				if (planeXOY != null)
 				{
 					kompas.ksMessage(planeXOY.name);
@@ -285,13 +285,13 @@ namespace Steps.NET
 		}
 
 
-		// Создание эскиза
+		// РЎРѕР·РґР°РЅРёРµ СЌСЃРєРёР·Р°
 		void CreateSketch()
 		{
-			ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	// верхний компонент
+			ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	// РІРµСЂС…РЅРёР№ РєРѕРјРїРѕРЅРµРЅС‚
 			if (part != null) 
 			{
-				ksEntity planeXOY = (ksEntity)part.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);	// 1-интерфейс на плоскость XOY
+				ksEntity planeXOY = (ksEntity)part.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);	// 1-РёРЅС‚РµСЂС„РµР№СЃ РЅР° РїР»РѕСЃРєРѕСЃС‚СЊ XOY
 				ksEntity entity = (ksEntity)part.NewEntity((short)Obj3dType.o3d_sketch);
 				if (planeXOY != null && entity != null)
 				{
@@ -309,10 +309,10 @@ namespace Steps.NET
 		}
 
 
-		// Формирует массив объектов(здесь эскизов) и возвращает его интерфейс ksEntityCollection (IEntityCollection)
+		// Р¤РѕСЂРјРёСЂСѓРµС‚ РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ(Р·РґРµСЃСЊ СЌСЃРєРёР·РѕРІ) Рё РІРѕР·РІСЂР°С‰Р°РµС‚ РµРіРѕ РёРЅС‚РµСЂС„РµР№СЃ ksEntityCollection (IEntityCollection)
 		void GetArraySketch()
 		{
-			ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	// верхний компонент
+			ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	// РІРµСЂС…РЅРёР№ РєРѕРјРїРѕРЅРµРЅС‚
 			if (part != null)
 			{
 				ksEntityCollection entityCollection = (ksEntityCollection)part.EntityCollection((short)Obj3dType.o3d_sketch);
@@ -336,16 +336,16 @@ namespace Steps.NET
 		}
 
 
-		// Установить и получить параметры пользователя в компоненте
+		// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Рё РїРѕР»СѓС‡РёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ РєРѕРјРїРѕРЅРµРЅС‚Рµ
 		void GetSetUserParamComponent() 
 		{
 			if (doc.IsDetail()) 
 			{
-				kompas.ksError("Текущий документ должен быть сборкой");
+				kompas.ksError("РўРµРєСѓС‰РёР№ РґРѕРєСѓРјРµРЅС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЃР±РѕСЂРєРѕР№");
 				return;
 			}
 
-			ksPart part = (ksPart)doc.GetPart(0);	// первая деталь в сборке
+			ksPart part = (ksPart)doc.GetPart(0);	// РїРµСЂРІР°СЏ РґРµС‚Р°Р»СЊ РІ СЃР±РѕСЂРєРµ
 			ksUserParam par = (ksUserParam)kompas.GetParamStruct((short)StructType2DEnum.ko_UserParam);
 			ksLtVariant item = (ksLtVariant)kompas.GetParamStruct((short)StructType2DEnum.ko_LtVariant);
 			ksDynamicArray arr = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.LTVARIANT_ARR);
@@ -367,10 +367,10 @@ namespace Steps.NET
 			item.intVal = 999;
 			arr.ksAddArrayItem(-1, item);
 
-			part.SetUserParam(par);	// установка пользовательской структуры
+			part.SetUserParam(par);	// СѓСЃС‚Р°РЅРѕРІРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂС‹
 			part.Update();
 
-			buf = string.Format("Размер пользовательской структуры {0}", part.GetUserParamSize()); // размер пользовательской структуры
+			buf = string.Format("Р Р°Р·РјРµСЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂС‹ {0}", part.GetUserParamSize()); // СЂР°Р·РјРµСЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂС‹
 			kompas.ksMessage(buf);
 
 			ksUserParam par2 = (ksUserParam)kompas.GetParamStruct((short)StructType2DEnum.ko_UserParam);
@@ -394,7 +394,7 @@ namespace Steps.NET
 			item2.intVal = 0;
 			arr2.ksAddArrayItem(-1, item2);
 
-			part.GetUserParam(par2);	// берем пользовательскeую структуру
+			part.GetUserParam(par2);	// Р±РµСЂРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєeСѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ
   
 			dstruct d;
 
@@ -406,102 +406,102 @@ namespace Steps.NET
 			d.c = item2.intVal;
 			arr2.ksGetArrayItem(3, item2);
 			d.d = item2.intVal;
-			buf = string.Format("Переменные пользовательского масства\na = {0}\nb = {1}\nc = {2}\nd = {3}", d.a, d.b, d.c, d.d);
-			kompas.ksMessage(buf);	// просмотрим переменные из пользовательского массива
+			buf = string.Format("РџРµСЂРµРјРµРЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ РјР°СЃСЃС‚РІР°\na = {0}\nb = {1}\nc = {2}\nd = {3}", d.a, d.b, d.c, d.d);
+			kompas.ksMessage(buf);	// РїСЂРѕСЃРјРѕС‚СЂРёРј РїРµСЂРµРјРµРЅРЅС‹Рµ РёР· РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ РјР°СЃСЃРёРІР°
 		}
 
 
-		// Создание документа 
+		// РЎРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° 
 		void CreateDocument3D()
 		{
 			ksDocument3D doc = (ksDocument3D)kompas.Document3D();
-			if (doc.Create(false /*видимый*/, true /*деталь*/))
+			if (doc.Create(false /*РІРёРґРёРјС‹Р№*/, true /*РґРµС‚Р°Р»СЊ*/))
 			{
-				doc.author = "Ethereal";				// Автор документа
-				doc.comment = "Пример документа 3D";	// Комментарии к документу
-				doc.fileName = @"c:\example.m3d";		// Имя файла Документа
-				doc.UpdateDocumentParam();				// Обновить параметры Документа
-				doc.Save();								// Сохранить документ
-				kompas.ksMessage("Сохраним документ под другим именем");
-				doc.SaveAs(@"c:\example_1.m3d");		// сохранить документ под другим именем
+				doc.author = "Ethereal";				// РђРІС‚РѕСЂ РґРѕРєСѓРјРµРЅС‚Р°
+				doc.comment = "РџСЂРёРјРµСЂ РґРѕРєСѓРјРµРЅС‚Р° 3D";	// РљРѕРјРјРµРЅС‚Р°СЂРёРё Рє РґРѕРєСѓРјРµРЅС‚Сѓ
+				doc.fileName = @"c:\example.m3d";		// РРјСЏ С„Р°Р№Р»Р° Р”РѕРєСѓРјРµРЅС‚Р°
+				doc.UpdateDocumentParam();				// РћР±РЅРѕРІРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ Р”РѕРєСѓРјРµРЅС‚Р°
+				doc.Save();								// РЎРѕС…СЂР°РЅРёС‚СЊ РґРѕРєСѓРјРµРЅС‚
+				kompas.ksMessage("РЎРѕС…СЂР°РЅРёРј РґРѕРєСѓРјРµРЅС‚ РїРѕРґ РґСЂСѓРіРёРј РёРјРµРЅРµРј");
+				doc.SaveAs(@"c:\example_1.m3d");		// СЃРѕС…СЂР°РЅРёС‚СЊ РґРѕРєСѓРјРµРЅС‚ РїРѕРґ РґСЂСѓРіРёРј РёРјРµРЅРµРј
 
-				// Автор документа
-				buf = string.Format("Автор документа: {0}", doc.author);
+				// РђРІС‚РѕСЂ РґРѕРєСѓРјРµРЅС‚Р°
+				buf = string.Format("РђРІС‚РѕСЂ РґРѕРєСѓРјРµРЅС‚Р°: {0}", doc.author);
 				kompas.ksMessage(buf);
-				// Комментарий к документу
-				buf = string.Format("Комментарий к документу: {0}", doc.comment);
+				// РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє РґРѕРєСѓРјРµРЅС‚Сѓ
+				buf = string.Format("РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє РґРѕРєСѓРјРµРЅС‚Сѓ: {0}", doc.comment);
 				kompas.ksMessage(buf);
-				// Имя файла
-				buf = string.Format("Имя файла: {0}", doc.fileName);
+				// РРјСЏ С„Р°Р№Р»Р°
+				buf = string.Format("РРјСЏ С„Р°Р№Р»Р°: {0}", doc.fileName);
 				kompas.ksMessage(buf);
 
-				doc.close();	// закроем документ
+				doc.close();	// Р·Р°РєСЂРѕРµРј РґРѕРєСѓРјРµРЅС‚
 			}
 		}
 
 
-		// Открытие группы документов и создание итератора по ним
+		// РћС‚РєСЂС‹С‚РёРµ РіСЂСѓРїРїС‹ РґРѕРєСѓРјРµРЅС‚РѕРІ Рё СЃРѕР·РґР°РЅРёРµ РёС‚РµСЂР°С‚РѕСЂР° РїРѕ РЅРёРј
 		void DocIterator()
 		{
 			ksDocument3D doc = null;
-			ksDynamicArray arrDoc = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.CHAR_STR_ARR);	// динамический массив указателей на строки символов
-			// если массив создан запускаем диалог выбора файлов 
-			if (arrDoc != null && kompas.ksChoiceFiles("*.m3d","Документы (*.m3d)|*.m3d|Все файлы (*.*)|*.*", arrDoc, false) == 1)
+			ksDynamicArray arrDoc = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.CHAR_STR_ARR);	// РґРёРЅР°РјРёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° СЃС‚СЂРѕРєРё СЃРёРјРІРѕР»РѕРІ
+			// РµСЃР»Рё РјР°СЃСЃРёРІ СЃРѕР·РґР°РЅ Р·Р°РїСѓСЃРєР°РµРј РґРёР°Р»РѕРі РІС‹Р±РѕСЂР° С„Р°Р№Р»РѕРІ 
+			if (arrDoc != null && kompas.ksChoiceFiles("*.m3d","Р”РѕРєСѓРјРµРЅС‚С‹ (*.m3d)|*.m3d|Р’СЃРµ С„Р°Р№Р»С‹ (*.*)|*.*", arrDoc, false) == 1)
 			{
 				ksChar255 item = (ksChar255)kompas.GetParamStruct((short)StructType2DEnum.ko_Char255); 
 				if (item != null)
 				{
-					// откроем все файлы указанные пользователем
+					// РѕС‚РєСЂРѕРµРј РІСЃРµ С„Р°Р№Р»С‹ СѓРєР°Р·Р°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј
 					for (int i = 0, count = arrDoc.ksGetArrayCount(); i < count; i++)
 					{
 						if (arrDoc.ksGetArrayItem(i, item) == 1)
 						{ 
-							// захватываем интерфейс документа
+							// Р·Р°С…РІР°С‚С‹РІР°РµРј РёРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р°
 							doc = (ksDocument3D)kompas.Document3D();
-							doc.Open(item.str, false);	// открываем файл с заданным именем 
+							doc.Open(item.str, false);	// РѕС‚РєСЂС‹РІР°РµРј С„Р°Р№Р» СЃ Р·Р°РґР°РЅРЅС‹Рј РёРјРµРЅРµРј 
 						}
 					}
 				}
 
-				// сообщаем количество открытых файлов
-				buf = string.Format("Открыто {0} файлов", arrDoc.ksGetArrayCount());
+				// СЃРѕРѕР±С‰Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РєСЂС‹С‚С‹С… С„Р°Р№Р»РѕРІ
+				buf = string.Format("РћС‚РєСЂС‹С‚Рѕ {0} С„Р°Р№Р»РѕРІ", arrDoc.ksGetArrayCount());
 				kompas.ksMessage(buf); 
 
-				// создаем итератор по документам
+				// СЃРѕР·РґР°РµРј РёС‚РµСЂР°С‚РѕСЂ РїРѕ РґРѕРєСѓРјРµРЅС‚Р°Рј
 				ksIterator iter = (ksIterator)kompas.GetIterator();
 				if (iter != null)
 				{
-					//тип объекта             
+					//С‚РёРї РѕР±СЉРµРєС‚Р°             
 					if (iter.ksCreateIterator(ldefin2d.D3_DOCUMENT_OBJ, 0))
 					{
-						reference rf; // референс документа
+						reference rf; // СЂРµС„РµСЂРµРЅСЃ РґРѕРєСѓРјРµРЅС‚Р°
 						if ((rf = iter.ksMoveIterator("F")) != 0)
 						{
-							// смещаем итератор на первый элемент
+							// СЃРјРµС‰Р°РµРј РёС‚РµСЂР°С‚РѕСЂ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚
 							do
 							{
-								// смещаем итератор на следующую позицию
-								// захватываем интерфейс документа
+								// СЃРјРµС‰Р°РµРј РёС‚РµСЂР°С‚РѕСЂ РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ РїРѕР·РёС†РёСЋ
+								// Р·Р°С…РІР°С‚С‹РІР°РµРј РёРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р°
 								doc = (ksDocument3D)kompas.ksGet3dDocumentFromRef(rf);
 								if (doc != null)
 								{
-									// автор документа
-									buf = string.Format("Автор документа: {0}", doc.author);
+									// Р°РІС‚РѕСЂ РґРѕРєСѓРјРµРЅС‚Р°
+									buf = string.Format("РђРІС‚РѕСЂ РґРѕРєСѓРјРµРЅС‚Р°: {0}", doc.author);
 									kompas.ksMessage(buf);
-									// комментарии к документу
-									buf = string.Format("Комментарий к документу: {0}", doc.comment);
+									// РєРѕРјРјРµРЅС‚Р°СЂРёРё Рє РґРѕРєСѓРјРµРЅС‚Сѓ
+									buf = string.Format("РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє РґРѕРєСѓРјРµРЅС‚Сѓ: {0}", doc.comment);
 									kompas.ksMessage(buf);
-									// имя файла документа 
-									buf = string.Format("Имя файла: {0}", doc.fileName);
+									// РёРјСЏ С„Р°Р№Р»Р° РґРѕРєСѓРјРµРЅС‚Р° 
+									buf = string.Format("РРјСЏ С„Р°Р№Р»Р°: {0}", doc.fileName);
 									kompas.ksMessage(buf);
-									// тип документа
-									buf = string.Format("Тип документа: {0}", doc.IsDetail() ? "Деталь" : "Сборка");
+									// С‚РёРї РґРѕРєСѓРјРµРЅС‚Р°
+									buf = string.Format("РўРёРї РґРѕРєСѓРјРµРЅС‚Р°: {0}", doc.IsDetail() ? "Р”РµС‚Р°Р»СЊ" : "РЎР±РѕСЂРєР°");
 									kompas.ksMessage(buf);
 								}
 							}
 							while ((rf = iter.ksMoveIterator("N")) != 0);
 
-							iter.ksDeleteIterator(); // удалить итератор
+							iter.ksDeleteIterator(); // СѓРґР°Р»РёС‚СЊ РёС‚РµСЂР°С‚РѕСЂ
 						}
 					}
 				}
@@ -509,68 +509,68 @@ namespace Steps.NET
 		}
 
 
-		// Использование массива элементов
+		// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РјР°СЃСЃРёРІР° СЌР»РµРјРµРЅС‚РѕРІ
 		void UseEntityCollection()
 		{
-			ksDocument3D doc = (ksDocument3D)kompas.ActiveDocument3D();	// привязываемся к активному документу
+			ksDocument3D doc = (ksDocument3D)kompas.ActiveDocument3D();	// РїСЂРёРІСЏР·С‹РІР°РµРјСЃСЏ Рє Р°РєС‚РёРІРЅРѕРјСѓ РґРѕРєСѓРјРµРЅС‚Сѓ
 			if (doc != null)
 			{
-        ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	// новый компонент
+        ksPart part = (ksPart)doc.GetPart((short)Part_Type.pTop_Part);	// РЅРѕРІС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚
 				if (part != null) 
 				{
 					int count1 = 0;
-					int count2 = 0;	// количество плоских поверхностей
-					int count = 0;	// количество конических поверхностей
+					int count2 = 0;	// РєРѕР»РёС‡РµСЃС‚РІРѕ РїР»РѕСЃРєРёС… РїРѕРІРµСЂС…РЅРѕСЃС‚РµР№
+					int count = 0;	// РєРѕР»РёС‡РµСЃС‚РІРѕ РєРѕРЅРёС‡РµСЃРєРёС… РїРѕРІРµСЂС…РЅРѕСЃС‚РµР№
 
-					// массив поверхностей
+					// РјР°СЃСЃРёРІ РїРѕРІРµСЂС…РЅРѕСЃС‚РµР№
 					ksEntityCollection collect = (ksEntityCollection)part.EntityCollection((short)Obj3dType.o3d_face);      
 					if (collect != null)
 					{
 						count = collect.GetCount();
 						count1 = 0; 
 						count2 = 0; 
-						ksColorParam colorPr = null;	// интерфейс свойств цвета
+						ksColorParam colorPr = null;	// РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ С†РІРµС‚Р°
 						if (collect != null && count != 0)
 						{
 							for (int i = 0; i < count; i ++)
 							{
 								ksEntity ent = (ksEntity)collect.GetByIndex(i);
 								colorPr = (ksColorParam)ent.ColorParam();
-								// интерфейс свойств поверхности
+								// РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё
 								ksFaceDefinition faceDef = (ksFaceDefinition)ent.GetDefinition();
 								if (faceDef != null)
 								{
-									// коническая по-ть		//цилиндрическая по-ть
+									// РєРѕРЅРёС‡РµСЃРєР°СЏ РїРѕ-С‚СЊ		//С†РёР»РёРЅРґСЂРёС‡РµСЃРєР°СЏ РїРѕ-С‚СЊ
 									if (faceDef.IsCone() || faceDef.IsCylinder()) 
 									{      
 										colorPr.color = Color.FromArgb(0, 255, 255, 0).ToArgb();  
-										count2 ++;	// считаем количество объектов
+										count2 ++;	// СЃС‡РёС‚Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РѕР±СЉРµРєС‚РѕРІ
 									}
-									// плоская по-ть  
+									// РїР»РѕСЃРєР°СЏ РїРѕ-С‚СЊ  
 									if (faceDef.IsPlanar()) 
 									{
 										colorPr.color = Color.FromArgb(0, 0, 255, 255).ToArgb(); 
-										count1 ++;	// считаем количество объектов
+										count1 ++;	// СЃС‡РёС‚Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РѕР±СЉРµРєС‚РѕРІ
 									}
 
-									ent.Update();	// обновить параметры
+									ent.Update();	// РѕР±РЅРѕРІРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 								}
 							}
 						}
 					}
 
-					// сообщяем о результатах работы
+					// СЃРѕРѕР±С‰СЏРµРј Рѕ СЂРµР·СѓР»СЊС‚Р°С‚Р°С… СЂР°Р±РѕС‚С‹
 					if (count == 0) 
-						kompas.ksMessage("Не найдено ни одной поверхности");
+						kompas.ksMessage("РќРµ РЅР°Р№РґРµРЅРѕ РЅРё РѕРґРЅРѕР№ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё");
 					else
 					{
-						buf = string.Format("Найдено {0} коничечких и {1} плоских объектов", count2, count1);
+						buf = string.Format("РќР°Р№РґРµРЅРѕ {0} РєРѕРЅРёС‡РµС‡РєРёС… Рё {1} РїР»РѕСЃРєРёС… РѕР±СЉРµРєС‚РѕРІ", count2, count1);
 						kompas.ksMessage(buf);
 					}
 
 					count1 = 0;
 					count2 = 0;
-					// массив ребер
+					// РјР°СЃСЃРёРІ СЂРµР±РµСЂ
 					ksEntityCollection collect2 = (ksEntityCollection)part.EntityCollection((short)Obj3dType.o3d_edge);
 					count = collect2.GetCount();
 					if (collect2 != null && count != 0)
@@ -582,19 +582,19 @@ namespace Steps.NET
 							if (edgeDef != null)
 							{
 								if (edgeDef.IsStraight()) 
-									count1++;	// количество прямых ребер
+									count1++;	// РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂСЏРјС‹С… СЂРµР±РµСЂ
 								else
-									count2++;	// количество криволинейных ребер
+									count2++;	// РєРѕР»РёС‡РµСЃС‚РІРѕ РєСЂРёРІРѕР»РёРЅРµР№РЅС‹С… СЂРµР±РµСЂ
 							}
 						}
 					}
 
-					// сообщяем о результатах работы
+					// СЃРѕРѕР±С‰СЏРµРј Рѕ СЂРµР·СѓР»СЊС‚Р°С‚Р°С… СЂР°Р±РѕС‚С‹
 					if (count == 0) 
-						kompas.ksMessage("Не найдено ни одного ребра");
+						kompas.ksMessage("РќРµ РЅР°Р№РґРµРЅРѕ РЅРё РѕРґРЅРѕРіРѕ СЂРµР±СЂР°");
 					else
 					{
-						buf = string.Format("Найдено {0} прямых и {1} криволинейных ребер", count1, count2);
+						buf = string.Format("РќР°Р№РґРµРЅРѕ {0} РїСЂСЏРјС‹С… Рё {1} РєСЂРёРІРѕР»РёРЅРµР№РЅС‹С… СЂРµР±РµСЂ", count1, count2);
 						kompas.ksMessage(buf);
 					}
 				}
@@ -603,12 +603,12 @@ namespace Steps.NET
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -624,11 +624,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 		
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

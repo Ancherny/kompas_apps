@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// Object2DEvent - обработчик событий объектов 2D документа
+// Object2DEvent - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚РѕРІ 2D РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -49,7 +49,7 @@ namespace Steps.NET
 		}
 
 
-		// kdChangeActive - Переключение вида/слоя в текущий
+		// kdChangeActive - РџРµСЂРµРєР»СЋС‡РµРЅРёРµ РІРёРґР°/СЃР»РѕСЏ РІ С‚РµРєСѓС‰РёР№
 		public bool ChangeActive(int viewRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -61,9 +61,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> ChangeActive\nviewRef = {1}\n", m_LibName, viewRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип/указатель объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї/СѓРєР°Р·Р°С‚РµР»СЊ РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 
@@ -74,7 +74,7 @@ namespace Steps.NET
 		}
 
 
-		// koBeginDelete - Попытка удаления объекта
+		// koBeginDelete - РџРѕРїС‹С‚РєР° СѓРґР°Р»РµРЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginDelete(int objRef)
 		{
 			bool res = false;
@@ -87,9 +87,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginDelete\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип/указатель объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї/СѓРєР°Р·Р°С‚РµР»СЊ РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;                    
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -100,7 +100,7 @@ namespace Steps.NET
 		}
 
 
-		// koDelete - Объект удален
+		// koDelete - РћР±СЉРµРєС‚ СѓРґР°Р»РµРЅ
 		public bool Delete(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -112,24 +112,24 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> Delete\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип/указатель объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї/СѓРєР°Р·Р°С‚РµР»СЊ РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 
 				if (doc2D != null && objRef != 0) 
 					doc2D.ksLightObj(objRef, 0);
 			}
-			// Если удаляется объект удаляем и подписку на его события
-			// Либо тип объекта : ALL_OBJ...AXISLINE_OBJ, VIEW_OBJ, либо указатель на объект
+			// Р•СЃР»Рё СѓРґР°Р»СЏРµС‚СЃСЏ РѕР±СЉРµРєС‚ СѓРґР°Р»СЏРµРј Рё РїРѕРґРїРёСЃРєСѓ РЅР° РµРіРѕ СЃРѕР±С‹С‚РёСЏ
+			// Р›РёР±Рѕ С‚РёРї РѕР±СЉРµРєС‚Р° : ALL_OBJ...AXISLINE_OBJ, VIEW_OBJ, Р»РёР±Рѕ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±СЉРµРєС‚
 			if (objRef != 0 && objRef == m_ObjType)
 				this.Delete(objRef);
 			return true;
 		}
        
 
-		// koBeginMove - Начало смещения объекта
+		// koBeginMove - РќР°С‡Р°Р»Рѕ СЃРјРµС‰РµРЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginMove(int objRef)
 		{
 			bool res = false;
@@ -142,9 +142,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginMove\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип/указатель объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї/СѓРєР°Р·Р°С‚РµР»СЊ РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -155,7 +155,7 @@ namespace Steps.NET
 		}
 
 
-		// koMove - Объект смещен
+		// koMove - РћР±СЉРµРєС‚ СЃРјРµС‰РµРЅ
 		public bool Move(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -167,9 +167,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> Move\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип/указатель объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї/СѓРєР°Р·Р°С‚РµР»СЊ РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 
@@ -180,7 +180,7 @@ namespace Steps.NET
 		}
 
 
-		// koBeginRotate - Поворот объекта
+		// koBeginRotate - РџРѕРІРѕСЂРѕС‚ РѕР±СЉРµРєС‚Р°
 		public bool BeginRotate(int objRef)
 		{
 			bool res = false;
@@ -193,9 +193,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginRotate\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип/указатель объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї/СѓРєР°Р·Р°С‚РµР»СЊ РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -206,7 +206,7 @@ namespace Steps.NET
 		}
 
 
-		// koRotate - Поворот объекта
+		// koRotate - РџРѕРІРѕСЂРѕС‚ РѕР±СЉРµРєС‚Р°
 		public bool Rotate(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -218,9 +218,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> Rotate\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип/указатель объекта = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї/СѓРєР°Р·Р°С‚РµР»СЊ РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 
@@ -231,7 +231,7 @@ namespace Steps.NET
 		}
 
 
-		// koBeginScale - Маштабирование объекта
+		// koBeginScale - РњР°С€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool BeginScale(int objRef)
 		{
 			bool res = false;
@@ -244,9 +244,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginScale\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -257,7 +257,7 @@ namespace Steps.NET
 		}
 
 
-		// koScale - Маштабирование объекта
+		// koScale - РњР°С€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool scale(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -269,9 +269,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> Scale\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 
@@ -282,7 +282,7 @@ namespace Steps.NET
 		}
 
 
-		// koBeginTransform - Трансформация объекта
+		// koBeginTransform - РўСЂР°РЅСЃС„РѕСЂРјР°С†РёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginTransform(int objRef)
 		{
 			bool res = false;
@@ -295,9 +295,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginTransform\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -308,7 +308,7 @@ namespace Steps.NET
 		}
 
 
-		// koTransform - Трансформация объекта
+		// koTransform - РўСЂР°РЅСЃС„РѕСЂРјР°С†РёСЏ РѕР±СЉРµРєС‚Р°
 		public bool Transform(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -320,9 +320,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> Transform\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 
@@ -333,7 +333,7 @@ namespace Steps.NET
 		}
 
 
-		// koBeginCopy - Копирование объекта
+		// koBeginCopy - РљРѕРїРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool BeginCopy(int objRef)
 		{
 			bool res = false;
@@ -346,9 +346,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginCopy\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -359,7 +359,7 @@ namespace Steps.NET
 		}
 
 
-		// koCopy - Копирование объекта
+		// koCopy - РљРѕРїРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool copy(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -370,9 +370,9 @@ namespace Steps.NET
 
 				string str = string.Empty;
 				str = string.Format("{0} --> Copy\nobjRef = {1}\n", m_LibName, objRef);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 
@@ -383,7 +383,7 @@ namespace Steps.NET
 		}
 
 
-		// koBeginSymmetry - Симметрия объекта
+		// koBeginSymmetry - РЎРёРјРјРµС‚СЂРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginSymmetry(int objRef)
 		{
 			bool res = false;
@@ -396,9 +396,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginSymmetry\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
     
@@ -409,7 +409,7 @@ namespace Steps.NET
 		}
 
 
-		// koSymmetry - Симметрия объекта
+		// koSymmetry - РЎРёРјРјРµС‚СЂРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool Symmetry(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -421,9 +421,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> Symmetry\nobjRef = {1}\n", m_LibName, objRef);
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 
@@ -434,7 +434,7 @@ namespace Steps.NET
 		}
 
 
-		// koBeginProcess - Начало редактирования\создания объекта
+		// koBeginProcess - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginProcess(int pType, int objRef)
 		{
 			bool res = false;
@@ -447,9 +447,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginProcess\npType = {1}\nobjRef = {2}\n", m_LibName, pType, objRef); 
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				res = Global.Kompas.ksYesNo(str) == 1 ? true : false;
 
@@ -460,7 +460,7 @@ namespace Steps.NET
 		}
      
 
-		// koEndProcess - Конец редактирования\создания объекта
+		// koEndProcess - РљРѕРЅРµС† СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool EndProcess(int pType)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -469,9 +469,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> EndProcess\npType = {1}\n", m_LibName, pType); 
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 			}
@@ -479,7 +479,7 @@ namespace Steps.NET
 		}
 
 
-		// koCreate - Создание объектов
+		// koCreate - РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ
 		public bool CreateObject(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -491,9 +491,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> CreateObject\nobjRef = {1}\n", m_LibName, objRef); 
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 
@@ -504,7 +504,7 @@ namespace Steps.NET
 		}
 
     
-		// koUpdateObject - Редактирование объекта
+		// koUpdateObject - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool UpdateObject(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -516,9 +516,9 @@ namespace Steps.NET
 				string str = string.Empty;
 				str = string.Format("{0} --> UpdateObject\nobjRef = {1}\n", m_LibName, objRef); 
 				str += OutRes();
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				string strType;
-				strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
+				strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
 				str += strType;
 				Global.Kompas.ksMessage(str);
 
@@ -527,12 +527,12 @@ namespace Steps.NET
 			}
 			return true;
 		}	
-    // koUpdateObject - Редактирование объекта
+    // koUpdateObject - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
     public bool BeginDestroyObject(int objRef)
     {
       return true;
     }	
-    // koUpdateObject - Редактирование объекта
+    // koUpdateObject - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
     public bool DestroyObject(int objRef)
     {
       return true;

@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 using System;
 using Microsoft.Win32;
 using System.Reflection;
@@ -12,7 +12,7 @@ using reference = System.Int32;
 
 namespace Steps.NET
 {
-	// Класс Step4 - Приемы работы
+	// РљР»Р°СЃСЃ Step4 - РџСЂРёРµРјС‹ СЂР°Р±РѕС‚С‹
   [ClassInterface(ClassInterfaceType.AutoDual)]
 	public class Step4
 	{
@@ -20,14 +20,14 @@ namespace Steps.NET
 		ksDocument2D doc = null;
 		int type = 0, flag = 0;
 
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)]	public string GetLibraryName()
 		{
-			return "Step4 - Приемы работы";
+			return "Step4 - РџСЂРёРµРјС‹ СЂР°Р±РѕС‚С‹";
 		}
 
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			kompas = (KompasObject)kompas_;
@@ -35,21 +35,21 @@ namespace Steps.NET
 			{
 				switch (command)
 				{
-					case 1: DrawTxtDB();		break; // Работа с БД
-					case 3: LongIntInput();		break; // Ввод длинного целого
-					case 4: FileNameSelect();	break; // Выбор имени файла
-					case 8: WorkRelativePath();	break; // Работа с относительными путями файлов
+					case 1: DrawTxtDB();		break; // Р Р°Р±РѕС‚Р° СЃ Р‘Р”
+					case 3: LongIntInput();		break; // Р’РІРѕРґ РґР»РёРЅРЅРѕРіРѕ С†РµР»РѕРіРѕ
+					case 4: FileNameSelect();	break; // Р’С‹Р±РѕСЂ РёРјРµРЅРё С„Р°Р№Р»Р°
+					case 8: WorkRelativePath();	break; // Р Р°Р±РѕС‚Р° СЃ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹РјРё РїСѓС‚СЏРјРё С„Р°Р№Р»РѕРІ
 					default:
 						doc = (ksDocument2D)kompas.ActiveDocument2D();
 						if (doc != null && doc.reference > 0)
 						{
 							switch (command)
 							{
-								case 2: PlacementCursor();	break; // Placement и Cursor
-								case 5: WriteSlideStep();	break; // Пример отрисовки слайда
-								case 6: TestShowDialog();	break; // Отрисовать слайд
-								case 7: Queue();			break; // Пример работы с очередями
-								case 9: WorkSystemPath();	break; // Работа с системными каталогами
+								case 2: PlacementCursor();	break; // Placement Рё Cursor
+								case 5: WriteSlideStep();	break; // РџСЂРёРјРµСЂ РѕС‚СЂРёСЃРѕРІРєРё СЃР»Р°Р№РґР°
+								case 6: TestShowDialog();	break; // РћС‚СЂРёСЃРѕРІР°С‚СЊ СЃР»Р°Р№Рґ
+								case 7: Queue();			break; // РџСЂРёРјРµСЂ СЂР°Р±РѕС‚С‹ СЃ РѕС‡РµСЂРµРґСЏРјРё
+								case 9: WorkSystemPath();	break; // Р Р°Р±РѕС‚Р° СЃ СЃРёСЃС‚РµРјРЅС‹РјРё РєР°С‚Р°Р»РѕРіР°РјРё
 							}
 						}
 						break;
@@ -58,7 +58,7 @@ namespace Steps.NET
 		}
 
 
-		// Формирование меню библиотеки
+		// Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РјРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)]	public string ExternalMenuItem(short number, ref short itemType, ref short command)
 		{
 			string result = string.Empty;
@@ -66,7 +66,7 @@ namespace Steps.NET
 			switch (number)
 			{
 				case 1:
-					result = "Работа с БД";
+					result = "Р Р°Р±РѕС‚Р° СЃ Р‘Р”";
 					command = 1;
 					break;
 				case 2:
@@ -74,31 +74,31 @@ namespace Steps.NET
 					command = 2;
 					break;
 				case 3:
-					result = "Ввод длинного целого";
+					result = "Р’РІРѕРґ РґР»РёРЅРЅРѕРіРѕ С†РµР»РѕРіРѕ";
 					command = 3;
 					break;
 				case 4:
-					result = "Выбор имени файла";
+					result = "Р’С‹Р±РѕСЂ РёРјРµРЅРё С„Р°Р№Р»Р°";
 					command = 4;
 					break;
 				case 5:
-					result = "Записать слайд";
+					result = "Р—Р°РїРёСЃР°С‚СЊ СЃР»Р°Р№Рґ";
 					command = 5;
 					break;
 				case 6:
-					result = "Отрисовать слайд";
+					result = "РћС‚СЂРёСЃРѕРІР°С‚СЊ СЃР»Р°Р№Рґ";
 					command = 6;
 					break;
 				case 7:
-					result = "Пример с обработкой очереди сообщений";
+					result = "РџСЂРёРјРµСЂ СЃ РѕР±СЂР°Р±РѕС‚РєРѕР№ РѕС‡РµСЂРµРґРё СЃРѕРѕР±С‰РµРЅРёР№";
 					command = 7;
 					break;
 				case 8:
-					result = "Относительный путь файла";
+					result = "РћС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№ РїСѓС‚СЊ С„Р°Р№Р»Р°";
 					command = 8;
 					break;
 				case 9:
-					result = "Работа с системными каталогами";
+					result = "Р Р°Р±РѕС‚Р° СЃ СЃРёСЃС‚РµРјРЅС‹РјРё РєР°С‚Р°Р»РѕРіР°РјРё";
 					command = 9;
 					break;
 				case 10:
@@ -110,7 +110,7 @@ namespace Steps.NET
 		}
 
 
-		#region Локальные структуры
+		#region Р›РѕРєР°Р»СЊРЅС‹Рµ СЃС‚СЂСѓРєС‚СѓСЂС‹
 		private struct b_
 		{
 			public double dr, l;
@@ -123,7 +123,7 @@ namespace Steps.NET
 		}
 		#endregion
 
-		// Работа с БД
+		// Р Р°Р±РѕС‚Р° СЃ Р‘Р”
 		void DrawTxtDB()
 		{
 			con_ con = new con_();
@@ -150,24 +150,24 @@ namespace Steps.NET
 			item.intVal = 0;
 			arr.ksAddArrayItem(-1, item);
 
-			string libName = kompas.ksChoiceFile("*.loa", "Базы данных(*.loa)|*.loa|Все файлы (*.*)|*.*|", true);
+			string libName = kompas.ksChoiceFile("*.loa", "Р‘Р°Р·С‹ РґР°РЅРЅС‹С…(*.loa)|*.loa|Р’СЃРµ С„Р°Р№Р»С‹ (*.*)|*.*|", true);
 			if (libName != null && libName != string.Empty)
 			{
-				bd = data.ksCreateDB("TXT_DB"); //создать объект, обслуживающий базу данных
+				bd = data.ksCreateDB("TXT_DB"); //СЃРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚, РѕР±СЃР»СѓР¶РёРІР°СЋС‰РёР№ Р±Р°Р·Сѓ РґР°РЅРЅС‹С…
 				if (data.ksConnectDB(bd, libName) == 1)
-				{ //связать объект базы с определенной базой данных(для текстового файла - имя файла)
-					r1 = data.ksRelation(bd); //создать отношение - буфер для считывания информации из таблицы
-					data.ksRDouble("dr");//имена даются ключевым колонкам,
-					data.ksRDouble("L"); //по ним в дальнейшем формируются условия выборки
+				{ //СЃРІСЏР·Р°С‚СЊ РѕР±СЉРµРєС‚ Р±Р°Р·С‹ СЃ РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…(РґР»СЏ С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р° - РёРјСЏ С„Р°Р№Р»Р°)
+					r1 = data.ksRelation(bd); //СЃРѕР·РґР°С‚СЊ РѕС‚РЅРѕС€РµРЅРёРµ - Р±СѓС„РµСЂ РґР»СЏ СЃС‡РёС‚С‹РІР°РЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё РёР· С‚Р°Р±Р»РёС†С‹
+					data.ksRDouble("dr");//РёРјРµРЅР° РґР°СЋС‚СЃСЏ РєР»СЋС‡РµРІС‹Рј РєРѕР»РѕРЅРєР°Рј,
+					data.ksRDouble("L"); //РїРѕ РЅРёРј РІ РґР°Р»СЊРЅРµР№С€РµРј С„РѕСЂРјРёСЂСѓСЋС‚СЃСЏ СѓСЃР»РѕРІРёСЏ РІС‹Р±РѕСЂРєРё
 					data.ksRInt("");
 					data.ksEndRelation();
 
-					//установить запрос - отношение связывается с базой(указываем какие колонки
-					//базы связать с переменными буфера)
-					data.ksDoStatement(bd, r1, "1 2 3"); //колонка dr - 1, L - 2, оставшаяся колонка -3
+					//СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р·Р°РїСЂРѕСЃ - РѕС‚РЅРѕС€РµРЅРёРµ СЃРІСЏР·С‹РІР°РµС‚СЃСЏ СЃ Р±Р°Р·РѕР№(СѓРєР°Р·С‹РІР°РµРј РєР°РєРёРµ РєРѕР»РѕРЅРєРё
+					//Р±Р°Р·С‹ СЃРІСЏР·Р°С‚СЊ СЃ РїРµСЂРµРјРµРЅРЅС‹РјРё Р±СѓС„РµСЂР°)
+					data.ksDoStatement(bd, r1, "1 2 3"); //РєРѕР»РѕРЅРєР° dr - 1, L - 2, РѕСЃС‚Р°РІС€Р°СЏСЃСЏ РєРѕР»РѕРЅРєР° -3
 					while (i > 0)
 					{
-						i = data.ksReadRecord(bd, r1, par); //считать очередную порцию информации и положть в структуру b
+						i = data.ksReadRecord(bd, r1, par); //СЃС‡РёС‚Р°С‚СЊ РѕС‡РµСЂРµРґРЅСѓСЋ РїРѕСЂС†РёСЋ РёРЅС„РѕСЂРјР°С†РёРё Рё РїРѕР»РѕР¶С‚СЊ РІ СЃС‚СЂСѓРєС‚СѓСЂСѓ b
 						if (i > 0)
 						{
 							arr.ksGetArrayItem(0, item);
@@ -189,14 +189,14 @@ namespace Steps.NET
 					item.Init();
 					item.strVal = string.Empty;
 					arr.ksAddArrayItem(-1, item);
-					r2 = data.ksRelation(bd); //создать отношение - буфер для считывания информации из таблицы
+					r2 = data.ksRelation(bd); //СЃРѕР·РґР°С‚СЊ РѕС‚РЅРѕС€РµРЅРёРµ - Р±СѓС„РµСЂ РґР»СЏ СЃС‡РёС‚С‹РІР°РЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё РёР· С‚Р°Р±Р»РёС†С‹
 					data.ksRChar("", 255, 0);
 					data.ksEndRelation();
 
-					data.ksDoStatement(bd, r2, "2");//установить запрос - отношение связывается с базой(указываем какие колонки
+					data.ksDoStatement(bd, r2, "2");//СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р·Р°РїСЂРѕСЃ - РѕС‚РЅРѕС€РµРЅРёРµ СЃРІСЏР·С‹РІР°РµС‚СЃСЏ СЃ Р±Р°Р·РѕР№(СѓРєР°Р·С‹РІР°РµРј РєР°РєРёРµ РєРѕР»РѕРЅРєРё
 					while (i > 0)
 					{
-						i = data.ksReadRecord(bd, r2, par); //считать очередную порцию информации и положть в структуру b
+						i = data.ksReadRecord(bd, r2, par); //СЃС‡РёС‚Р°С‚СЊ РѕС‡РµСЂРµРґРЅСѓСЋ РїРѕСЂС†РёСЋ РёРЅС„РѕСЂРјР°С†РёРё Рё РїРѕР»РѕР¶С‚СЊ РІ СЃС‚СЂСѓРєС‚СѓСЂСѓ b
 						if (i > 0)
 						{
 							arr.ksGetArrayItem(0, item);
@@ -215,16 +215,16 @@ namespace Steps.NET
 					item.Init();
 					item.doubleVal = 0;
 					arr.ksAddArrayItem(-1, item);
-					r3 = data.ksRelation(bd); //создать отношение - буфер для считывания информации из таблицы
+					r3 = data.ksRelation(bd); //СЃРѕР·РґР°С‚СЊ РѕС‚РЅРѕС€РµРЅРёРµ - Р±СѓС„РµСЂ РґР»СЏ СЃС‡РёС‚С‹РІР°РЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё РёР· С‚Р°Р±Р»РёС†С‹
 					data.ksRDouble("");
 					data.ksRDouble("L");
 					data.ksEndRelation();
 
-					data.ksDoStatement(bd, r3, "1 2");//установить запрос - отношение связывается с базой(указываем какие колонки
+					data.ksDoStatement(bd, r3, "1 2");//СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р·Р°РїСЂРѕСЃ - РѕС‚РЅРѕС€РµРЅРёРµ СЃРІСЏР·С‹РІР°РµС‚СЃСЏ СЃ Р±Р°Р·РѕР№(СѓРєР°Р·С‹РІР°РµРј РєР°РєРёРµ РєРѕР»РѕРЅРєРё
 					data.ksCondition(bd, r3, "L=100||L=150");
 					while (i > 0)
 					{
-						i = data.ksReadRecord(bd, r3, par); //считать очередную порцию информации и положть в структуру b
+						i = data.ksReadRecord(bd, r3, par); //СЃС‡РёС‚Р°С‚СЊ РѕС‡РµСЂРµРґРЅСѓСЋ РїРѕСЂС†РёСЋ РёРЅС„РѕСЂРјР°С†РёРё Рё РїРѕР»РѕР¶С‚СЊ РІ СЃС‚СЂСѓРєС‚СѓСЂСѓ b
 						if (i > 0)
 						{
 							arr.ksGetArrayItem(0, item);
@@ -237,68 +237,68 @@ namespace Steps.NET
 					}
 					kompas.ksMessage("end");
 				}
-				data.ksDeleteDB(bd); //удалить обьект, обслуживающий базу данных
+				data.ksDeleteDB(bd); //СѓРґР°Р»РёС‚СЊ РѕР±СЊРµРєС‚, РѕР±СЃР»СѓР¶РёРІР°СЋС‰РёР№ Р±Р°Р·Сѓ РґР°РЅРЅС‹С…
 			}
 		}
 
 
-		// Ввод длинного целого
+		// Р’РІРѕРґ РґР»РёРЅРЅРѕРіРѕ С†РµР»РѕРіРѕ
 		void LongIntInput()
 		{
 			int h1 = 0;
-			if (kompas.ksReadInt("Ввести индекс", 10000, -100000, 100000, ref h1) == 1)
+			if (kompas.ksReadInt("Р’РІРµСЃС‚Рё РёРЅРґРµРєСЃ", 10000, -100000, 100000, ref h1) == 1)
 			{
 				string buf = string.Format("h = {0}", h1);
 				kompas.ksMessage(buf);
 			}
 			else
-				kompas.ksMessage("отказ");
+				kompas.ksMessage("РѕС‚РєР°Р·");
 		}
 
 
-		// Выбор имени файла
+		// Р’С‹Р±РѕСЂ РёРјРµРЅРё С„Р°Р№Р»Р°
 		void FileNameSelect()
 		{
 			string name = kompas.ksChoiceFile("*.cdw", null, true);
 			if (name != string.Empty)
 				kompas.ksMessage(name);
 			else
-				kompas.ksMessage("отказ");
+				kompas.ksMessage("РѕС‚РєР°Р·");
 		}
 
 
-		// Работа с относительными путями файлов
+		// Р Р°Р±РѕС‚Р° СЃ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹РјРё РїСѓС‚СЏРјРё С„Р°Р№Р»РѕРІ
 		void WorkRelativePath()
 		{
-			//имя задающего файла
-			string mainName = kompas.ksChoiceFile("*.*", "Все файлы (*.*)|*.*|", true);
-			string fileName = kompas.ksChoiceFile("*.*", "Все файлы (*.*)|*.*|", true);
+			//РёРјСЏ Р·Р°РґР°СЋС‰РµРіРѕ С„Р°Р№Р»Р°
+			string mainName = kompas.ksChoiceFile("*.*", "Р’СЃРµ С„Р°Р№Р»С‹ (*.*)|*.*|", true);
+			string fileName = kompas.ksChoiceFile("*.*", "Р’СЃРµ С„Р°Р№Р»С‹ (*.*)|*.*|", true);
 			if (mainName != string.Empty && mainName != null && fileName != string.Empty && fileName != null)
 			{
-				// относительный путь
-				string relName = kompas.ksGetRelativePathFromFullPath(mainName,	// полный путь к задающему файлу
-					fileName); // полный путь к требуемому файлу
+				// РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№ РїСѓС‚СЊ
+				string relName = kompas.ksGetRelativePathFromFullPath(mainName,	// РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє Р·Р°РґР°СЋС‰РµРјСѓ С„Р°Р№Р»Сѓ
+					fileName); // РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє С‚СЂРµР±СѓРµРјРѕРјСѓ С„Р°Р№Р»Сѓ
 
-				string mess = "Задающий файл : ";
+				string mess = "Р—Р°РґР°СЋС‰РёР№ С„Р°Р№Р» : ";
 				mess += mainName;
 				mess += "\n";
-				mess += "Полный путь : ";
+				mess += "РџРѕР»РЅС‹Р№ РїСѓС‚СЊ : ";
 				mess += fileName;
 				mess += "\n";
-				mess += "Относительный путь : ";
+				mess += "РћС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№ РїСѓС‚СЊ : ";
 				mess += relName;
 				kompas.ksMessage(mess);
 
-				// полный путь
-				string fullName = kompas.ksGetFullPathFromRelativePath(mainName,   // полный путь к задающему файлу
-					relName); // относительный путь к требуемому файлу(без общей с задающим файлом части пути)
-				mess = "Задающий файл : ";
+				// РїРѕР»РЅС‹Р№ РїСѓС‚СЊ
+				string fullName = kompas.ksGetFullPathFromRelativePath(mainName,   // РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє Р·Р°РґР°СЋС‰РµРјСѓ С„Р°Р№Р»Сѓ
+					relName); // РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№ РїСѓС‚СЊ Рє С‚СЂРµР±СѓРµРјРѕРјСѓ С„Р°Р№Р»Сѓ(Р±РµР· РѕР±С‰РµР№ СЃ Р·Р°РґР°СЋС‰РёРј С„Р°Р№Р»РѕРј С‡Р°СЃС‚Рё РїСѓС‚Рё)
+				mess = "Р—Р°РґР°СЋС‰РёР№ С„Р°Р№Р» : ";
 				mess += mainName;
 				mess += "\n";
-				mess += "Относительный путь : ";
+				mess += "РћС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№ РїСѓС‚СЊ : ";
 				mess += relName;
 				mess += "\n";
-				mess += "Полный путь : ";
+				mess += "РџРѕР»РЅС‹Р№ РїСѓС‚СЊ : ";
 				mess += fullName;
 				mess += "\n";
 				kompas.ksMessage(mess);
@@ -306,10 +306,10 @@ namespace Steps.NET
 		}
 
 
-		// Placement и Cursor
+		// Placement Рё Cursor
 		void PlacementCursor()
 		{
-			if (kompas.ksYesNo("Вызывать функцию CallBack?") == 1)
+			if (kompas.ksYesNo("Р’С‹Р·С‹РІР°С‚СЊ С„СѓРЅРєС†РёСЋ CallBack?") == 1)
 				DrawRectCallBack();
 			else
 				DrawRectNULL();
@@ -328,7 +328,7 @@ namespace Steps.NET
 				{
 					t1.Init();
 					t1.scale_ = 1;
-					t1.gr = doc.ksNewGroup(1);   // временная группа
+					t1.gr = doc.ksNewGroup(1);   // РІСЂРµРјРµРЅРЅР°СЏ РіСЂСѓРїРїР°
 					doc.ksCircle(0, 0, 20, 1);
 					doc.ksEndGroup();
 
@@ -337,16 +337,16 @@ namespace Steps.NET
 					if (info != null)
 					{
 						info.Init();
-						info.commandsString = "!Квадрат !Треугольник";
-						// указываем адрес обратной функции для Placement
+						info.commandsString = "!РљРІР°РґСЂР°С‚ !РўСЂРµСѓРіРѕР»СЊРЅРёРє";
+						// СѓРєР°Р·С‹РІР°РµРј Р°РґСЂРµСЃ РѕР±СЂР°С‚РЅРѕР№ С„СѓРЅРєС†РёРё РґР»СЏ Placement
 						info.SetCallBackP("CALLBACKPROCPLACEMENT", 0, this);
 						doc.ksPlacement(info, ref x, ref y, ref ang, phan);
 
-						t1.gr = doc.ksNewGroup(1);   // временная группа
+						t1.gr = doc.ksNewGroup(1);   // РІСЂРµРјРµРЅРЅР°СЏ РіСЂСѓРїРїР°
 						doc.ksCircle(0, 0, 20, 1);
 						doc.ksEndGroup();
 
-						// указываем адрес обратной функции для Cursor
+						// СѓРєР°Р·С‹РІР°РµРј Р°РґСЂРµСЃ РѕР±СЂР°С‚РЅРѕР№ С„СѓРЅРєС†РёРё РґР»СЏ Cursor
 						info.SetCallBackC("CALLBACKPROCCURSOR", 0, this);
 						doc.ksCursor(info, ref x, ref y, phan);
 					}
@@ -368,7 +368,7 @@ namespace Steps.NET
 				{
 					t1.Init();
 					t1.scale_ = 1;
-					t1.gr = 0;   // временная группа
+					t1.gr = 0;   // РІСЂРµРјРµРЅРЅР°СЏ РіСЂСѓРїРїР°
 
 					double x = 0, y = 0, ang = 0;
 					ksRequestInfo info = (ksRequestInfo)kompas.GetParamStruct((short)StructType2DEnum.ko_RequestInfo);
@@ -381,7 +381,7 @@ namespace Steps.NET
 							if (t1.gr != 0)
 								doc.ksDeleteObj(t1.gr);
 
-							t1.gr = doc.ksNewGroup(1); // временная группа
+							t1.gr = doc.ksNewGroup(1); // РІСЂРµРјРµРЅРЅР°СЏ РіСЂСѓРїРїР°
 							if ((flag == 1 && j == 1) || (flag == 2 && j == 2))
 								type = 3;
 
@@ -389,14 +389,14 @@ namespace Steps.NET
 							{
 								case 1:
 									doc.ksCircle(0, 0, 20, 1);
-									info.commandsString = "!Квадрат !Треугольник ";
+									info.commandsString = "!РљРІР°РґСЂР°С‚ !РўСЂРµСѓРіРѕР»СЊРЅРёРє ";
 									flag = 1;
 									break;
 								case 2:
 									doc.ksLineSeg(-10, 0, 10, 0, 1);
 									doc.ksLineSeg(10, 0, 0, 20, 1);
 									doc.ksLineSeg(0, 20, -10, 0, 1);
-									info.commandsString = "!Окружность !Квадрат ";
+									info.commandsString = "!РћРєСЂСѓР¶РЅРѕСЃС‚СЊ !РљРІР°РґСЂР°С‚ ";
 									flag = 2;
 									break;
 								case 3:
@@ -404,7 +404,7 @@ namespace Steps.NET
 									doc.ksLineSeg(10, 0, 10, 20, 1);
 									doc.ksLineSeg(10, 20, -10, 20, 1);
 									doc.ksLineSeg(-10, 20, -10, 0, 1);
-									info.commandsString = "!Окружность !Треугольник ";
+									info.commandsString = "!РћРєСЂСѓР¶РЅРѕСЃС‚СЊ !РўСЂРµСѓРіРѕР»СЊРЅРёРє ";
 									flag = 0;
 									break;
 							}
@@ -416,11 +416,11 @@ namespace Steps.NET
 							{
 								case 1:
 								case 2: type = j; break;
-								case -1:	//поставить в модель
+								case -1:	//РїРѕСЃС‚Р°РІРёС‚СЊ РІ РјРѕРґРµР»СЊ
 									doc.ksMoveObj(t1.gr, x, y);
 									if (Math.Abs(t1.angle) > 0.001)
 										doc.ksRotateObj(t1.gr, x, y, ang);
-									doc.ksStoreTmpGroup(t1.gr);	// поставить временную группу в вид
+									doc.ksStoreTmpGroup(t1.gr);	// РїРѕСЃС‚Р°РІРёС‚СЊ РІСЂРµРјРµРЅРЅСѓСЋ РіСЂСѓРїРїСѓ РІ РІРёРґ
 									doc.ksClearGroup(t1.gr, true);
 									break;
 							}
@@ -431,10 +431,10 @@ namespace Steps.NET
 		}
 
 
-		// Пример отрисовки слайда
+		// РџСЂРёРјРµСЂ РѕС‚СЂРёСЃРѕРІРєРё СЃР»Р°Р№РґР°
 		void WriteSlideStep()
 		{
-			//выберем файл для записи
+			//РІС‹Р±РµСЂРµРј С„Р°Р№Р» РґР»СЏ Р·Р°РїРёСЃРё
 			string name = kompas.ksSaveFile("*.rc", null, null, false);
 			if (name != string.Empty)
 			{
@@ -442,16 +442,16 @@ namespace Steps.NET
 				if (info != null)
 				{
 					info.Init();
-					info.commandsString = "Укажите точку привязки слайда";
-					// точка привязки слайда - верхний левый угол габаритного прямоугольника слайда
+					info.commandsString = "РЈРєР°Р¶РёС‚Рµ С‚РѕС‡РєСѓ РїСЂРёРІСЏР·РєРё СЃР»Р°Р№РґР°";
+					// С‚РѕС‡РєР° РїСЂРёРІСЏР·РєРё СЃР»Р°Р№РґР° - РІРµСЂС…РЅРёР№ Р»РµРІС‹Р№ СѓРіРѕР» РіР°Р±Р°СЂРёС‚РЅРѕРіРѕ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° СЃР»Р°Р№РґР°
 					double x = 0, y = 0;
 					if (doc.ksCursor(info, ref x, ref y, null) != 0)
 					{
 						int slideID = 0;
-						if (kompas.ksReadInt("Введите идентификатор слайда", 100, 0, 32000, ref slideID) == 1)
+						if (kompas.ksReadInt("Р’РІРµРґРёС‚Рµ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃР»Р°Р№РґР°", 100, 0, 32000, ref slideID) == 1)
 						{
 							if (kompas.ksWriteSlide(name, slideID, x, y) != 1)
-								kompas.ksError("Группа селектирования пуста");
+								kompas.ksError("Р“СЂСѓРїРїР° СЃРµР»РµРєС‚РёСЂРѕРІР°РЅРёСЏ РїСѓСЃС‚Р°");
 							doc.ksClearGroup(0, true);
 						}
 					}
@@ -460,7 +460,7 @@ namespace Steps.NET
 		}
 
 
-		// Отрисовать слайд
+		// РћС‚СЂРёСЃРѕРІР°С‚СЊ СЃР»Р°Р№Рґ
 		private void TestShowDialog()
 		{
 			FrmTest.Instance.Doc = doc;
@@ -468,10 +468,10 @@ namespace Steps.NET
 		}
 
 
-		// Пример работы с очередями
+		// РџСЂРёРјРµСЂ СЂР°Р±РѕС‚С‹ СЃ РѕС‡РµСЂРµРґСЏРјРё
 		void Queue()
 		{
-			kompas.ksEnableTaskAccess(0); //запретили доступ к задаче
+			kompas.ksEnableTaskAccess(0); //Р·Р°РїСЂРµС‚РёР»Рё РґРѕСЃС‚СѓРї Рє Р·Р°РґР°С‡Рµ
 			for (int i = 0; i < 10000; i ++)
 			{
 				doc.ksLineSeg(10, 10 + i, 20, 10 + i, 1);
@@ -480,22 +480,22 @@ namespace Steps.NET
 					System.Windows.Forms.Application.DoEvents();
 				}
 			}
-			kompas.ksEnableTaskAccess(1); //разрешили доступ к задаче
+			kompas.ksEnableTaskAccess(1); //СЂР°Р·СЂРµС€РёР»Рё РґРѕСЃС‚СѓРї Рє Р·Р°РґР°С‡Рµ
 		}
 
 
-		// Работа с системными каталогами
+		// Р Р°Р±РѕС‚Р° СЃ СЃРёСЃС‚РµРјРЅС‹РјРё РєР°С‚Р°Р»РѕРіР°РјРё
 		void WorkSystemPath()
 		{
-			string[] catalogName = new string[]{"каталог системных файлов", "каталог библиотек", "каталог временных файлов", "каталог конфигурации", "INI-файл" };
-			// сформировать  полный путь к заданному файлу
+			string[] catalogName = new string[]{"РєР°С‚Р°Р»РѕРі СЃРёСЃС‚РµРјРЅС‹С… С„Р°Р№Р»РѕРІ", "РєР°С‚Р°Р»РѕРі Р±РёР±Р»РёРѕС‚РµРє", "РєР°С‚Р°Р»РѕРі РІСЂРµРјРµРЅРЅС‹С… С„Р°Р№Р»РѕРІ", "РєР°С‚Р°Р»РѕРі РєРѕРЅС„РёРіСѓСЂР°С†РёРё", "INI-С„Р°Р№Р»" };
+			// СЃС„РѕСЂРјРёСЂРѕРІР°С‚СЊ  РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє Р·Р°РґР°РЅРЅРѕРјСѓ С„Р°Р№Р»Сѓ
 			ksRequestInfo info = (ksRequestInfo)kompas.GetParamStruct((short)StructType2DEnum.ko_RequestInfo);
 			if (info != null)
 			{
 				info.Init();
-				info.title = "Каталоги файлов системы";
-				info.commandsString = "!Системные !Библиотеки !Временные !Конфигурация !INI-файл ";
-				info.prompt = "Выберите нужный каталог";
+				info.title = "РљР°С‚Р°Р»РѕРіРё С„Р°Р№Р»РѕРІ СЃРёСЃС‚РµРјС‹";
+				info.commandsString = "!РЎРёСЃС‚РµРјРЅС‹Рµ !Р‘РёР±Р»РёРѕС‚РµРєРё !Р’СЂРµРјРµРЅРЅС‹Рµ !РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ !INI-С„Р°Р№Р» ";
+				info.prompt = "Р’С‹Р±РµСЂРёС‚Рµ РЅСѓР¶РЅС‹Р№ РєР°С‚Р°Р»РѕРі";
 				int j;
 				string buf = "user.ttt";
 				string fileName = string.Empty;
@@ -507,25 +507,25 @@ namespace Steps.NET
 					{
 						switch (j)
 						{
-							case 1: typeCatalog = ldefin2d.sptSYSTEM_FILES;	break; // Относительно каталога системных файлов
-							case 2: typeCatalog = ldefin2d.sptLIBS_FILES;	break; // Относительно каталога файлов библиотек
-							case 3: typeCatalog = ldefin2d.sptTEMP_FILES;	break; // Относительно каталога сохранения временных файлов
-							case 4: typeCatalog = ldefin2d.sptCONFIG_FILES;	break; // Относительно каталога сохранения конфигурации системы
-							case 5: typeCatalog = ldefin2d.sptINI_FILE;		break; // Относительно полного имени INI-файла системы
+							case 1: typeCatalog = ldefin2d.sptSYSTEM_FILES;	break; // РћС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°С‚Р°Р»РѕРіР° СЃРёСЃС‚РµРјРЅС‹С… С„Р°Р№Р»РѕРІ
+							case 2: typeCatalog = ldefin2d.sptLIBS_FILES;	break; // РћС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°С‚Р°Р»РѕРіР° С„Р°Р№Р»РѕРІ Р±РёР±Р»РёРѕС‚РµРє
+							case 3: typeCatalog = ldefin2d.sptTEMP_FILES;	break; // РћС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°С‚Р°Р»РѕРіР° СЃРѕС…СЂР°РЅРµРЅРёСЏ РІСЂРµРјРµРЅРЅС‹С… С„Р°Р№Р»РѕРІ
+							case 4: typeCatalog = ldefin2d.sptCONFIG_FILES;	break; // РћС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°С‚Р°Р»РѕРіР° СЃРѕС…СЂР°РЅРµРЅРёСЏ РєРѕРЅС„РёРіСѓСЂР°С†РёРё СЃРёСЃС‚РµРјС‹
+							case 5: typeCatalog = ldefin2d.sptINI_FILE;		break; // РћС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РїРѕР»РЅРѕРіРѕ РёРјРµРЅРё INI-С„Р°Р№Р»Р° СЃРёСЃС‚РµРјС‹
 						}
-						// полный путь
-						fileName = kompas.ksGetFullPathFromSystemPath(buf, // относительный путь к файлу(без системного пути)
-							typeCatalog); // путь установленного типа см. ksSystemPath
-						string mess = "Полный путь к файлу user.ttt \n";
+						// РїРѕР»РЅС‹Р№ РїСѓС‚СЊ
+						fileName = kompas.ksGetFullPathFromSystemPath(buf, // РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ(Р±РµР· СЃРёСЃС‚РµРјРЅРѕРіРѕ РїСѓС‚Рё)
+							typeCatalog); // РїСѓС‚СЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРіРѕ С‚РёРїР° СЃРј. ksSystemPath
+						string mess = "РџРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ user.ttt \n";
 						mess += catalogName[j - 1];
 						mess += " :\n";
 						mess += fileName;
 						kompas.ksMessage(mess);
 
-						// относительный путь
-						string relName = kompas.ksGetRelativePathFromSystemPath(fileName,       // полный путь к файлу
-							typeCatalog); // путь установленного типа см. ksSystemPath
-						mess = "Относительный путь к файлу \n";
+						// РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№ РїСѓС‚СЊ
+						string relName = kompas.ksGetRelativePathFromSystemPath(fileName,       // РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ
+							typeCatalog); // РїСѓС‚СЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРіРѕ С‚РёРїР° СЃРј. ksSystemPath
+						mess = "РћС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ \n";
 						mess += fileName;
 						mess += "\n";
 						mess += catalogName[j - 1];
@@ -540,7 +540,7 @@ namespace Steps.NET
 		}
 
 
-		// Функция обратной связи, вызываемая из Cursor
+		// Р¤СѓРЅРєС†РёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРІСЏР·Рё, РІС‹Р·С‹РІР°РµРјР°СЏ РёР· Cursor
 		public int CALLBACKPROCCURSOR(int comm,
 			ref double x, ref double y,
 			[MarshalAs(UnmanagedType.LPStruct)] object rInfo,
@@ -560,7 +560,7 @@ namespace Steps.NET
 					case 2:
 						type = comm;
 						break;
-					case -1: // Поставить в модель
+					case -1: // РџРѕСЃС‚Р°РІРёС‚СЊ РІ РјРѕРґРµР»СЊ
 						{
 							doc.ksMoveObj(t1.gr, x, y);
 							if (Math.Abs(t1.angle) > 0.001)
@@ -571,27 +571,27 @@ namespace Steps.NET
 						break;
 				}
 
-				// Группа для фантома должна быть временная и обновляться при изменении вида отрисовки
+				// Р“СЂСѓРїРїР° РґР»СЏ С„Р°РЅС‚РѕРјР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РІСЂРµРјРµРЅРЅР°СЏ Рё РѕР±РЅРѕРІР»СЏС‚СЊСЃСЏ РїСЂРё РёР·РјРµРЅРµРЅРёРё РІРёРґР° РѕС‚СЂРёСЃРѕРІРєРё
 				if (t1.gr != 0)
 					doc.ksDeleteObj(t1.gr);
-				t1.gr = doc.ksNewGroup(1); // Временная группа
+				t1.gr = doc.ksNewGroup(1); // Р’СЂРµРјРµРЅРЅР°СЏ РіСЂСѓРїРїР°
 
 				if ((flag == 1 && comm == 1) || (flag == 2 && comm == 2))
 					type = 3;
 
-				// Обновляется не только изображение но и меню для запроса
+				// РћР±РЅРѕРІР»СЏРµС‚СЃСЏ РЅРµ С‚РѕР»СЊРєРѕ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РЅРѕ Рё РјРµРЅСЋ РґР»СЏ Р·Р°РїСЂРѕСЃР°
 				switch (type)
 				{
 					case 1:
 						doc.ksCircle(0, 0, 20, 1);
-						info.commandsString = "!Квадрат !Треугольник ";
+						info.commandsString = "!РљРІР°РґСЂР°С‚ !РўСЂРµСѓРіРѕР»СЊРЅРёРє ";
 						flag = 1;
 						break;
 					case 2:
 						doc.ksLineSeg(-10, 0, 10, 0, 1);
 						doc.ksLineSeg(10, 0, 0, 20, 1);
 						doc.ksLineSeg(0, 20, -10, 0, 1);
-						info.commandsString = "!Окружность !Квадрат ";
+						info.commandsString = "!РћРєСЂСѓР¶РЅРѕСЃС‚СЊ !РљРІР°РґСЂР°С‚ ";
 						flag = 2;
 						break;
 					case 3:
@@ -599,7 +599,7 @@ namespace Steps.NET
 						doc.ksLineSeg(10, 0, 10, 20, 1);
 						doc.ksLineSeg(10, 20, -10, 20, 1);
 						doc.ksLineSeg(-10, 20, -10, 0, 1);
-						info.commandsString = "!Окружность !Треугольник ";
+						info.commandsString = "!РћРєСЂСѓР¶РЅРѕСЃС‚СЊ !РўСЂРµСѓРіРѕР»СЊРЅРёРє ";
 						flag = 0;
 						break;
 				}
@@ -610,7 +610,7 @@ namespace Steps.NET
 		}
 
 
-		// Функция обратной связи, вызываемая из Placement
+		// Р¤СѓРЅРєС†РёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРІСЏР·Рё, РІС‹Р·С‹РІР°РµРјР°СЏ РёР· Placement
 		public int CALLBACKPROCPLACEMENT(int comm,
 			ref double x, ref double y,
 			ref double ang,
@@ -631,25 +631,25 @@ namespace Steps.NET
 					case 2:
 						type = comm;
 						break;
-					case -1: // Поставить в модель
+					case -1: // РџРѕСЃС‚Р°РІРёС‚СЊ РІ РјРѕРґРµР»СЊ
 						{
 							doc.ksMoveObj(t1.gr, x, y);
-							// В отличие от Cursor угол приходит в виде параметра функции
+							// Р’ РѕС‚Р»РёС‡РёРµ РѕС‚ Cursor СѓРіРѕР» РїСЂРёС…РѕРґРёС‚ РІ РІРёРґРµ РїР°СЂР°РјРµС‚СЂР° С„СѓРЅРєС†РёРё
 							if (Math.Abs(ang) > 0.001)
 								doc.ksRotateObj(t1.gr, x, y, ang);
 							doc.ksStoreTmpGroup(t1.gr);
-							// Поставить временную группу в вид
+							// РџРѕСЃС‚Р°РІРёС‚СЊ РІСЂРµРјРµРЅРЅСѓСЋ РіСЂСѓРїРїСѓ РІ РІРёРґ
 							doc.ksClearGroup(t1.gr, true);
 							break;
 						}
 				}
 
-				// Группа для фантома должна быть временная и обновляться при изменении вида отрисовки
+				// Р“СЂСѓРїРїР° РґР»СЏ С„Р°РЅС‚РѕРјР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РІСЂРµРјРµРЅРЅР°СЏ Рё РѕР±РЅРѕРІР»СЏС‚СЊСЃСЏ РїСЂРё РёР·РјРµРЅРµРЅРёРё РІРёРґР° РѕС‚СЂРёСЃРѕРІРєРё
 				if (t1.gr > 0)
 					doc.ksDeleteObj(t1.gr);
-				t1.gr = doc.ksNewGroup(1); // Временная группа
+				t1.gr = doc.ksNewGroup(1); // Р’СЂРµРјРµРЅРЅР°СЏ РіСЂСѓРїРїР°
 
-				// Обновляется не только изображение но и меню для запроса
+				// РћР±РЅРѕРІР»СЏРµС‚СЃСЏ РЅРµ С‚РѕР»СЊРєРѕ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РЅРѕ Рё РјРµРЅСЋ РґР»СЏ Р·Р°РїСЂРѕСЃР°
 				if ((flag == 1 && comm == 1) || (flag == 2 && comm == 2))
 					type = 3;
 
@@ -657,14 +657,14 @@ namespace Steps.NET
 				{
 					case 1:
 						doc.ksCircle(0, 0, 20, 1);
-						info.commandsString = "!Квадрат !Треугольник ";
+						info.commandsString = "!РљРІР°РґСЂР°С‚ !РўСЂРµСѓРіРѕР»СЊРЅРёРє ";
 						flag = 1;
 						break;
 					case 2:
 						doc.ksLineSeg(-10, 0, 10, 0, 1);
 						doc.ksLineSeg(10, 0, 0, 20, 1);
 						doc.ksLineSeg(0, 20, -10, 0, 1);
-						info.commandsString = "!Окружность !Квадрат ";
+						info.commandsString = "!РћРєСЂСѓР¶РЅРѕСЃС‚СЊ !РљРІР°РґСЂР°С‚ ";
 						flag = 2;
 						break;
 					case 3:
@@ -672,7 +672,7 @@ namespace Steps.NET
 						doc.ksLineSeg(10, 0, 10, 20, 1);
 						doc.ksLineSeg(10, 20, -10, 20, 1);
 						doc.ksLineSeg(-10, 20, -10, 0, 1);
-						info.commandsString = "!Окружность !Треугольник ";
+						info.commandsString = "!РћРєСЂСѓР¶РЅРѕСЃС‚СЊ !РўСЂРµСѓРіРѕР»СЊРЅРёРє ";
 						flag = 0;
 						break;
 				}
@@ -685,12 +685,12 @@ namespace Steps.NET
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -706,11 +706,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

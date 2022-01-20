@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// SpcObjectEvent - обработчик событий объектов документа спецификации
+// SpcObjectEvent - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚РѕРІ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,14 +18,14 @@ namespace Steps.NET
 		public SpcObjectEvent(object obj, object doc, int objType)
 			: base(obj, typeof(ksSpcObjectNotify).GUID, doc, objType, 0) {}
 
-		// koBeginDelete - Попытка удаления объекта
+		// koBeginDelete - РџРѕРїС‹С‚РєР° СѓРґР°Р»РµРЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginDelete(int objRef)
 		{
 			return true;
 		}
 
 
-		// koDelete - Объект удален
+		// koDelete - РћР±СЉРµРєС‚ СѓРґР°Р»РµРЅ
 		public bool Delete(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -33,70 +33,70 @@ namespace Steps.NET
 		}
        
 
-		// soCellDblClick - Двойной клик в ячейке 
+		// soCellDblClick - Р”РІРѕР№РЅРѕР№ РєР»РёРє РІ СЏС‡РµР№РєРµ 
 		public bool CellDblClick(int objRef, int number)
 		{ 
 			return true;  
 		}
 
 
-		// soCellBeginEdit - Начало редактирования в ячейке   
+		// soCellBeginEdit - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РІ СЏС‡РµР№РєРµ   
 		public bool CellBeginEdit(int objRef, int number) 
 		{ 
 			return true;
 		}
 
 
-		// soChangeCurrent - Изменился текущий объект  
+		// soChangeCurrent - РР·РјРµРЅРёР»СЃСЏ С‚РµРєСѓС‰РёР№ РѕР±СЉРµРєС‚  
 		public bool ChangeCurrent(int objRef)
 		{ 
 			return true;  
 		}
 
 
-		// soDocumentBeginAdd - Начало добавления документа
+		// soDocumentBeginAdd - РќР°С‡Р°Р»Рѕ РґРѕР±Р°РІР»РµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 		public bool DocumentBeginAdd(int objRef)
 		{ 
 			return true;
 		}
 
 
-		// soDocumentAdd - Добавление документа в объекте СП   
+		// soDocumentAdd - Р”РѕР±Р°РІР»РµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° РІ РѕР±СЉРµРєС‚Рµ РЎРџ   
 		public bool DocumentAdd(int objRef, string docName) 
 		{ 
 			return true; 
 		}
 
 
-		// soDocumentRemove - Удаление документа из объекта СП  
+		// soDocumentRemove - РЈРґР°Р»РµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° РёР· РѕР±СЉРµРєС‚Р° РЎРџ  
 		public bool DocumentRemove(int objRef, string docName)
 		{ 
 			return true;
 		}
 
 
-		// soBeginGeomChange - Начало измения геометрии объекта СП
+		// soBeginGeomChange - РќР°С‡Р°Р»Рѕ РёР·РјРµРЅРёСЏ РіРµРѕРјРµС‚СЂРёРё РѕР±СЉРµРєС‚Р° РЎРџ
 		public bool BeginGeomChange(int objRef)
 		{ 
 			return true;
 		}
 
 
-		// soGeomChange - Геометрия объекта СП изменилась    
+		// soGeomChange - Р“РµРѕРјРµС‚СЂРёСЏ РѕР±СЉРµРєС‚Р° РЎРџ РёР·РјРµРЅРёР»Р°СЃСЊ    
 		public bool GeomChange(int objRef) 
 		{
 			return true;  
 		}
 
 
-		// koBeginProcess - Начало редактирования\создания объекта
+		// koBeginProcess - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginProcess(int pType, int objRef)
 		{
 			return true;  
 		}
        
 
-		// koEndProcess - Конец редактирования\создания объекта
+		// koEndProcess - РљРѕРЅРµС† СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool EndProcess(int pType)
 		{
 			Global.UpdateSlideBox(null);
@@ -104,7 +104,7 @@ namespace Steps.NET
 		}
 
 
-		// koCreate - Создание объектов
+		// koCreate - РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ
 		public bool CreateObject(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -112,7 +112,7 @@ namespace Steps.NET
 		}
 
     
-		// koUpdateObject - Редактирование объекта
+		// koUpdateObject - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool UpdateObject(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -120,7 +120,7 @@ namespace Steps.NET
 		} 
 
 
-		// Создать обработчик событий для объекта спецификации
+		// РЎРѕР·РґР°С‚СЊ РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РґР»СЏ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
 		public static BaseEvent NewSpcObjectEvent(object doc, int objType)
 		{
 			SpcObjectEvent res = null;
@@ -132,7 +132,7 @@ namespace Steps.NET
 					ksSpecification spc = (ksSpecification)spcObj;
 					if (spc != null)
 					{
-						DocumentEvent.NewDocumentEvent(doc); // чтобы при закрытии документа отписаться
+						DocumentEvent.NewDocumentEvent(doc); // С‡С‚РѕР±С‹ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РїРёСЃР°С‚СЊСЃСЏ
 						res = new SpcObjectEvent(spc.GetSpcObjectNotify(objType), doc, objType);
 						res.Advise();
 					}
@@ -141,13 +141,13 @@ namespace Steps.NET
 			return res;
 		}
     
-    // koBeginCopy - Копирование объекта
+    // koBeginCopy - РљРѕРїРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
     public bool BeginCopy( int objRef )
     {
       return true;
     }
 
-    // koCopy - Копирование объекта
+    // koCopy - РљРѕРїРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
     public bool copy( int objRef )
     {
       return true;

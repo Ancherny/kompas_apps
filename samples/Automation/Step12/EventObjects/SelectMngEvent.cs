@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// SelectMngEvent  - обработчик событий от менеджера селектирования документа
+// SelectMngEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РјРµРЅРµРґР¶РµСЂР° СЃРµР»РµРєС‚РёСЂРѕРІР°РЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -17,7 +17,7 @@ namespace Steps.NET
 		public SelectMngEvent(object obj, object doc)
 			: base(obj, typeof(ksSelectionMngNotify).GUID, doc) {}
 
-		// ksmSelect - Объект селектирован
+		// ksmSelect - РћР±СЉРµРєС‚ СЃРµР»РµРєС‚РёСЂРѕРІР°РЅ
 		public bool Select(object obj) 
 		{ 
 			Global.UpdateSlideBox(null);
@@ -25,7 +25,7 @@ namespace Steps.NET
 		}
 
 
-		// ksmUnselect - Объект расселектирован
+		// ksmUnselect - РћР±СЉРµРєС‚ СЂР°СЃСЃРµР»РµРєС‚РёСЂРѕРІР°РЅ
 		public bool Unselect(object obj)
 		{
 			Global.UpdateSlideBox(null);
@@ -33,7 +33,7 @@ namespace Steps.NET
 		}
 
 
-		// ksmUnselectAll - Все объекты расселектированы
+		// ksmUnselectAll - Р’СЃРµ РѕР±СЉРµРєС‚С‹ СЂР°СЃСЃРµР»РµРєС‚РёСЂРѕРІР°РЅС‹
 		public bool UnselectAll() 
 		{
 			Global.UpdateSlideBox(null);

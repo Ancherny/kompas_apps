@@ -1,4 +1,4 @@
-namespace ksActiveX
+﻿namespace ksActiveX
 {
   partial class ksAxtiveXForm
   {

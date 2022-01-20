@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 
 using System;
 using Microsoft.Win32;
@@ -10,15 +10,15 @@ using Kompas6Constants;
 
 namespace Steps.NET
 {
-	// Класс Step2a - Массив неопределенной длины
-	// 1. Массив строк                           - StrIndefiniteArray
-	// 2. Массив математических точек            - PointIndefiniteArray
-	// 3. Массив строк объекта "текст"           - TextIndefiniteArray
-	// 4. Массив колонок типа атрибута           - AttrIndefiniteArray
-	// 5. Массив полилиний                       - PolyLineArray
-	// 6. Массив габаритных прямоугольников      - RectArray
-	// 7. Массив структур пользователя           - UserDataArray
-	// 8. Массив экземпляров класса пользователя - UserClassArray
+	// РљР»Р°СЃСЃ Step2a - РњР°СЃСЃРёРІ РЅРµРѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РґР»РёРЅС‹
+	// 1. РњР°СЃСЃРёРІ СЃС‚СЂРѕРє                           - StrIndefiniteArray
+	// 2. РњР°СЃСЃРёРІ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРёС… С‚РѕС‡РµРє            - PointIndefiniteArray
+	// 3. РњР°СЃСЃРёРІ СЃС‚СЂРѕРє РѕР±СЉРµРєС‚Р° "С‚РµРєСЃС‚"           - TextIndefiniteArray
+	// 4. РњР°СЃСЃРёРІ РєРѕР»РѕРЅРѕРє С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°           - AttrIndefiniteArray
+	// 5. РњР°СЃСЃРёРІ РїРѕР»РёР»РёРЅРёР№                       - PolyLineArray
+	// 6. РњР°СЃСЃРёРІ РіР°Р±Р°СЂРёС‚РЅС‹С… РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРѕРІ      - RectArray
+	// 7. РњР°СЃСЃРёРІ СЃС‚СЂСѓРєС‚СѓСЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ           - UserDataArray
+	// 8. РњР°СЃСЃРёРІ СЌРєР·РµРјРїР»СЏСЂРѕРІ РєР»Р°СЃСЃР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ - UserClassArray
 
 	public class Step2a
 	{
@@ -27,7 +27,7 @@ namespace Steps.NET
 		[return: MarshalAs(UnmanagedType.BStr)]
 		public string GetLibraryName()
 		{
-			return "Step2a - Массив неопределенной длины";
+			return "Step2a - РњР°СЃСЃРёРІ РЅРµРѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РґР»РёРЅС‹";
 		}
 
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
@@ -37,12 +37,12 @@ namespace Steps.NET
 			{
 				switch (command)
 				{
-					case 1: StrIndefiniteArray(); break;	// массив строк
-					case 2: PointIndefiniteArray(); break;	// массив математических точек
-					case 3: TextIndefiniteArray(); break;	// массив строк объекта "текст"
-					case 4: AttrIndefiniteArray(); break;	// массив колонок типа атрибута
-					case 5: PolyLineArray(); break;			// массив полилиний
-					case 6: RectArray(); break;				// массив габаритных прямоугольников
+					case 1: StrIndefiniteArray(); break;	// РјР°СЃСЃРёРІ СЃС‚СЂРѕРє
+					case 2: PointIndefiniteArray(); break;	// РјР°СЃСЃРёРІ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРёС… С‚РѕС‡РµРє
+					case 3: TextIndefiniteArray(); break;	// РјР°СЃСЃРёРІ СЃС‚СЂРѕРє РѕР±СЉРµРєС‚Р° "С‚РµРєСЃС‚"
+					case 4: AttrIndefiniteArray(); break;	// РјР°СЃСЃРёРІ РєРѕР»РѕРЅРѕРє С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°
+					case 5: PolyLineArray(); break;			// РјР°СЃСЃРёРІ РїРѕР»РёР»РёРЅРёР№
+					case 6: RectArray(); break;				// РјР°СЃСЃРёРІ РіР°Р±Р°СЂРёС‚РЅС‹С… РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРѕРІ
 				}
 			}
 		}
@@ -55,27 +55,27 @@ namespace Steps.NET
 			switch (number)
 			{
 				case 1:
-					result = "Массив простых строк";
+					result = "РњР°СЃСЃРёРІ РїСЂРѕСЃС‚С‹С… СЃС‚СЂРѕРє";
 					command = 1;
 					break;
 				case 2:
-					result = "Массив точек";
+					result = "РњР°СЃСЃРёРІ С‚РѕС‡РµРє";
 					command = 2;
 					break;
 				case 3:
-					result = "Массив строк текста";
+					result = "РњР°СЃСЃРёРІ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р°";
 					command = 3;
 					break;
 				case 4:
-					result = "Массив колонок типа атрибута";
+					result = "РњР°СЃСЃРёРІ РєРѕР»РѕРЅРѕРє С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°";
 					command = 4;
 					break;
 				case 5:
-					result = "Массив полилиний";
+					result = "РњР°СЃСЃРёРІ РїРѕР»РёР»РёРЅРёР№";
 					command = 5;
 					break;
 				case 6:
-					result = "Массив габ. прямоугольников";
+					result = "РњР°СЃСЃРёРІ РіР°Р±. РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРѕРІ";
 					command = 6;
 					break;
 				case 7:
@@ -87,75 +87,75 @@ namespace Steps.NET
 		}
 
 
-		// Массив предназначен для создания и получения параетров параграфа текста,
-		// состоящего из   нескольких строк, которые в свою очередь
-		// состоят из компонент, с разными параметрами
-		// (с наклоном, с утолщением, спецзнаки и т. д.)
+		// РњР°СЃСЃРёРІ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ Рё РїРѕР»СѓС‡РµРЅРёСЏ РїР°СЂР°РµС‚СЂРѕРІ РїР°СЂР°РіСЂР°С„Р° С‚РµРєСЃС‚Р°,
+		// СЃРѕСЃС‚РѕСЏС‰РµРіРѕ РёР·   РЅРµСЃРєРѕР»СЊРєРёС… СЃС‚СЂРѕРє, РєРѕС‚РѕСЂС‹Рµ РІ СЃРІРѕСЋ РѕС‡РµСЂРµРґСЊ
+		// СЃРѕСЃС‚РѕСЏС‚ РёР· РєРѕРјРїРѕРЅРµРЅС‚, СЃ СЂР°Р·РЅС‹РјРё РїР°СЂР°РјРµС‚СЂР°РјРё
+		// (СЃ РЅР°РєР»РѕРЅРѕРј, СЃ СѓС‚РѕР»С‰РµРЅРёРµРј, СЃРїРµС†Р·РЅР°РєРё Рё С‚. Рґ.)
 		private void TextIndefiniteArray()
 		{
 			string buf = string.Empty;
 			ksTextLineParam par = (ksTextLineParam)kompas.GetParamStruct((short)StructType2DEnum.ko_TextLineParam);
 			ksTextItemParam par1 = (ksTextItemParam)kompas.GetParamStruct((short)StructType2DEnum.ko_TextItemParam);
-			// создали массив строк текста
+			// СЃРѕР·РґР°Р»Рё РјР°СЃСЃРёРІ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р°
 			ksDynamicArray p = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.TEXT_LINE_ARR);
 			if (par != null && par1 != null && p != null)
 			{
 				par.Init();
 				par1.Init();
-				// массив компонент строки текста
+				// РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚ СЃС‚СЂРѕРєРё С‚РµРєСЃС‚Р°
 				ksDynamicArray p1 = (ksDynamicArray)par.GetTextItemArr();
 				if (p1 != null)
 				{
 					ksTextItemFont font = (ksTextItemFont)par1.GetItemFont();
 					if (font != null)
 					{
-						// создаем первую строку текста
-						font.height = 10;   // высота текста
-						font.ksu = 1;       // сужение текста
-						font.color = 1000;  // цвет
-						font.bitVector = 1; // битовый вектор (наклон, толщина, подчеркивание, тип составной части(дробь, отклонение, выражение типа суммы))
-						par1.s = "1 компонента 1 строка";
-						// добавили 1-ю компоненту  в массив компонент
+						// СЃРѕР·РґР°РµРј РїРµСЂРІСѓСЋ СЃС‚СЂРѕРєСѓ С‚РµРєСЃС‚Р°
+						font.height = 10;   // РІС‹СЃРѕС‚Р° С‚РµРєСЃС‚Р°
+						font.ksu = 1;       // СЃСѓР¶РµРЅРёРµ С‚РµРєСЃС‚Р°
+						font.color = 1000;  // С†РІРµС‚
+						font.bitVector = 1; // Р±РёС‚РѕРІС‹Р№ РІРµРєС‚РѕСЂ (РЅР°РєР»РѕРЅ, С‚РѕР»С‰РёРЅР°, РїРѕРґС‡РµСЂРєРёРІР°РЅРёРµ, С‚РёРї СЃРѕСЃС‚Р°РІРЅРѕР№ С‡Р°СЃС‚Рё(РґСЂРѕР±СЊ, РѕС‚РєР»РѕРЅРµРЅРёРµ, РІС‹СЂР°Р¶РµРЅРёРµ С‚РёРїР° СЃСѓРјРјС‹))
+						par1.s = "1 РєРѕРјРїРѕРЅРµРЅС‚Р° 1 СЃС‚СЂРѕРєР°";
+						// РґРѕР±Р°РІРёР»Рё 1-СЋ РєРѕРјРїРѕРЅРµРЅС‚Сѓ  РІ РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚
 						p1.ksAddArrayItem(-1, par1);
 
-						font.height = 20;   // высота текста
-						font.ksu = 2;       // сужение текста
-						font.color = 2000;  // цвет
-						font.bitVector = 2; // битовый вектор (наклон, толщина, подчеркивание, тип составной части(дробь, отклонение, выражение типа суммы))
-						par1.s = "2 компонента 1 строка";
-						// добавили 2-ю компоненту  в массив компонент
+						font.height = 20;   // РІС‹СЃРѕС‚Р° С‚РµРєСЃС‚Р°
+						font.ksu = 2;       // СЃСѓР¶РµРЅРёРµ С‚РµРєСЃС‚Р°
+						font.color = 2000;  // С†РІРµС‚
+						font.bitVector = 2; // Р±РёС‚РѕРІС‹Р№ РІРµРєС‚РѕСЂ (РЅР°РєР»РѕРЅ, С‚РѕР»С‰РёРЅР°, РїРѕРґС‡РµСЂРєРёРІР°РЅРёРµ, С‚РёРї СЃРѕСЃС‚Р°РІРЅРѕР№ С‡Р°СЃС‚Рё(РґСЂРѕР±СЊ, РѕС‚РєР»РѕРЅРµРЅРёРµ, РІС‹СЂР°Р¶РµРЅРёРµ С‚РёРїР° СЃСѓРјРјС‹))
+						par1.s = "2 РєРѕРјРїРѕРЅРµРЅС‚Р° 1 СЃС‚СЂРѕРєР°";
+						// РґРѕР±Р°РІРёР»Рё 2-СЋ РєРѕРјРїРѕРЅРµРЅС‚Сѓ  РІ РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚
 						p1.ksAddArrayItem(-1, par1);
 						par.style = 1;
 
-						// 1-я строка текста состоит из двух компонент добавим строку текста в
-						// массив строк текста
+						// 1-СЏ СЃС‚СЂРѕРєР° С‚РµРєСЃС‚Р° СЃРѕСЃС‚РѕРёС‚ РёР· РґРІСѓС… РєРѕРјРїРѕРЅРµРЅС‚ РґРѕР±Р°РІРёРј СЃС‚СЂРѕРєСѓ С‚РµРєСЃС‚Р° РІ
+						// РјР°СЃСЃРёРІ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р°
 						p.ksAddArrayItem(-1, par);
 
-						// очистили массив компонент, чтобы использовать для создания второй
-						// строки текста
+						// РѕС‡РёСЃС‚РёР»Рё РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚, С‡С‚РѕР±С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РІС‚РѕСЂРѕР№
+						// СЃС‚СЂРѕРєРё С‚РµРєСЃС‚Р°
 						p1.ksClearArray();
 
-						// создаем вторую строку текста
-						font.height = 30;   // высота текста
-						font.ksu = 3;       // сужение текста
-						font.color = 3000;  // цвет
-						font.bitVector = 3; // битовый вектор (наклон, толщина, подчеркивание, тип составной части(дробь, отклонение, выражение типа суммы))
-						par1.s = "1 компонента 2 строка";
-						// добавили 1-ю компоненту  в массив компонент
+						// СЃРѕР·РґР°РµРј РІС‚РѕСЂСѓСЋ СЃС‚СЂРѕРєСѓ С‚РµРєСЃС‚Р°
+						font.height = 30;   // РІС‹СЃРѕС‚Р° С‚РµРєСЃС‚Р°
+						font.ksu = 3;       // СЃСѓР¶РµРЅРёРµ С‚РµРєСЃС‚Р°
+						font.color = 3000;  // С†РІРµС‚
+						font.bitVector = 3; // Р±РёС‚РѕРІС‹Р№ РІРµРєС‚РѕСЂ (РЅР°РєР»РѕРЅ, С‚РѕР»С‰РёРЅР°, РїРѕРґС‡РµСЂРєРёРІР°РЅРёРµ, С‚РёРї СЃРѕСЃС‚Р°РІРЅРѕР№ С‡Р°СЃС‚Рё(РґСЂРѕР±СЊ, РѕС‚РєР»РѕРЅРµРЅРёРµ, РІС‹СЂР°Р¶РµРЅРёРµ С‚РёРїР° СЃСѓРјРјС‹))
+						par1.s = "1 РєРѕРјРїРѕРЅРµРЅС‚Р° 2 СЃС‚СЂРѕРєР°";
+						// РґРѕР±Р°РІРёР»Рё 1-СЋ РєРѕРјРїРѕРЅРµРЅС‚Сѓ  РІ РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚
 						p1.ksAddArrayItem(-1, par1);
 
-						font.height = 40;   // высота текста
-						font.ksu = 4;       // сужение текста
-						font.color = 4000;  // цвет
-						font.bitVector = 4; // битовый вектор (наклон, толщина, подчеркивание, тип составной части(дробь, отклонение, выражение типа суммы))
-						par1.s = "2 компонента 2 строка";
-						// добавили 2-ю компоненту  в массив компонент
+						font.height = 40;   // РІС‹СЃРѕС‚Р° С‚РµРєСЃС‚Р°
+						font.ksu = 4;       // СЃСѓР¶РµРЅРёРµ С‚РµРєСЃС‚Р°
+						font.color = 4000;  // С†РІРµС‚
+						font.bitVector = 4; // Р±РёС‚РѕРІС‹Р№ РІРµРєС‚РѕСЂ (РЅР°РєР»РѕРЅ, С‚РѕР»С‰РёРЅР°, РїРѕРґС‡РµСЂРєРёРІР°РЅРёРµ, С‚РёРї СЃРѕСЃС‚Р°РІРЅРѕР№ С‡Р°СЃС‚Рё(РґСЂРѕР±СЊ, РѕС‚РєР»РѕРЅРµРЅРёРµ, РІС‹СЂР°Р¶РµРЅРёРµ С‚РёРїР° СЃСѓРјРјС‹))
+						par1.s = "2 РєРѕРјРїРѕРЅРµРЅС‚Р° 2 СЃС‚СЂРѕРєР°";
+						// РґРѕР±Р°РІРёР»Рё 2-СЋ РєРѕРјРїРѕРЅРµРЅС‚Сѓ  РІ РјР°СЃСЃРёРІ РєРѕРјРїРѕРЅРµРЅС‚
 						p1.ksAddArrayItem(-1, par1);
 
 						par.style = 2;
 
-						// 2-я строка текста состоит из двух компонент добавим строку текста в
-						// массив строк текста		 }
+						// 2-СЏ СЃС‚СЂРѕРєР° С‚РµРєСЃС‚Р° СЃРѕСЃС‚РѕРёС‚ РёР· РґРІСѓС… РєРѕРјРїРѕРЅРµРЅС‚ РґРѕР±Р°РІРёРј СЃС‚СЂРѕРєСѓ С‚РµРєСЃС‚Р° РІ
+						// РјР°СЃСЃРёРІ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р°		 }
 						p.ksAddArrayItem(-1, par);
 
 						kompas.ksMessageBoxResult();
@@ -163,64 +163,64 @@ namespace Steps.NET
 						int n = p.ksGetArrayCount();
 						buf = string.Format(" n = {0} ", n);
 						kompas.ksMessage(buf);
-						// просмотрим массив строк текста
+						// РїСЂРѕСЃРјРѕС‚СЂРёРј РјР°СЃСЃРёРІ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р°
 						for (int i = 0; i < n; i++)
-						{  // цикл по строкам текста
+						{  // С†РёРєР» РїРѕ СЃС‚СЂРѕРєР°Рј С‚РµРєСЃС‚Р°
 							p.ksGetArrayItem(i, par);
 							buf = string.Format("i = {0}: style = {1},", i, par.style);
 							kompas.ksMessage(buf);
 
 							int n1 = p1.ksGetArrayCount();
 							for (int j = 0; j < n1; j++)
-							{  // цикл по компонентам строки текста
+							{  // С†РёРєР» РїРѕ РєРѕРјРїРѕРЅРµРЅС‚Р°Рј СЃС‚СЂРѕРєРё С‚РµРєСЃС‚Р°
 								p1.ksGetArrayItem(j, par1);
 								buf = string.Format("j = {0}:  h = {1:0.#}, s = {2}", j, font.height, par1.s);
 								kompas.ksMessage(buf);
 							}
 						}
 
-						kompas.ksMessageBoxResult(); // проверяем результат работы нашей функции
+						kompas.ksMessageBoxResult(); // РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 
-						// заменим вторую компоненту у первой строки
+						// Р·Р°РјРµРЅРёРј РІС‚РѕСЂСѓСЋ РєРѕРјРїРѕРЅРµРЅС‚Сѓ Сѓ РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРё
 						p.ksGetArrayItem(0, par);
-						font.height = 50;   // высота текста
-						font.ksu = 1;       // сужение текста
-						font.color = 1000;  // цвет
-						font.bitVector = 1; // битовый вектор (наклон, толщина, подчеркивание, тип составной части(дробь, отклонение, выражение типа суммы))
-						par1.s = "2 комп. 1 стр.";
+						font.height = 50;   // РІС‹СЃРѕС‚Р° С‚РµРєСЃС‚Р°
+						font.ksu = 1;       // СЃСѓР¶РµРЅРёРµ С‚РµРєСЃС‚Р°
+						font.color = 1000;  // С†РІРµС‚
+						font.bitVector = 1; // Р±РёС‚РѕРІС‹Р№ РІРµРєС‚РѕСЂ (РЅР°РєР»РѕРЅ, С‚РѕР»С‰РёРЅР°, РїРѕРґС‡РµСЂРєРёРІР°РЅРёРµ, С‚РёРї СЃРѕСЃС‚Р°РІРЅРѕР№ С‡Р°СЃС‚Рё(РґСЂРѕР±СЊ, РѕС‚РєР»РѕРЅРµРЅРёРµ, РІС‹СЂР°Р¶РµРЅРёРµ С‚РёРїР° СЃСѓРјРјС‹))
+						par1.s = "2 РєРѕРјРї. 1 СЃС‚СЂ.";
 						p1.ksSetArrayItem(1, par1);
 						par.style = 3;
 						p.ksSetArrayItem(0, par);
 
-						// заменим первую компоненту у второй строки
+						// Р·Р°РјРµРЅРёРј РїРµСЂРІСѓСЋ РєРѕРјРїРѕРЅРµРЅС‚Сѓ Сѓ РІС‚РѕСЂРѕР№ СЃС‚СЂРѕРєРё
 						p.ksGetArrayItem(1, par);
-						font.height = 60;   // высота текста
-						font.ksu = 1;       // сужение текста
-						font.color = 1000;  // цвет
-						font.bitVector = 1; // битовый вектор (наклон, толщина, подчеркивание, тип составной части(дробь, отклонение, выражение типа суммы))
-						par1.s = "1 комп. 2 стр.";
+						font.height = 60;   // РІС‹СЃРѕС‚Р° С‚РµРєСЃС‚Р°
+						font.ksu = 1;       // СЃСѓР¶РµРЅРёРµ С‚РµРєСЃС‚Р°
+						font.color = 1000;  // С†РІРµС‚
+						font.bitVector = 1; // Р±РёС‚РѕРІС‹Р№ РІРµРєС‚РѕСЂ (РЅР°РєР»РѕРЅ, С‚РѕР»С‰РёРЅР°, РїРѕРґС‡РµСЂРєРёРІР°РЅРёРµ, С‚РёРї СЃРѕСЃС‚Р°РІРЅРѕР№ С‡Р°СЃС‚Рё(РґСЂРѕР±СЊ, РѕС‚РєР»РѕРЅРµРЅРёРµ, РІС‹СЂР°Р¶РµРЅРёРµ С‚РёРїР° СЃСѓРјРјС‹))
+						par1.s = "1 РєРѕРјРї. 2 СЃС‚СЂ.";
 						p1.ksSetArrayItem(0, par1);
 						par.style = 4;
 						p.ksSetArrayItem(1, par);
 
 						n = p.ksGetArrayCount();
-						// просмотрим массив строк текста
+						// РїСЂРѕСЃРјРѕС‚СЂРёРј РјР°СЃСЃРёРІ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р°
 						for (int i = 0; i < n; i++)
-						{  // цикл по строкам текста
+						{  // С†РёРєР» РїРѕ СЃС‚СЂРѕРєР°Рј С‚РµРєСЃС‚Р°
 							p.ksGetArrayItem(i, par);
 							buf = string.Format("i = {0}: style = {1}, ", i, par.style);
 							kompas.ksMessage(buf);
 
 							int n1 = p1.ksGetArrayCount();
 							for (int j = 0; j < n1; j++)
-							{  // цикл по компонентам строки текста
+							{  // С†РёРєР» РїРѕ РєРѕРјРїРѕРЅРµРЅС‚Р°Рј СЃС‚СЂРѕРєРё С‚РµРєСЃС‚Р°
 								p1.ksGetArrayItem(j, par1);
 								buf = string.Format("j = {0}:  h = {1:0.#}, s = {2}", j, font.height, par1.s);
 								kompas.ksMessage(buf);
 							}
 						}
 
-						kompas.ksMessageBoxResult(); // проверяем результат работы нашей функции
+						kompas.ksMessageBoxResult(); // РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 
 						p1.ksDeleteArray();
 						p.ksDeleteArray();
@@ -230,16 +230,16 @@ namespace Steps.NET
 		}
 
 
-		// Массив предназначен для хранения математических точек типа  MathPointParam
+		// РњР°СЃСЃРёРІ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРёС… С‚РѕС‡РµРє С‚РёРїР°  MathPointParam
 		void PointIndefiniteArray()
 		{
 			string buf = string.Empty;
 			ksMathPointParam par = (ksMathPointParam)kompas.GetParamStruct((short)StructType2DEnum.ko_MathPointParam);
-			// создать массив
+			// СЃРѕР·РґР°С‚СЊ РјР°СЃСЃРёРІ
 			ksDynamicArray p = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.POINT_ARR);
 			if (p != null && par != null)
 			{
-				// наполнить массив
+				// РЅР°РїРѕР»РЅРёС‚СЊ РјР°СЃСЃРёРІ
 				par.Init();
 				par.x = 10;
 				par.y = 10;
@@ -253,7 +253,7 @@ namespace Steps.NET
 
 				kompas.ksMessageBoxResult();
 
-				// просмотрим массив
+				// РїСЂРѕСЃРјРѕС‚СЂРёРј РјР°СЃСЃРёРІ
 				int n = p.ksGetArrayCount();
 				buf = string.Format("n = {0}", n);
 				kompas.ksMessage(buf);
@@ -266,17 +266,17 @@ namespace Steps.NET
 					kompas.ksMessage(buf);
 				}
 
-				// заменим параметры 1-го элемента
+				// Р·Р°РјРµРЅРёРј РїР°СЂР°РјРµС‚СЂС‹ 1-РіРѕ СЌР»РµРјРµРЅС‚Р°
 				par.x = 50;
 				par.y = 50;
 				p.ksSetArrayItem(1, par);
 
-				// заменим параметры 0-го элемента
+				// Р·Р°РјРµРЅРёРј РїР°СЂР°РјРµС‚СЂС‹ 0-РіРѕ СЌР»РµРјРµРЅС‚Р°
 				par.x = 60;
 				par.y = 60;
 				p.ksSetArrayItem(0, par);
 
-				// просмотрим массив
+				// РїСЂРѕСЃРјРѕС‚СЂРёРј РјР°СЃСЃРёРІ
 				n = p.ksGetArrayCount();
 				for (int i = 0; i < n; i++)
 				{
@@ -293,17 +293,17 @@ namespace Steps.NET
 		}
 
 
-		// Массив предназначен для хранения строк
+		// РњР°СЃСЃРёРІ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ СЃС‚СЂРѕРє
 		void StrIndefiniteArray()
 		{
 			string buf = string.Empty;
-			// создать массив
+			// СЃРѕР·РґР°С‚СЊ РјР°СЃСЃРёРІ
 			ksChar255 charS = (ksChar255)kompas.GetParamStruct((short)StructType2DEnum.ko_Char255);
 			ksDynamicArray p = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.CHAR_STR_ARR);
 			if (p != null && charS != null)
 			{
 				charS.Init();
-				// наполним массив
+				// РЅР°РїРѕР»РЅРёРј РјР°СЃСЃРёРІ
 				charS.str = "12345";
 				p.ksAddArrayItem(-1, charS);
 				charS.str = "67890";
@@ -313,7 +313,7 @@ namespace Steps.NET
 
 				kompas.ksMessageBoxResult();
 
-				// просмотрим массив
+				// РїСЂРѕСЃРјРѕС‚СЂРёРј РјР°СЃСЃРёРІ
 				int n = p.ksGetArrayCount();
 				buf = string.Format("n = {0}", n);
 				kompas.ksMessage(buf);
@@ -324,11 +324,11 @@ namespace Steps.NET
 					kompas.ksMessage(charS.str);
 				}
 
-				// исключить из массива эл 1
+				// РёСЃРєР»СЋС‡РёС‚СЊ РёР· РјР°СЃСЃРёРІР° СЌР» 1
 				p.ksExcludeArrayItem(1);
 				n = p.ksGetArrayCount();
 
-				// просмотрим массив
+				// РїСЂРѕСЃРјРѕС‚СЂРёРј РјР°СЃСЃРёРІ
 				for (int i = 0; i < n; i++)
 				{
 					p.ksGetArrayItem(i, charS);
@@ -352,24 +352,24 @@ namespace Steps.NET
 				string buf = string.Empty;
 				string s = string.Empty;
 				if (fl)
-					s = "структура";
+					s = "СЃС‚СЂСѓРєС‚СѓСЂР°";
 
 				int n = pCol.ksGetArrayCount();
 
 				for (int i = 0; i < n; i ++)
 				{
 					if (pCol.ksGetArrayItem(i, par) != 1)
-						kompas.ksMessageBoxResult();  // проверяем результат работы нашей функции
+						kompas.ksMessageBoxResult();  // РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 					else
 					{
-						//выдадим поля колонки не указатели
+						//РІС‹РґР°РґРёРј РїРѕР»СЏ РєРѕР»РѕРЅРєРё РЅРµ СѓРєР°Р·Р°С‚РµР»Рё
 						buf = string.Format("{0} i = {1} header = {2} type = {3} def = {4} flagEnum = {5}",
 							s, i, par.header,
 							par.type, par.def, par.flagEnum);
 						kompas.ksMessage(buf);
 						if (par.type == ldefin2d.RECORD_ATTR_TYPE)
 						{
-							// структура
+							// СЃС‚СЂСѓРєС‚СѓСЂР°
 							pCol = (ksDynamicArray)par.GetColumns();
 							if (pCol != null)
 							{
@@ -381,16 +381,16 @@ namespace Steps.NET
 						{
 							if (par.flagEnum)
 							{
-								// выдадим массив перечислений
+								// РІС‹РґР°РґРёРј РјР°СЃСЃРёРІ РїРµСЂРµС‡РёСЃР»РµРЅРёР№
 								ksDynamicArray fEnum = (ksDynamicArray)par.GetFieldEnum();
 								if (fEnum != null)
 								{
 									int n1 = fEnum.ksGetArrayCount();
-									kompas.ksMessage("массив перечислений");
+									kompas.ksMessage("РјР°СЃСЃРёРІ РїРµСЂРµС‡РёСЃР»РµРЅРёР№");
 									ksChar255 charS = (ksChar255)kompas.GetParamStruct((short)StructType2DEnum.ko_Char255);
 									for (int i1 = 0; i1 < n1; i1 ++)
 										if (fEnum.ksGetArrayItem(i1, charS) != 1)
-											kompas.ksMessageBoxResult();  // проверяем результат работы нашей функции
+											kompas.ksMessageBoxResult();  // РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 										else
 											kompas.ksMessage(charS.str);
 								}
@@ -402,19 +402,19 @@ namespace Steps.NET
 		}
 
 
-		// Массив предназначен для создания и получения типа атрибута,
-		// который может состоять из нескольких колонок
+		// РњР°СЃСЃРёРІ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ Рё РїРѕР»СѓС‡РµРЅРёСЏ С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°,
+		// РєРѕС‚РѕСЂС‹Р№ РјРѕР¶РµС‚ СЃРѕСЃС‚РѕСЏС‚СЊ РёР· РЅРµСЃРєРѕР»СЊРєРёС… РєРѕР»РѕРЅРѕРє
 		void AttrIndefiniteArray()
 		{
-			// создадим массив из 3 колонок
-			// первая колонка описывает  int с перечисленными значениями ( 100, 200, 300 )
-			// вторая колонка - запись соответствует структуре
+			// СЃРѕР·РґР°РґРёРј РјР°СЃСЃРёРІ РёР· 3 РєРѕР»РѕРЅРѕРє
+			// РїРµСЂРІР°СЏ РєРѕР»РѕРЅРєР° РѕРїРёСЃС‹РІР°РµС‚  int СЃ РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹РјРё Р·РЅР°С‡РµРЅРёСЏРјРё ( 100, 200, 300 )
+			// РІС‚РѕСЂР°СЏ РєРѕР»РѕРЅРєР° - Р·Р°РїРёСЃСЊ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ СЃС‚СЂСѓРєС‚СѓСЂРµ
 			// struct {
-			//   double ;// умолчательное значение 123456789
-			//   long   ;// умолчательное значение 1000000
-			//   char   ;// умолчательное значение 10
+			//   double ;// СѓРјРѕР»С‡Р°С‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ 123456789
+			//   long   ;// СѓРјРѕР»С‡Р°С‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ 1000000
+			//   char   ;// СѓРјРѕР»С‡Р°С‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ 10
 			// }
-			// третья колонка строка символов умолчательное значение "text"
+			// С‚СЂРµС‚СЊСЏ РєРѕР»РѕРЅРєР° СЃС‚СЂРѕРєР° СЃРёРјРІРѕР»РѕРІ СѓРјРѕР»С‡Р°С‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ "text"
 
 			ksColumnInfoParam parCol1 = (ksColumnInfoParam)kompas.GetParamStruct((short)StructType2DEnum.ko_ColumnInfoParam);
 			ksColumnInfoParam parCol2 = (ksColumnInfoParam)kompas.GetParamStruct((short)StructType2DEnum.ko_ColumnInfoParam);
@@ -425,18 +425,18 @@ namespace Steps.NET
 			if (parCol1 != null && parCol2 != null && parCol3 != null
 				&& parStruct != null && charS != null && pCol != null)
 			{
-				// первая колонка
+				// РїРµСЂРІР°СЏ РєРѕР»РѕРЅРєР°
 				parCol1.Init();
-				parCol1.header = "int";					// заголовoк-комментарий столбца
-				parCol1.type = ldefin2d.INT_ATTR_TYPE;	// тип данных в столбце - см.ниже
-				parCol1.key = 0;						// дополнительный признак, который позволит отличить две переменные с одинаковым типом
-				parCol1.def = "100";					// значение по умолчанию
-				parCol1.flagEnum = true;				// флаг включающий режим, когда значение поля атрибута будет заполнятся из массива перечисленных значений
+				parCol1.header = "int";					// Р·Р°РіРѕР»РѕРІoРє-РєРѕРјРјРµРЅС‚Р°СЂРёР№ СЃС‚РѕР»Р±С†Р°
+				parCol1.type = ldefin2d.INT_ATTR_TYPE;	// С‚РёРї РґР°РЅРЅС‹С… РІ СЃС‚РѕР»Р±С†Рµ - СЃРј.РЅРёР¶Рµ
+				parCol1.key = 0;						// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ РїСЂРёР·РЅР°Рє, РєРѕС‚РѕСЂС‹Р№ РїРѕР·РІРѕР»РёС‚ РѕС‚Р»РёС‡РёС‚СЊ РґРІРµ РїРµСЂРµРјРµРЅРЅС‹Рµ СЃ РѕРґРёРЅР°РєРѕРІС‹Рј С‚РёРїРѕРј
+				parCol1.def = "100";					// Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+				parCol1.flagEnum = true;				// С„Р»Р°Рі РІРєР»СЋС‡Р°СЋС‰РёР№ СЂРµР¶РёРј, РєРѕРіРґР° Р·РЅР°С‡РµРЅРёРµ РїРѕР»СЏ Р°С‚СЂРёР±СѓС‚Р° Р±СѓРґРµС‚ Р·Р°РїРѕР»РЅСЏС‚СЃСЏ РёР· РјР°СЃСЃРёРІР° РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№
 
 				ksDynamicArray pEnum = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.CHAR_STR_ARR);
 				if (pEnum != null)
 				{
-					//заполним массив перечисленных значений для первой колонки
+					//Р·Р°РїРѕР»РЅРёРј РјР°СЃСЃРёРІ РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№ РґР»СЏ РїРµСЂРІРѕР№ РєРѕР»РѕРЅРєРё
 					charS.Init();
 					charS.str = "100";
 					pEnum.ksAddArrayItem(-1, charS);
@@ -445,74 +445,74 @@ namespace Steps.NET
 					charS.str = "300";
 					pEnum.ksAddArrayItem(-1, charS);
 
-					parCol1.SetFieldEnum(pEnum);	// массив неопределенной длины перечислений (строки)
+					parCol1.SetFieldEnum(pEnum);	// РјР°СЃСЃРёРІ РЅРµРѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РґР»РёРЅС‹ РїРµСЂРµС‡РёСЃР»РµРЅРёР№ (СЃС‚СЂРѕРєРё)
 				}
 
 				pCol.ksAddArrayItem(-1, parCol1);
 
-				// вторая колонка
+				// РІС‚РѕСЂР°СЏ РєРѕР»РѕРЅРєР°
 				parCol2.Init();
-				parCol2.header = "struct";					// заголовoк-комментарий столбца
-				parCol2.type = ldefin2d.RECORD_ATTR_TYPE;	// тип данных в столбце - см.ниже
-				parCol2.key = 0;							// дополнительный признак, который позволит отличить две переменные с одинаковым типом
-				parCol2.def = "\0";							// значение по умолчанию
-				parCol2.flagEnum = false;					// флаг включающий режим, когда значение поля атрибута будет заполнятся из массива перечисленных значений
+				parCol2.header = "struct";					// Р·Р°РіРѕР»РѕРІoРє-РєРѕРјРјРµРЅС‚Р°СЂРёР№ СЃС‚РѕР»Р±С†Р°
+				parCol2.type = ldefin2d.RECORD_ATTR_TYPE;	// С‚РёРї РґР°РЅРЅС‹С… РІ СЃС‚РѕР»Р±С†Рµ - СЃРј.РЅРёР¶Рµ
+				parCol2.key = 0;							// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ РїСЂРёР·РЅР°Рє, РєРѕС‚РѕСЂС‹Р№ РїРѕР·РІРѕР»РёС‚ РѕС‚Р»РёС‡РёС‚СЊ РґРІРµ РїРµСЂРµРјРµРЅРЅС‹Рµ СЃ РѕРґРёРЅР°РєРѕРІС‹Рј С‚РёРїРѕРј
+				parCol2.def = "\0";							// Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+				parCol2.flagEnum = false;					// С„Р»Р°Рі РІРєР»СЋС‡Р°СЋС‰РёР№ СЂРµР¶РёРј, РєРѕРіРґР° Р·РЅР°С‡РµРЅРёРµ РїРѕР»СЏ Р°С‚СЂРёР±СѓС‚Р° Р±СѓРґРµС‚ Р·Р°РїРѕР»РЅСЏС‚СЃСЏ РёР· РјР°СЃСЃРёРІР° РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№
 
 				ksDynamicArray pStruct = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.ATTR_COLUMN_ARR);
 				if (pStruct != null)
 				{
-					// заполним массив солонок для структуры
-					// первая колонка  структуры
+					// Р·Р°РїРѕР»РЅРёРј РјР°СЃСЃРёРІ СЃРѕР»РѕРЅРѕРє РґР»СЏ СЃС‚СЂСѓРєС‚СѓСЂС‹
+					// РїРµСЂРІР°СЏ РєРѕР»РѕРЅРєР°  СЃС‚СЂСѓРєС‚СѓСЂС‹
 					parStruct.Init();
-					parStruct.header = "double";				// заголовoк-комментарий столбца
-					parStruct.type = ldefin2d.DOUBLE_ATTR_TYPE;	// тип данных в столбце - см.ниже
-					parStruct.def = "123456789";				// значение по умолчанию
+					parStruct.header = "double";				// Р·Р°РіРѕР»РѕРІoРє-РєРѕРјРјРµРЅС‚Р°СЂРёР№ СЃС‚РѕР»Р±С†Р°
+					parStruct.type = ldefin2d.DOUBLE_ATTR_TYPE;	// С‚РёРї РґР°РЅРЅС‹С… РІ СЃС‚РѕР»Р±С†Рµ - СЃРј.РЅРёР¶Рµ
+					parStruct.def = "123456789";				// Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 					pStruct.ksAddArrayItem(-1, parStruct);
 
-					// вторая колонка структуры
+					// РІС‚РѕСЂР°СЏ РєРѕР»РѕРЅРєР° СЃС‚СЂСѓРєС‚СѓСЂС‹
 					parStruct.Init();
-					parStruct.header = "long ";					// заголовoк-комментарий столбца
-					parStruct.type = ldefin2d.LINT_ATTR_TYPE;	// тип данных в столбце - см.ниже
-					parStruct.def = "1000000";					// значение по умолчанию
+					parStruct.header = "long ";					// Р·Р°РіРѕР»РѕРІoРє-РєРѕРјРјРµРЅС‚Р°СЂРёР№ СЃС‚РѕР»Р±С†Р°
+					parStruct.type = ldefin2d.LINT_ATTR_TYPE;	// С‚РёРї РґР°РЅРЅС‹С… РІ СЃС‚РѕР»Р±С†Рµ - СЃРј.РЅРёР¶Рµ
+					parStruct.def = "1000000";					// Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 					pStruct.ksAddArrayItem(-1, parStruct);
 
-					// третья колонка структуры
+					// С‚СЂРµС‚СЊСЏ РєРѕР»РѕРЅРєР° СЃС‚СЂСѓРєС‚СѓСЂС‹
 					parStruct.Init();
-					parStruct.header = "char";					// заголовoк-комментарий столбца
-					parStruct.type = ldefin2d.CHAR_ATTR_TYPE;	// тип данных в столбце - см.ниже
-					parStruct.def = "10";						// значение по умолчанию
+					parStruct.header = "char";					// Р·Р°РіРѕР»РѕРІoРє-РєРѕРјРјРµРЅС‚Р°СЂРёР№ СЃС‚РѕР»Р±С†Р°
+					parStruct.type = ldefin2d.CHAR_ATTR_TYPE;	// С‚РёРї РґР°РЅРЅС‹С… РІ СЃС‚РѕР»Р±С†Рµ - СЃРј.РЅРёР¶Рµ
+					parStruct.def = "10";						// Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 					pStruct.ksAddArrayItem(-1, parStruct);
 
-					parCol2.SetColumns(pStruct);	// массив неопределенной длины информации о колонках для записи
+					parCol2.SetColumns(pStruct);	// РјР°СЃСЃРёРІ РЅРµРѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РґР»РёРЅС‹ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РєРѕР»РѕРЅРєР°С… РґР»СЏ Р·Р°РїРёСЃРё
 				}
 
 				pCol.ksAddArrayItem(-1, parCol2);
 
-				// третья  колонка
+				// С‚СЂРµС‚СЊСЏ  РєРѕР»РѕРЅРєР°
 				parCol3.Init();
-				parCol3.header = "string";					// заголовoк-комментарий столбца
-				parCol3.type = ldefin2d.STRING_ATTR_TYPE;	// тип данных в столбце - см.ниже
-				parCol3.key = 0;							// дополнительный признак, который позволит отличить две переменные с одинаковым типом
-				parCol3.def = "text";						// значение по умолчанию
+				parCol3.header = "string";					// Р·Р°РіРѕР»РѕРІoРє-РєРѕРјРјРµРЅС‚Р°СЂРёР№ СЃС‚РѕР»Р±С†Р°
+				parCol3.type = ldefin2d.STRING_ATTR_TYPE;	// С‚РёРї РґР°РЅРЅС‹С… РІ СЃС‚РѕР»Р±С†Рµ - СЃРј.РЅРёР¶Рµ
+				parCol3.key = 0;							// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ РїСЂРёР·РЅР°Рє, РєРѕС‚РѕСЂС‹Р№ РїРѕР·РІРѕР»РёС‚ РѕС‚Р»РёС‡РёС‚СЊ РґРІРµ РїРµСЂРµРјРµРЅРЅС‹Рµ СЃ РѕРґРёРЅР°РєРѕРІС‹Рј С‚РёРїРѕРј
+				parCol3.def = "text";						// Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 
 				pCol.ksAddArrayItem(-1, parCol3);
 
-				kompas.ksMessageBoxResult();	// проверяем результат работы нашей функции
+				kompas.ksMessageBoxResult();	// РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 
-				// просмотрим массив колонок
-				ShowColumns(pCol, false);	// функция пользователя
+				// РїСЂРѕСЃРјРѕС‚СЂРёРј РјР°СЃСЃРёРІ РєРѕР»РѕРЅРѕРє
+				ShowColumns(pCol, false);	// С„СѓРЅРєС†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 
-				kompas.ksMessageBoxResult();	// проверяем результат работы нашей функции
+				kompas.ksMessageBoxResult();	// РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 
-				// поменяем  колонки местами 2->1 1->3 3->2
+				// РїРѕРјРµРЅСЏРµРј  РєРѕР»РѕРЅРєРё РјРµСЃС‚Р°РјРё 2->1 1->3 3->2
 				pCol.ksSetArrayItem(0, parCol2);
 				pCol.ksSetArrayItem(2, parCol1);
 				pCol.ksSetArrayItem(1, parCol3);
 
-				// просмотрим массив колонок
-				ShowColumns(pCol, false);	// функция пользователя
+				// РїСЂРѕСЃРјРѕС‚СЂРёРј РјР°СЃСЃРёРІ РєРѕР»РѕРЅРѕРє
+				ShowColumns(pCol, false);	// С„СѓРЅРєС†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 
-				kompas.ksMessageBoxResult();	// проверяем результат работы нашей функции
+				kompas.ksMessageBoxResult();	// РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 
 				pStruct.ksDeleteArray();
 				pEnum.ksDeleteArray();
@@ -521,18 +521,18 @@ namespace Steps.NET
 		}
 
 
-		// Массив полилиний это массив массивов математических точек
+		// РњР°СЃСЃРёРІ РїРѕР»РёР»РёРЅРёР№ СЌС‚Рѕ РјР°СЃСЃРёРІ РјР°СЃСЃРёРІРѕРІ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРёС… С‚РѕС‡РµРє
 		void PolyLineArray()
 		{
 			string buf = string.Empty;
 			ksMathPointParam par = (ksMathPointParam)kompas.GetParamStruct((short)StructType2DEnum.ko_MathPointParam);
-			//создадим массив точек
+			//СЃРѕР·РґР°РґРёРј РјР°СЃСЃРёРІ С‚РѕС‡РµРє
 			ksDynamicArray arrPoint = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.POINT_ARR);
-			//создадим массив полилиний
+			//СЃРѕР·РґР°РґРёРј РјР°СЃСЃРёРІ РїРѕР»РёР»РёРЅРёР№
 			ksDynamicArray arrPoly = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.POLYLINE_ARR);
 			if (par != null && arrPoint != null && arrPoly != null)
 			{
-				//наполним массив точек
+				//РЅР°РїРѕР»РЅРёРј РјР°СЃСЃРёРІ С‚РѕС‡РµРє
 				par.x = 10;
 				par.y = 10;
 				arrPoint.ksAddArrayItem(-1, par);
@@ -542,11 +542,11 @@ namespace Steps.NET
 				par.x = 1000;
 				par.y = 1000;
 				arrPoint.ksAddArrayItem(-1, par);
-				//добавим массив точек в массив полилиний
+				//РґРѕР±Р°РІРёРј РјР°СЃСЃРёРІ С‚РѕС‡РµРє РІ РјР°СЃСЃРёРІ РїРѕР»РёР»РёРЅРёР№
 				arrPoly.ksAddArrayItem(-1, arrPoint);
 				kompas.ksMessageBoxResult();
 
-				//наполним массив точек
+				//РЅР°РїРѕР»РЅРёРј РјР°СЃСЃРёРІ С‚РѕС‡РµРє
 				arrPoint.ksClearArray();
 				par.x = 20;
 				par.y = 20;
@@ -557,11 +557,11 @@ namespace Steps.NET
 				par.x = 2000;
 				par.y = 2000;
 				arrPoint.ksAddArrayItem(-1, par);
-				//добавим массив точек в массив полилиний
+				//РґРѕР±Р°РІРёРј РјР°СЃСЃРёРІ С‚РѕС‡РµРє РІ РјР°СЃСЃРёРІ РїРѕР»РёР»РёРЅРёР№
 				arrPoly.ksAddArrayItem(-1, arrPoint);
 				kompas.ksMessageBoxResult();
 
-				//наполним массив точек
+				//РЅР°РїРѕР»РЅРёРј РјР°СЃСЃРёРІ С‚РѕС‡РµРє
 				arrPoint.ksClearArray();
 				par.x = 30;
 				par.y = 30;
@@ -572,7 +572,7 @@ namespace Steps.NET
 				par.x = 3000;
 				par.y = 3000;
 				arrPoint.ksAddArrayItem(-1, par);
-				//добавим массив точек в массив полилиний
+				//РґРѕР±Р°РІРёРј РјР°СЃСЃРёРІ С‚РѕС‡РµРє РІ РјР°СЃСЃРёРІ РїРѕР»РёР»РёРЅРёР№
 				arrPoly.ksAddArrayItem(-1, arrPoint);
 				kompas.ksMessageBoxResult();
 
@@ -581,7 +581,7 @@ namespace Steps.NET
 				kompas.ksMessage(buf);
 
 				arrPoly.ksGetArrayItem(1, arrPoint);
-				//просмоьрим 2-ой элемент массива полилиний
+				//РїСЂРѕСЃРјРѕСЊСЂРёРј 2-РѕР№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° РїРѕР»РёР»РёРЅРёР№
 				count = arrPoint.ksGetArrayCount();
 				for (int i = 0; i < count; i ++)
 				{
@@ -590,7 +590,7 @@ namespace Steps.NET
 					kompas.ksMessage(buf);
 				}
 
-				//заменим у 2 -го элемента массива полилиний 2-ой элемент
+				//Р·Р°РјРµРЅРёРј Сѓ 2 -РіРѕ СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР° РїРѕР»РёР»РёРЅРёР№ 2-РѕР№ СЌР»РµРјРµРЅС‚
 				par.x = 50;
 				par.y = 50;
 				arrPoint.ksSetArrayItem(1, par);
@@ -619,16 +619,16 @@ namespace Steps.NET
 		}
 
 
-		// Массив неопределенной длины габаритных прямоугольников-(структура RectParam)
+		// РњР°СЃСЃРёРІ РЅРµРѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РґР»РёРЅС‹ РіР°Р±Р°СЂРёС‚РЅС‹С… РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРѕРІ-(СЃС‚СЂСѓРєС‚СѓСЂР° RectParam)
 		void RectArray()
 		{
-			ksRectParam par = (ksRectParam)kompas.GetParamStruct((short)StructType2DEnum.ko_RectParam); // параметры прямоугольника
-			ksDynamicArray arr = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.RECT_ARR);    // создать массив
+			ksRectParam par = (ksRectParam)kompas.GetParamStruct((short)StructType2DEnum.ko_RectParam); // РїР°СЂР°РјРµС‚СЂС‹ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°
+			ksDynamicArray arr = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.RECT_ARR);    // СЃРѕР·РґР°С‚СЊ РјР°СЃСЃРёРІ
 			ksMathPointParam pBot = (ksMathPointParam)kompas.GetParamStruct((short)StructType2DEnum.ko_MathPointParam);
 			ksMathPointParam pTop = (ksMathPointParam)kompas.GetParamStruct((short)StructType2DEnum.ko_MathPointParam);
 			if (arr != null && par != null && pBot != null && pTop != null)
 			{
-				//наполнить массив
+				//РЅР°РїРѕР»РЅРёС‚СЊ РјР°СЃСЃРёРІ
 				pTop.x = 10;
 				pTop.y = 10;
 				par.SetpTop(pTop);
@@ -654,7 +654,7 @@ namespace Steps.NET
 				arr.ksAddArrayItem(-1, par);
 				kompas.ksMessageBoxResult();
 
-				//просмотреть массив
+				//РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РјР°СЃСЃРёРІ
 				int n = arr.ksGetArrayCount();
 
 				string buf = string.Empty;
@@ -672,7 +672,7 @@ namespace Steps.NET
 					kompas.ksMessage(buf);
 				}
 
-				//редактируем массив
+				//СЂРµРґР°РєС‚РёСЂСѓРµРј РјР°СЃСЃРёРІ
 				pTop.x = -20;
 				pTop.y = -50;
 				par.SetpTop(pTop);
@@ -697,7 +697,7 @@ namespace Steps.NET
 				par.SetpBot(pBot);
 				arr.ksAddArrayItem(-1, par);
 
-				//просмотрим массив
+				//РїСЂРѕСЃРјРѕС‚СЂРёРј РјР°СЃСЃРёРІ
 				n = arr.ksGetArrayCount();
 				for (int i = 0; i < n; i ++)
 				{
@@ -710,19 +710,19 @@ namespace Steps.NET
 				}
 				kompas.ksMessageBoxResult();
 
-				//удалить массив
+				//СѓРґР°Р»РёС‚СЊ РјР°СЃСЃРёРІ
 				arr.ksDeleteArray();
 			}
 		}
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -738,11 +738,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

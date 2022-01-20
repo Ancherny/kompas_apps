@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 
 using System;
 using Microsoft.Win32;
@@ -12,21 +12,21 @@ using reference = System.Int32;
 
 namespace Steps.NET
 {
-	// Класс Step9 - Размеры и другие технологические объекты
+	// РљР»Р°СЃСЃ Step9 - Р Р°Р·РјРµСЂС‹ Рё РґСЂСѓРіРёРµ С‚РµС…РЅРѕР»РѕРіРёС‡РµСЃРєРёРµ РѕР±СЉРµРєС‚С‹
   [ClassInterface(ClassInterfaceType.AutoDual)]
 	public class Step9
 	{
 		private KompasObject kompas;
 		private ksDocument2D doc;
 
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
 		{
-			return "Step9 - Размеры и другие технологические объекты";
+			return "Step9 - Р Р°Р·РјРµСЂС‹ Рё РґСЂСѓРіРёРµ С‚РµС…РЅРѕР»РѕРіРёС‡РµСЃРєРёРµ РѕР±СЉРµРєС‚С‹";
 		}
 		
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			kompas = (KompasObject) kompas_;
@@ -37,85 +37,85 @@ namespace Steps.NET
 				{
 					switch (command)
 					{
-						case 1  : DrawLinDim();			break; //линейный размер
-						case 2  : DrawAngDim();			break; //угловой размер
-						case 3  : DrawRough();			break; //шероховатость
-						case 4  : DrawLeader();			break; //линия выноски
-						case 5  : DrawPosLeader();		break; //позиционная линия выноски
-						case 6  : DrawBrandLeader();	break; //клеймение
-						case 7  : DrawMarkerLeader();	break; //маркирование
-						case 8  : DrawBase();			break; //обозначение базы
-						case 9  : DrawCutLine();		break; //маркирование
-						case 10 : DrawDiamDim();		break; //диаметральный размер
-						case 11 : DrawRadDimt();		break; //радиальный размер
-						case 12 : DrawRadBreakDimt();	break; //радиальный размер c изломом
-						case 13 : DrawViewPointer();	break; //cтрелка вида
+						case 1  : DrawLinDim();			break; //Р»РёРЅРµР№РЅС‹Р№ СЂР°Р·РјРµСЂ
+						case 2  : DrawAngDim();			break; //СѓРіР»РѕРІРѕР№ СЂР°Р·РјРµСЂ
+						case 3  : DrawRough();			break; //С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚СЊ
+						case 4  : DrawLeader();			break; //Р»РёРЅРёСЏ РІС‹РЅРѕСЃРєРё
+						case 5  : DrawPosLeader();		break; //РїРѕР·РёС†РёРѕРЅРЅР°СЏ Р»РёРЅРёСЏ РІС‹РЅРѕСЃРєРё
+						case 6  : DrawBrandLeader();	break; //РєР»РµР№РјРµРЅРёРµ
+						case 7  : DrawMarkerLeader();	break; //РјР°СЂРєРёСЂРѕРІР°РЅРёРµ
+						case 8  : DrawBase();			break; //РѕР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹
+						case 9  : DrawCutLine();		break; //РјР°СЂРєРёСЂРѕРІР°РЅРёРµ
+						case 10 : DrawDiamDim();		break; //РґРёР°РјРµС‚СЂР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ
+						case 11 : DrawRadDimt();		break; //СЂР°РґРёР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ
+						case 12 : DrawRadBreakDimt();	break; //СЂР°РґРёР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ c РёР·Р»РѕРјРѕРј
+						case 13 : DrawViewPointer();	break; //cС‚СЂРµР»РєР° РІРёРґР°
 					}
 				}
 				else
-					kompas.ksError("Документ не активизирован или \nне является листом/фрагментом");
+					kompas.ksError("Р”РѕРєСѓРјРµРЅС‚ РЅРµ Р°РєС‚РёРІРёР·РёСЂРѕРІР°РЅ РёР»Рё \nРЅРµ СЏРІР»СЏРµС‚СЃСЏ Р»РёСЃС‚РѕРј/С„СЂР°РіРјРµРЅС‚РѕРј");
 			}
 		}
 
 
-		// Формирование меню библиотеки
+		// Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РјРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)]	public string ExternalMenuItem(short number, ref short itemType, ref short command)
 		{
-			string result = string.Empty;	//По уполчанию - пустая строка
+			string result = string.Empty;	//РџРѕ СѓРїРѕР»С‡Р°РЅРёСЋ - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°
 			itemType = 1;					//MENUITEM
 
 			switch (number)
 			{
 				case 1:
-					result = "Линейный размер";
+					result = "Р›РёРЅРµР№РЅС‹Р№ СЂР°Р·РјРµСЂ";
 					command = 1;
 					break;
 				case 2:
-					result = "Угловой  размер";
+					result = "РЈРіР»РѕРІРѕР№  СЂР°Р·РјРµСЂ";
 					command = 2;
 					break;
 				case 3:
-					result = "Шероховатость";
+					result = "РЁРµСЂРѕС…РѕРІР°С‚РѕСЃС‚СЊ";
 					command = 3;
 					break;
 				case 4:
-					result = "Линия выноски";
+					result = "Р›РёРЅРёСЏ РІС‹РЅРѕСЃРєРё";
 					command = 4;
 					break;
 				case 5:
-					result = "Позиционная линия выноски";
+					result = "РџРѕР·РёС†РёРѕРЅРЅР°СЏ Р»РёРЅРёСЏ РІС‹РЅРѕСЃРєРё";
 					command = 5;
 					break;
 				case 6:
-					result = "Клеймение";
+					result = "РљР»РµР№РјРµРЅРёРµ";
 					command = 6;
 					break;
 				case 7:
-					result = "Маркирование";
+					result = "РњР°СЂРєРёСЂРѕРІР°РЅРёРµ";
 					command = 7;
 					break;
 				case 8:
-					result = "Обозначение базы";
+					result = "РћР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹";
 					command = 8;
 					break;
 				case 9:
-					result = "Линия разреза/cечения";
+					result = "Р›РёРЅРёСЏ СЂР°Р·СЂРµР·Р°/cРµС‡РµРЅРёСЏ";
 					command = 9;
 					break;
 				case 10:
-					result = "Диаметральный размер";
+					result = "Р”РёР°РјРµС‚СЂР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ";
 					command = 10;
 					break;
 				case 11:
-					result = "Радиальный размер";
+					result = "Р Р°РґРёР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ";
 					command = 11;
 					break;
 				case 12:
-					result = "Радиальный размер с изломом";
+					result = "Р Р°РґРёР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ СЃ РёР·Р»РѕРјРѕРј";
 					command = 12;
 					break;
 				case 13:
-					result = "Стрелка вида";
+					result = "РЎС‚СЂРµР»РєР° РІРёРґР°";
 					command = 13;
 					break;
 				case 14:
@@ -194,8 +194,8 @@ namespace Steps.NET
 				doc.ksGetObjParam(obj, param, ldefin2d.ALLPARAM);
 				sPar.x2 = 50;
 				sPar.y2 = 60;
-				kompas.ksMessage(dPar.pl1 ? "Да" : "Нет"); 
-				kompas.ksMessage("Поменяем параметры");
+				kompas.ksMessage(dPar.pl1 ? "Р”Р°" : "РќРµС‚"); 
+				kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 				doc.ksSetObjParam(obj, param, ldefin2d.ALLPARAM);
 			}
 		}
@@ -212,7 +212,7 @@ namespace Steps.NET
 			textLine.Init();
 		
 			textItem.Init();
-			textItem.s = "Угловой размер";
+			textItem.s = "РЈРіР»РѕРІРѕР№ СЂР°Р·РјРµСЂ";
 
 			ksTextItemFont font = (ksTextItemFont)textItem.GetItemFont();
 			ksDimTextParam tPar = (ksDimTextParam)aDim.GetTPar(); 
@@ -253,7 +253,7 @@ namespace Steps.NET
 				doc.ksGetObjParam(obj, aDim, ldefin2d.ALLPARAM);
 				sPar.Init();
 				sPar.rad = 100;
-				kompas.ksMessage("Поменяем параметры");
+				kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 				doc.ksSetObjParam(obj, aDim, ldefin2d.ALLPARAM);
 			}
 		}
@@ -270,7 +270,7 @@ namespace Steps.NET
 				shPar.Init();
 				str.Init();
 
-				//заполним параметры текста шероховатости
+				//Р·Р°РїРѕР»РЅРёРј РїР°СЂР°РјРµС‚СЂС‹ С‚РµРєСЃС‚Р° С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 				rPar.style = 0;
 				rPar.type = 0;
 				rPar.around = 0;
@@ -282,7 +282,7 @@ namespace Steps.NET
 				rPar.cText2 = 2;
 				rPar.cText3 = 1;
 
-				//режим, когда тексты задаются массивом строк символов
+				//СЂРµР¶РёРј, РєРѕРіРґР° С‚РµРєСЃС‚С‹ Р·Р°РґР°СЋС‚СЃСЏ РјР°СЃСЃРёРІРѕРј СЃС‚СЂРѕРє СЃРёРјРІРѕР»РѕРІ
 				ksDynamicArray ptext = (ksDynamicArray)rPar.GetpText();
 				if (ptext == null)
 					return;
@@ -301,10 +301,10 @@ namespace Steps.NET
 				str.str = "7";
 				ptext.ksAddArrayItem(-1, str);
 
-				//параметры выносной полки
-				shPar.psh = 0;     //полки нет
-				shPar.ang = 130;   //угол наклона ножки
-				shPar.length = 20; //длина ножки
+				//РїР°СЂР°РјРµС‚СЂС‹ РІС‹РЅРѕСЃРЅРѕР№ РїРѕР»РєРё
+				shPar.psh = 0;     //РїРѕР»РєРё РЅРµС‚
+				shPar.ang = 130;   //СѓРіРѕР» РЅР°РєР»РѕРЅР° РЅРѕР¶РєРё
+				shPar.length = 20; //РґР»РёРЅР° РЅРѕР¶РєРё
 
 				int obj = doc.ksRough(roughPar);    
 
@@ -312,7 +312,7 @@ namespace Steps.NET
 				{
 					doc.ksGetObjParam(obj, roughPar, ldefin2d.ALLPARAM);
 					rPar.ang = 100;
-					kompas.ksMessage("Поменяем параметры");
+					kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 					doc.ksSetObjParam(obj, roughPar, ldefin2d.ALLPARAM);
 				} 
 			}
@@ -374,24 +374,24 @@ namespace Steps.NET
 
 				lead.SetpPolyline(pPolyLin);
         
-				//заполним параметры 
-				lead.x = 50;		// координаты базовой точки (начало полки)
+				//Р·Р°РїРѕР»РЅРёРј РїР°СЂР°РјРµС‚СЂС‹ 
+				lead.x = 50;		// РєРѕРѕСЂРґРёРЅР°С‚С‹ Р±Р°Р·РѕРІРѕР№ С‚РѕС‡РєРё (РЅР°С‡Р°Р»Рѕ РїРѕР»РєРё)
 				lead.y = 50;
-				lead.arrowType = 1;	// тип стрелки
-				lead.dirX = 1;		// направление полки по X (1 - вправо -1 - влево)
-				lead.signType = 0;	// тип знака
-				lead.around = 0;	// знак обработки по контуру 0 - выключен 1 - включен
-				lead.cText0 = 1;	// количество строк текста над полкой 0 - текст отсутствует
-				lead.cText1 = 1;	// количество строк текста под полкой 0 - текст отсутствует
-				lead.cText2 = 0;	// количество строк текста над ножкой (не более 1 строки) 0 - текст отсутствует
-				lead.cText3 = 1;	// количество строк текста под ножкой (не более 1 строки) 0 - текст отсутствует
+				lead.arrowType = 1;	// С‚РёРї СЃС‚СЂРµР»РєРё
+				lead.dirX = 1;		// РЅР°РїСЂР°РІР»РµРЅРёРµ РїРѕР»РєРё РїРѕ X (1 - РІРїСЂР°РІРѕ -1 - РІР»РµРІРѕ)
+				lead.signType = 0;	// С‚РёРї Р·РЅР°РєР°
+				lead.around = 0;	// Р·РЅР°Рє РѕР±СЂР°Р±РѕС‚РєРё РїРѕ РєРѕРЅС‚СѓСЂСѓ 0 - РІС‹РєР»СЋС‡РµРЅ 1 - РІРєР»СЋС‡РµРЅ
+				lead.cText0 = 1;	// РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р° РЅР°Рґ РїРѕР»РєРѕР№ 0 - С‚РµРєСЃС‚ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚
+				lead.cText1 = 1;	// РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р° РїРѕРґ РїРѕР»РєРѕР№ 0 - С‚РµРєСЃС‚ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚
+				lead.cText2 = 0;	// РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р° РЅР°Рґ РЅРѕР¶РєРѕР№ (РЅРµ Р±РѕР»РµРµ 1 СЃС‚СЂРѕРєРё) 0 - С‚РµРєСЃС‚ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚
+				lead.cText3 = 1;	// РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє С‚РµРєСЃС‚Р° РїРѕРґ РЅРѕР¶РєРѕР№ (РЅРµ Р±РѕР»РµРµ 1 СЃС‚СЂРѕРєРё) 0 - С‚РµРєСЃС‚ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚
 
 				int obj = doc.ksLeader(lead);
 				if (obj != 0) 
 				{
 					doc.ksGetObjParam(obj, lead, ldefin2d.ALLPARAM);
 					lead.x = 100;
-					kompas.ksMessage("Поменяем параметры");
+					kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 					doc.ksSetObjParam(obj, lead, ldefin2d.ALLPARAM);
 				} 
 			}
@@ -451,8 +451,8 @@ namespace Steps.NET
 
 				lead.SetpPolyline(pPolyLin);
         
-				//заполним параметры 
-				lead.x = 50;// координаты базовой точки (начало полки)
+				//Р·Р°РїРѕР»РЅРёРј РїР°СЂР°РјРµС‚СЂС‹ 
+				lead.x = 50;// РєРѕРѕСЂРґРёРЅР°С‚С‹ Р±Р°Р·РѕРІРѕР№ С‚РѕС‡РєРё (РЅР°С‡Р°Р»Рѕ РїРѕР»РєРё)
 				lead.y = 50;
 				lead.arrowType = 1;
 				lead.dirX = -1;
@@ -462,7 +462,7 @@ namespace Steps.NET
 				{
 					doc.ksGetObjParam(obj, lead, ldefin2d.ALLPARAM);
 					lead.x = 100;
-					kompas.ksMessage("Поменяем параметры");
+					kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 					doc.ksSetObjParam(obj, lead, ldefin2d.ALLPARAM);
 				} 
 			}
@@ -512,8 +512,8 @@ namespace Steps.NET
 				pMathPoint.ksAddArrayItem(-1, tMathPoint);
 				pPolyLin.ksAddArrayItem(-1, pMathPoint);
 
-				//заполним параметры 
-				lead.x = 50;	// координаты базовой точки (начало полки)
+				//Р·Р°РїРѕР»РЅРёРј РїР°СЂР°РјРµС‚СЂС‹ 
+				lead.x = 50;	// РєРѕРѕСЂРґРёРЅР°С‚С‹ Р±Р°Р·РѕРІРѕР№ С‚РѕС‡РєРё (РЅР°С‡Р°Р»Рѕ РїРѕР»РєРё)
 				lead.y = 50;
 				lead.arrowType = 1;
 				lead.dirX = -1;
@@ -526,7 +526,7 @@ namespace Steps.NET
 				{
 					doc.ksGetObjParam(obj, lead, ldefin2d.ALLPARAM);
 					lead.x = 100;
-					kompas.ksMessage("Поменяем параметры");
+					kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 					doc.ksSetObjParam(obj, lead, ldefin2d.ALLPARAM);
 				} 
 			}
@@ -547,8 +547,8 @@ namespace Steps.NET
 				tMathPoint.Init();
 				str.Init();
 
-				//заполним параметры 
-				lead.x = 50;// координаты базовой точки (начало полки)
+				//Р·Р°РїРѕР»РЅРёРј РїР°СЂР°РјРµС‚СЂС‹ 
+				lead.x = 50;// РєРѕРѕСЂРґРёРЅР°С‚С‹ Р±Р°Р·РѕРІРѕР№ С‚РѕС‡РєРё (РЅР°С‡Р°Р»Рѕ РїРѕР»РєРё)
 				lead.y = 50;
 				lead.arrowType = 1;
 				lead.cText0 = 1;
@@ -582,7 +582,7 @@ namespace Steps.NET
 				{
 					doc.ksGetObjParam(obj, lead, ldefin2d.ALLPARAM);
 					lead.x = 100;
-					kompas.ksMessage("Поменяем параметры");
+					kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 					doc.ksSetObjParam(obj, lead, ldefin2d.ALLPARAM);
 				} 
 			}
@@ -594,19 +594,19 @@ namespace Steps.NET
 			if (par != null) 
 			{
 				par.style = 0;
-				par.type = false; // строка
+				par.type = false; // СЃС‚СЂРѕРєР°
 				par.x1 = 10;
 				par.y1 = 10;
 				par.x2 = 30;
 				par.y2 = 40;
-				par.str = "Это база";
+				par.str = "Р­С‚Рѕ Р±Р°Р·Р°";
 				reference bas = doc.ksBase(par);
 				par.Init();
 				if (bas != 0) 
 				{
 					doc.ksGetObjParam(bas, par, ldefin2d.ALLPARAM);
 					par.x2 = -30;
-					kompas.ksMessage("Поменяем параметры");
+					kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 					doc.ksSetObjParam(bas, par, ldefin2d.ALLPARAM);
 				}
 			}
@@ -673,7 +673,7 @@ namespace Steps.NET
 
 					pMathPoint.ksAddArrayItem(-1, tMathPoint);
 
-					kompas.ksMessage("Поменяем параметры");
+					kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 					doc.ksSetObjParam(obj, cut, ldefin2d.ALLPARAM);
 				}
 			}		
@@ -733,7 +733,7 @@ namespace Steps.NET
 			{
 				doc.ksGetObjParam(obj, aDim, ldefin2d.ALLPARAM);
 				sPar.rad = 100;
-				kompas.ksMessage("Поменяем параметры");
+				kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 				doc.ksDeleteObj(cir);
 				doc.ksCircle(100, 100, 100, 1); 
 				doc.ksSetObjParam(obj, aDim, ldefin2d.ALLPARAM);
@@ -796,7 +796,7 @@ namespace Steps.NET
 			{
 				doc.ksGetObjParam(obj, aDim, ldefin2d.ALLPARAM);
 				sPar.rad = 100;
-				kompas.ksMessage("Поменяем параметры");
+				kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 				doc.ksDeleteObj(cir);
 				doc.ksCircle(100, 100, 100, 1); 
 				doc.ksSetObjParam(obj, aDim, ldefin2d.ALLPARAM);
@@ -851,7 +851,7 @@ namespace Steps.NET
 					{
 						doc.ksGetObjParam(obj, aDim, ldefin2d.ALLPARAM);
 						sPar.rad = 100;
-						kompas.ksMessage("Поменяем параметры");
+						kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 						doc.ksDeleteObj(cir);
 						doc.ksCircle(100, 100, 100, 1); 
 						doc.ksSetObjParam(obj, aDim, ldefin2d.ALLPARAM);
@@ -880,15 +880,15 @@ namespace Steps.NET
 					viewPoint.xt = 40;
 					viewPoint.yt = 52;
 					viewPoint.type = 0;
-					viewPoint.str = "стрелка";
+					viewPoint.str = "СЃС‚СЂРµР»РєР°";
 
 					int p = doc.ksViewPointer(viewPoint);
 					if (p != 0) 
 					{
 						doc.ksGetObjParam(p, viewPoint, ldefin2d.ALLPARAM);
 						viewPoint.type = 0;
-						viewPoint.str = "стрелка вида";
-						kompas.ksMessage("Поменяем параметры");
+						viewPoint.str = "СЃС‚СЂРµР»РєР° РІРёРґР°";
+						kompas.ksMessage("РџРѕРјРµРЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹");
 						doc.ksSetObjParam(p, viewPoint, ldefin2d.ALLPARAM);
 					} 
 				}
@@ -897,12 +897,12 @@ namespace Steps.NET
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -918,11 +918,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 		
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

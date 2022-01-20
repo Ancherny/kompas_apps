@@ -1,4 +1,4 @@
-//#define __LIGHT_VERSION__
+﻿//#define __LIGHT_VERSION__
 using Kompas6API5;
 using System;
 using System.Collections;

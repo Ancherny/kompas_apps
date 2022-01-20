@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// Object3DEvent - обработчик событий объектов 3D документа
+// Object3DEvent - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚РѕРІ 3D РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -20,14 +20,14 @@ namespace Steps.NET
 		public Object3DEvent(object obj, object doc, int objType, object obj3d)
 			: base(obj, typeof(ksObject3DNotify).GUID, doc, objType, obj3d) {}
 
-		// o3BeginDelete - Начало удаления объектов
+		// o3BeginDelete - РќР°С‡Р°Р»Рѕ СѓРґР°Р»РµРЅРёСЏ РѕР±СЉРµРєС‚РѕРІ
 		public bool BeginDelete(object obj)
 		{
 			return true;
 		}
 
 
-		// o3Delete - Oбъекты удалены
+		// o3Delete - OР±СЉРµРєС‚С‹ СѓРґР°Р»РµРЅС‹
 		public bool Delete(object obj)
 		{
 			Global.UpdateSlideBox(null);
@@ -35,7 +35,7 @@ namespace Steps.NET
 		}
 
 
-		// o3Excluded - Oбъект исключен/включен в расчет
+		// o3Excluded - OР±СЉРµРєС‚ РёСЃРєР»СЋС‡РµРЅ/РІРєР»СЋС‡РµРЅ РІ СЂР°СЃС‡РµС‚
 		public bool excluded(object obj, bool excluded)
 		{
 			Global.UpdateSlideBox(null);
@@ -43,7 +43,7 @@ namespace Steps.NET
 		}
 
 
-		// o3Hidden - Oбъект скрыт/показан
+		// o3Hidden - OР±СЉРµРєС‚ СЃРєСЂС‹С‚/РїРѕРєР°Р·Р°РЅ
 		public bool hidden(object obj, bool _hidden)
 		{
 			Global.UpdateSlideBox(null);
@@ -51,14 +51,14 @@ namespace Steps.NET
 		}
 
 
-		// o3BeginPropertyChanged - Начало изменения свойств объета
+		// o3BeginPropertyChanged - РќР°С‡Р°Р»Рѕ РёР·РјРµРЅРµРЅРёСЏ СЃРІРѕР№СЃС‚РІ РѕР±СЉРµС‚Р°
 		public bool BeginPropertyChanged(object obj)
 		{
 			return true;
 		}
 
 
-		// o3PropertyChanged - Изменены свойства объета
+		// o3PropertyChanged - РР·РјРµРЅРµРЅС‹ СЃРІРѕР№СЃС‚РІР° РѕР±СЉРµС‚Р°
 		public bool PropertyChanged(object obj)
 		{
 			Global.UpdateSlideBox(null);
@@ -66,14 +66,14 @@ namespace Steps.NET
 		}
 
 
-		// o3BeginPlacementChanged - Начало изменения положения объета
+		// o3BeginPlacementChanged - РќР°С‡Р°Р»Рѕ РёР·РјРµРЅРµРЅРёСЏ РїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµС‚Р°
 		public bool BeginPlacementChanged(object obj)
 		{
 			return true;
 		}
 
 
-		// o3PlacementChanged - Изменено положения объета
+		// o3PlacementChanged - РР·РјРµРЅРµРЅРѕ РїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµС‚Р°
 		public bool PlacementChanged(object obj)
 		{
 			Global.UpdateSlideBox(null);
@@ -81,14 +81,14 @@ namespace Steps.NET
 		}
 
 
-		// o3BeginProcess - Начало редактирования\создания объекта
+		// o3BeginProcess - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginProcess(int pType, object obj)
 		{
 			return true;
 		}
 
 
-		// o3EndProcess - Конец редактирования\создания объекта
+		// o3EndProcess - РљРѕРЅРµС† СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool EndProcess(int pType)
 		{
 			Global.UpdateSlideBox(null);
@@ -96,7 +96,7 @@ namespace Steps.NET
 		}
 
 
-		// o3CreateObject - Создание объекта
+		// o3CreateObject - РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool CreateObject(object obj)
 		{
 			Global.UpdateSlideBox(null);
@@ -104,7 +104,7 @@ namespace Steps.NET
 		}
 
 
-		// o3UpdateObject - Редактирование объекта
+		// o3UpdateObject - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool UpdateObject(object obj)
 		{
 			Global.UpdateSlideBox(null);
@@ -121,7 +121,7 @@ namespace Steps.NET
       return true;
     }
 
-    // Найти контейнер для 3D объекта
+    // РќР°Р№С‚Рё РєРѕРЅС‚РµР№РЅРµСЂ РґР»СЏ 3D РѕР±СЉРµРєС‚Р°
     private static object GetContainer(reference doc, int objType, object iObj)
 		{
 			reference docRef = Global.GetDocReference(doc);
@@ -132,7 +132,7 @@ namespace Steps.NET
 				{
 					case 0: 
 					{
-						// тип не известен
+						// С‚РёРї РЅРµ РёР·РІРµСЃС‚РµРЅ
 						ksPart iPart = (ksPart)iObj;
 						if (iPart != null)
 							container = iPart.GetPart((short)Part_Type.pTop_Part);
@@ -187,7 +187,7 @@ namespace Steps.NET
 		}
 
 
-		// Создать обработчик событий 3D документа
+		// РЎРѕР·РґР°С‚СЊ РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ 3D РґРѕРєСѓРјРµРЅС‚Р°
 		public static BaseEvent NewObj3DEvent(object doc, int docType, int objType, object iObj)
 		{
 			Object3DEvent res = null;
@@ -199,7 +199,7 @@ namespace Steps.NET
 					object container = GetContainer(Global.GetDocReference(doc), objType, iObj);
 					if (container != null)
 					{
-						DocumentEvent.NewDocumentEvent(doc);	// чтобы при закрытии документа отписаться
+						DocumentEvent.NewDocumentEvent(doc);	// С‡С‚РѕР±С‹ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РїРёСЃР°С‚СЊСЃСЏ
 						res = new Object3DEvent(container, doc, typeObj, iObj);
 						res.Advise();
 					}

@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// Object2DEvent - обработчик событий объектов 2D документа
+// Object2DEvent - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚РѕРІ 2D РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,7 +18,7 @@ namespace Steps.NET
 		public Object2DEvent(object obj, object doc, int objType)
 			: base(obj, typeof(ksObject2DNotify).GUID, doc, objType, 0) {}
 
-		// kdChangeActive - Переключение вида/слоя в текущий
+		// kdChangeActive - РџРµСЂРµРєР»СЋС‡РµРЅРёРµ РІРёРґР°/СЃР»РѕСЏ РІ С‚РµРєСѓС‰РёР№
 		public bool ChangeActive(int viewRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -26,14 +26,14 @@ namespace Steps.NET
 		}
 
 
-		// koBeginDelete - Попытка удаления объекта
+		// koBeginDelete - РџРѕРїС‹С‚РєР° СѓРґР°Р»РµРЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginDelete(int objRef)
 		{
 			return true;
 		}
 
 
-		// koDelete - Объект удален
+		// koDelete - РћР±СЉРµРєС‚ СѓРґР°Р»РµРЅ
 		public bool Delete(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -41,14 +41,14 @@ namespace Steps.NET
 		}
        
 
-		// koBeginMove - Начало смещения объекта
+		// koBeginMove - РќР°С‡Р°Р»Рѕ СЃРјРµС‰РµРЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginMove(int objRef)
 		{
 			return true;
 		}
 
 
-		// koMove - Объект смещен
+		// koMove - РћР±СЉРµРєС‚ СЃРјРµС‰РµРЅ
 		public bool Move(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -56,14 +56,14 @@ namespace Steps.NET
 		}
 
 
-		// koBeginRotate - Поворот объекта
+		// koBeginRotate - РџРѕРІРѕСЂРѕС‚ РѕР±СЉРµРєС‚Р°
 		public bool BeginRotate(int objRef)
 		{
 			return true;
 		}
 
 
-		// koRotate - Поворот объекта
+		// koRotate - РџРѕРІРѕСЂРѕС‚ РѕР±СЉРµРєС‚Р°
 		public bool Rotate(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -71,14 +71,14 @@ namespace Steps.NET
 		}
 
 
-		// koBeginScale - Маштабирование объекта
+		// koBeginScale - РњР°С€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool BeginScale(int objRef)
 		{
 			return true;
 		}
 
 
-		// koScale - Маштабирование объекта
+		// koScale - РњР°С€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool scale(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -86,14 +86,14 @@ namespace Steps.NET
 		}
 
 
-		// koBeginTransform - Трансформация объекта
+		// koBeginTransform - РўСЂР°РЅСЃС„РѕСЂРјР°С†РёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginTransform(int objRef)
 		{
 			return true;
 		}
 
 
-		// koTransform - Трансформация объекта
+		// koTransform - РўСЂР°РЅСЃС„РѕСЂРјР°С†РёСЏ РѕР±СЉРµРєС‚Р°
 		public bool Transform(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -101,14 +101,14 @@ namespace Steps.NET
 		}
 
 
-		// koBeginCopy - Копирование объекта
+		// koBeginCopy - РљРѕРїРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool BeginCopy(int objRef)
 		{
 			return true;
 		}
 
 
-		// koCopy - Копирование объекта
+		// koCopy - РљРѕРїРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool copy(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -116,14 +116,14 @@ namespace Steps.NET
 		}
 
 
-		// koBeginSymmetry - Симметрия объекта
+		// koBeginSymmetry - РЎРёРјРјРµС‚СЂРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginSymmetry(int objRef)
 		{
 			return true;
 		}
 
 
-		// koSymmetry - Симметрия объекта
+		// koSymmetry - РЎРёРјРјРµС‚СЂРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool Symmetry(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -131,14 +131,14 @@ namespace Steps.NET
 		}
 
 
-		// koBeginProcess - Начало редактирования\создания объекта
+		// koBeginProcess - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginProcess(int pType, int objRef)
 		{
 			return true;
 		}
      
 
-		// koEndProcess - Конец редактирования\создания объекта
+		// koEndProcess - РљРѕРЅРµС† СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool EndProcess(int pType)
 		{
 			Global.UpdateSlideBox(null);
@@ -146,7 +146,7 @@ namespace Steps.NET
 		}
 
 
-		// koCreate - Создание объектов
+		// koCreate - РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ
 		public bool CreateObject(int objRef)
 		{
 			Global.UpdateSlideBox(null);
@@ -154,14 +154,14 @@ namespace Steps.NET
 		}
 
     
-		// koUpdateObject - Редактирование объекта
+		// koUpdateObject - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool UpdateObject(int objRef)
 		{
 			Global.UpdateSlideBox(null);
 			return true;
 		}
 
-    // koBeginDestroyObject - Разрушить объект
+    // koBeginDestroyObject - Р Р°Р·СЂСѓС€РёС‚СЊ РѕР±СЉРµРєС‚
     public bool BeginDestroyObject(int objRef)
     {
       Global.UpdateSlideBox(null);
@@ -169,7 +169,7 @@ namespace Steps.NET
     }
 
     
-    // koDestroyObject - Разрушить объект
+    // koDestroyObject - Р Р°Р·СЂСѓС€РёС‚СЊ РѕР±СЉРµРєС‚
     public bool DestroyObject(int objRef)
     {
       Global.UpdateSlideBox(null);
@@ -186,7 +186,7 @@ namespace Steps.NET
       return true;
     }
 
-		// Создать обработчик событий документа
+		// РЎРѕР·РґР°С‚СЊ РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РґРѕРєСѓРјРµРЅС‚Р°
 		public static BaseEvent NewObj2DEvent(object doc, int docType, int objType) 
 		{
 			Object2DEvent res = null;
@@ -197,7 +197,7 @@ namespace Steps.NET
 					ksDocument2D doc2d = (ksDocument2D)doc;
 					if (doc != null)
 					{
-						DocumentEvent.NewDocumentEvent(doc);	// чтобы при закрытии документа отписаться
+						DocumentEvent.NewDocumentEvent(doc);	// С‡С‚РѕР±С‹ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РїРёСЃР°С‚СЊСЃСЏ
 						res = new Object2DEvent(doc2d.GetObject2DNotify(objType), doc, objType);
 						res.Advise();
 					}

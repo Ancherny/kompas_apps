@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 
 using System;
 using System.Drawing;
@@ -30,14 +30,14 @@ namespace Steps.NET
 		private System.Windows.Forms.Button btnCloseFile;
 		private System.Windows.Forms.Button btnQuitWOUnload;
 		private System.Windows.Forms.Button btnQuitUnload;
-		private System.Windows.Forms.Button btnУправлениеВидимостью;
-		private System.Windows.Forms.Button btnВыполнитьКоманду;
+		private System.Windows.Forms.Button btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ;
+		private System.Windows.Forms.Button btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ;
 		private System.ComponentModel.Container components = null;
 		#endregion
 
 		#region Custom declarations
 		private KompasObject kompas;
-		int libraryId;					// HANDLE загруженной библиотеки
+		int libraryId;					// HANDLE Р·Р°РіСЂСѓР¶РµРЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё
 		#endregion
 
 		#region Instance etc...
@@ -91,8 +91,8 @@ namespace Steps.NET
 			this.btnCloseFile = new System.Windows.Forms.Button();
 			this.btnQuitWOUnload = new System.Windows.Forms.Button();
 			this.btnQuitUnload = new System.Windows.Forms.Button();
-			this.btnУправлениеВидимостью = new System.Windows.Forms.Button();
-			this.btnВыполнитьКоманду = new System.Windows.Forms.Button();
+			this.btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ = new System.Windows.Forms.Button();
+			this.btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ = new System.Windows.Forms.Button();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.SuspendLayout();
 			// 
@@ -204,30 +204,30 @@ namespace Steps.NET
 			this.btnQuitUnload.Text = "Quit && Unload";
 			this.btnQuitUnload.Click += new System.EventHandler(this.btnQuitUnload_Click);
 			// 
-			// btnУправлениеВидимостью
+			// btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ
 			// 
-			this.btnУправлениеВидимостью.Location = new System.Drawing.Point(8, 360);
-			this.btnУправлениеВидимостью.Name = "btnУправлениеВидимостью";
-			this.btnУправлениеВидимостью.Size = new System.Drawing.Size(216, 23);
-			this.btnУправлениеВидимостью.TabIndex = 13;
-			this.btnУправлениеВидимостью.Text = "Управление видимостью";
-			this.btnУправлениеВидимостью.Click += new System.EventHandler(this.btnУправлениеВидимостью_Click);
+			this.btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ.Location = new System.Drawing.Point(8, 360);
+			this.btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ.Name = "btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ";
+			this.btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ.Size = new System.Drawing.Size(216, 23);
+			this.btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ.TabIndex = 13;
+			this.btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ.Text = "РЈРїСЂР°РІР»РµРЅРёРµ РІРёРґРёРјРѕСЃС‚СЊСЋ";
+			this.btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ.Click += new System.EventHandler(this.btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ_Click);
 			// 
-			// btnВыполнитьКоманду
+			// btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ
 			// 
-			this.btnВыполнитьКоманду.Location = new System.Drawing.Point(8, 328);
-			this.btnВыполнитьКоманду.Name = "btnВыполнитьКоманду";
-			this.btnВыполнитьКоманду.Size = new System.Drawing.Size(216, 23);
-			this.btnВыполнитьКоманду.TabIndex = 12;
-			this.btnВыполнитьКоманду.Text = "Выполнить команду";
-			this.btnВыполнитьКоманду.Click += new System.EventHandler(this.btnВыполнитьКоманду_Click);
+			this.btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ.Location = new System.Drawing.Point(8, 328);
+			this.btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ.Name = "btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ";
+			this.btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ.Size = new System.Drawing.Size(216, 23);
+			this.btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ.TabIndex = 12;
+			this.btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ.Text = "Р’С‹РїРѕР»РЅРёС‚СЊ РєРѕРјР°РЅРґСѓ";
+			this.btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ.Click += new System.EventHandler(this.btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ_Click);
 			// 
 			// ksContrForm
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
 			this.ClientSize = new System.Drawing.Size(234, 391);
-			this.Controls.Add(this.btnУправлениеВидимостью);
-			this.Controls.Add(this.btnВыполнитьКоманду);
+			this.Controls.Add(this.btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ);
+			this.Controls.Add(this.btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ);
 			this.Controls.Add(this.btnQuitWOUnload);
 			this.Controls.Add(this.btnQuitUnload);
 			this.Controls.Add(this.btnUnloadGraphic);
@@ -292,12 +292,12 @@ namespace Steps.NET
 				}
 				else
 				{
-					MessageBox.Show(this, "Не найден активный объект", "Сообщение");
+					MessageBox.Show(this, "РќРµ РЅР°Р№РґРµРЅ Р°РєС‚РёРІРЅС‹Р№ РѕР±СЉРµРєС‚", "РЎРѕРѕР±С‰РµРЅРёРµ");
 				}
 			}
 			else
 			{
-				MessageBox.Show(this, "Объект уже захвачен", "Сообщение");
+				MessageBox.Show(this, "РћР±СЉРµРєС‚ СѓР¶Рµ Р·Р°С…РІР°С‡РµРЅ", "РЎРѕРѕР±С‰РµРЅРёРµ");
 			}
 		}
 
@@ -305,14 +305,14 @@ namespace Steps.NET
 		{
 			if (kompas != null)
 			{
-				openFileDialog.Filter = "Чертежи(*.cdw)|*.cdw|Фрагменты(*.frw)|*.frw|Модели(*.m3d)|*.m3d|Сборки(*.a3d)|*.a3d|Спецификации(*.spw)|*.spw";
+				openFileDialog.Filter = "Р§РµСЂС‚РµР¶Рё(*.cdw)|*.cdw|Р¤СЂР°РіРјРµРЅС‚С‹(*.frw)|*.frw|РњРѕРґРµР»Рё(*.m3d)|*.m3d|РЎР±РѕСЂРєРё(*.a3d)|*.a3d|РЎРїРµС†РёС„РёРєР°С†РёРё(*.spw)|*.spw";
 				if (openFileDialog.ShowDialog(this) == DialogResult.OK)
 				{
-					// Открыть документ с диска
-					// первый параметр - имя открываемого файла
-					// второй параметр указывает на необходимость выдачи запроса "Файл изменен. Сохранять?" при закрытии файла
-					// третий параметр - указатель на IDispatch, по которому График вызывает уведомления об изменении своего состояния
-					// ф-ия возвращает HANDLE открытого документа
+					// РћС‚РєСЂС‹С‚СЊ РґРѕРєСѓРјРµРЅС‚ СЃ РґРёСЃРєР°
+					// РїРµСЂРІС‹Р№ РїР°СЂР°РјРµС‚СЂ - РёРјСЏ РѕС‚РєСЂС‹РІР°РµРјРѕРіРѕ С„Р°Р№Р»Р°
+					// РІС‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ СѓРєР°Р·С‹РІР°РµС‚ РЅР° РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚СЊ РІС‹РґР°С‡Рё Р·Р°РїСЂРѕСЃР° "Р¤Р°Р№Р» РёР·РјРµРЅРµРЅ. РЎРѕС…СЂР°РЅСЏС‚СЊ?" РїСЂРё Р·Р°РєСЂС‹С‚РёРё С„Р°Р№Р»Р°
+					// С‚СЂРµС‚РёР№ РїР°СЂР°РјРµС‚СЂ - СѓРєР°Р·Р°С‚РµР»СЊ РЅР° IDispatch, РїРѕ РєРѕС‚РѕСЂРѕРјСѓ Р“СЂР°С„РёРє РІС‹Р·С‹РІР°РµС‚ СѓРІРµРґРѕРјР»РµРЅРёСЏ РѕР± РёР·РјРµРЅРµРЅРёРё СЃРІРѕРµРіРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ
+					// С„-РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ HANDLE РѕС‚РєСЂС‹С‚РѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°
 
 					int type = kompas.ksGetDocumentTypeByName(openFileDialog.FileName);
 					ksDocument3D doc3D;
@@ -321,24 +321,24 @@ namespace Steps.NET
 					ksDocumentTxt docTxt;
 					switch (type) 
 					{
-						case (int)DocType.lt_DocPart3D:			//3d документы
+						case (int)DocType.lt_DocPart3D:			//3d РґРѕРєСѓРјРµРЅС‚С‹
 						case (int)DocType.lt_DocAssemble3D:
 							doc3D = (ksDocument3D)kompas.Document3D();
 							if (doc3D != null)
 								doc3D.Open(openFileDialog.FileName, false);
 							break;
-						case (int)DocType.lt_DocSheetStandart :	//2d документы
+						case (int)DocType.lt_DocSheetStandart :	//2d РґРѕРєСѓРјРµРЅС‚С‹
 						case (int)DocType.lt_DocFragment:
 							doc2D = (ksDocument2D)kompas.Document2D();
 							if (doc2D != null)
 								doc2D.ksOpenDocument(openFileDialog.FileName, false);
 							break;
-						case (int)DocType.lt_DocSpc:				//спецификации
+						case (int)DocType.lt_DocSpc:				//СЃРїРµС†РёС„РёРєР°С†РёРё
 							docSpc = (ksSpcDocument)kompas.SpcDocument();
 							if (docSpc != null)
 								docSpc.ksOpenDocument(openFileDialog.FileName, 0);
 							break;
-						case (int)DocType.lt_DocTxtStandart:		//текстовые документы
+						case (int)DocType.lt_DocTxtStandart:		//С‚РµРєСЃС‚РѕРІС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹
 							docTxt = (ksDocumentTxt)kompas.DocumentTxt();
 							if (docTxt != null)
 								docTxt.ksOpenDocument(openFileDialog.FileName, 0);
@@ -351,7 +351,7 @@ namespace Steps.NET
 			}
 			else
 			{
-				MessageBox.Show(this, "Объект не захвачен", "Сообщение");
+				MessageBox.Show(this, "РћР±СЉРµРєС‚ РЅРµ Р·Р°С…РІР°С‡РµРЅ", "РЎРѕРѕР±С‰РµРЅРёРµ");
 			}
 		}
 
@@ -359,16 +359,16 @@ namespace Steps.NET
 		{
 			if (kompas != null) 
 			{
-				// создать новый документ
-				// первый параметр - тип открываемого файла
-				//  0 - лист чертежа
-				//  1 - фрагмент
-				//  2 - текстовый документ
-				//  3 - спецификация
-				//  4 - 3D-модель
-				// второй параметр указывает на необходимость выдачи запроса "Файл изменен. Сохранять?" при закрытии файла
-				// третий параметр - указатель на IDispatch, по которому Графие вызывает уведомления об изенении своего состояния
-				// ф-ия возвращает HANDLE открытого документа
+				// СЃРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ РґРѕРєСѓРјРµРЅС‚
+				// РїРµСЂРІС‹Р№ РїР°СЂР°РјРµС‚СЂ - С‚РёРї РѕС‚РєСЂС‹РІР°РµРјРѕРіРѕ С„Р°Р№Р»Р°
+				//  0 - Р»РёСЃС‚ С‡РµСЂС‚РµР¶Р°
+				//  1 - С„СЂР°РіРјРµРЅС‚
+				//  2 - С‚РµРєСЃС‚РѕРІС‹Р№ РґРѕРєСѓРјРµРЅС‚
+				//  3 - СЃРїРµС†РёС„РёРєР°С†РёСЏ
+				//  4 - 3D-РјРѕРґРµР»СЊ
+				// РІС‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ СѓРєР°Р·С‹РІР°РµС‚ РЅР° РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚СЊ РІС‹РґР°С‡Рё Р·Р°РїСЂРѕСЃР° "Р¤Р°Р№Р» РёР·РјРµРЅРµРЅ. РЎРѕС…СЂР°РЅСЏС‚СЊ?" РїСЂРё Р·Р°РєСЂС‹С‚РёРё С„Р°Р№Р»Р°
+				// С‚СЂРµС‚РёР№ РїР°СЂР°РјРµС‚СЂ - СѓРєР°Р·Р°С‚РµР»СЊ РЅР° IDispatch, РїРѕ РєРѕС‚РѕСЂРѕРјСѓ Р“СЂР°С„РёРµ РІС‹Р·С‹РІР°РµС‚ СѓРІРµРґРѕРјР»РµРЅРёСЏ РѕР± РёР·РµРЅРµРЅРёРё СЃРІРѕРµРіРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ
+				// С„-РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ HANDLE РѕС‚РєСЂС‹С‚РѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°
 				ksDocument2D doc = (ksDocument2D)kompas.Document2D();    
 				if (doc != null) 
 				{
@@ -383,7 +383,7 @@ namespace Steps.NET
 			}
 			else
 			{
-				MessageBox.Show(this, "Объект не захвачен", "Сообщение");
+				MessageBox.Show(this, "РћР±СЉРµРєС‚ РЅРµ Р·Р°С…РІР°С‡РµРЅ", "РЎРѕРѕР±С‰РµРЅРёРµ");
 			}
 		}
 
@@ -391,17 +391,17 @@ namespace Steps.NET
 		{
 			if (kompas != null)
 			{
-				openFileDialog.Filter = "Библиотеки(*.rtw)|*.rtw";
+				openFileDialog.Filter = "Р‘РёР±Р»РёРѕС‚РµРєРё(*.rtw)|*.rtw";
 				if (openFileDialog.ShowDialog(this) == DialogResult.OK)
 				{
-					// загрузить библиотеку
-					// ф-ия возвращает HANDLE загруженной библиотеки
+					// Р·Р°РіСЂСѓР·РёС‚СЊ Р±РёР±Р»РёРѕС‚РµРєСѓ
+					// С„-РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ HANDLE Р·Р°РіСЂСѓР¶РµРЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё
 					libraryId = kompas.ksAttachKompasLibrary(openFileDialog.FileName);
 				}
 			}
 			else
 			{
-				MessageBox.Show(this, "Объект не захвачен", "Сообщение");
+				MessageBox.Show(this, "РћР±СЉРµРєС‚ РЅРµ Р·Р°С…РІР°С‡РµРЅ", "РЎРѕРѕР±С‰РµРЅРёРµ");
 			}
 		}
 
@@ -411,9 +411,9 @@ namespace Steps.NET
 			{
 				if (libraryId == 0)
 					btnLoadLibrary_Click(null, null);
-				// выполнить команду у загруженной библиотеки
-				// первй параметр - HANDLE библиотеки
-				// второй параметр - идентификатор выполняемой команды
+				// РІС‹РїРѕР»РЅРёС‚СЊ РєРѕРјР°РЅРґСѓ Сѓ Р·Р°РіСЂСѓР¶РµРЅРЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё
+				// РїРµСЂРІР№ РїР°СЂР°РјРµС‚СЂ - HANDLE Р±РёР±Р»РёРѕС‚РµРєРё
+				// РІС‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ - РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІС‹РїРѕР»РЅСЏРµРјРѕР№ РєРѕРјР°РЅРґС‹
 				kompas.ksExecuteKompasLibraryCommand(libraryId, 1);
 			}
 		}
@@ -437,7 +437,7 @@ namespace Steps.NET
 			}
 			else
 			{
-				MessageBox.Show(this, "Объект не захвачен", "Сообщение");
+				MessageBox.Show(this, "РћР±СЉРµРєС‚ РЅРµ Р·Р°С…РІР°С‡РµРЅ", "РЎРѕРѕР±С‰РµРЅРёРµ");
 			}
 		}
 
@@ -451,7 +451,7 @@ namespace Steps.NET
 			}
 			else
 			{
-				MessageBox.Show(this, "Объект не захвачен", "Сообщение");
+				MessageBox.Show(this, "РћР±СЉРµРєС‚ РЅРµ Р·Р°С…РІР°С‡РµРЅ", "РЎРѕРѕР±С‰РµРЅРёРµ");
 			}
 		}
 
@@ -478,13 +478,13 @@ namespace Steps.NET
 		{
 			if (kompas != null) 
 			{
-				// принудительно зпрервать связь с Компас
+				// РїСЂРёРЅСѓРґРёС‚РµР»СЊРЅРѕ Р·РїСЂРµСЂРІР°С‚СЊ СЃРІСЏР·СЊ СЃ РљРѕРјРїР°СЃ
 				Marshal.ReleaseComObject(kompas); 
 			}
-			Close(); // завершить работу
+			Close(); // Р·Р°РІРµСЂС€РёС‚СЊ СЂР°Р±РѕС‚Сѓ
 		}
 
-		private void btnВыполнитьКоманду_Click(object sender, System.EventArgs e)
+		private void btnР’С‹РїРѕР»РЅРёС‚СЊРљРѕРјР°РЅРґСѓ_Click(object sender, System.EventArgs e)
 		{
 			if (kompas != null) 
 			{
@@ -493,16 +493,16 @@ namespace Steps.NET
 				{
 					doc.ksCircle(50, 50, 20, 1);
 					doc.ksCircle(50, 50, 50, 2);
-					kompas.ksMessage("Привет");
+					kompas.ksMessage("РџСЂРёРІРµС‚");
 				}
 			}	
 			else
 			{
-				MessageBox.Show(this, "Объект не захвачен", "Сообщение");
+				MessageBox.Show(this, "РћР±СЉРµРєС‚ РЅРµ Р·Р°С…РІР°С‡РµРЅ", "РЎРѕРѕР±С‰РµРЅРёРµ");
 			}
 		}
 
-		private void btnУправлениеВидимостью_Click(object sender, System.EventArgs e)
+		private void btnРЈРїСЂР°РІР»РµРЅРёРµР’РёРґРёРјРѕСЃС‚СЊСЋ_Click(object sender, System.EventArgs e)
 		{
 			try
 			{
@@ -511,12 +511,12 @@ namespace Steps.NET
 					kompas.Visible = !kompas.Visible; 
 				}
 				else
-					MessageBox.Show(this, "Объект не захвачен", "Сообщение");
+					MessageBox.Show(this, "РћР±СЉРµРєС‚ РЅРµ Р·Р°С…РІР°С‡РµРЅ", "РЎРѕРѕР±С‰РµРЅРёРµ");
 			}
 			catch (Exception ex)
 			{
 				ex.ToString();
-				MessageBox.Show(this, "Ошибка, нужно связаться с сервером", "Сообщение");
+				MessageBox.Show(this, "РћС€РёР±РєР°, РЅСѓР¶РЅРѕ СЃРІСЏР·Р°С‚СЊСЃСЏ СЃ СЃРµСЂРІРµСЂРѕРј", "РЎРѕРѕР±С‰РµРЅРёРµ");
 				Marshal.ReleaseComObject(kompas);
 				kompas = null;
 			}

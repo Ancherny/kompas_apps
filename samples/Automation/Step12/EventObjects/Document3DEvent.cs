@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// Document3DEvent - обработчик событий от 3D документа
+// Document3DEvent - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ 3D РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,14 +18,14 @@ namespace Steps.NET
 		public Document3DEvent(object obj, object doc)
 			: base(obj, typeof(ksDocument3DNotify).GUID, doc) {}
 
-		// d3BeginRebuild - Начало перестроения модели
+		// d3BeginRebuild - РќР°С‡Р°Р»Рѕ РїРµСЂРµСЃС‚СЂРѕРµРЅРёСЏ РјРѕРґРµР»Рё
 		public bool BeginRebuild()
 		{ 
 			return true;
 		}
 
 
-		// d3Rebuild - Модель перестроена
+		// d3Rebuild - РњРѕРґРµР»СЊ РїРµСЂРµСЃС‚СЂРѕРµРЅР°
 		public bool Rebuild()
 		{   
 			Global.UpdateSlideBox(null);
@@ -33,42 +33,42 @@ namespace Steps.NET
 		}
 
 
-		// d3BeginChoiceMaterial - Начало выбора материала
+		// d3BeginChoiceMaterial - РќР°С‡Р°Р»Рѕ РІС‹Р±РѕСЂР° РјР°С‚РµСЂРёР°Р»Р°
 		public bool BeginChoiceMaterial()
 		{
 			return true;
 		}
 
 
-		// d3СhoiceMaterial - Закончен выбор материала
+		// d3РЎhoiceMaterial - Р—Р°РєРѕРЅС‡РµРЅ РІС‹Р±РѕСЂ РјР°С‚РµСЂРёР°Р»Р°
 		public bool ChoiceMaterial(string material, double density)
 		{
 			return true;
 		}
 
 
-		// d3BeginChoiceMarking - Начало выбора обозначения
+		// d3BeginChoiceMarking - РќР°С‡Р°Р»Рѕ РІС‹Р±РѕСЂР° РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 		public bool BeginChoiceMarking()
 		{
 			return true;
 		}
 
 
-		// d3СhoiceMarking - Закончен выбор обозначения
+		// d3РЎhoiceMarking - Р—Р°РєРѕРЅС‡РµРЅ РІС‹Р±РѕСЂ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 		public bool ChoiceMarking(string marking)
 		{
 			return true;
 		}
 
 
-		// d3BeginSetPartFromFile - Начало установки компонента в сборку (до диалога выбора имени)
+		// d3BeginSetPartFromFile - РќР°С‡Р°Р»Рѕ СѓСЃС‚Р°РЅРѕРІРєРё РєРѕРјРїРѕРЅРµРЅС‚Р° РІ СЃР±РѕСЂРєСѓ (РґРѕ РґРёР°Р»РѕРіР° РІС‹Р±РѕСЂР° РёРјРµРЅРё)
 		public bool BeginSetPartFromFile()
 		{
 			return true;
 		}
 
 
-		// d3BeginCreatePartFromFile - Начало создания компонента в сборке (до диалога выбора имени)
+		// d3BeginCreatePartFromFile - РќР°С‡Р°Р»Рѕ СЃРѕР·РґР°РЅРёСЏ РєРѕРјРїРѕРЅРµРЅС‚Р° РІ СЃР±РѕСЂРєРµ (РґРѕ РґРёР°Р»РѕРіР° РІС‹Р±РѕСЂР° РёРјРµРЅРё)
 		public bool BeginCreatePartFromFile(bool part, entity plane)
 		{
 			return true;

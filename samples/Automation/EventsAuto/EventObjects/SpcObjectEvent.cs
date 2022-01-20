@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// SpcObjectEvent - обработчик событий объектов документа спецификации
+// SpcObjectEvent - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚РѕРІ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,212 +18,212 @@ namespace Steps.NET
 			: base(obj, typeof(ksSpcObjectNotify).GUID, doc,
 			objType, null, selfAdvise) {}
 
-		// koBeginDelete - Попытка удаления объекта
+		// koBeginDelete - РџРѕРїС‹С‚РєР° СѓРґР°Р»РµРЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginDelete(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginDelete\nobjRef = {1}", m_LibName, objRef);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// koDelete - Объект удален
+		// koDelete - РћР±СЉРµРєС‚ СѓРґР°Р»РµРЅ
 		public bool Delete(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> Delete\nobjRef = {1}", m_LibName, objRef);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
-			// Если удаляется объект удаляем и подписку на его события
-			// Либо тип объекта : 0, SPC_BASE_OBJECT, SPC_COMMENT, либо указатель на объект
+			// Р•СЃР»Рё СѓРґР°Р»СЏРµС‚СЃСЏ РѕР±СЉРµРєС‚ СѓРґР°Р»СЏРµРј Рё РїРѕРґРїРёСЃРєСѓ РЅР° РµРіРѕ СЃРѕР±С‹С‚РёСЏ
+			// Р›РёР±Рѕ С‚РёРї РѕР±СЉРµРєС‚Р° : 0, SPC_BASE_OBJECT, SPC_COMMENT, Р»РёР±Рѕ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±СЉРµРєС‚
 			if (objRef != 0 && objRef == m_ObjType)
 				this.Delete(objRef); 
 			return true;
 		}
        
 
-		// soCellDblClick - Двойной клик в ячейке 
+		// soCellDblClick - Р”РІРѕР№РЅРѕР№ РєР»РёРє РІ СЏС‡РµР№РєРµ 
 		public bool CellDblClick(int objRef, int number)
 		{ 
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> CellDblClick\nobjRef = {1}\nnumber = {2}", m_LibName, objRef, number);
-				str += "\nИмя документа = " + GetDocName(); 
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName(); 
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;  
 		}
 
 
-		// soCellBeginEdit - Начало редактирования в ячейке   
+		// soCellBeginEdit - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РІ СЏС‡РµР№РєРµ   
 		public bool CellBeginEdit(int objRef, int number) 
 		{ 
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> CellBeginEdit\nobjRef = {1}\nnumber = {2}", m_LibName, objRef, number);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// soChangeCurrent - Изменился текущий объект  
+		// soChangeCurrent - РР·РјРµРЅРёР»СЃСЏ С‚РµРєСѓС‰РёР№ РѕР±СЉРµРєС‚  
 		public bool ChangeCurrent(int objRef)
 		{ 
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> ChangeCurrent\nobjRef = {1}", m_LibName, objRef);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;  
 		}
 
 
-		// soDocumentBeginAdd - Начало добавления документа
+		// soDocumentBeginAdd - РќР°С‡Р°Р»Рѕ РґРѕР±Р°РІР»РµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 		public bool DocumentBeginAdd(int objRef)
 		{ 
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> DocumentBeginAdd\nobjRef = {1}", m_LibName, objRef);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// soDocumentAdd - Добавление документа в объекте СП   
+		// soDocumentAdd - Р”РѕР±Р°РІР»РµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° РІ РѕР±СЉРµРєС‚Рµ РЎРџ   
 		public bool DocumentAdd(int objRef, string docName) 
 		{ 
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> DocumentAdd\nobjRef = {1}\ndocName = {2}", m_LibName, objRef, docName);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true; 
 		}
 
 
-		// soDocumentRemove - Удаление документа из объекта СП  
+		// soDocumentRemove - РЈРґР°Р»РµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° РёР· РѕР±СЉРµРєС‚Р° РЎРџ  
 		public bool DocumentRemove(int objRef, string docName)
 		{ 
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> DocumentRemove\nobjRef = {1}\ndocName = {2}", m_LibName, objRef, docName);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
 		}
 
 
-		// soBeginGeomChange - Начало измения геометрии объекта СП
+		// soBeginGeomChange - РќР°С‡Р°Р»Рѕ РёР·РјРµРЅРёСЏ РіРµРѕРјРµС‚СЂРёРё РѕР±СЉРµРєС‚Р° РЎРџ
 		public bool BeginGeomChange(int objRef)
 		{ 
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginGeomChange\nobjRef = {1}", m_LibName, objRef);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// soGeomChange - Геометрия объекта СП изменилась    
+		// soGeomChange - Р“РµРѕРјРµС‚СЂРёСЏ РѕР±СЉРµРєС‚Р° РЎРџ РёР·РјРµРЅРёР»Р°СЃСЊ    
 		public bool GeomChange(int objRef) 
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> GeomChange\nobjRef = {1}", m_LibName, objRef);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;  
 		}
 
 
-		// koBeginProcess - Начало редактирования\создания объекта
+		// koBeginProcess - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool BeginProcess(int pType, int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> BeginProcess\npType = {1}\nobjRef = {2}", m_LibName, pType, objRef);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;  
 		}
        
 
-		// koEndProcess - Конец редактирования\создания объекта
+		// koEndProcess - РљРѕРЅРµС† СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ\СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
 		public bool EndProcess(int pType)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> EndProcess\npType = {1}", m_LibName, pType);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true; 
 		}
 
 
-		// koCreate - Создание объектов
+		// koCreate - РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ
 		public bool CreateObject(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> CreateObject\nobjRef = {1}", m_LibName, objRef);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true; 
 		}
 
     
-		// koUpdateObject - Редактирование объекта
+		// koUpdateObject - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		public bool UpdateObject(int objRef)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSpecObjEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> UpdateObject\nobjRef = {1}", m_LibName, objRef);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}   
 			return true;
 		} 
 
-    // koBeginCopy - Копирование объекта
+    // koBeginCopy - РљРѕРїРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
     public bool BeginCopy( int objRef )
     {
       return true;
     }
 
-    // koCopy - Копирование объекта
+    // koCopy - РљРѕРїРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°
     public bool copy( int objRef )
     {
       return true;

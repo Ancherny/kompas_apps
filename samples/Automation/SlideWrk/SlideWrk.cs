@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 
 using System;
 using Microsoft.Win32;
@@ -10,7 +10,7 @@ using KAPITypes;
 
 namespace Steps.NET
 {
-	// Класс SlideWrk - Тест слайд
+	// РљР»Р°СЃСЃ SlideWrk - РўРµСЃС‚ СЃР»Р°Р№Рґ
   [ClassInterface(ClassInterfaceType.AutoDual)]
 	public class SlideWrk
 	{
@@ -18,14 +18,14 @@ namespace Steps.NET
 		private static double cx1 = 0, cy1 = 0, cx2 = 0, cy2 = 0;
 		private static int flag = 0;
 
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
 		{
-			return "SlideWrk - Тест слайд";
+			return "SlideWrk - РўРµСЃС‚ СЃР»Р°Р№Рґ";
 		}
 
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			Global.Instance.KompasObject = (KompasObject)kompas_;
@@ -36,38 +36,38 @@ namespace Steps.NET
 				{
 					switch (command)
 					{
-						case 1 : MoveSlide();			break; // сдвинуть слайд  
-						case 2 : WriteSlideStep();		break; // записать слайд
-						case 3 : TestShowDialog();		break; // отрисовать слайд
-						case 4 : DecomposeSlideStep();	break; // разбить слайд
+						case 1 : MoveSlide();			break; // СЃРґРІРёРЅСѓС‚СЊ СЃР»Р°Р№Рґ  
+						case 2 : WriteSlideStep();		break; // Р·Р°РїРёСЃР°С‚СЊ СЃР»Р°Р№Рґ
+						case 3 : TestShowDialog();		break; // РѕС‚СЂРёСЃРѕРІР°С‚СЊ СЃР»Р°Р№Рґ
+						case 4 : DecomposeSlideStep();	break; // СЂР°Р·Р±РёС‚СЊ СЃР»Р°Р№Рґ
 					}
 				}
 			}
 		}
 
 
-		// Формирование меню библиотеки
+		// Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РјРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)]	public string ExternalMenuItem(short number, ref short itemType, ref short command)
 		{
-			string result = string.Empty;	//По уполчанию - пустая строка
+			string result = string.Empty;	//РџРѕ СѓРїРѕР»С‡Р°РЅРёСЋ - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°
 			itemType = 1;					//MENUITEM
 
 			switch (number)
 			{
 				case 1:
-					result = "Сдвинуть слайд";
+					result = "РЎРґРІРёРЅСѓС‚СЊ СЃР»Р°Р№Рґ";
 					command = 1;
 					break;
 				case 2:
-					result = "Записать слайд";
+					result = "Р—Р°РїРёСЃР°С‚СЊ СЃР»Р°Р№Рґ";
 					command = 2;
 					break;
 				case 3:
-					result = "Отрисовать слайд";
+					result = "РћС‚СЂРёСЃРѕРІР°С‚СЊ СЃР»Р°Р№Рґ";
 					command = 3;
 					break;
 				case 4:
-					result = "Разбить картинку";
+					result = "Р Р°Р·Р±РёС‚СЊ РєР°СЂС‚РёРЅРєСѓ";
 					command = 4;
 					break;
 				case 5:
@@ -82,7 +82,7 @@ namespace Steps.NET
 
 		private void MoveSlide() 
 		{
-			// выбрать имя файла
+			// РІС‹Р±СЂР°С‚СЊ РёРјСЏ С„Р°Р№Р»Р°
 			string fileNameOld = Global.Instance.KompasObject.ksChoiceFile("*.rc", null, false);
 			string fileNameNew = Global.Instance.KompasObject.ksSaveFile("*.rc", null, null, false);
 			string s = string.Empty;
@@ -91,8 +91,8 @@ namespace Steps.NET
 				&& fileNameNew != null && fileNameNew != string.Empty)
 			{
 				int x = 0, y = 0;
-				if (Global.Instance.KompasObject.ksReadInt("Введите сдвиг по X", 0, -2000, 2000, ref x) != 0 
-					&& Global.Instance.KompasObject.ksReadInt("Введите сдвиг по Y", 0, -2000, 2000, ref y) != 0) 
+				if (Global.Instance.KompasObject.ksReadInt("Р’РІРµРґРёС‚Рµ СЃРґРІРёРі РїРѕ X", 0, -2000, 2000, ref x) != 0 
+					&& Global.Instance.KompasObject.ksReadInt("Р’РІРµРґРёС‚Рµ СЃРґРІРёРі РїРѕ Y", 0, -2000, 2000, ref y) != 0) 
 				{
 					SlideFile file = new SlideFile(fileNameOld);
 					if (!file.Error) 
@@ -120,7 +120,7 @@ namespace Steps.NET
 			{
 				phan.Init();
 				info.Init();
-				info.commandsString = "Укажите первую точку окна";
+				info.commandsString = "РЈРєР°Р¶РёС‚Рµ РїРµСЂРІСѓСЋ С‚РѕС‡РєСѓ РѕРєРЅР°";
 				info.dynamic = 1;
 				info.SetCallBackC("CALLBACKPROCCURSOR", 0, this);
 				phan.phantom = 1;
@@ -165,7 +165,7 @@ namespace Steps.NET
 								info.Init();
 								t1.xBase = cx1;
 								t1.yBase = cy1;
-								info.commandsString = "Укажите базовую точку группы";
+								info.commandsString = "РЈРєР°Р¶РёС‚Рµ Р±Р°Р·РѕРІСѓСЋ С‚РѕС‡РєСѓ РіСЂСѓРїРїС‹";
 								if (Global.Instance.Document2D.ksCursor(info, ref x, ref y, phan) != 0) 
 								{
 									Global.Instance.Document2D.ksMtr(x - cx1, y - cy1, 0, 1, 1);
@@ -180,7 +180,7 @@ namespace Steps.NET
 							Global.Instance.Document2D.ksClearGroup(0, true);
 						}
 						else
-							Global.Instance.KompasObject.ksError("Ошибка");
+							Global.Instance.KompasObject.ksError("РћС€РёР±РєР°");
 					}
 				}
 			}
@@ -195,16 +195,16 @@ namespace Steps.NET
 				if (info != null)
 				{
 					info.Init();
-					info.commandsString = "Укажите точку привязки слайда";
+					info.commandsString = "РЈРєР°Р¶РёС‚Рµ С‚РѕС‡РєСѓ РїСЂРёРІСЏР·РєРё СЃР»Р°Р№РґР°";
 
 					double x = 0, y = 0;
 					if (Global.Instance.Document2D.ksCursor(info, ref x, ref y, null) != 0)
 					{
 						int slideID = 0;
-						if (Global.Instance.KompasObject.ksReadInt("Введите идентификатор слайда", 100, 0, 32000, ref slideID) != 0)
+						if (Global.Instance.KompasObject.ksReadInt("Р’РІРµРґРёС‚Рµ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃР»Р°Р№РґР°", 100, 0, 32000, ref slideID) != 0)
 						{
 							if (Global.Instance.KompasObject.ksWriteSlide(name, slideID, x, y) == 0)
-								Global.Instance.KompasObject.ksError("Группа селектирования пуста");
+								Global.Instance.KompasObject.ksError("Р“СЂСѓРїРїР° СЃРµР»РµРєС‚РёСЂРѕРІР°РЅРёСЏ РїСѓСЃС‚Р°");
 							Global.Instance.Document2D.ksClearGroup(0, true);
 						}
 					}
@@ -214,20 +214,20 @@ namespace Steps.NET
 
 		private void TestShowDialog()
 		{
-			openFileDialog.Filter = "Файлы слайдов (*.rc)|*.rc";	
+			openFileDialog.Filter = "Р¤Р°Р№Р»С‹ СЃР»Р°Р№РґРѕРІ (*.rc)|*.rc";	
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
-				Global.Instance.KompasObject.ksEnableTaskAccess(0);	// закрыть доступ к компасу
+				Global.Instance.KompasObject.ksEnableTaskAccess(0);	// Р·Р°РєСЂС‹С‚СЊ РґРѕСЃС‚СѓРї Рє РєРѕРјРїР°СЃСѓ
 				FrmTest.Instance.Kompas = Global.Instance.KompasObject;
 				FrmTest.Instance.SlideFileName = openFileDialog.FileName;
 				FrmTest.Instance.ShowDialog();
-				Global.Instance.KompasObject.ksEnableTaskAccess(1);	// открыть доступ к компасу
+				Global.Instance.KompasObject.ksEnableTaskAccess(1);	// РѕС‚РєСЂС‹С‚СЊ РґРѕСЃС‚СѓРї Рє РєРѕРјРїР°СЃСѓ
 			}
 		}
 
 
 		/// <summary>
-		/// Функция обратной связи, вызываемая из Cursor
+		/// Р¤СѓРЅРєС†РёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРІСЏР·Рё, РІС‹Р·С‹РІР°РµРјР°СЏ РёР· Cursor
 		/// </summary>
 		public int CALLBACKPROCCURSOR(int comm, ref double x, ref double y, object rInfo, object rPhan, int dynamic)
 		{
@@ -239,13 +239,13 @@ namespace Steps.NET
 				ksType1 t1 = (ksType1)phan.GetPhantomParam();
 				if (dynamic == 0) 
 				{
-					//фиксация
+					//С„РёРєСЃР°С†РёСЏ
 					if (flag == 0) 
 					{
-						//фиксируется 1 точка
+						//С„РёРєСЃРёСЂСѓРµС‚СЃСЏ 1 С‚РѕС‡РєР°
 						flag ++;
 						cx1 = x; cy1= y;
-						info.commandsString = "Укажите вторую точку окна";
+						info.commandsString = "РЈРєР°Р¶РёС‚Рµ РІС‚РѕСЂСѓСЋ С‚РѕС‡РєСѓ РѕРєРЅР°";
 					}
 					else 
 					{
@@ -265,7 +265,7 @@ namespace Steps.NET
 						if (Global.Instance.Document2D.ksExistObj(t1.gr) != 0)
 							Global.Instance.Document2D.ksDeleteObj(t1.gr);
 
-						t1.gr = Global.Instance.Document2D.ksNewGroup(1);	// временная группа
+						t1.gr = Global.Instance.Document2D.ksNewGroup(1);	// РІСЂРµРјРµРЅРЅР°СЏ РіСЂСѓРїРїР°
 						DrawRamka();
 						Global.Instance.Document2D.ksEndGroup();
 					}
@@ -290,12 +290,12 @@ namespace Steps.NET
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -311,11 +311,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 		
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

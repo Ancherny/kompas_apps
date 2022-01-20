@@ -1,4 +1,4 @@
-using Kompas6API5;
+﻿using Kompas6API5;
 
 using System;
 using Kompas6Constants;

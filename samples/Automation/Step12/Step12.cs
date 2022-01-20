@@ -1,4 +1,4 @@
-
+п»ї
 using Kompas6API5;
 using KompasAPI7;
 
@@ -16,18 +16,18 @@ using reference = System.Int32;
 
 namespace Steps.NET
 {
-	// Класс Step12 - Пример создания пользовательской панели свойств
+	// РљР»Р°СЃСЃ Step12 - РџСЂРёРјРµСЂ СЃРѕР·РґР°РЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕР№ РїР°РЅРµР»Рё СЃРІРѕР№СЃС‚РІ
   [ClassInterface(ClassInterfaceType.AutoDual)]
 	public class Step12
 	{
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
 		{
-			return "Step12 - Пример панели свойств (C#.NET)";
+			return "Step12 - РџСЂРёРјРµСЂ РїР°РЅРµР»Рё СЃРІРѕР№СЃС‚РІ (C#.NET)";
 		}
 		
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			Global.Kompas = (KompasObject)kompas_;
@@ -35,30 +35,30 @@ namespace Steps.NET
 
 			switch (command)
 			{
-				case 1 :	// Создать закладку и подписаться
+				case 1 :	// РЎРѕР·РґР°С‚СЊ Р·Р°РєР»Р°РґРєСѓ Рё РїРѕРґРїРёСЃР°С‚СЊСЃСЏ
 					Global.CreateAndSubscriptionPropertyManager(true);
 					break;
-				case 2 :	// Отписаться
-					Global.ClosePropertyManager(true);	// Запоминаем положение панели и гасим ее
+				case 2 :	// РћС‚РїРёСЃР°С‚СЊСЃСЏ
+					Global.ClosePropertyManager(true);	// Р—Р°РїРѕРјРёРЅР°РµРј РїРѕР»РѕР¶РµРЅРёРµ РїР°РЅРµР»Рё Рё РіР°СЃРёРј РµРµ
 					break;
 			}
 		}
 
 
-		// Формирование меню библиотеки
+		// Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РјРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)]	public string ExternalMenuItem(short number, ref short itemType, ref short command)
 		{
-			string result = string.Empty;	//По уполчанию - пустая строка
+			string result = string.Empty;	//РџРѕ СѓРїРѕР»С‡Р°РЅРёСЋ - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°
 			itemType = 1;					//MENUITEM
 
 			switch (number)
 			{
 				case 1:
-					result = "Создать закладку и подписаться";
+					result = "РЎРѕР·РґР°С‚СЊ Р·Р°РєР»Р°РґРєСѓ Рё РїРѕРґРїРёСЃР°С‚СЊСЃСЏ";
 					command = 1;
 					break;
 				case 2:
-					result = "Отписаться";
+					result = "РћС‚РїРёСЃР°С‚СЊСЃСЏ";
 					command = 2;
 					break;
 				case 3:
@@ -72,12 +72,12 @@ namespace Steps.NET
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -93,11 +93,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 		
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

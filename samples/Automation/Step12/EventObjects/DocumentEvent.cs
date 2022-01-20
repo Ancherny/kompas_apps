@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// DocumentEvent  - обработчик событий от документа
+// DocumentEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -22,14 +22,14 @@ namespace Steps.NET
 			: base(doc, typeof(Kompas6API5.ksDocumentFileNotify).GUID, doc) {}
 
 
-		// kdBeginCloseDocument - Начало закрытия документа
+		// kdBeginCloseDocument - РќР°С‡Р°Р»Рѕ Р·Р°РєСЂС‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 		public bool BeginCloseDocument()
 		{
 			return true;
 		}
 
 
-		// kdCloseDocument - Документ закрыт
+		// kdCloseDocument - Р”РѕРєСѓРјРµРЅС‚ Р·Р°РєСЂС‹С‚
 		public bool CloseDocument()
 		{
 			BaseEvent.TerminateEvents(null, this.m_Doc);
@@ -38,21 +38,21 @@ namespace Steps.NET
 		}
 
 
-		// kdBeginSaveDocument - Начало сохранения документа
+		// kdBeginSaveDocument - РќР°С‡Р°Р»Рѕ СЃРѕС…СЂР°РЅРµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 		public bool BeginSaveDocument(string fileName)
 		{
 			return true;
 		}
 
 
-		// kdSaveDocument - Документ сохранен
+		// kdSaveDocument - Р”РѕРєСѓРјРµРЅС‚ СЃРѕС…СЂР°РЅРµРЅ
 		public bool SaveDocument()
 		{
 			return true;
 		}
 
 
-		// kdActiveDocument - Документ активизирован.
+		// kdActiveDocument - Р”РѕРєСѓРјРµРЅС‚ Р°РєС‚РёРІРёР·РёСЂРѕРІР°РЅ.
 		public bool Activate()
 		{
 			Global.UpdateSlideBox(null);
@@ -60,7 +60,7 @@ namespace Steps.NET
 		}
 
 
-		// kdDeactiveDocument - Документ деактивизирован.
+		// kdDeactiveDocument - Р”РѕРєСѓРјРµРЅС‚ РґРµР°РєС‚РёРІРёР·РёСЂРѕРІР°РЅ.
 		public bool Deactivate()
 		{
 			Global.UpdateSlideBox(null);
@@ -68,14 +68,14 @@ namespace Steps.NET
 		}
 
 
-		// kdBeginSaveAsDocument - Начало сохранения документа c другим именем (до диалога выбора имени)
+		// kdBeginSaveAsDocument - РќР°С‡Р°Р»Рѕ СЃРѕС…СЂР°РЅРµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р° c РґСЂСѓРіРёРј РёРјРµРЅРµРј (РґРѕ РґРёР°Р»РѕРіР° РІС‹Р±РѕСЂР° РёРјРµРЅРё)
 		public bool BeginSaveAsDocument()
 		{
 			return true;
 		}
 
 
-		// kdDocumentFrameOpen - Окно документа открылось
+		// kdDocumentFrameOpen - РћРєРЅРѕ РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РєСЂС‹Р»РѕСЃСЊ
 		public bool DocumentFrameOpen(object v) 
 		{
 			Global.UpdateSlideBox(null);
@@ -114,7 +114,7 @@ namespace Steps.NET
       return true;
     }
 
-    // Создать обработчик событий документа
+    // РЎРѕР·РґР°С‚СЊ РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РґРѕРєСѓРјРµРЅС‚Р°
     public static BaseEvent NewDocumentEvent(object doc)
 		{
 			DocumentEvent res = null;
@@ -130,7 +130,7 @@ namespace Steps.NET
 		}
 
 
-		// Создать обработчик событий 2D документа
+		// РЎРѕР·РґР°С‚СЊ РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ 2D РґРѕРєСѓРјРµРЅС‚Р°
 		public static BaseEvent NewDocument2DEvent(object doc)
 		{
 			Document2DEvent res = null;
@@ -141,7 +141,7 @@ namespace Steps.NET
 					ksDocument2D doc2d = (ksDocument2D)doc;
 					if (doc2d != null)
 					{
-						NewDocumentEvent(doc);	// чтобы при закрытии документа отписаться
+						NewDocumentEvent(doc);	// С‡С‚РѕР±С‹ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РїРёСЃР°С‚СЊСЃСЏ
             res = new Document2DEvent( doc2d.GetDocument2DNotify(),  doc );
 						res.Advise();
 					}
@@ -150,7 +150,7 @@ namespace Steps.NET
 			return res;
 		}
 
-    // Создать обработчик событий 3D документа
+    // РЎРѕР·РґР°С‚СЊ РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ 3D РґРѕРєСѓРјРµРЅС‚Р°
     public static BaseEvent NewDocument3DEvent(object doc)
     {
       Document3DEvent res = null;
@@ -161,7 +161,7 @@ namespace Steps.NET
           ksDocument3D doc3d = (ksDocument3D)doc;
           if (doc3d != null)
           {
-            NewDocumentEvent(doc);	// чтобы при закрытии документа отписаться
+            NewDocumentEvent(doc);	// С‡С‚РѕР±С‹ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РїРёСЃР°С‚СЊСЃСЏ
             res = new Document3DEvent(doc3d.GetDocument3DNotify(), doc);
             res.Advise();
           }

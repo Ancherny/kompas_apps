@@ -1,4 +1,4 @@
-
+п»ї
 using Kompas6API5;
 
 using System;
@@ -13,34 +13,34 @@ using reference = System.Int32;
 
 namespace Steps.NET
 {
-	// Класс Step3a - Объекты - a
+	// РљР»Р°СЃСЃ Step3a - РћР±СЉРµРєС‚С‹ - a
 
-	// 1.  Контур                            - WorkContour
-	// 2.  Технические требования            - TDemWork
-	// 3.  Стрелка вида                      - DrawViewPointer
-	// 4.  Работа со штампом                 - WorkStamp
-	// 5.  Таблица                           - TableWork
-	// 6.  Эквидистанта                      - DrawEquidistant
-	// 7.  Эллипс                            - DrawEllipse
-	// 8.  Полилиния                         - DrawPolyline
+	// 1.  РљРѕРЅС‚СѓСЂ                            - WorkContour
+	// 2.  РўРµС…РЅРёС‡РµСЃРєРёРµ С‚СЂРµР±РѕРІР°РЅРёСЏ            - TDemWork
+	// 3.  РЎС‚СЂРµР»РєР° РІРёРґР°                      - DrawViewPointer
+	// 4.  Р Р°Р±РѕС‚Р° СЃРѕ С€С‚Р°РјРїРѕРј                 - WorkStamp
+	// 5.  РўР°Р±Р»РёС†Р°                           - TableWork
+	// 6.  Р­РєРІРёРґРёСЃС‚Р°РЅС‚Р°                      - DrawEquidistant
+	// 7.  Р­Р»Р»РёРїСЃ                            - DrawEllipse
+	// 8.  РџРѕР»РёР»РёРЅРёСЏ                         - DrawPolyline
 	// 9.  Nurbs                             - DrawNurbs
-	// 10. Допуск формы                      - WorkTolerance
-	// 11. Одинаковая шероховатость          - DrawSpecRough
-	// 12. Вставка фрагмента внешней ссылкой - DrawInsFragment1
-	// 13. Вставка локального фрагмента      - DrawInsFragment2
+	// 10. Р”РѕРїСѓСЃРє С„РѕСЂРјС‹                      - WorkTolerance
+	// 11. РћРґРёРЅР°РєРѕРІР°СЏ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚СЊ          - DrawSpecRough
+	// 12. Р’СЃС‚Р°РІРєР° С„СЂР°РіРјРµРЅС‚Р° РІРЅРµС€РЅРµР№ СЃСЃС‹Р»РєРѕР№ - DrawInsFragment1
+	// 13. Р’СЃС‚Р°РІРєР° Р»РѕРєР°Р»СЊРЅРѕРіРѕ С„СЂР°РіРјРµРЅС‚Р°      - DrawInsFragment2
 
 	public class Step3a
 	{
 		private KompasObject kompas = null;
 
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)]
 		public string GetLibraryName()
 		{
-			return "Step3a - Объекты - a";
+			return "Step3a - РћР±СЉРµРєС‚С‹ - a";
 		}
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			kompas = (KompasObject)kompas_;
@@ -52,19 +52,19 @@ namespace Steps.NET
 				{
 					switch (command)
 					{
-						case 1:		WorkContour(doc);		break; // контур
-						case 2:		TDemWork(doc);			break; // технические требования
-						case 3:		DrawViewPointer(doc);	break; // стрелка вида
-						case 4:		WorkStamp(doc);			break; // работа со штампом
-						case 5:		TableWork(doc);			break; // таблица
-						case 6:		DrawEquidistant(doc);	break; // эквидистанта
-						case 7:		DrawEllipse(doc);		break; // эллипс
-						case 8:		DrawPolyline(doc);		break; // полилиния
+						case 1:		WorkContour(doc);		break; // РєРѕРЅС‚СѓСЂ
+						case 2:		TDemWork(doc);			break; // С‚РµС…РЅРёС‡РµСЃРєРёРµ С‚СЂРµР±РѕРІР°РЅРёСЏ
+						case 3:		DrawViewPointer(doc);	break; // СЃС‚СЂРµР»РєР° РІРёРґР°
+						case 4:		WorkStamp(doc);			break; // СЂР°Р±РѕС‚Р° СЃРѕ С€С‚Р°РјРїРѕРј
+						case 5:		TableWork(doc);			break; // С‚Р°Р±Р»РёС†Р°
+						case 6:		DrawEquidistant(doc);	break; // СЌРєРІРёРґРёСЃС‚Р°РЅС‚Р°
+						case 7:		DrawEllipse(doc);		break; // СЌР»Р»РёРїСЃ
+						case 8:		DrawPolyline(doc);		break; // РїРѕР»РёР»РёРЅРёСЏ
 						case 9:		DrawNurbs(doc);			break; // nurbs
-						case 10:	WorkTolerance(doc);		break; // допуск формы
-						case 11:	DrawSpecRough(doc);		break; // одинаковая шероховатость
-						case 12:	DrawInsFragment1(doc);	break; // вставка фрагмента внешней ссылкой
-						case 13:	DrawInsFragment2(doc);	break; // вставка локального фрагмента
+						case 10:	WorkTolerance(doc);		break; // РґРѕРїСѓСЃРє С„РѕСЂРјС‹
+						case 11:	DrawSpecRough(doc);		break; // РѕРґРёРЅР°РєРѕРІР°СЏ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚СЊ
+						case 12:	DrawInsFragment1(doc);	break; // РІСЃС‚Р°РІРєР° С„СЂР°РіРјРµРЅС‚Р° РІРЅРµС€РЅРµР№ СЃСЃС‹Р»РєРѕР№
+						case 13:	DrawInsFragment2(doc);	break; // РІСЃС‚Р°РІРєР° Р»РѕРєР°Р»СЊРЅРѕРіРѕ С„СЂР°РіРјРµРЅС‚Р°
 					}
 				}
 			}
@@ -78,35 +78,35 @@ namespace Steps.NET
 			switch (number)
 			{
 				case 1:
-					result = "Контур";
+					result = "РљРѕРЅС‚СѓСЂ";
 					command = 1;
 					break;
 				case 2:
-					result = "Технические требования";
+					result = "РўРµС…РЅРёС‡РµСЃРєРёРµ С‚СЂРµР±РѕРІР°РЅРёСЏ";
 					command = 2;
 					break;
 				case 3:
-					result = "Стрелка вида";
+					result = "РЎС‚СЂРµР»РєР° РІРёРґР°";
 					command = 3;
 					break;
 				case 4:
-					result = "Заполнить штамп";
+					result = "Р—Р°РїРѕР»РЅРёС‚СЊ С€С‚Р°РјРї";
 					command = 4;
 					break;
 				case 5:
-					result = "Таблица";
+					result = "РўР°Р±Р»РёС†Р°";
 					command = 5;
 					break;
 				case 6:
-					result = "Эквидистанта";
+					result = "Р­РєРІРёРґРёСЃС‚Р°РЅС‚Р°";
 					command = 6;
 					break;
 				case 7:
-					result = "Эллипс";
+					result = "Р­Р»Р»РёРїСЃ";
 					command = 7;
 					break;
 				case 8:
-					result = "Полилиния";
+					result = "РџРѕР»РёР»РёРЅРёСЏ";
 					command = 8;
 					break;
 				case 9:
@@ -114,19 +114,19 @@ namespace Steps.NET
 					command = 9;
 					break;
 				case 10:
-					result = "Допуск формы";
+					result = "Р”РѕРїСѓСЃРє С„РѕСЂРјС‹";
 					command = 10;
 					break;
 				case 11:
-					result = "Неуказанная шероховатость";
+					result = "РќРµСѓРєР°Р·Р°РЅРЅР°СЏ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚СЊ";
 					command = 11;
 					break;
 				case 12:
-					result = "Вставка фрагмента внешней ссылкой";
+					result = "Р’СЃС‚Р°РІРєР° С„СЂР°РіРјРµРЅС‚Р° РІРЅРµС€РЅРµР№ СЃСЃС‹Р»РєРѕР№";
 					command = 12;
 					break;
 				case 13:
-					result = "Вставка локального фрагмента";
+					result = "Р’СЃС‚Р°РІРєР° Р»РѕРєР°Р»СЊРЅРѕРіРѕ С„СЂР°РіРјРµРЅС‚Р°";
 					command = 13;
 					break;
 				case 14:
@@ -137,14 +137,14 @@ namespace Steps.NET
 			return result;
 		}
 
-		// Построить контур
+		// РџРѕСЃС‚СЂРѕРёС‚СЊ РєРѕРЅС‚СѓСЂ
 		void WorkContour(ksDocument2D doc)
 		{
 			if (doc.ksContour(1) == 1)
 			{
 				doc.ksLineSeg(20, 30, 50, 30, 1);
 				doc.ksArcByPoint(50, 20, 10, 50, 30, 50, 10, -1, 1);
-				//вложенный контур
+				//РІР»РѕР¶РµРЅРЅС‹Р№ РєРѕРЅС‚СѓСЂ
 				doc.ksContour(2);
 				doc.ksLineSeg(50, 10, 20, 10, 1);
 				doc.ksArcByPoint(20, 20, 10, 20, 10, 20, 30, -1, 1);
@@ -152,22 +152,22 @@ namespace Steps.NET
 				reference _contour = doc.ksEndObj();
 
 				doc.ksLightObj(_contour, 1);
-				kompas.ksMessage("контур");
+				kompas.ksMessage("РєРѕРЅС‚СѓСЂ");
 				doc.ksLightObj(_contour, 1);
 				reference g = doc.ksNewGroup(0);
 				doc.ksEndGroup();
 				doc.ksAddObjGroup(g, _contour);
 				doc.ksMoveObj(g, 10, 10);
-				kompas.ksMessage("сдвинули группу");
+				kompas.ksMessage("СЃРґРІРёРЅСѓР»Рё РіСЂСѓРїРїСѓ");
 			}
 		}
 
-		// Заполнение технических требований
+		// Р—Р°РїРѕР»РЅРµРЅРёРµ С‚РµС…РЅРёС‡РµСЃРєРёС… С‚СЂРµР±РѕРІР°РЅРёР№
 		void TDemWork(ksDocument2D doc)
 		{
 			ksDynamicArray pGab = (ksDynamicArray)kompas.GetDynamicArray(ldefin2d.RECT_ARR);
 
-			//поместим техтребования в двух габаритных окнах
+			//РїРѕРјРµСЃС‚РёРј С‚РµС…С‚СЂРµР±РѕРІР°РЅРёСЏ РІ РґРІСѓС… РіР°Р±Р°СЂРёС‚РЅС‹С… РѕРєРЅР°С…
 			ksRectParam par = (ksRectParam)kompas.GetParamStruct((short)StructType2DEnum.ko_RectParam);
 			ksMathPointParam pBot = (ksMathPointParam)kompas.GetParamStruct((short)StructType2DEnum.ko_MathPointParam);
 			ksMathPointParam pTop = (ksMathPointParam)kompas.GetParamStruct((short)StructType2DEnum.ko_MathPointParam);
@@ -239,7 +239,7 @@ namespace Steps.NET
 			}
 		}
 
-		// Создание таблицы
+		// РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹
 		void TableWork(ksDocument2D doc)
 		{
 			doc.ksTable();
@@ -257,7 +257,7 @@ namespace Steps.NET
 			doc.ksEndObj();
 		}
 
-		// Создание стрелки вида
+		// РЎРѕР·РґР°РЅРёРµ СЃС‚СЂРµР»РєРё РІРёРґР°
 		void DrawViewPointer(ksDocument2D doc)
 		{
 			ksViewPointerParam par = (ksViewPointerParam)kompas.GetParamStruct((short)StructType2DEnum.ko_ViewPointerParam);
@@ -265,21 +265,21 @@ namespace Steps.NET
 			{
 				par.Init();
 				par.x1 = 55;
-				par.y1 = 50;   // координаты вершины( острия) стрелки
+				par.y1 = 50;   // РєРѕРѕСЂРґРёРЅР°С‚С‹ РІРµСЂС€РёРЅС‹( РѕСЃС‚СЂРёСЏ) СЃС‚СЂРµР»РєРё
 				par.x2 = 40;
-				par.y2 = 50;   // координаты конечной точки стрелки
+				par.y2 = 50;   // РєРѕРѕСЂРґРёРЅР°С‚С‹ РєРѕРЅРµС‡РЅРѕР№ С‚РѕС‡РєРё СЃС‚СЂРµР»РєРё
 				par.xt = 40;
-				par.yt = 52;   // координаты текста
+				par.yt = 52;   // РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РµРєСЃС‚Р°
 				par.type = 0;
-				par.str = "A"; // надпись
+				par.str = "A"; // РЅР°РґРїРёСЃСЊ
 
-				reference p = doc.ksViewPointer(par); //параметры "стрелки вида"
+				reference p = doc.ksViewPointer(par); //РїР°СЂР°РјРµС‚СЂС‹ "СЃС‚СЂРµР»РєРё РІРёРґР°"
 				if (doc.ksExistObj(p) == 1)
 					doc.ksLightObj(p, 1);
 			}
 		}
 
-		// Заполнение основной надписи
+		// Р—Р°РїРѕР»РЅРµРЅРёРµ РѕСЃРЅРѕРІРЅРѕР№ РЅР°РґРїРёСЃРё
 		void WorkStamp(ksDocument2D doc)
 		{
 			ksStamp stamp = (ksStamp)doc.GetStamp();
@@ -308,7 +308,7 @@ namespace Steps.NET
 			}
 		}
 
-		// Допуск формы
+		// Р”РѕРїСѓСЃРє С„РѕСЂРјС‹
 		void WorkTolerance(ksDocument2D doc)
 		{
 			ksToleranceParam par = (ksToleranceParam)kompas.GetParamStruct((short)StructType2DEnum.ko_ToleranceParam);
@@ -328,7 +328,7 @@ namespace Steps.NET
 					ksDynamicArray arr = (ksDynamicArray)tolBran.GetpMathPoint();
 					if (arr != null)
 					{
-						// заполняем параметры 1-ой ноги
+						// Р·Р°РїРѕР»РЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹ 1-РѕР№ РЅРѕРіРё
 						parPoint.x = 40;
 						parPoint.y = 10;
 						arr.ksAddArrayItem(-1, parPoint);
@@ -336,7 +336,7 @@ namespace Steps.NET
 						tolBran.tCorner = 1;
 						branchArr.ksAddArrayItem(-1, tolBran);
 
-						// заполняем параметры 2-ой ноги
+						// Р·Р°РїРѕР»РЅСЏРµРј РїР°СЂР°РјРµС‚СЂС‹ 2-РѕР№ РЅРѕРіРё
 						arr.ksClearArray();
 						parPoint.x = 100;
 						parPoint.y = 50;
@@ -352,7 +352,7 @@ namespace Steps.NET
 						par.y = 40;
 						par.type = 0;
 
-						// допуск формы составной объект
+						// РґРѕРїСѓСЃРє С„РѕСЂРјС‹ СЃРѕСЃС‚Р°РІРЅРѕР№ РѕР±СЉРµРєС‚
 						if (doc.ksTolerance(par) == 1)
 						{
 							ksTextItemParam itemParam = (ksTextItemParam)kompas.GetParamStruct((short)StructType2DEnum.ko_TextItemParam);
@@ -400,7 +400,7 @@ namespace Steps.NET
 							}
 						}
 
-						reference p = doc.ksEndObj(); //вернется указатель на допуск формы
+						reference p = doc.ksEndObj(); //РІРµСЂРЅРµС‚СЃСЏ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РґРѕРїСѓСЃРє С„РѕСЂРјС‹
 						doc.ksLightObj(p, 1);
 					}
 					arr.ksDeleteArray();
@@ -409,26 +409,26 @@ namespace Steps.NET
 			}
 		}
 
-		// Построить эквидистанту
+		// РџРѕСЃС‚СЂРѕРёС‚СЊ СЌРєРІРёРґРёСЃС‚Р°РЅС‚Сѓ
 		void DrawEquidistant(ksDocument2D doc)
 		{
 			ksEquidistantParam par = (ksEquidistantParam)kompas.GetParamStruct((short)StructType2DEnum.ko_EquidParam);
 			ksRequestInfo info = (ksRequestInfo)kompas.GetParamStruct((short)StructType2DEnum.ko_RequestInfo);
 			if (par != null && info != null)
 			{
-				par.side = 2;     // признак, с какой стороны строить эквидистанту
-				// 0-слева по направлению, 1-справа по направлению, 2-с двух сторон
-				par.cutMode = false;  // тип обхода углов контура
-				// 0-обход срезом, 1- обход дугой
-				par.degState = false; // флаг разрешения вырожденных сегментов эквидистанты
-				// 0-вырожденные сегменты запрещены, 1-вырожденные сегменты разрешены
-				par.radRight = 5; // радиус эквидистанты
-				par.radLeft = 3;  // радиус эквидистанты
-				par.style = 1;    // тип линии
-				info.commandsString = "Укажите объект";
+				par.side = 2;     // РїСЂРёР·РЅР°Рє, СЃ РєР°РєРѕР№ СЃС‚РѕСЂРѕРЅС‹ СЃС‚СЂРѕРёС‚СЊ СЌРєРІРёРґРёСЃС‚Р°РЅС‚Сѓ
+				// 0-СЃР»РµРІР° РїРѕ РЅР°РїСЂР°РІР»РµРЅРёСЋ, 1-СЃРїСЂР°РІР° РїРѕ РЅР°РїСЂР°РІР»РµРЅРёСЋ, 2-СЃ РґРІСѓС… СЃС‚РѕСЂРѕРЅ
+				par.cutMode = false;  // С‚РёРї РѕР±С…РѕРґР° СѓРіР»РѕРІ РєРѕРЅС‚СѓСЂР°
+				// 0-РѕР±С…РѕРґ СЃСЂРµР·РѕРј, 1- РѕР±С…РѕРґ РґСѓРіРѕР№
+				par.degState = false; // С„Р»Р°Рі СЂР°Р·СЂРµС€РµРЅРёСЏ РІС‹СЂРѕР¶РґРµРЅРЅС‹С… СЃРµРіРјРµРЅС‚РѕРІ СЌРєРІРёРґРёСЃС‚Р°РЅС‚С‹
+				// 0-РІС‹СЂРѕР¶РґРµРЅРЅС‹Рµ СЃРµРіРјРµРЅС‚С‹ Р·Р°РїСЂРµС‰РµРЅС‹, 1-РІС‹СЂРѕР¶РґРµРЅРЅС‹Рµ СЃРµРіРјРµРЅС‚С‹ СЂР°Р·СЂРµС€РµРЅС‹
+				par.radRight = 5; // СЂР°РґРёСѓСЃ СЌРєРІРёРґРёСЃС‚Р°РЅС‚С‹
+				par.radLeft = 3;  // СЂР°РґРёСѓСЃ СЌРєРІРёРґРёСЃС‚Р°РЅС‚С‹
+				par.style = 1;    // С‚РёРї Р»РёРЅРёРё
+				info.commandsString = "РЈРєР°Р¶РёС‚Рµ РѕР±СЉРµРєС‚";
 				double x = 0;
 				double y = 0;
-				// найдем объект
+				// РЅР°Р№РґРµРј РѕР±СЉРµРєС‚
 				int j;
 				reference p1;
 				do
@@ -440,23 +440,23 @@ namespace Steps.NET
 						if (doc.ksExistObj(par.geoObj) == 1)
 						{
 							if ((p1 = doc.ksEquidistant(par)) != 0)
-							{ // параметры эквидистанты
+							{ // РїР°СЂР°РјРµС‚СЂС‹ СЌРєРІРёРґРёСЃС‚Р°РЅС‚С‹
 
 								doc.ksLightObj(p1, 1);
-								kompas.ksMessage("эквидистанта");
+								kompas.ksMessage("СЌРєРІРёРґРёСЃС‚Р°РЅС‚Р°");
 								doc.ksLightObj(p1, 0);
 							}
 							else
 								kompas.ksMessageBoxResult();
 						}
 						else
-							kompas.ksError("объект не найден");
+							kompas.ksError("РѕР±СЉРµРєС‚ РЅРµ РЅР°Р№РґРµРЅ");
 					}
 				} while (j != 0);
 			}
 		}
 
-		// Создать эллипс
+		// РЎРѕР·РґР°С‚СЊ СЌР»Р»РёРїСЃ
 		void DrawEllipse(ksDocument2D doc)
 		{
 			ksEllipseParam par = (ksEllipseParam)kompas.GetParamStruct((short)StructType2DEnum.ko_EllipseParam);
@@ -470,15 +470,15 @@ namespace Steps.NET
 				par.style = 1;
 				reference p = doc.ksEllipse(par);
 				doc.ksLightObj(p, 1);
-				kompas.ksMessage("эллипс");
+				kompas.ksMessage("СЌР»Р»РёРїСЃ");
 				doc.ksLightObj(p, 0);
 			}
 		}
 
-		// Создание полилинии
+		// РЎРѕР·РґР°РЅРёРµ РїРѕР»РёР»РёРЅРёРё
 		void DrawPolyline(ksDocument2D doc)
 		{
-			//пример создания полилинии одной функцией
+			//РїСЂРёРјРµСЂ СЃРѕР·РґР°РЅРёСЏ РїРѕР»РёР»РёРЅРёРё РѕРґРЅРѕР№ С„СѓРЅРєС†РёРµР№
 			ksPolylineParam par = (ksPolylineParam)kompas.GetParamStruct((short)StructType2DEnum.ko_PolylineParam);
 			ksMathPointParam pr = (ksMathPointParam)kompas.GetParamStruct((short)StructType2DEnum.ko_MathPointParam);
 			if (par != null && pr != null)
@@ -505,7 +505,7 @@ namespace Steps.NET
 					par.style = 2;
 					reference p = doc.ksPolylineByParam(par);
 					doc.ksLightObj(p, 1);
-					kompas.ksMessage("Полилиния");
+					kompas.ksMessage("РџРѕР»РёР»РёРЅРёСЏ");
 					doc.ksLightObj(p, 0);
 
 					arr.ksDeleteArray();
@@ -513,14 +513,14 @@ namespace Steps.NET
 			}
 		}
 
-		// Создать Nurbs - сплайн
+		// РЎРѕР·РґР°С‚СЊ Nurbs - СЃРїР»Р°Р№РЅ
 		void DrawNurbs(ksDocument2D doc)
 		{
 			ksNurbsPointParam par = (ksNurbsPointParam)kompas.GetParamStruct((short)StructType2DEnum.ko_NurbsPointParam);
 			if (par != null)
 			{
 				par.Init();
-				//построить Nurbs сплайн  как составной объект
+				//РїРѕСЃС‚СЂРѕРёС‚СЊ Nurbs СЃРїР»Р°Р№РЅ  РєР°Рє СЃРѕСЃС‚Р°РІРЅРѕР№ РѕР±СЉРµРєС‚
 				doc.ksNurbs(3, false, 1);
 				par.x = 0;
 				par.y = 0;
@@ -553,16 +553,16 @@ namespace Steps.NET
 			}
 		}
 
-		// Вставка внешнего фрагмента
+		// Р’СЃС‚Р°РІРєР° РІРЅРµС€РЅРµРіРѕ С„СЂР°РіРјРµРЅС‚Р°
 		void DrawInsFragment1(ksDocument2D doc)
 		{
 			ksFragment frg = (ksFragment)doc.GetFragment();
 			if (frg != null)
 			{
-				// определим фрагмент для вставки
-				reference pDefFrg = frg.ksFragmentDefinition(@"c:\1.frw", // имя файла фрагмента
-					"frw1",      // имя вставки
-					1);         // тип вставки 1 - внешней ссылкой
+				// РѕРїСЂРµРґРµР»РёРј С„СЂР°РіРјРµРЅС‚ РґР»СЏ РІСЃС‚Р°РІРєРё
+				reference pDefFrg = frg.ksFragmentDefinition(@"c:\1.frw", // РёРјСЏ С„Р°Р№Р»Р° С„СЂР°РіРјРµРЅС‚Р°
+					"frw1",      // РёРјСЏ РІСЃС‚Р°РІРєРё
+					1);         // С‚РёРї РІСЃС‚Р°РІРєРё 1 - РІРЅРµС€РЅРµР№ СЃСЃС‹Р»РєРѕР№
 				if (pDefFrg > 0)
 				{
 					ksPlacementParam par = (ksPlacementParam)kompas.GetParamStruct((short)StructType2DEnum.ko_PlacementParam);
@@ -572,27 +572,27 @@ namespace Steps.NET
 						par.scale_ = 2;
 						par.xBase = 30;
 						par.yBase = 40;
-						// создаем объект "вставка фрагмента"
-						reference p = frg.ksInsertFragment(pDefFrg,     // Указатель определения  фрагмента
-							false,       // тип размещения по слоям false - на свои слои 
-							par);       // параметры привязки
+						// СЃРѕР·РґР°РµРј РѕР±СЉРµРєС‚ "РІСЃС‚Р°РІРєР° С„СЂР°РіРјРµРЅС‚Р°"
+						reference p = frg.ksInsertFragment(pDefFrg,     // РЈРєР°Р·Р°С‚РµР»СЊ РѕРїСЂРµРґРµР»РµРЅРёСЏ  С„СЂР°РіРјРµРЅС‚Р°
+							false,       // С‚РёРї СЂР°Р·РјРµС‰РµРЅРёСЏ РїРѕ СЃР»РѕСЏРј false - РЅР° СЃРІРѕРё СЃР»РѕРё 
+							par);       // РїР°СЂР°РјРµС‚СЂС‹ РїСЂРёРІСЏР·РєРё
 						doc.ksLightObj(p, 1);
-						kompas.ksMessage("вставка внешнего фрагмента");
+						kompas.ksMessage("РІСЃС‚Р°РІРєР° РІРЅРµС€РЅРµРіРѕ С„СЂР°РіРјРµРЅС‚Р°");
 						doc.ksLightObj(p, 0);
 					}
 				}
 			}
 		}
 
-		// Вставка локального фрагмента
+		// Р’СЃС‚Р°РІРєР° Р»РѕРєР°Р»СЊРЅРѕРіРѕ С„СЂР°РіРјРµРЅС‚Р°
 		void DrawInsFragment2(ksDocument2D doc)
 		{
-			// определим фрагмент для вставки
+			// РѕРїСЂРµРґРµР»РёРј С„СЂР°РіРјРµРЅС‚ РґР»СЏ РІСЃС‚Р°РІРєРё
 			ksFragment frg = (ksFragment)doc.GetFragment();
 			if (frg != null)
 			{
 				reference pDefFrg;
-				// определим локальный фрагмент
+				// РѕРїСЂРµРґРµР»РёРј Р»РѕРєР°Р»СЊРЅС‹Р№ С„СЂР°РіРјРµРЅС‚
 				if (frg.ksLocalFragmentDefinition("local") == 1)
 				{
 					doc.ksLineSeg(0, 0, 10, 0, 1);
@@ -608,12 +608,12 @@ namespace Steps.NET
 							par.scale_ = 2;
 							par.xBase = 30;
 							par.yBase = 40;
-							// создаем объект "вставка фрагмента"
-							reference p = frg.ksInsertFragment(pDefFrg,     // Указатель определения  фрагмента
-								false,       // тип размещения по слоям false - на свои слои 
-								par);       // параметры привязки
+							// СЃРѕР·РґР°РµРј РѕР±СЉРµРєС‚ "РІСЃС‚Р°РІРєР° С„СЂР°РіРјРµРЅС‚Р°"
+							reference p = frg.ksInsertFragment(pDefFrg,     // РЈРєР°Р·Р°С‚РµР»СЊ РѕРїСЂРµРґРµР»РµРЅРёСЏ  С„СЂР°РіРјРµРЅС‚Р°
+								false,       // С‚РёРї СЂР°Р·РјРµС‰РµРЅРёСЏ РїРѕ СЃР»РѕСЏРј false - РЅР° СЃРІРѕРё СЃР»РѕРё 
+								par);       // РїР°СЂР°РјРµС‚СЂС‹ РїСЂРёРІСЏР·РєРё
 							doc.ksLightObj(p, 1);
-							kompas.ksMessage("вставка локального фрагмента");
+							kompas.ksMessage("РІСЃС‚Р°РІРєР° Р»РѕРєР°Р»СЊРЅРѕРіРѕ С„СЂР°РіРјРµРЅС‚Р°");
 							doc.ksLightObj(p, 0);
 						}
 					}
@@ -636,12 +636,12 @@ namespace Steps.NET
 		}
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -657,11 +657,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

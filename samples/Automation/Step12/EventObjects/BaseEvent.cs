@@ -1,6 +1,6 @@
-/////////////////////////////////////////////////////////////////////////////
+п»ї/////////////////////////////////////////////////////////////////////////////
 //
-// Базовый клас для обработчиков событий
+// Р‘Р°Р·РѕРІС‹Р№ РєР»Р°СЃ РґР»СЏ РѕР±СЂР°Р±РѕС‚С‡РёРєРѕРІ СЃРѕР±С‹С‚РёР№
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -98,12 +98,12 @@ namespace Steps.NET
 		}
 
 
-		// Подписаться на получение событий
+		// РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№
 		public int Advise()
 		{
-			Debug.Assert(m_Cookie == 0, "Повторно подписываться нельзя");
+			Debug.Assert(m_Cookie == 0, "РџРѕРІС‚РѕСЂРЅРѕ РїРѕРґРїРёСЃС‹РІР°С‚СЊСЃСЏ РЅРµР»СЊР·СЏ");
 
-			// Подписаться на получение событий
+			// РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№
 			if (m_Container != null) 
 			{
 				IConnectionPointContainer cpContainer = m_Container as IConnectionPointContainer;
@@ -122,19 +122,19 @@ namespace Steps.NET
 		}
 
 
-		// Отписаться от получения событий
+		// РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№
 		void Unadvise()
 		{
-			if (m_ConnPt != null)				// Подписка была
+			if (m_ConnPt != null)				// РџРѕРґРїРёСЃРєР° Р±С‹Р»Р°
 			{
-				m_ConnPt.Unadvise(m_Cookie);	// Отписаться от получения событий
+				m_ConnPt.Unadvise(m_Cookie);	// РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№
 				m_ConnPt = null;
 			} 
 			m_Cookie = 0;
 		}
 
 
-		// Отписать все события
+		// РћС‚РїРёСЃР°С‚СЊ РІСЃРµ СЃРѕР±С‹С‚РёСЏ
 		public static void TerminateEvents()
 		{
 			int count = Global.EventList.Count;
@@ -147,7 +147,7 @@ namespace Steps.NET
 		}
 
 
-		// Отписать все события по GUID и документу
+		// РћС‚РїРёСЃР°С‚СЊ РІСЃРµ СЃРѕР±С‹С‚РёСЏ РїРѕ GUID Рё РґРѕРєСѓРјРµРЅС‚Сѓ
 		public static void TerminateEvents(Type type, object doc)
 		{
 			int count = Global.EventList.Count;
@@ -160,14 +160,14 @@ namespace Steps.NET
 					(evt.GetType() == type || type == null) &&
 					(doc == null || evt.m_Doc == doc))
 				{
-					evt.Disconnect();	// В деструкторе будет удален из списка RemoveAt(pos)
+					evt.Disconnect();	// Р’ РґРµСЃС‚СЂСѓРєС‚РѕСЂРµ Р±СѓРґРµС‚ СѓРґР°Р»РµРЅ РёР· СЃРїРёСЃРєР° RemoveAt(pos)
 					Global.EventList.Remove(evt);
 				}
 			}
 		}
 
 
-		// Освободить ссылки
+		// РћСЃРІРѕР±РѕРґРёС‚СЊ СЃСЃС‹Р»РєРё
 		void Clear()
 		{
 			if (m_Container != null) 
@@ -184,7 +184,7 @@ namespace Steps.NET
 		}
 
 
-		// Отсоединиться
+		// РћС‚СЃРѕРµРґРёРЅРёС‚СЊСЃСЏ
 		void Disconnect()
 		{
 			Unadvise();

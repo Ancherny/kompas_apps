@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// Document2DEvent - обработчик событий от 2D документа
+// Document2DEvent - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ 2D РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -17,14 +17,14 @@ namespace Steps.NET
 		public Document2DEvent(object obj, object doc)
 			: base(obj, typeof(ksDocument2DNotify).GUID, doc) {}
 
-		// d3BeginRebuild - Начало перестроения модели
+		// d3BeginRebuild - РќР°С‡Р°Р»Рѕ РїРµСЂРµСЃС‚СЂРѕРµРЅРёСЏ РјРѕРґРµР»Рё
 		public bool BeginRebuild()
 		{ 
 			return true;
 		}
 
 
-		// d3Rebuild - Модель перестроена
+		// d3Rebuild - РњРѕРґРµР»СЊ РїРµСЂРµСЃС‚СЂРѕРµРЅР°
 		public bool Rebuild()
 		{   
 			Global.UpdateSlideBox(null);
@@ -32,21 +32,21 @@ namespace Steps.NET
 		}
 
 
-		// d3BeginChoiceMaterial - Начало выбора материала
+		// d3BeginChoiceMaterial - РќР°С‡Р°Р»Рѕ РІС‹Р±РѕСЂР° РјР°С‚РµСЂРёР°Р»Р°
 		public bool BeginChoiceMaterial()
 		{ 
 			return true;
 		}
 
 
-		// d3СhoiceMaterial - Закончен выбор материала
+		// d3РЎhoiceMaterial - Р—Р°РєРѕРЅС‡РµРЅ РІС‹Р±РѕСЂ РјР°С‚РµСЂРёР°Р»Р°
 		public bool ChoiceMaterial(string material, double density)
 		{
 			return true;
 		}
 
 
-		// d2BeginInsertFragment - Начало вставки фрагмента (до диалога выбора имени)
+		// d2BeginInsertFragment - РќР°С‡Р°Р»Рѕ РІСЃС‚Р°РІРєРё С„СЂР°РіРјРµРЅС‚Р° (РґРѕ РґРёР°Р»РѕРіР° РІС‹Р±РѕСЂР° РёРјРµРЅРё)
 		public bool BeginInsertFragment()
 		{
 			return true;

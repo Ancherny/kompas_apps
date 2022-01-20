@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// ApplicationEvent  - обработчик событий от приложения
+// ApplicationEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РїСЂРёР»РѕР¶РµРЅРёСЏ
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,7 +18,7 @@ namespace Steps.NET
 			: base(obj, typeof(ksKompasObjectNotify).GUID, null) {}
 		
 
-		// koApplicatinDestroy - Закрытие приложения
+		// koApplicatinDestroy - Р—Р°РєСЂС‹С‚РёРµ РїСЂРёР»РѕР¶РµРЅРёСЏ
 		public bool ApplicationDestroy()
 		{
 			TerminateEvents();
@@ -26,7 +26,7 @@ namespace Steps.NET
 		}
 
 
-		// koBeginCloseAllDocument - Начало закрытия всех открытых документов
+		// koBeginCloseAllDocument - РќР°С‡Р°Р»Рѕ Р·Р°РєСЂС‹С‚РёСЏ РІСЃРµС… РѕС‚РєСЂС‹С‚С‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ
 		public bool BeginCloseAllDocument()
 		{
 			Global.UpdateSlideBox(null);
@@ -34,28 +34,28 @@ namespace Steps.NET
 		}
 
 
-		// koBeginCreate - Начало создания документа(до диалога выбора типа)
+		// koBeginCreate - РќР°С‡Р°Р»Рѕ СЃРѕР·РґР°РЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°(РґРѕ РґРёР°Р»РѕРіР° РІС‹Р±РѕСЂР° С‚РёРїР°)
 		public bool BeginCreate(int docType)
 		{
 			return true;
 		}
 
 
-		// koOpenDocumenBegin - Начало открытия документа
+		// koOpenDocumenBegin - РќР°С‡Р°Р»Рѕ РѕС‚РєСЂС‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 		public bool BeginOpenDocument(string fileName)
 		{
 			return true;
 		}
 
 
-		// koBeginOpenFile - Начало открытия документа(до диалога выбора имени)
+		// koBeginOpenFile - РќР°С‡Р°Р»Рѕ РѕС‚РєСЂС‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°(РґРѕ РґРёР°Р»РѕРіР° РІС‹Р±РѕСЂР° РёРјРµРЅРё)
 		public bool BeginOpenFile()
 		{
 			return true;
 		}
 
 
-		// koActiveDocument - Переключение на другой активный документ
+		// koActiveDocument - РџРµСЂРµРєР»СЋС‡РµРЅРёРµ РЅР° РґСЂСѓРіРѕР№ Р°РєС‚РёРІРЅС‹Р№ РґРѕРєСѓРјРµРЅС‚
 		public bool ChangeActiveDocument(object newDoc, int docType)
 		{
 			Global.UpdateSlideBox(newDoc); 
@@ -63,7 +63,7 @@ namespace Steps.NET
 		}
 
 
-		// koCreateDocument - Документ создан
+		// koCreateDocument - Р”РѕРєСѓРјРµРЅС‚ СЃРѕР·РґР°РЅ
 		public bool CreateDocument(object newDoc, int docType)
 		{
 			Global.AdviseDoc(newDoc, docType);
@@ -72,7 +72,7 @@ namespace Steps.NET
 		}
 
 
-		// koOpenDocumen - Документ открыт
+		// koOpenDocumen - Р”РѕРєСѓРјРµРЅС‚ РѕС‚РєСЂС‹С‚
 		public bool OpenDocument(object newDoc, int docType)
 		{
 			Global.AdviseDoc(newDoc, docType);
@@ -80,19 +80,19 @@ namespace Steps.NET
 			return true;
 		}
 
-    // koKeyDown - Событие клавиатуры
+    // koKeyDown - РЎРѕР±С‹С‚РёРµ РєР»Р°РІРёР°С‚СѓСЂС‹
     public bool KeyDown( ref int key, int flags, bool system )
     {
       return true;
     }
 
-    // koKeyUp - Событие клавиатуры
+    // koKeyUp - РЎРѕР±С‹С‚РёРµ РєР»Р°РІРёР°С‚СѓСЂС‹
     public bool KeyUp( ref int key, int flags, bool system )
     {
       return true;
     }
 
-    // koKeyPress - Событие клавиатуры
+    // koKeyPress - РЎРѕР±С‹С‚РёРµ РєР»Р°РІРёР°С‚СѓСЂС‹
     public bool KeyPress( ref int key, bool system )
     {
       return true;

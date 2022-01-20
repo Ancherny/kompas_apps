@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
@@ -40,7 +40,7 @@ namespace Steps.NET
 		{
 			InitializeComponent();
 
-			// Читаем настройки из файла
+			// Р§РёС‚Р°РµРј РЅР°СЃС‚СЂРѕР№РєРё РёР· С„Р°Р№Р»Р°
 			FileInfo fInfo = new FileInfo(Assembly.GetExecutingAssembly().Location + ".config");
 			if (fInfo.Exists)
 			{
@@ -111,7 +111,7 @@ namespace Steps.NET
 			this.chbAutoAdvise.Name = "chbAutoAdvise";
 			this.chbAutoAdvise.Size = new System.Drawing.Size(328, 24);
 			this.chbAutoAdvise.TabIndex = 0;
-			this.chbAutoAdvise.Text = "Автоподписка при загрузке";
+			this.chbAutoAdvise.Text = "РђРІС‚РѕРїРѕРґРїРёСЃРєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ";
 			// 
 			// group
 			// 
@@ -144,7 +144,7 @@ namespace Steps.NET
 			this.chbSpecObjEvents.Name = "chbSpecObjEvents";
 			this.chbSpecObjEvents.Size = new System.Drawing.Size(354, 24);
 			this.chbSpecObjEvents.TabIndex = 11;
-			this.chbSpecObjEvents.Text = "Выдавать сообщения для событий объекта спецификации ";
+			this.chbSpecObjEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё ";
 			// 
 			// chbSpecDocEvents
 			// 
@@ -154,7 +154,7 @@ namespace Steps.NET
 			this.chbSpecDocEvents.Name = "chbSpecDocEvents";
 			this.chbSpecDocEvents.Size = new System.Drawing.Size(354, 24);
 			this.chbSpecDocEvents.TabIndex = 10;
-			this.chbSpecDocEvents.Text = "Выдавать сообщения для событий документа спецификации";
+			this.chbSpecDocEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ РґРѕРєСѓРјРµРЅС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё";
 			// 
 			// chb3DDocEvents
 			// 
@@ -164,7 +164,7 @@ namespace Steps.NET
 			this.chb3DDocEvents.Name = "chb3DDocEvents";
 			this.chb3DDocEvents.Size = new System.Drawing.Size(354, 24);
 			this.chb3DDocEvents.TabIndex = 9;
-			this.chb3DDocEvents.Text = "Выдавать сообщения для событий 3D документа";
+			this.chb3DDocEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ 3D РґРѕРєСѓРјРµРЅС‚Р°";
 			// 
 			// chb2DDocEvents
 			// 
@@ -174,7 +174,7 @@ namespace Steps.NET
 			this.chb2DDocEvents.Name = "chb2DDocEvents";
 			this.chb2DDocEvents.Size = new System.Drawing.Size(354, 24);
 			this.chb2DDocEvents.TabIndex = 8;
-			this.chb2DDocEvents.Text = "Выдавать сообщения для событий 2D документа";
+			this.chb2DDocEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ 2D РґРѕРєСѓРјРµРЅС‚Р°";
 			// 
 			// chbSpecEvents
 			// 
@@ -184,7 +184,7 @@ namespace Steps.NET
 			this.chbSpecEvents.Name = "chbSpecEvents";
 			this.chbSpecEvents.Size = new System.Drawing.Size(354, 24);
 			this.chbSpecEvents.TabIndex = 7;
-			this.chbSpecEvents.Text = "Выдавать сообщения для событий спецификации";
+			this.chbSpecEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ СЃРїРµС†РёС„РёРєР°С†РёРё";
 			// 
 			// chb3DObjEvents
 			// 
@@ -194,7 +194,7 @@ namespace Steps.NET
 			this.chb3DObjEvents.Name = "chb3DObjEvents";
 			this.chb3DObjEvents.Size = new System.Drawing.Size(354, 24);
 			this.chb3DObjEvents.TabIndex = 6;
-			this.chb3DObjEvents.Text = "Выдавать сообщения для событий объекта 3D документа";
+			this.chb3DObjEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚Р° 3D РґРѕРєСѓРјРµРЅС‚Р°";
 			// 
 			// chbStampEvents
 			// 
@@ -204,7 +204,7 @@ namespace Steps.NET
 			this.chbStampEvents.Name = "chbStampEvents";
 			this.chbStampEvents.Size = new System.Drawing.Size(354, 24);
 			this.chbStampEvents.TabIndex = 5;
-			this.chbStampEvents.Text = "Выдавать сообщения для событий штампа";
+			this.chbStampEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ С€С‚Р°РјРїР°";
 			// 
 			// chbSelectEvents
 			// 
@@ -214,7 +214,7 @@ namespace Steps.NET
 			this.chbSelectEvents.Name = "chbSelectEvents";
 			this.chbSelectEvents.Size = new System.Drawing.Size(354, 24);
 			this.chbSelectEvents.TabIndex = 4;
-			this.chbSelectEvents.Text = "Выдавать сообщения для событий селектирования";
+			this.chbSelectEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ СЃРµР»РµРєС‚РёСЂРѕРІР°РЅРёСЏ";
 			// 
 			// chb2DObjEvents
 			// 
@@ -224,7 +224,7 @@ namespace Steps.NET
 			this.chb2DObjEvents.Name = "chb2DObjEvents";
 			this.chb2DObjEvents.Size = new System.Drawing.Size(354, 24);
 			this.chb2DObjEvents.TabIndex = 3;
-			this.chb2DObjEvents.Text = "Выдавать сообщения для событий объекта 2D документа";
+			this.chb2DObjEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚Р° 2D РґРѕРєСѓРјРµРЅС‚Р°";
 			// 
 			// chbDocEvents
 			// 
@@ -234,7 +234,7 @@ namespace Steps.NET
 			this.chbDocEvents.Name = "chbDocEvents";
 			this.chbDocEvents.Size = new System.Drawing.Size(354, 24);
 			this.chbDocEvents.TabIndex = 2;
-			this.chbDocEvents.Text = "Выдавать сообщения для событий документов";
+			this.chbDocEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ РґРѕРєСѓРјРµРЅС‚РѕРІ";
 			// 
 			// chbAppEvents
 			// 
@@ -244,7 +244,7 @@ namespace Steps.NET
 			this.chbAppEvents.Name = "chbAppEvents";
 			this.chbAppEvents.Size = new System.Drawing.Size(354, 24);
 			this.chbAppEvents.TabIndex = 1;
-			this.chbAppEvents.Text = "Выдавать сообщения для событий Компаса";
+			this.chbAppEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ РљРѕРјРїР°СЃР°";
 			// 
 			// btnOK
 			// 
@@ -254,7 +254,7 @@ namespace Steps.NET
 			this.btnOK.Name = "btnOK";
 			this.btnOK.Size = new System.Drawing.Size(64, 23);
 			this.btnOK.TabIndex = 2;
-			this.btnOK.Text = "ОК";
+			this.btnOK.Text = "РћРљ";
 			this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
 			// 
 			// btnCancel
@@ -265,7 +265,7 @@ namespace Steps.NET
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(64, 23);
 			this.btnCancel.TabIndex = 3;
-			this.btnCancel.Text = "Отмена";
+			this.btnCancel.Text = "РћС‚РјРµРЅР°";
 			// 
 			// chbDocFrameEvents
 			// 
@@ -275,7 +275,7 @@ namespace Steps.NET
 			this.chbDocFrameEvents.Name = "chbDocFrameEvents";
 			this.chbDocFrameEvents.Size = new System.Drawing.Size(354, 24);
 			this.chbDocFrameEvents.TabIndex = 12;
-			this.chbDocFrameEvents.Text = "Выдавать сообщения для событий объекта спецификации ";
+			this.chbDocFrameEvents.Text = "Р’С‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РґР»СЏ СЃРѕР±С‹С‚РёР№ РѕР±СЉРµРєС‚Р° СЃРїРµС†РёС„РёРєР°С†РёРё ";
 			// 
 			// FrmConfig
 			// 
@@ -293,7 +293,7 @@ namespace Steps.NET
 			this.Name = "FrmConfig";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Конфигурация";
+			this.Text = "РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ";
 			this.Load += new System.EventHandler(this.FrmConfig_Load);
 			this.group.ResumeLayout(false);
 			this.ResumeLayout(false);
@@ -317,7 +317,7 @@ namespace Steps.NET
 
 		private void btnOK_Click(object sender, System.EventArgs e)
 		{
-			// Сохраняем настройки в файл
+			// РЎРѕС…СЂР°РЅСЏРµРј РЅР°СЃС‚СЂРѕР№РєРё РІ С„Р°Р№Р»
 			xmlDoc = new XmlDocument();
 			XmlNode xmlroot = xmlDoc.CreateNode(XmlNodeType.Element, "EventsAutoConfig", string.Empty);
 			xmlDoc.AppendChild(xmlroot);

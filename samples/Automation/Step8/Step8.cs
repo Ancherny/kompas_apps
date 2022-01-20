@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 
 using System;
 using Microsoft.Win32;
@@ -12,7 +12,7 @@ using reference = System.Int32;
 
 namespace Steps.NET
 {
-	// Класс Step8 - Работа с атрибутами
+	// РљР»Р°СЃСЃ Step8 - Р Р°Р±РѕС‚Р° СЃ Р°С‚СЂРёР±СѓС‚Р°РјРё
   [ClassInterface(ClassInterfaceType.AutoDual)]
 	public class Step8
 	{
@@ -20,14 +20,14 @@ namespace Steps.NET
 		private ksDocument2D doc;
 		private ksAttributeObject attr;
 
-		// Имя библиотеки
+		// РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
 		{
-			return "Step8 - Работа с атрибутами";
+			return "Step8 - Р Р°Р±РѕС‚Р° СЃ Р°С‚СЂРёР±СѓС‚Р°РјРё";
 		}
 		
 
-		// Головная функция библиотеки
+		// Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 		public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
 		{
 			kompas = (KompasObject) kompas_;
@@ -40,73 +40,73 @@ namespace Steps.NET
 				{
 					switch (command)
 					{
-						case 1  : FuncAttrType();			break; // создать тип атрибута
-						case 2  : DelTypeAttr();			break; // удалить  тип атрибута
-						case 3  : ShowTypeAttr();			break; // получить  тип атрибута
-						case 4  : ChangeType();				break; // заменить  тип атрибута
-						case 5  : NewAttr();				break; // создать атрибут определенного типа
-						case 6  : DelObjAttr();				break; // удалить атрибут
-						case 7  : ReadObjAttr();			break; // считать атрибут
-						case 8  : ShowObjAttr();			break; // просмотреть атрибут
-						case 9  : ShowLib();				break; // просмотреть библиотеку
-						case 10 : ShowType();				break; // просмотреть тип
-						case 11 : WalkFromObjWithAttr();	break; // просмотреть атрибут
+						case 1  : FuncAttrType();			break; // СЃРѕР·РґР°С‚СЊ С‚РёРї Р°С‚СЂРёР±СѓС‚Р°
+						case 2  : DelTypeAttr();			break; // СѓРґР°Р»РёС‚СЊ  С‚РёРї Р°С‚СЂРёР±СѓС‚Р°
+						case 3  : ShowTypeAttr();			break; // РїРѕР»СѓС‡РёС‚СЊ  С‚РёРї Р°С‚СЂРёР±СѓС‚Р°
+						case 4  : ChangeType();				break; // Р·Р°РјРµРЅРёС‚СЊ  С‚РёРї Р°С‚СЂРёР±СѓС‚Р°
+						case 5  : NewAttr();				break; // СЃРѕР·РґР°С‚СЊ Р°С‚СЂРёР±СѓС‚ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ С‚РёРїР°
+						case 6  : DelObjAttr();				break; // СѓРґР°Р»РёС‚СЊ Р°С‚СЂРёР±СѓС‚
+						case 7  : ReadObjAttr();			break; // СЃС‡РёС‚Р°С‚СЊ Р°С‚СЂРёР±СѓС‚
+						case 8  : ShowObjAttr();			break; // РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р°С‚СЂРёР±СѓС‚
+						case 9  : ShowLib();				break; // РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р±РёР±Р»РёРѕС‚РµРєСѓ
+						case 10 : ShowType();				break; // РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ С‚РёРї
+						case 11 : WalkFromObjWithAttr();	break; // РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р°С‚СЂРёР±СѓС‚
 					}
 				}
 			}
 		}
 
 
-		// Формирование меню библиотеки
+		// Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РјРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
 		[return: MarshalAs(UnmanagedType.BStr)]	public string ExternalMenuItem(short number, ref short itemType, ref short command)
 		{
-			string result = string.Empty;	//По уполчанию - пустая строка
+			string result = string.Empty;	//РџРѕ СѓРїРѕР»С‡Р°РЅРёСЋ - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°
 			itemType = 1;					//MENUITEM
 
 			switch (number)
 			{
 				case 1:
-					result = "Создать тип атрибута";
+					result = "РЎРѕР·РґР°С‚СЊ С‚РёРї Р°С‚СЂРёР±СѓС‚Р°";
 					command = 1;
 					break;
 				case 2:
-					result = "Удалить тип атрибута";
+					result = "РЈРґР°Р»РёС‚СЊ С‚РёРї Р°С‚СЂРёР±СѓС‚Р°";
 					command = 2;
 					break;
 				case 3:
-					result = "Получить тип атрибута";
+					result = "РџРѕР»СѓС‡РёС‚СЊ С‚РёРї Р°С‚СЂРёР±СѓС‚Р°";
 					command = 3;
 					break;
 				case 4:
-					result = "Заменить тип атрибута";
+					result = "Р—Р°РјРµРЅРёС‚СЊ С‚РёРї Р°С‚СЂРёР±СѓС‚Р°";
 					command = 4;
 					break;
 				case 5:
-					result = "Создать атрибут определенного типа";
+					result = "РЎРѕР·РґР°С‚СЊ Р°С‚СЂРёР±СѓС‚ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ С‚РёРїР°";
 					command = 5;
 					break;
 				case 6:
-					result = "Удалить атрибут";
+					result = "РЈРґР°Р»РёС‚СЊ Р°С‚СЂРёР±СѓС‚";
 					command = 6;
 					break;
 				case 7:
-					result = "Считать атрибут";
+					result = "РЎС‡РёС‚Р°С‚СЊ Р°С‚СЂРёР±СѓС‚";
 					command = 7;
 					break;
 				case 8:
-					result = "Просмотреть атрибуты объекта";
+					result = "РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р°С‚СЂРёР±СѓС‚С‹ РѕР±СЉРµРєС‚Р°";
 					command = 8;
 					break;
 				case 9:
-					result = "Просмотреть библиотеку";
+					result = "РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р±РёР±Р»РёРѕС‚РµРєСѓ";
 					command = 9;
 					break;
 				case 10:
-					result = "Просмотреть тип";
+					result = "РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ С‚РёРї";
 					command = 10;
 					break;
 				case 11:
-					result = "Просмотреть атрибут";
+					result = "РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р°С‚СЂРёР±СѓС‚";
 					command = 11;
 					break;
 				case 12:
@@ -124,15 +124,15 @@ namespace Steps.NET
 			string buf = string.Empty;
 			string s = string.Empty;;
 			if (fl)
-				s = "структура";
+				s = "СЃС‚СЂСѓРєС‚СѓСЂР°";
 
-			//выдадим поля колонки не указатели
+			//РІС‹РґР°РґРёРј РїРѕР»СЏ РєРѕР»РѕРЅРєРё РЅРµ СѓРєР°Р·Р°С‚РµР»Рё
 			buf = string.Format("{0} i = {1} header = {2} type = {3} def = {4} flagEnum = {5}",
 				s, iCol, par.header, par.type, par.def, par.flagEnum);
 			kompas.ksMessage(buf);
 			if (par.type == ldefin2d.RECORD_ATTR_TYPE)
 			{
-				// структура
+				// СЃС‚СЂСѓРєС‚СѓСЂР°
 				ksDynamicArray pCol = (ksDynamicArray)par.GetColumns();
 				if (pCol  != null)
 				{
@@ -153,14 +153,14 @@ namespace Steps.NET
 				for (int i = 0; i < n; i++) 
 				{
 					if (pCol.ksGetArrayItem(i, par) != 1)
-						kompas.ksMessageBoxResult();  // проверяем результат работы нашей функции
+						kompas.ksMessageBoxResult();  // РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 					else
 						ShowCol(par,i, fl);
 				}
 			}
 		}
 
-		// Создание типа аттрибута
+		// РЎРѕР·РґР°РЅРёРµ С‚РёРїР° Р°С‚С‚СЂРёР±СѓС‚Р°
 		void FuncAttrType() 
 		{
 			ksAttributeTypeParam type = (ksAttributeTypeParam)kompas.GetParamStruct((short)StructType2DEnum.ko_AttributeType);
@@ -169,10 +169,10 @@ namespace Steps.NET
 			{
 				type.Init();
 				col.Init();
-				type.header = "double_str_long";	// заголовoк-комментарий типа
-				type.rowsCount = 1;					// кол-во строк в таблице
-				type.flagVisible = true;            // видимый, невидимый   в таблице
-				type.password = string.Empty;       // пароль, если не пустая строка  - защищает от несанкционированного изменения типа
+				type.header = "double_str_long";	// Р·Р°РіРѕР»РѕРІoРє-РєРѕРјРјРµРЅС‚Р°СЂРёР№ С‚РёРїР°
+				type.rowsCount = 1;					// РєРѕР»-РІРѕ СЃС‚СЂРѕРє РІ С‚Р°Р±Р»РёС†Рµ
+				type.flagVisible = true;            // РІРёРґРёРјС‹Р№, РЅРµРІРёРґРёРјС‹Р№   РІ С‚Р°Р±Р»РёС†Рµ
+				type.password = string.Empty;       // РїР°СЂРѕР»СЊ, РµСЃР»Рё РЅРµ РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°  - Р·Р°С‰РёС‰Р°РµС‚ РѕС‚ РЅРµСЃР°РЅРєС†РёРѕРЅРёСЂРѕРІР°РЅРЅРѕРіРѕ РёР·РјРµРЅРµРЅРёСЏ С‚РёРїР°
 				type.key1 = 10;
 				type.key2 = 20;
 				type.key3 = 30;
@@ -180,45 +180,45 @@ namespace Steps.NET
 				ksDynamicArray arr = (ksDynamicArray)type.GetColumns();
 				if (arr != null)
 				{
-					// первая колонка  структуры
-					col.header = "double";					// заголовoк-комментарий столбца
-					col.type = ldefin2d.DOUBLE_ATTR_TYPE;	// тип данных в столбце - см.ниже
-					col.key = 0;							// дополнительный признак, который позволит отличить две переменные с одинаковым типом
-					col.def = "123456789";					// значение по умолчанию
-					col.flagEnum = false;					// флаг включающий режим, когда значение поля атрибута
+					// РїРµСЂРІР°СЏ РєРѕР»РѕРЅРєР°  СЃС‚СЂСѓРєС‚СѓСЂС‹
+					col.header = "double";					// Р·Р°РіРѕР»РѕРІoРє-РєРѕРјРјРµРЅС‚Р°СЂРёР№ СЃС‚РѕР»Р±С†Р°
+					col.type = ldefin2d.DOUBLE_ATTR_TYPE;	// С‚РёРї РґР°РЅРЅС‹С… РІ СЃС‚РѕР»Р±С†Рµ - СЃРј.РЅРёР¶Рµ
+					col.key = 0;							// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ РїСЂРёР·РЅР°Рє, РєРѕС‚РѕСЂС‹Р№ РїРѕР·РІРѕР»РёС‚ РѕС‚Р»РёС‡РёС‚СЊ РґРІРµ РїРµСЂРµРјРµРЅРЅС‹Рµ СЃ РѕРґРёРЅР°РєРѕРІС‹Рј С‚РёРїРѕРј
+					col.def = "123456789";					// Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+					col.flagEnum = false;					// С„Р»Р°Рі РІРєР»СЋС‡Р°СЋС‰РёР№ СЂРµР¶РёРј, РєРѕРіРґР° Р·РЅР°С‡РµРЅРёРµ РїРѕР»СЏ Р°С‚СЂРёР±СѓС‚Р°
 					arr.ksAddArrayItem(-1, col);
 
-					// вторая колонка структуры
-					col.header = "str";						// заголовoк-комментарий столбца
-					col.type = ldefin2d.STRING_ATTR_TYPE;	// тип данных в столбце - см.ниже
-					col.key = 0;							// дополнительный признак, который позволит отличить две переменные с одинаковым типом
-					col.def = "string";						// значение по умолчанию
-					col.flagEnum = false;					// флаг включающий режим, когда значение поля атрибута
+					// РІС‚РѕСЂР°СЏ РєРѕР»РѕРЅРєР° СЃС‚СЂСѓРєС‚СѓСЂС‹
+					col.header = "str";						// Р·Р°РіРѕР»РѕРІoРє-РєРѕРјРјРµРЅС‚Р°СЂРёР№ СЃС‚РѕР»Р±С†Р°
+					col.type = ldefin2d.STRING_ATTR_TYPE;	// С‚РёРї РґР°РЅРЅС‹С… РІ СЃС‚РѕР»Р±С†Рµ - СЃРј.РЅРёР¶Рµ
+					col.key = 0;							// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ РїСЂРёР·РЅР°Рє, РєРѕС‚РѕСЂС‹Р№ РїРѕР·РІРѕР»РёС‚ РѕС‚Р»РёС‡РёС‚СЊ РґРІРµ РїРµСЂРµРјРµРЅРЅС‹Рµ СЃ РѕРґРёРЅР°РєРѕРІС‹Рј С‚РёРїРѕРј
+					col.def = "string";						// Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+					col.flagEnum = false;					// С„Р»Р°Рі РІРєР»СЋС‡Р°СЋС‰РёР№ СЂРµР¶РёРј, РєРѕРіРґР° Р·РЅР°С‡РµРЅРёРµ РїРѕР»СЏ Р°С‚СЂРёР±СѓС‚Р°
 					arr.ksAddArrayItem(-1, col);
 
-					// третья колонка структуры
-					col.header = "long";					// заголовoк-комментарий столбца
-					col.type = ldefin2d.LINT_ATTR_TYPE;		// тип данных в столбце - см.ниже
-					col.key = 0;							// дополнительный признак, который позволит отличить две переменные с одинаковым типом
-					col.def = "1000000";					// значение по умолчанию
-					col.flagEnum = false;					// флаг включающий режим, когда значение поля атрибута
+					// С‚СЂРµС‚СЊСЏ РєРѕР»РѕРЅРєР° СЃС‚СЂСѓРєС‚СѓСЂС‹
+					col.header = "long";					// Р·Р°РіРѕР»РѕРІoРє-РєРѕРјРјРµРЅС‚Р°СЂРёР№ СЃС‚РѕР»Р±С†Р°
+					col.type = ldefin2d.LINT_ATTR_TYPE;		// С‚РёРї РґР°РЅРЅС‹С… РІ СЃС‚РѕР»Р±С†Рµ - СЃРј.РЅРёР¶Рµ
+					col.key = 0;							// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ РїСЂРёР·РЅР°Рє, РєРѕС‚РѕСЂС‹Р№ РїРѕР·РІРѕР»РёС‚ РѕС‚Р»РёС‡РёС‚СЊ РґРІРµ РїРµСЂРµРјРµРЅРЅС‹Рµ СЃ РѕРґРёРЅР°РєРѕРІС‹Рј С‚РёРїРѕРј
+					col.def = "1000000";					// Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+					col.flagEnum = false;					// С„Р»Р°Рі РІРєР»СЋС‡Р°СЋС‰РёР№ СЂРµР¶РёРј, РєРѕРіРґР° Р·РЅР°С‡РµРЅРёРµ РїРѕР»СЏ Р°С‚СЂРёР±СѓС‚Р°
 					arr.ksAddArrayItem(-1, col);
 				}
 				string nameFile = string.Empty;
-				//запросить имя библиотеки
+				//Р·Р°РїСЂРѕСЃРёС‚СЊ РёРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 				nameFile = kompas.ksChoiceFile("*.lat", null, false);
-				//создать тип атрибута
-				double numbType = attr.ksCreateAttrType(type,	// информация о типе атрибута
-					nameFile);									// имя библиотеки типов атрибутов
+				//СЃРѕР·РґР°С‚СЊ С‚РёРї Р°С‚СЂРёР±СѓС‚Р°
+				double numbType = attr.ksCreateAttrType(type,	// РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РёРїРµ Р°С‚СЂРёР±СѓС‚Р°
+					nameFile);									// РёРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё С‚РёРїРѕРІ Р°С‚СЂРёР±СѓС‚РѕРІ
 				if (numbType > 1)
 				{
 					string buf = string.Format("numbType = {0}", numbType);
 					kompas.ksMessage(buf);
 				}
 				else
-					kompas.ksMessageBoxResult();  // проверяем результат работы нашей функции
+					kompas.ksMessageBoxResult();  // РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 
-				//удалим  массив колонок
+				//СѓРґР°Р»РёРј  РјР°СЃСЃРёРІ РєРѕР»РѕРЅРѕРє
 				arr.ksDeleteArray();
 			}
 		}
@@ -228,27 +228,27 @@ namespace Steps.NET
 			double numb = 0;
 			int j;
 			string password = string.Empty;
-			//запросить имя библиотеки
+			//Р·Р°РїСЂРѕСЃРёС‚СЊ РёРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 			string nameFile = string.Empty;
 			nameFile = kompas.ksChoiceFile("*.lat", null, false);
 			do
 			{
-				j = kompas.ksReadDouble("Ввести номер типа атрибута", 1000, 0, 1e12, ref numb);
+				j = kompas.ksReadDouble("Р’РІРµСЃС‚Рё РЅРѕРјРµСЂ С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°", 1000, 0, 1e12, ref numb);
 				if (j != 0)
 				{
-					password = kompas.ksReadString("Ввести пароль типа атрибута", "");
+					password = kompas.ksReadString("Р’РІРµСЃС‚Рё РїР°СЂРѕР»СЊ С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°", "");
 					if (attr.ksDeleteAttrType(numb, nameFile, password) != 1)
-						kompas.ksMessageBoxResult();  // проверяем результат работы нашей функции
+						kompas.ksMessageBoxResult();  // РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 				}
 			}
 			while(j != 0);
 		}
 
-		// Получить тип атрибута
+		// РџРѕР»СѓС‡РёС‚СЊ С‚РёРї Р°С‚СЂРёР±СѓС‚Р°
 		void ShowTypeAttr()
 		{
 			double numb = 0;
-			//запросить имя библиотеки
+			//Р·Р°РїСЂРѕСЃРёС‚СЊ РёРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 			string nameFile = string.Empty;
 			nameFile = kompas.ksChoiceFile("*.lat", null, false);
 
@@ -265,7 +265,7 @@ namespace Steps.NET
 					if (numb != 0)
 					{
 						if (attr.ksGetAttrType(numb, nameFile, type) != 1)
-							kompas.ksMessageBoxResult();	// проверяем результат работы нашей функции
+							kompas.ksMessageBoxResult();	// РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 						else
 						{
 							buf = string.Format("key1 = {0} key2 = {1} key3 = {2} key4 = {3}",
@@ -280,22 +280,22 @@ namespace Steps.NET
 								ShowColumns(pCol, false);
 								pCol.ksDeleteArray();
 							}
-							//					ShowColumns(attrType.columns, FALSE); //пользовательская функция
+							//					ShowColumns(attrType.columns, FALSE); //РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєР°СЏ С„СѓРЅРєС†РёСЏ
 						}
 					}
 				}
 				while(numb != 0);
-				//удалим  массив колонок
+				//СѓРґР°Р»РёРј  РјР°СЃСЃРёРІ РєРѕР»РѕРЅРѕРє
 				//		DeleteArray(attrType.columns);
 			}
 		}
 
-		// Заменить тип атрибута
+		// Р—Р°РјРµРЅРёС‚СЊ С‚РёРї Р°С‚СЂРёР±СѓС‚Р°
 		void ChangeType()
 		{
 			double numb = 0;
 			string password = string.Empty;
-			//запросить имя библиотеки
+			//Р·Р°РїСЂРѕСЃРёС‚СЊ РёРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 			string nameFile = string.Empty;
 			nameFile = kompas.ksChoiceFile("*.lat", null, false);
 			int j;
@@ -306,13 +306,13 @@ namespace Steps.NET
 				type.Init();
 				do
 				{
-					j = kompas.ksReadDouble("Ввести номер типа атрибута", 1000, 0, 1e12, ref numb);
+					j = kompas.ksReadDouble("Р’РІРµСЃС‚Рё РЅРѕРјРµСЂ С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°", 1000, 0, 1e12, ref numb);
 					if (j  != 0)
 					{
-						password = kompas.ksReadString("Ввести пароль типа атрибута", "");
-						//считаем тип атрибута
+						password = kompas.ksReadString("Р’РІРµСЃС‚Рё РїР°СЂРѕР»СЊ С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°", "");
+						//СЃС‡РёС‚Р°РµРј С‚РёРї Р°С‚СЂРёР±СѓС‚Р°
 						if (attr.ksGetAttrType(numb, nameFile, type)  != 1)
-							kompas.ksMessageBoxResult();  // проверяем результат работы нашей функции
+							kompas.ksMessageBoxResult();  // РїСЂРѕРІРµСЂСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 						else 
 						{
 							type.password = password;
@@ -323,18 +323,18 @@ namespace Steps.NET
 							{
 								par1.Init();
 								parN.Init();
-								// число колонок
+								// С‡РёСЃР»Рѕ РєРѕР»РѕРЅРѕРє
 								int n = arr.ksGetArrayCount();
-								//считаем первую колонку
+								//СЃС‡РёС‚Р°РµРј РїРµСЂРІСѓСЋ РєРѕР»РѕРЅРєСѓ
 								arr.ksGetArrayItem(0, par1);
-								//считаем последнюю колонку
+								//СЃС‡РёС‚Р°РµРј РїРѕСЃР»РµРґРЅСЋСЋ РєРѕР»РѕРЅРєСѓ
 								arr.ksGetArrayItem(n-1, parN);
-								//заменим первую колонку
+								//Р·Р°РјРµРЅРёРј РїРµСЂРІСѓСЋ РєРѕР»РѕРЅРєСѓ
 								arr.ksSetArrayItem(0, parN);
-								//заменим последнюю колонку
+								//Р·Р°РјРµРЅРёРј РїРѕСЃР»РµРґРЅСЋСЋ РєРѕР»РѕРЅРєСѓ
 								arr.ksSetArrayItem(n-1, par1);
 
-								//заменим  тип атрибута  на новый
+								//Р·Р°РјРµРЅРёРј  С‚РёРї Р°С‚СЂРёР±СѓС‚Р°  РЅР° РЅРѕРІС‹Р№
 								double numbType = attr.ksSetAttrType(numb, nameFile, type, password);
 								if (numbType > 1)
 								{
@@ -343,7 +343,7 @@ namespace Steps.NET
 									kompas.ksMessage(buf);
 								}
 								else
-									kompas.ksMessageBoxResult();  // неудачное завершение - выдадим результат работы нашей функции
+									kompas.ksMessageBoxResult();  // РЅРµСѓРґР°С‡РЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ - РІС‹РґР°РґРёРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 								arr.ksDeleteArray();
 							}
 						}
@@ -352,7 +352,7 @@ namespace Steps.NET
 			}
 		}
 
-		// Создадим атрибут типа,полученного из функции FuncTypeAttr
+		// РЎРѕР·РґР°РґРёРј Р°С‚СЂРёР±СѓС‚ С‚РёРїР°,РїРѕР»СѓС‡РµРЅРЅРѕРіРѕ РёР· С„СѓРЅРєС†РёРё FuncTypeAttr
 		void NewAttr() 
 		{
 			ksAttributeParam attrPar = (ksAttributeParam)kompas.GetParamStruct((short)StructType2DEnum.ko_Attribute);
@@ -397,7 +397,7 @@ namespace Steps.NET
 				if (info != null)
 				{
 					info.Init();
-					info.prompt = "Укажите объект";
+					info.prompt = "РЈРєР°Р¶РёС‚Рµ РѕР±СЉРµРєС‚";
 					double x = 0, y = 0;
 					reference pObj = 0;
 					int j = doc.ksCursor(info, ref x, ref y, null);
@@ -407,15 +407,15 @@ namespace Steps.NET
 						if (doc.ksExistObj(pObj) != 0)
 						{
 							doc.ksLightObj(pObj, 1);
-							//запросить имя библиотеки
+							//Р·Р°РїСЂРѕСЃРёС‚СЊ РёРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 							string nameFile = kompas.ksChoiceFile("*.lat", null, false);
 							double numb = 0;
-							j = kompas.ksReadDouble("Ввести номер типа атрибута", 1000, 0, 1e12, ref numb);
+							j = kompas.ksReadDouble("Р’РІРµСЃС‚Рё РЅРѕРјРµСЂ С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°", 1000, 0, 1e12, ref numb);
 							if (j != 0)
 							{
 								reference pAttr = attr.ksCreateAttr(pObj, attrPar, numb, nameFile);
 								if (pAttr == 0)
-									kompas.ksMessageBoxResult();  // неудачное завершение - выдадим результат работы нашей функции
+									kompas.ksMessageBoxResult();  // РЅРµСѓРґР°С‡РЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ - РІС‹РґР°РґРёРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°Р±РѕС‚С‹ РЅР°С€РµР№ С„СѓРЅРєС†РёРё
 							}
 							doc.ksLightObj(pObj, 0);
 						}
@@ -424,14 +424,14 @@ namespace Steps.NET
 			}
 		}
 
-		// Удалить первый атрибут  у данного объекта
+		// РЈРґР°Р»РёС‚СЊ РїРµСЂРІС‹Р№ Р°С‚СЂРёР±СѓС‚  Сѓ РґР°РЅРЅРѕРіРѕ РѕР±СЉРµРєС‚Р°
 		void DelObjAttr() 
 		{
 			ksRequestInfo info = (ksRequestInfo)kompas.GetParamStruct((short)StructType2DEnum.ko_RequestInfo);
 			if (info != null) 
 			{
 				info.Init();
-				info.prompt = "Укажите объект";
+				info.prompt = "РЈРєР°Р¶РёС‚Рµ РѕР±СЉРµРєС‚";
 				double x = 0, y = 0;
 				int j;
 				do
@@ -443,20 +443,20 @@ namespace Steps.NET
 						if (doc.ksExistObj(pObj) == 1)
 						{
 							doc.ksLightObj(pObj, 1);
-							//создадим итератор для хождения по атрибутам объекта
+							//СЃРѕР·РґР°РґРёРј РёС‚РµСЂР°С‚РѕСЂ РґР»СЏ С…РѕР¶РґРµРЅРёСЏ РїРѕ Р°С‚СЂРёР±СѓС‚Р°Рј РѕР±СЉРµРєС‚Р°
 							ksIterator iter = (ksIterator)kompas.GetIterator();
 							if (iter != null && iter.ksCreateAttrIterator(pObj, 0, 0, 0, 0, 0))
 							{
-								//встали на первый атрибут
+								//РІСЃС‚Р°Р»Рё РЅР° РїРµСЂРІС‹Р№ Р°С‚СЂРёР±СѓС‚
 								reference pAttr = iter.ksMoveAttrIterator("F", ref pObj);
 								if (pAttr != 0)
 								{
-									string password = kompas.ksReadString("Ввести пароль типа атрибута", "");
+									string password = kompas.ksReadString("Р’РІРµСЃС‚Рё РїР°СЂРѕР»СЊ С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°", "");
 									if (attr.ksDeleteAttr(pObj, pAttr, password) != 1) 
 										kompas.ksMessageBoxResult();
 								}
 								else 
-									kompas.ksMessage("атрибут не найден");
+									kompas.ksMessage("Р°С‚СЂРёР±СѓС‚ РЅРµ РЅР°Р№РґРµРЅ");
 								doc.ksLightObj(pObj, 0);
 							}
 						}
@@ -465,7 +465,7 @@ namespace Steps.NET
 			}
 		}
 
-		// Считать  атрибут  типа double_str_long
+		// РЎС‡РёС‚Р°С‚СЊ  Р°С‚СЂРёР±СѓС‚  С‚РёРїР° double_str_long
 		void ReadObjAttr() 
 		{
 			bool res = false;
@@ -496,7 +496,7 @@ namespace Steps.NET
 				if (info != null)
 				{
 					info.Init();
-					info.prompt = "Укажите объект";
+					info.prompt = "РЈРєР°Р¶РёС‚Рµ РѕР±СЉРµРєС‚";
 					double x = 0, y = 0;
 					int j;
 					do
@@ -508,15 +508,15 @@ namespace Steps.NET
 							if (doc.ksExistObj(pObj) != 0)
 							{
 								doc.ksLightObj(pObj, 1);
-								//создадим итератор для хождения по атрибутам объекта
+								//СЃРѕР·РґР°РґРёРј РёС‚РµСЂР°С‚РѕСЂ РґР»СЏ С…РѕР¶РґРµРЅРёСЏ РїРѕ Р°С‚СЂРёР±СѓС‚Р°Рј РѕР±СЉРµРєС‚Р°
 								ksIterator iter = (ksIterator)kompas.GetIterator();
 								if (iter != null && iter.ksCreateAttrIterator(pObj, 0, 0, 0, 0, 0)) 
 								{
-									//встали на первый атрибут
+									//РІСЃС‚Р°Р»Рё РЅР° РїРµСЂРІС‹Р№ Р°С‚СЂРёР±СѓС‚
 									reference pAttr = iter.ksMoveAttrIterator("F", ref pObj);	
 									if (pAttr != 0)
 									{
-										kompas.ksMessage("тип и ключи атрибута");
+										kompas.ksMessage("С‚РёРї Рё РєР»СЋС‡Рё Р°С‚СЂРёР±СѓС‚Р°");
 										int k1 = 0, k2 = 0, k3 = 0, k4 = 0;
 										double numb = 0;
 										attr.ksGetAttrKeysInfo(pAttr, out k1, out k2, out k3, out k4, out numb);
@@ -524,10 +524,10 @@ namespace Steps.NET
 											k1, k2, k3, k4, numb);
 										kompas.ksMessage(buf);
 
-										kompas.ksMessage("строка атрибута");
+										kompas.ksMessage("СЃС‚СЂРѕРєР° Р°С‚СЂРёР±СѓС‚Р°");
 										attr.ksGetAttrRow(pAttr, 0, 0, 0, usPar);
 
-										kompas.ksMessage("заменим строку атрибута");
+										kompas.ksMessage("Р·Р°РјРµРЅРёРј СЃС‚СЂРѕРєСѓ Р°С‚СЂРёР±СѓС‚Р°");
 										ksLtVariant item = (ksLtVariant)kompas.GetParamStruct((short)StructType2DEnum.ko_LtVariant);
 										ksDynamicArray arr = (ksDynamicArray)usPar.GetUserArray();
 										if (item != null && arr != null)
@@ -545,7 +545,7 @@ namespace Steps.NET
 										}
 									}
 									else 
-										kompas.ksMessage("атрибут не найден");
+										kompas.ksMessage("Р°С‚СЂРёР±СѓС‚ РЅРµ РЅР°Р№РґРµРЅ");
 								}
 								doc.ksLightObj(pObj, 0);
 							}
@@ -556,14 +556,14 @@ namespace Steps.NET
 			}
 		}
 
-		// Просмотреть  атрибут
+		// РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ  Р°С‚СЂРёР±СѓС‚
 		void ShowObjAttr()
 		{
 			ksRequestInfo info = (ksRequestInfo)kompas.GetParamStruct((short)StructType2DEnum.ko_RequestInfo);
 			if (info != null)
 			{
 				info.Init();
-				info.prompt = "Укажите объект";
+				info.prompt = "РЈРєР°Р¶РёС‚Рµ РѕР±СЉРµРєС‚";
 				double x = 0, y = 0;
 				int j;
 				do
@@ -586,7 +586,7 @@ namespace Steps.NET
 
 		void ShowLib()
 		{
-			//запросить имя библиотеки
+			//Р·Р°РїСЂРѕСЃРёС‚СЊ РёРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 			string nameFile = kompas.ksChoiceFile("*.lat", null, false);
 			double numb = attr.ksChoiceAttrTypes(nameFile);
 			if (numb > 1)  
@@ -598,27 +598,27 @@ namespace Steps.NET
 
 		void ShowType()
 		{
-			//запросить имя библиотеки
+			//Р·Р°РїСЂРѕСЃРёС‚СЊ РёРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
 			string nameFile = kompas.ksChoiceFile("*.lat", null, false);
 			string password = string.Empty;
 			double numb = 0;
-			int j = kompas.ksReadDouble("Ввести номер типа атрибута", 1000, 0, 1e12, ref numb);
+			int j = kompas.ksReadDouble("Р’РІРµСЃС‚Рё РЅРѕРјРµСЂ С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°", 1000, 0, 1e12, ref numb);
 			if (j != 0)
 			{
-				password = kompas.ksReadString("Ввести пароль типа атрибута", "");
+				password = kompas.ksReadString("Р’РІРµСЃС‚Рё РїР°СЂРѕР»СЊ С‚РёРїР° Р°С‚СЂРёР±СѓС‚Р°", "");
 				attr.ksViewEditAttrType(nameFile, 2, numb, password);
 			}
 		}
 
-		// Пройтись у объекта по атрибутам с ключом
-		// key1 = 10 и выдать количество колонок и строк для данного атрибута
+		// РџСЂРѕР№С‚РёСЃСЊ Сѓ РѕР±СЉРµРєС‚Р° РїРѕ Р°С‚СЂРёР±СѓС‚Р°Рј СЃ РєР»СЋС‡РѕРј
+		// key1 = 10 Рё РІС‹РґР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РєРѕР»РѕРЅРѕРє Рё СЃС‚СЂРѕРє РґР»СЏ РґР°РЅРЅРѕРіРѕ Р°С‚СЂРёР±СѓС‚Р°
 		void WalkFromObjWithAttr()
 		{
 			ksRequestInfo info = (ksRequestInfo)kompas.GetParamStruct((short)StructType2DEnum.ko_RequestInfo);
 			if (info != null)
 			{
 				info.Init();
-				info.prompt = "Укажите объект";
+				info.prompt = "РЈРєР°Р¶РёС‚Рµ РѕР±СЉРµРєС‚";
 				double x = 0, y = 0;
 				int j;
 				do
@@ -629,12 +629,12 @@ namespace Steps.NET
 						reference pObj = doc.ksFindObj(x, y, 1e6);
 						if (doc.ksExistObj(pObj) == 1)
 						{
-							//создадим итератор для движения по атрибутам с ключом 10
+							//СЃРѕР·РґР°РґРёРј РёС‚РµСЂР°С‚РѕСЂ РґР»СЏ РґРІРёР¶РµРЅРёСЏ РїРѕ Р°С‚СЂРёР±СѓС‚Р°Рј СЃ РєР»СЋС‡РѕРј 10
 							ksIterator iter = (ksIterator)kompas.GetIterator();
 							if (iter != null && iter.ksCreateAttrIterator(pObj, 0, 0, 0, 0, 0)) 
 							{
 								doc.ksLightObj(pObj, 1);
-								//встали на первый атрибут
+								//РІСЃС‚Р°Р»Рё РЅР° РїРµСЂРІС‹Р№ Р°С‚СЂРёР±СѓС‚
 								reference pAttr = iter.ksMoveAttrIterator("F", ref pObj);	
 								if (pAttr != 0)
 								{
@@ -656,12 +656,12 @@ namespace Steps.NET
 
 
 		#region COM Registration
-		// Эта функция выполняется при регистрации класса для COM
-		// Она добавляет в ветку реестра компонента раздел Kompas_Library,
-		// который сигнализирует о том, что класс является приложением Компас,
-		// а также заменяет имя InprocServer32 на полное, с указанием пути.
-		// Все это делается для того, чтобы иметь возможность подключить
-		// библиотеку на вкладке ActiveX.
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+		// РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+		// РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+		// Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+		// Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+		// Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
 		[ComRegisterFunction]
 		public static void RegisterKompasLib(Type t)
 		{
@@ -677,11 +677,11 @@ namespace Steps.NET
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+				MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
 			}
 		}
 		
-		// Эта функция удаляет раздел Kompas_Library из реестра
+		// Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
 		[ComUnregisterFunction]
 		public static void UnregisterKompasLib(Type t)
 		{

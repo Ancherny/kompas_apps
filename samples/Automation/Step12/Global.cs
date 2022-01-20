@@ -1,4 +1,4 @@
-
+п»ї
 using Kompas6API5;
 using KompasAPI7;
 
@@ -73,7 +73,7 @@ namespace Steps.NET
 		}
 
 
-		// Компас Application 7
+		// РљРѕРјРїР°СЃ Application 7
 		private static IApplication newKompasAPI;
 		public static IApplication NewKompasAPI
 		{
@@ -88,7 +88,7 @@ namespace Steps.NET
 		}
 
 
-		// Менежер панели свойств
+		// РњРµРЅРµР¶РµСЂ РїР°РЅРµР»Рё СЃРІРѕР№СЃС‚РІ
 		private static IPropertyManager propMng;
 		public static IPropertyManager PropMng
 		{
@@ -103,7 +103,7 @@ namespace Steps.NET
 		}
 
 
-		// Окно в котором будет отрисовываться текущий документ
+		// РћРєРЅРѕ РІ РєРѕС‚РѕСЂРѕРј Р±СѓРґРµС‚ РѕС‚СЂРёСЃРѕРІС‹РІР°С‚СЊСЃСЏ С‚РµРєСѓС‰РёР№ РґРѕРєСѓРјРµРЅС‚
 		private static IPropertySlideBox slideBox;
 		public static IPropertySlideBox SlideBox
 		{
@@ -118,7 +118,7 @@ namespace Steps.NET
 		}
 
 
-		// Обновление скна
+		// РћР±РЅРѕРІР»РµРЅРёРµ СЃРєРЅР°
 		/*
 		public static void UpdateSlideBox()
 		{
@@ -128,7 +128,7 @@ namespace Steps.NET
 		*/
 
 
-		// Обновление скна
+		// РћР±РЅРѕРІР»РµРЅРёРµ СЃРєРЅР°
 		/*
 		public static void UpdateSlideBox(reference docRef)
 		{
@@ -143,7 +143,7 @@ namespace Steps.NET
 		}*/
 
 
-		// Обновление скна
+		// РћР±РЅРѕРІР»РµРЅРёРµ СЃРєРЅР°
 		public static void UpdateSlideBox(object doc)
 		{
 			if (Global.SlideBox != null)
@@ -160,7 +160,7 @@ namespace Steps.NET
 		}
 
 
-		// Подписка на события документа
+		// РџРѕРґРїРёСЃРєР° РЅР° СЃРѕР±С‹С‚РёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 		public static void AdviseDoc(object doc, int docType)
 		{
 			reference docRef = GetDocReference(doc);
@@ -181,7 +181,7 @@ namespace Steps.NET
 						case (int)DocType.lt_DocAssemble3D : 
 						{
 							DocumentEvent.NewDocument3DEvent(docRef);
-							Object3DEvent.NewObj3DEvent(doc, docType, (short)Obj3dType.o3d_unknown, null); // На все
+							Object3DEvent.NewObj3DEvent(doc, docType, (short)Obj3dType.o3d_unknown, null); // РќР° РІСЃРµ
 							break;
 						}
 						case (int)DocType.lt_DocSpc :
@@ -206,7 +206,7 @@ namespace Steps.NET
 						case (int)DocType.lt_DocAssemble3D: 
 						{
 							SpecificationEvent.NewSpecificationEvent(doc);
-							SpcObjectEvent.NewSpcObjectEvent(doc, ldefin2d.SPC_BASE_OBJECT /*На базовые объекты*/);
+							SpcObjectEvent.NewSpcObjectEvent(doc, ldefin2d.SPC_BASE_OBJECT /*РќР° Р±Р°Р·РѕРІС‹Рµ РѕР±СЉРµРєС‚С‹*/);
 						}
 						break;
 					}
@@ -215,7 +215,7 @@ namespace Steps.NET
 		}
 
 
-		// Получение reference по IDispatch документа
+		// РџРѕР»СѓС‡РµРЅРёРµ reference РїРѕ IDispatch РґРѕРєСѓРјРµРЅС‚Р°
 		public static reference GetDocReference(object doc)
 		{
 			reference result = 0;
@@ -228,7 +228,7 @@ namespace Steps.NET
 		}
 
 		
-		// Создать закладку и подписаться
+		// РЎРѕР·РґР°С‚СЊ Р·Р°РєР»Р°РґРєСѓ Рё РїРѕРґРїРёСЃР°С‚СЊСЃСЏ
 		public static void CreateAndSubscriptionPropertyManager(bool mes)
 		{
 			if (Global.PropMng == null)
@@ -240,45 +240,45 @@ namespace Steps.NET
 				ApplicationEvent.NewApplicationEvent();   
 				Global.PropMng = Global.NewKompasAPI.CreatePropertyManager(true);
 				Global.PropMng.Layout = Global.Layout;
-				Global.PropMng.Caption = "Панель из библиотеки";
+				Global.PropMng.Caption = "РџР°РЅРµР»СЊ РёР· Р±РёР±Р»РёРѕС‚РµРєРё";
 				Global.PropMng.SetGabaritRect(Global.Rectangle.X, Global.Rectangle.Y, Global.Rectangle.Right, Global.Rectangle.Bottom);
 				Global.PropMng.SpecToolbar = SpecPropertyToolBarEnum.pnEnterEscCreateSaveSearchHelp;
-				new PropertyManagerEvent(Global.PropMng);	// Подписываемся на события процесса 
-				IPropertyTab tab = Global.PropMng.PropertyTabs.Add("Закладка из библиотеки");
+				new PropertyManagerEvent(Global.PropMng);	// РџРѕРґРїРёСЃС‹РІР°РµРјСЃСЏ РЅР° СЃРѕР±С‹С‚РёСЏ РїСЂРѕС†РµСЃСЃР° 
+				IPropertyTab tab = Global.PropMng.PropertyTabs.Add("Р—Р°РєР»Р°РґРєР° РёР· Р±РёР±Р»РёРѕС‚РµРєРё");
     
-				// Получаем коллекцию контролов
+				// РџРѕР»СѓС‡Р°РµРј РєРѕР»Р»РµРєС†РёСЋ РєРѕРЅС‚СЂРѕР»РѕРІ
 				IPropertyControls collection = tab.PropertyControls;
 				AdviseDoc(doc, docType);
-				// Добавсляем окно просмотра
+				// Р”РѕР±Р°РІСЃР»СЏРµРј РѕРєРЅРѕ РїСЂРѕСЃРјРѕС‚СЂР°
 				slideBox = (IPropertySlideBox)collection.Add(ControlTypeEnum.ksControlSlideBox);
-				slideBox.SlideType = SlideTypeEnum.ksKompasDocument;	// Отрисовываем группу
-				slideBox.DrawingSlide = docRef;							// Передаем reference группы 
+				slideBox.SlideType = SlideTypeEnum.ksKompasDocument;	// РћС‚СЂРёСЃРѕРІС‹РІР°РµРј РіСЂСѓРїРїСѓ
+				slideBox.DrawingSlide = docRef;							// РџРµСЂРµРґР°РµРј reference РіСЂСѓРїРїС‹ 
 				slideBox.Value = docRef != 0;
 				slideBox.CheckBoxVisibility = (docRef != 0);
-				slideBox.Hint = "Hint для слайда";
-				slideBox.Tips = "Tips для слайда";
+				slideBox.Hint = "Hint РґР»СЏ СЃР»Р°Р№РґР°";
+				slideBox.Tips = "Tips РґР»СЏ СЃР»Р°Р№РґР°";
 				slideBox.Id = 10000;
-				slideBox.Name = "Окно просмотра";
+				slideBox.Name = "РћРєРЅРѕ РїСЂРѕСЃРјРѕС‚СЂР°";
 				slideBox.NameVisibility = PropertyControlNameVisibility.ksNameHorizontalVisible;
     
 				Global.PropMng.ShowTabs();
-				Global.PropMng.Caption = "Панель из библиотеки";
+				Global.PropMng.Caption = "РџР°РЅРµР»СЊ РёР· Р±РёР±Р»РёРѕС‚РµРєРё";
 				//propMng.ShowTabs();
 				//propMng.UpdateTabs();
 
 			}
 			else 
 			{
-				Global.PropMng.Visible = true; // Если панель была скрыта пользователем по крестику востановим ее
+				Global.PropMng.Visible = true; // Р•СЃР»Рё РїР°РЅРµР»СЊ Р±С‹Р»Р° СЃРєСЂС‹С‚Р° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј РїРѕ РєСЂРµСЃС‚РёРєСѓ РІРѕСЃС‚Р°РЅРѕРІРёРј РµРµ
 				if (mes)
 				{
-					Global.Kompas.ksMessage("Панель уже загружена");
+					Global.Kompas.ksMessage("РџР°РЅРµР»СЊ СѓР¶Рµ Р·Р°РіСЂСѓР¶РµРЅР°");
 				}
 			}
 		}
  
 
-		// Остановить работу с панелью свойствт  и отписаться
+		// РћСЃС‚Р°РЅРѕРІРёС‚СЊ СЂР°Р±РѕС‚Сѓ СЃ РїР°РЅРµР»СЊСЋ СЃРІРѕР№СЃС‚РІС‚  Рё РѕС‚РїРёСЃР°С‚СЊСЃСЏ
 		public static void ClosePropertyManager(bool mes)
 		{
 			if (Global.PropMng != null)
@@ -300,7 +300,7 @@ namespace Steps.NET
 			else 
 			{
 				if (mes)
-					Global.Kompas.ksMessage("Панель уже выгружена");
+					Global.Kompas.ksMessage("РџР°РЅРµР»СЊ СѓР¶Рµ РІС‹РіСЂСѓР¶РµРЅР°");
 			}
 		}
 	}

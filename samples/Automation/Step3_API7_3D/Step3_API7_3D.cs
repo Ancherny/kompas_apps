@@ -1,4 +1,4 @@
-using Kompas6API5;
+п»їusing Kompas6API5;
 using KompasAPI7;
 using Kompas6Constants;
 using Kompas6Constants3D;
@@ -14,15 +14,15 @@ namespace Step3_API7_3D
 	public class Symbols3D
 	{
     private KompasObject      kompas;
-    private IApplication      appl;         // Интерфейс приложения
-    private IKompasDocument3D doc;          // Интерфейс документа 3D в API7 
-    private ksDocument3D      doc3D;        // Интерфейс документа 3D в API5
-    private ResourceManager   resMng = new ResourceManager( typeof(Symbols3D) );   // Менеджер ресурсов
+    private IApplication      appl;         // РРЅС‚РµСЂС„РµР№СЃ РїСЂРёР»РѕР¶РµРЅРёСЏ
+    private IKompasDocument3D doc;          // РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р° 3D РІ API7 
+    private ksDocument3D      doc3D;        // РРЅС‚РµСЂС„РµР№СЃ РґРѕРєСѓРјРµРЅС‚Р° 3D РІ API5
+    private ResourceManager   resMng = new ResourceManager( typeof(Symbols3D) );   // РњРµРЅРµРґР¶РµСЂ СЂРµСЃСѓСЂСЃРѕРІ
     private int               oType = (int)Kompas6Constants3D.Obj3dType.o3d_face;
 
 
     //-------------------------------------------------------------------------------
-    // Загрузить строку из ресурса
+    // Р—Р°РіСЂСѓР·РёС‚СЊ СЃС‚СЂРѕРєСѓ РёР· СЂРµСЃСѓСЂСЃР°
     // ---
     string LoadString( string name )
     {
@@ -31,7 +31,7 @@ namespace Step3_API7_3D
     
 
     //-------------------------------------------------------------------------------
-    // Имя библиотеки
+    // РРјСЏ Р±РёР±Р»РёРѕС‚РµРєРё
     // ---
     [return: MarshalAs(UnmanagedType.BStr)] public string GetLibraryName()
     {
@@ -39,7 +39,7 @@ namespace Step3_API7_3D
     }
 
     //-------------------------------------------------------------------------------
-    // Меню библиотеки
+    // РњРµРЅСЋ Р±РёР±Р»РёРѕС‚РµРєРё
     // ---
     [return: MarshalAs(UnmanagedType.BStr)] public string ExternalMenuItem(short number, ref short itemType, ref short command)
     {
@@ -87,7 +87,7 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Головная функция библиотеки
+    // Р“РѕР»РѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё
     // ---
     public void ExternalRunCommand([In] short command, [In] short mode, [In, MarshalAs(UnmanagedType.IDispatch)] object kompas_)
     {
@@ -96,19 +96,19 @@ namespace Step3_API7_3D
       if ( kompas == null )
         return;
       
-      // Получаем интерфейс приложения
+      // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ РїСЂРёР»РѕР¶РµРЅРёСЏ
       appl = (IApplication)kompas.ksGetApplication7();
 
       if ( appl == null )
         return;
 
-      // Получаем интерфейс активного документа 3D в API7
+      // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ Р°РєС‚РёРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° 3D РІ API7
       doc = (IKompasDocument3D)appl.ActiveDocument;
 
       if ( doc == null )
         return;
 
-      // Получаем интерфейс активного документа 3D в API5
+      // РџРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ Р°РєС‚РёРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° 3D РІ API5
       doc3D = (ksDocument3D)kompas.ActiveDocument3D();
 
       if ( doc3D == null )
@@ -116,25 +116,25 @@ namespace Step3_API7_3D
 
       switch ( command )
       {
-        case 1: Rough3DWork();        break;  // Создание и редактирование шероховатости 3D
-        case 2: Base3DWork();         break;  // Создание и редактирование обозначения базы 3D
-        case 3: Leader3DWork();       break;  // Создание и редактирование линии-выноски 3D
-        case 4: BrandLeader3DWork();  break;  // Создание и редактирование знака клеймения 3D
-        case 5: MarkLeader3DWork();   break;  // Создание и редактирование знака маркировки 3D
-        case 6: Tolerance3DWork();    break;  // Создание и редактирование допуска формы 3D
+        case 1: Rough3DWork();        break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё 3D
+        case 2: Base3DWork();         break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹ 3D
+        case 3: Leader3DWork();       break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р»РёРЅРёРё-РІС‹РЅРѕСЃРєРё 3D
+        case 4: BrandLeader3DWork();  break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РєР»РµР№РјРµРЅРёСЏ 3D
+        case 5: MarkLeader3DWork();   break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РјР°СЂРєРёСЂРѕРІРєРё 3D
+        case 6: Tolerance3DWork();    break;  // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹ 3D
       }
     }
 
 
-    #region Вспомогательные функции
+    #region Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё
     //-------------------------------------------------------------------------------
-    // Получить контейнер обозначений 3D
+    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
     // ---
     ISymbols3DContainer GetSymbols3DContainer()
     {
       if ( doc != null )
       {
-        // Получаем контейнер обозначений 3D
+        // РџРѕР»СѓС‡Р°РµРј РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
         return (ISymbols3DContainer)doc.TopPart;
       }
       return null;
@@ -142,7 +142,7 @@ namespace Step3_API7_3D
 
 
     //-----------------------------------------------------------------------------
-    // Функция фильтрации
+    // Р¤СѓРЅРєС†РёСЏ С„РёР»СЊС‚СЂР°С†РёРё
     // ---
     public bool UserFilterProc( object e )
     {
@@ -158,45 +158,45 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Задать плоскость обозначения по вершине базового объекта
+    // Р—Р°РґР°С‚СЊ РїР»РѕСЃРєРѕСЃС‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ РїРѕ РІРµСЂС€РёРЅРµ Р±Р°Р·РѕРІРѕРіРѕ РѕР±СЉРµРєС‚Р°
     // ---
     void SetPosition( ref IRough3D rough, ref IModelObject face )
     {
 	    if ( rough != null && face != null )
 	    {
-		    // Преобразовать интерфейс объекта дерева из API7 в API5
+		    // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР° РёР· API7 РІ API5
         ksEntity faceEnt = (ksEntity)kompas.TransferInterface( face, 
                            (int)Kompas6Constants.ksAPITypeEnum.ksAPI5Auto,
                            (int)Kompas6Constants3D.ksObj3dTypeEnum.o3d_entity );
 
 		    if ( faceEnt != null )
 		    { 
-			    // Получить интерфейс параметров грани
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ РіСЂР°РЅРё
 			    ksFaceDefinition faceDef = (ksFaceDefinition)faceEnt.GetDefinition();
 
 			    if ( faceDef != null )
 			    {
-				    // Получить коллекцию ребер
+				    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ СЂРµР±РµСЂ
 				    ksEdgeCollection edgeCol = (ksEdgeCollection)faceDef.EdgeCollection();
 
 				    if ( edgeCol != null )
 				    {
-					    // Получить интерфейс параметров ребра
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ СЂРµР±СЂР°
 					    ksEdgeDefinition edgeDef = (ksEdgeDefinition)edgeCol.First();
 
 					    if ( edgeDef != null )
 					    {
-						    // Получить интерфейс параметров вершины
-						    ksVertexDefinition vertex = (ksVertexDefinition)edgeDef.GetVertex( true/*начальная вершина*/ );
+						    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ РІРµСЂС€РёРЅС‹
+						    ksVertexDefinition vertex = (ksVertexDefinition)edgeDef.GetVertex( true/*РЅР°С‡Р°Р»СЊРЅР°СЏ РІРµСЂС€РёРЅР°*/ );
 
 						    if ( vertex != null )
 						    {
-							    // Преобразовать интерфейс объекта из API5 в API7
+							    // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
                   IModelObject mObj = (IModelObject)kompas.TransferInterface( vertex, 
                                       (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
 
 							    if ( mObj != null )
-								    // Установить положение плоскости обозначения по найденной вершине
+								    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РїРѕР»РѕР¶РµРЅРёРµ РїР»РѕСЃРєРѕСЃС‚Рё РѕР±РѕР·РЅР°С‡РµРЅРёСЏ РїРѕ РЅР°Р№РґРµРЅРЅРѕР№ РІРµСЂС€РёРЅРµ
 								    rough.PositionObject = mObj;
 						    }
 					    }
@@ -208,7 +208,7 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Получить новое имя объекта
+    // РџРѕР»СѓС‡РёС‚СЊ РЅРѕРІРѕРµ РёРјСЏ РѕР±СЉРµРєС‚Р°
     // ---
     string GetNewName( ref IFeature7 featObj, string strID )
     {
@@ -216,7 +216,7 @@ namespace Step3_API7_3D
 
 	    if ( featObj != null )
 	    {
-		    // Сформировать новое имя объекта в дереве
+		    // РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РЅРѕРІРѕРµ РёРјСЏ РѕР±СЉРµРєС‚Р° РІ РґРµСЂРµРІРµ
 		    string newName =	LoadString( strID );
 		    string name = featObj.Name;
         int pos = name.IndexOf( ":", 0, name.Length );
@@ -240,23 +240,23 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Задать компоненту текста
+    // Р—Р°РґР°С‚СЊ РєРѕРјРїРѕРЅРµРЅС‚Сѓ С‚РµРєСЃС‚Р°
     // ---
     void AddTextItem( ref ITextLine line, string str, 
                       Kompas6Constants.ksTextItemEnum type )
     {
 	    if ( line != null )
 	    {
-		    // Получить интерфейс компоненты текста
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РєРѕРјРїРѕРЅРµРЅС‚С‹ С‚РµРєСЃС‚Р°
 		    ITextItem item = line.Add();
     		
 		    if ( item != null )
 		    {
-			    // Задать строковое значение
+			    // Р—Р°РґР°С‚СЊ СЃС‚СЂРѕРєРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ
 			    item.Str = str;
-			    // Задать тип
+			    // Р—Р°РґР°С‚СЊ С‚РёРї
 			    item.ItemType = type;
-			    // Применить параметры
+			    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 			    item.Update();
 		    }
 	    }
@@ -264,39 +264,39 @@ namespace Step3_API7_3D
     #endregion
 
 
-    #region Шероховатость 3D
+    #region РЁРµСЂРѕС…РѕРІР°С‚РѕСЃС‚СЊ 3D
     //-------------------------------------------------------------------------------
-    // Установить параметры шероховатости
+    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
     // ---
     void SetRoughPars( ref IRough3D rough )
     {
 	    if ( rough != null )
 	    {
-		    // Получить интерфейс параметров шероховатости
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 		    IRoughParams roughPars = (IRoughParams)rough;
     		
 		    if ( roughPars != null )
 		    {
-			    // Признак обработки по контуру
+			    // РџСЂРёР·РЅР°Рє РѕР±СЂР°Р±РѕС‚РєРё РїРѕ РєРѕРЅС‚СѓСЂСѓ
 			    roughPars.ProcessingByContour = true;
-			    // Длина линии выноски
+			    // Р”Р»РёРЅР° Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
 			    roughPars.LeaderLength = 20;
-			    // Угол наклона линии выноски
+			    // РЈРіРѕР» РЅР°РєР»РѕРЅР° Р»РёРЅРёРё РІС‹РЅРѕСЃРєРё
 			    roughPars.LeaderAngle = 45;
     			
-			    // Получить интерфейс текста параметров шероховатости
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РїР°СЂР°РјРµС‚СЂРѕРІ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 			    IText txt1 = roughPars.RoughParamText;
     			
 			    if ( txt1 != null )
 				    txt1.Str = "1";
     			
-			    // Получить интерфейс текста способа обработки поверхности
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° СЃРїРѕСЃРѕР±Р° РѕР±СЂР°Р±РѕС‚РєРё РїРѕРІРµСЂС…РЅРѕСЃС‚Рё
 			    IText txt2 = roughPars.ProcessText;
     			
 			    if ( txt2 != null )
 				    txt2.Str = "2";
     			
-			    // Получить интерфейс текста базовой длины
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° Р±Р°Р·РѕРІРѕР№ РґР»РёРЅС‹
 			    IText txt3 = roughPars.BaseLengthText;
     			
 			    if ( txt3 != null )
@@ -307,7 +307,7 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Создать шероховатость 3D
+    // РЎРѕР·РґР°С‚СЊ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚СЊ 3D
     // ---
     bool CreateRough3D( ref IRough3D rough )
     {
@@ -315,31 +315,31 @@ namespace Step3_API7_3D
 
 	    if ( rough != null && doc3D != null )
 	    {
-			  // Указать в документе опорный объект для построения шероховатости
+			  // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕРїРѕСЂРЅС‹Р№ РѕР±СЉРµРєС‚ РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
         ksEntity baseObj = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                            LoadString("IDS_OBJ"), 0, this );
 
 			  if ( baseObj != null )
 			  {
           double x = 0, y = 0, z = 0;
-				  // Указать точку привязки
+				  // РЈРєР°Р·Р°С‚СЊ С‚РѕС‡РєСѓ РїСЂРёРІСЏР·РєРё
           doc3D.UserGetCursor( LoadString("IDS_POINT"), out x, out y, out z );
 
-				  // Преобразовать интерфейс объекта из API5 в API7
+				  // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
           IModelObject mObj = (IModelObject)kompas.TransferInterface( baseObj, 
                               (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
 
 				  if ( mObj != null )
-					  // Установить привязку шероховатости
+					  // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РїСЂРёРІСЏР·РєСѓ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 					  rough.SetBasePosition( x, y, z, mObj );
 
-				  // Задать базовую плоскость
+				  // Р—Р°РґР°С‚СЊ Р±Р°Р·РѕРІСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
 				  rough.BasePlane = Kompas6Constants3D.ksObj3dTypeEnum.o3d_planeXOZ;
 
-				  // Установить параметры шероховатости
+				  // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 				  SetRoughPars( ref rough );
 
-				  // Применить параметры
+				  // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 				  res = rough.Update();
 			  }
 		  }
@@ -348,86 +348,86 @@ namespace Step3_API7_3D
     
 
     //-------------------------------------------------------------------------------
-    // Редактировать шероховатость 3D
+    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚СЊ 3D
     // ---
     void EditRough3D( ref IRough3D rough )
     {
 	    if ( rough != null )
 	    {
-		    // Получить интерфейс параметров шероховатости
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё
 		    IRoughParams roughPars = (IRoughParams)rough;
 
 		    if ( roughPars != null )
-			    // Убрать признак обработки по контуру
+			    // РЈР±СЂР°С‚СЊ РїСЂРёР·РЅР°Рє РѕР±СЂР°Р±РѕС‚РєРё РїРѕ РєРѕРЅС‚СѓСЂСѓ
 			    roughPars.ProcessingByContour = false;
 
-		    // Получить интерфейс объекта дерева
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР°
 		    IFeature7 featObj = (IFeature7)rough;
 
 		    if ( featObj != null )
 		    {	
-			    // Изменить имя объекта в дереве	
+			    // РР·РјРµРЅРёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р° РІ РґРµСЂРµРІРµ	
 			    rough.Name = GetNewName( ref featObj, "IDS_ROUGH" ); 
-			    // Получить базовый объект
+			    // РџРѕР»СѓС‡РёС‚СЊ Р±Р°Р·РѕРІС‹Р№ РѕР±СЉРµРєС‚
 			    IModelObject baseObj = rough.BaseObject;
-			    // Задать плоскость обозначения по вершине базового объекта
+			    // Р—Р°РґР°С‚СЊ РїР»РѕСЃРєРѕСЃС‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ РїРѕ РІРµСЂС€РёРЅРµ Р±Р°Р·РѕРІРѕРіРѕ РѕР±СЉРµРєС‚Р°
 			    SetPosition( ref rough, ref baseObj );
 		    }
 
-		    // Получить интерфейс свойств цвета объекта
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ С†РІРµС‚Р° РѕР±СЉРµРєС‚Р°
 		    IColorParam7 colorPars = (IColorParam7)rough;
 
-		    // Изменить цвет на синий
+		    // РР·РјРµРЅРёС‚СЊ С†РІРµС‚ РЅР° СЃРёРЅРёР№
 		    if ( colorPars != null )
 			    colorPars.Color = RGB( 0, 0, 255 );
 
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    rough.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование шероховатости 3D
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё 3D
     // ---
     void Rough3DWork()
     {
-	    // Получить контейнер обозначений 3D
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 	    ISymbols3DContainer symbCont = GetSymbols3DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию шероховатостей 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚РµР№ 3D
 		    IRoughs3D roughsCol = symbCont.Roughs3D;
     		
 		    if ( roughsCol != null )
 		    {
-			    // Добавить новое обозначение шероховатости 3D
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІРѕРµ РѕР±РѕР·РЅР°С‡РµРЅРёРµ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё 3D
 			    IRough3D newRough = roughsCol.Add();
     			
 			    if ( newRough != null )
 			    {
-				    // Создать обозначение шероховатости 3D
+				    // РЎРѕР·РґР°С‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёРµ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚Рё 3D
 				    if ( CreateRough3D(ref newRough) )
 				    {	
 					    string name = "";
-					    // Получить интерфейс объекта дерева построения
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР° РїРѕСЃС‚СЂРѕРµРЅРёСЏ
 					    IFeature7 feature = (IFeature7)newRough;
     					
-					    // Получить имя объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р°
 					    if ( feature != null )
 						    name = feature.Name;
     					
 					    if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по имени
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РёРјРµРЅРё
 						    IRough3D rough = roughsCol.get_Rough3D( name );
-						    // Редактировать шероховатость
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С€РµСЂРѕС…РѕРІР°С‚РѕСЃС‚СЊ
 						    EditRough3D( ref rough );
 					    }
 				    }
 				    else
-					    // Выдать сообщение "Объект не создан"
+					    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ"
               kompas.ksMessage( LoadString("IDS_NOCREATE") );
 			    }
 		    }
@@ -436,9 +436,9 @@ namespace Step3_API7_3D
     #endregion
 
 
-    #region Обозначение базы 3D
+    #region РћР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹ 3D
     //-------------------------------------------------------------------------------
-    // Создать обозначение базы
+    // РЎРѕР·РґР°С‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹
     // ---
     bool CreateBase3D( ref IBase3D pBase ) 
     {
@@ -446,28 +446,28 @@ namespace Step3_API7_3D
 
 	    if ( pBase != null && doc3D != null )
 	    {
-			  // Указать в документе опорный объект для построения базы
+			  // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕРїРѕСЂРЅС‹Р№ РѕР±СЉРµРєС‚ РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ Р±Р°Р·С‹
         ksEntity baseObj = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                            LoadString("IDS_OBJ"), 0, this );
     		
 			  if ( baseObj != null )
 			  {
 				  double x = 0, y = 0, z = 0;
-				  // Указать точку привязки
+				  // РЈРєР°Р·Р°С‚СЊ С‚РѕС‡РєСѓ РїСЂРёРІСЏР·РєРё
 				  doc3D.UserGetCursor( LoadString("IDS_POINT"), out x, out y, out z );
     			
-				  // Преобразовать интерфейс объекта из API5 в API7
+				  // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
           IModelObject mObj = (IModelObject)kompas.TransferInterface( baseObj, 
                               (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
     			
 				  if ( mObj != null )
-					  // Установить привязку базы
+					  // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РїСЂРёРІСЏР·РєСѓ Р±Р°Р·С‹
 					  pBase.SetBranchBeginPoint( x, y, z, mObj );
     			
-				  // Задать базовую плоскость
+				  // Р—Р°РґР°С‚СЊ Р±Р°Р·РѕРІСѓСЋ РїР»РѕСЃРєРѕСЃС‚СЊ
 				  pBase.BasePlane = Kompas6Constants3D.ksObj3dTypeEnum.o3d_planeXOZ;
     			
-				  // Применить параметры
+				  // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 				  res = pBase.Update();
 			  }
 		  }
@@ -476,16 +476,16 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Редактирование обозначения базы
+    // Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹
     // ---
     void EditBase3D( ref IBase3D pBase )
     {
 	    if ( pBase != null )
 	    {
-		    // Отменить автосортировку
+		    // РћС‚РјРµРЅРёС‚СЊ Р°РІС‚РѕСЃРѕСЂС‚РёСЂРѕРІРєСѓ
 		    pBase.AutoSorted = false;
 
-		    // Получить интерфейс текста обозначения базы
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹
 		    IText txt = pBase.Text;
     		
 		    if ( txt != null )
@@ -496,36 +496,36 @@ namespace Step3_API7_3D
     			
 			    if ( line != null )
 			    {
-				    // Добавить строку
+				    // Р”РѕР±Р°РІРёС‚СЊ СЃС‚СЂРѕРєСѓ
 				    AddTextItem( ref line, "A", Kompas6Constants.ksTextItemEnum.ksTItString );
-				    // Добавить выражение типа суммы (нижний индекс может существовать
-				    // только в таком выражении
+				    // Р”РѕР±Р°РІРёС‚СЊ РІС‹СЂР°Р¶РµРЅРёРµ С‚РёРїР° СЃСѓРјРјС‹ (РЅРёР¶РЅРёР№ РёРЅРґРµРєСЃ РјРѕР¶РµС‚ СЃСѓС‰РµСЃС‚РІРѕРІР°С‚СЊ
+				    // С‚РѕР»СЊРєРѕ РІ С‚Р°РєРѕРј РІС‹СЂР°Р¶РµРЅРёРё
 				    AddTextItem( ref line, "", Kompas6Constants.ksTextItemEnum.ksTItSBase );
-				    // Добавить нижний индекс
+				    // Р”РѕР±Р°РІРёС‚СЊ РЅРёР¶РЅРёР№ РёРЅРґРµРєСЃ
 				    AddTextItem( ref line, "1", Kompas6Constants.ksTextItemEnum.ksTItSLowerIndex );
-				    // Закончить выражение типа суммы
+				    // Р—Р°РєРѕРЅС‡РёС‚СЊ РІС‹СЂР°Р¶РµРЅРёРµ С‚РёРїР° СЃСѓРјРјС‹
 				    AddTextItem( ref line, "", Kompas6Constants.ksTextItemEnum.ksTItSEnd );
 			    }
 		    }
 
-		    // Тип - произвольное положение
+		    // РўРёРї - РїСЂРѕРёР·РІРѕР»СЊРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ
 		    pBase.DrawType = false;
 		    double x = 0, y = 0, z = 0;
-		    // Сместить конечную точку обозначения базы
+		    // РЎРјРµСЃС‚РёС‚СЊ РєРѕРЅРµС‡РЅСѓСЋ С‚РѕС‡РєСѓ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹
 		    pBase.GetBranchEndPoint( out x, out y, out z );
 		    pBase.SetBranchEndPoint( x + 10, y + 10, z );
 
-		    // Получить интерфейс объекта дерева
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР°
 		    IFeature7 featObj = (IFeature7)pBase;
 
 		    if ( featObj != null )
-			    // Изменить имя объекта в дереве
+			    // РР·РјРµРЅРёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р° РІ РґРµСЂРµРІРµ
 			    pBase.Name = GetNewName( ref featObj, "IDS_BASE" );
 
-		    // Получить интерфейс свойств цвета объекта
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ С†РІРµС‚Р° РѕР±СЉРµРєС‚Р°
 		    IColorParam7 colorPars = (IColorParam7)pBase;
     		
-		    // Изменить цвет на черный
+		    // РР·РјРµРЅРёС‚СЊ С†РІРµС‚ РЅР° С‡РµСЂРЅС‹Р№
 		    if ( colorPars != null )
 			    colorPars.Color = RGB( 0, 0, 0 );
 
@@ -536,46 +536,46 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование обозначения базы
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ Р±Р°Р·С‹
     // ---
     void Base3DWork()
     {
-	    // Получить контейнер обозначений 3D
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 	    ISymbols3DContainer symbCont = GetSymbols3DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию обозначений базы 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ РѕР±РѕР·РЅР°С‡РµРЅРёР№ Р±Р°Р·С‹ 3D
 		    IBases3D basesCol = symbCont.Bases3D;
     		
 		    if ( basesCol != null )
 		    {
-			    // Добавить новое обозначение базы 3D
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІРѕРµ РѕР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹ 3D
 			    IBase3D newBase = basesCol.Add();
     			
 			    if ( newBase != null )
 			    {
-				    // Создать обозначение базы 3D
+				    // РЎРѕР·РґР°С‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹ 3D
 				    if ( CreateBase3D(ref newBase) )
 				    {	
 					    string name = "";
-					    // Получить интерфейс объекта дерева построения
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР° РїРѕСЃС‚СЂРѕРµРЅРёСЏ
 					    IFeature7 feature = (IFeature7)newBase;
     					
-					    // Получить имя объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р°
 					    if ( feature != null )
 						    name = feature.Name;
     					
 					    if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по имени
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РёРјРµРЅРё
 						    IBase3D pBase = basesCol.get_Base3D( name );
-						    // Редактировать обозначение базы
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёРµ Р±Р°Р·С‹
 						    EditBase3D( ref pBase );
 					    }
 				    }
 				    else
-					    // Выдать сообщение "Объект не создан"
+					    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ"
               kompas.ksMessage( LoadString("IDS_NOCREATE") );
 			    }
 		    }
@@ -584,9 +584,9 @@ namespace Step3_API7_3D
     #endregion
 
 
-    #region Линия-выноска 3D
+    #region Р›РёРЅРёСЏ-РІС‹РЅРѕСЃРєР° 3D
     //-------------------------------------------------------------------------------
-    // Установить тексты линии-выноски
+    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С‚РµРєСЃС‚С‹ Р»РёРЅРёРё-РІС‹РЅРѕСЃРєРё
     // ---
     void SetLeader3DTexts( ref IBaseLeader3D baseLeader )
     {
@@ -594,70 +594,70 @@ namespace Step3_API7_3D
 
 	    if ( leader != null )
 	    {
-		    // Получить интерфейс текста над полкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РЅР°Рґ РїРѕР»РєРѕР№
 		    IText txtOnSh = leader.TextOnShelf;
     		
 		    if ( txtOnSh != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txtOnSh.Str = "1";
     		
-		    // Получить интерфейс текста под полкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РїРѕРґ РїРѕР»РєРѕР№
 		    IText txtUnderSh = leader.TextUnderShelf;
     		
 		    if ( txtUnderSh != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txtUnderSh.Str = "2";
     		
-		    // Получить интерфейс текста над ножкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РЅР°Рґ РЅРѕР¶РєРѕР№
 		    IText txtOnBr = leader.TextOnBranch;
     		
 		    if ( txtOnBr != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txtOnBr.Str = "3";
     		
-		    // Получить интерфейс текста под ножкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РїРѕРґ РЅРѕР¶РєРѕР№
 		    IText txtUnderBr = leader.TextUnderBranch;
     		
 		    if ( txtUnderBr != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txtUnderBr.Str = "4";
     		
-		    // Получить интерфейс текста за полкой
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° Р·Р° РїРѕР»РєРѕР№
 		    IText txtAfterSh = leader.TextAfterShelf;
     		
 		    if ( txtAfterSh != null )
-			    // Изменить текст
+			    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 			    txtAfterSh.Str = "5";
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создать ответвление линии-выноски
+    // РЎРѕР·РґР°С‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ Р»РёРЅРёРё-РІС‹РЅРѕСЃРєРё
     // ---
     void CreateBranchsLeader( ref IBaseLeader3D leader )
     {
 	    if ( leader != null && doc3D != null )
 	    {
-			  // Указать в документе опорный объект
+			  // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕРїРѕСЂРЅС‹Р№ РѕР±СЉРµРєС‚
         ksEntity baseObj = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                            LoadString("IDS_OBJ"), 0, this );
     		
 			  double x =0 , y = 0, z = 0, x1 = 0, y1 = 0, z1 = 0;
-			  // Указать точку начала ножки.
-			  // Точка должна лежать на опорном объекте
+			  // РЈРєР°Р·Р°С‚СЊ С‚РѕС‡РєСѓ РЅР°С‡Р°Р»Р° РЅРѕР¶РєРё.
+			  // РўРѕС‡РєР° РґРѕР»Р¶РЅР° Р»РµР¶Р°С‚СЊ РЅР° РѕРїРѕСЂРЅРѕРј РѕР±СЉРµРєС‚Рµ
 			  doc3D.UserGetCursor( LoadString("IDS_BEGINBRANCH"), out x, out y, out z );
     		
-			  // Указать объект, задающий плоскость обозначения
+			  // РЈРєР°Р·Р°С‚СЊ РѕР±СЉРµРєС‚, Р·Р°РґР°СЋС‰РёР№ РїР»РѕСЃРєРѕСЃС‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
         ksEntity posObj = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                           LoadString("IDS_POSOBJ"), 0, this );
     		
 			  if ( baseObj != null && posObj != null )
 			  {
-				  // Указать точку, задающую положние объектов
-				  // Точка должна лежать в плоскости обозначения
+				  // РЈРєР°Р·Р°С‚СЊ С‚РѕС‡РєСѓ, Р·Р°РґР°СЋС‰СѓСЋ РїРѕР»РѕР¶РЅРёРµ РѕР±СЉРµРєС‚РѕРІ
+				  // РўРѕС‡РєР° РґРѕР»Р¶РЅР° Р»РµР¶Р°С‚СЊ РІ РїР»РѕСЃРєРѕСЃС‚Рё РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 				  doc3D.UserGetCursor( LoadString("IDS_BEGINSHELF"), out x1, out y1, out z1 );
-				  // Преобразовать интерфейс объекта из API5 в API7
+				  // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
           IModelObject mObj1 = (IModelObject)kompas.TransferInterface( baseObj, 
                                (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
           IModelObject mObj2 = (IModelObject)kompas.TransferInterface( posObj, 
@@ -665,14 +665,14 @@ namespace Step3_API7_3D
     			
 				  if ( mObj1 != null && mObj2 != null )
 				  {	
-					  // Получить интерфейс ответвлений
+					  // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 					  IBranchs3D branchs3D = (IBranchs3D)leader;
     				
-					  // Добавить ответвление
+					  // Р”РѕР±Р°РІРёС‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 					  if ( branchs3D != null )
 						  branchs3D.AddBranchByPoint( x, y, z, mObj1 );
     				
-					  // Установить объект, задающий плоскость обозначения
+					  // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РѕР±СЉРµРєС‚, Р·Р°РґР°СЋС‰РёР№ РїР»РѕСЃРєРѕСЃС‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 					  leader.PositionObject = mObj2;
 					  leader.SetPosition( x1, y1, z1 );
 				  }
@@ -682,7 +682,7 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Создать линию-выноску
+    // РЎРѕР·РґР°С‚СЊ Р»РёРЅРёСЋ-РІС‹РЅРѕСЃРєСѓ
     // ---
     bool CreateLeader3D( ref IBaseLeader3D leader ) 
     {
@@ -690,11 +690,11 @@ namespace Step3_API7_3D
 
 	    if ( leader != null )
 	    {
-		    // Создать ответвления линии-выноски
+		    // РЎРѕР·РґР°С‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёСЏ Р»РёРЅРёРё-РІС‹РЅРѕСЃРєРё
 		    CreateBranchsLeader( ref leader );
-		    // Установить тексты линии-выноски
+		    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С‚РµРєСЃС‚С‹ Р»РёРЅРёРё-РІС‹РЅРѕСЃРєРё
 		    SetLeader3DTexts( ref leader );
-		    // Применить параметры
+		    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		    res = leader.Update();
 	    }
 	    return res;
@@ -702,7 +702,7 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Изменить параметры линии-выноски
+    // РР·РјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ Р»РёРЅРёРё-РІС‹РЅРѕСЃРєРё
     // ---
     void EditLeaderPars( ref IBaseLeader3D baseLeader )
     {
@@ -712,15 +712,15 @@ namespace Step3_API7_3D
 
 		    if ( leader != null )
 		    {
-			    // Тип значка - знак склеивания
+			    // РўРёРї Р·РЅР°С‡РєР° - Р·РЅР°Рє СЃРєР»РµРёРІР°РЅРёСЏ
 			    leader.SignType = Kompas6Constants.ksLeaderSignEnum.ksLGlueSign;
-			    // Включить признак обоработки по контуру
+			    // Р’РєР»СЋС‡РёС‚СЊ РїСЂРёР·РЅР°Рє РѕР±РѕСЂР°Р±РѕС‚РєРё РїРѕ РєРѕРЅС‚СѓСЂСѓ
 			    leader.Arround = true;
     			
-			    // Начало созданного ответвления - от конца полки
+			    // РќР°С‡Р°Р»Рѕ СЃРѕР·РґР°РЅРЅРѕРіРѕ РѕС‚РІРµС‚РІР»РµРЅРёСЏ - РѕС‚ РєРѕРЅС†Р° РїРѕР»РєРё
 			    leader.set_BranchBegin( 2, false );
     			
-			    // Получить текст над полкой
+			    // РџРѕР»СѓС‡РёС‚СЊ С‚РµРєСЃС‚ РЅР°Рґ РїРѕР»РєРѕР№
 			    IText txt = leader.TextOnShelf;
     			
 			    if ( txt != null )
@@ -731,13 +731,13 @@ namespace Step3_API7_3D
     				
 				    if ( line != null )
 				    {
-					    // Добавить строку
+					    // Р”РѕР±Р°РІРёС‚СЊ СЃС‚СЂРѕРєСѓ
 					    AddTextItem( ref line, "1", Kompas6Constants.ksTextItemEnum.ksTItString );
-					    // Добавить числитель дроби
+					    // Р”РѕР±Р°РІРёС‚СЊ С‡РёСЃР»РёС‚РµР»СЊ РґСЂРѕР±Рё
 					    AddTextItem( ref line, "1", Kompas6Constants.ksTextItemEnum.ksTItNumerator );
-					    // Добавить знаментатель дроби
+					    // Р”РѕР±Р°РІРёС‚СЊ Р·РЅР°РјРµРЅС‚Р°С‚РµР»СЊ РґСЂРѕР±Рё
 					    AddTextItem( ref line, "1", Kompas6Constants.ksTextItemEnum.ksTItDenominator );
-					    // Закончить дробь
+					    // Р—Р°РєРѕРЅС‡РёС‚СЊ РґСЂРѕР±СЊ
 					    AddTextItem( ref line, "1", Kompas6Constants.ksTextItemEnum.ksTItFractionEnd );
 				    }
 			    }
@@ -747,32 +747,32 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Добавить прямолинейное ответвление
+    // Р”РѕР±Р°РІРёС‚СЊ РїСЂСЏРјРѕР»РёРЅРµР№РЅРѕРµ РѕС‚РІРµС‚РІР»РµРЅРёРµ
     // ---
     void LeaderAddBranch( ref IBaseLeader3D leader ) 
     {
 	    if ( leader != null && doc3D != null )
 	    {
-			  // Указать в документе опорный объект
+			  // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕРїРѕСЂРЅС‹Р№ РѕР±СЉРµРєС‚
         ksEntity baseObj = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                            LoadString("IDS_OBJ"), 0, this );
     		
 			  double x = 0, y = 0, z = 0;
-			  // Указать точку начала ножки
+			  // РЈРєР°Р·Р°С‚СЊ С‚РѕС‡РєСѓ РЅР°С‡Р°Р»Р° РЅРѕР¶РєРё
 			  doc3D.UserGetCursor( LoadString("IDS_BEGINBRANCH"), out x, out y, out z );
     		
 			  if ( baseObj != null )
 			  {
-				  // Преобразовать интерфейс объекта из API5 в API7
+				  // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
           IModelObject mObj = (IModelObject)kompas.TransferInterface( baseObj, 
                               (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
     			
 				  if ( mObj != null )
 				  {	
-					  // Получить интерфейс ответвлений
+					  // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 					  IBranchs3D branchs3D = (IBranchs3D)leader;
     				
-					  // Добавить ответвление
+					  // Р”РѕР±Р°РІРёС‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 					  if ( branchs3D != null )
 						  branchs3D.AddBranchByPoint( x, y, z, mObj );
 				  }
@@ -782,79 +782,79 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Редактировать линию-выноску
+    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р»РёРЅРёСЋ-РІС‹РЅРѕСЃРєСѓ
     // ---
     void EditLeader3D( ref IBaseLeader3D leader ) 
     {
 	    if ( leader != null )
 	    {
-		    // Добавить прямолинейное ответвление
+		    // Р”РѕР±Р°РІРёС‚СЊ РїСЂСЏРјРѕР»РёРЅРµР№РЅРѕРµ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 		    LeaderAddBranch( ref leader );
-		    // Изменить параметры линии-выноски
+		    // РР·РјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ Р»РёРЅРёРё-РІС‹РЅРѕСЃРєРё
 		    EditLeaderPars( ref leader );
 
-		    // Получить интерфейс объекта дерева
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР°
 		    IFeature7 featObj = (IFeature7)leader;
     		
 		    if ( featObj != null )
-			    // Изменить имя объекта в дереве
+			    // РР·РјРµРЅРёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р° РІ РґРµСЂРµРІРµ
 			    leader.Name = GetNewName( ref featObj, "IDS_LEADER" );
     		
-		    // Получить интерфейс свойств цвета объекта
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ С†РІРµС‚Р° РѕР±СЉРµРєС‚Р°
 		    IColorParam7 colorPars = (IColorParam7)leader;
     		
-		    // Изменить цвет на коричневый
+		    // РР·РјРµРЅРёС‚СЊ С†РІРµС‚ РЅР° РєРѕСЂРёС‡РЅРµРІС‹Р№
 		    if ( colorPars != null )
 			    colorPars.Color = RGB( 123, 40, 0 );
 
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    leader.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование линии-выноски 3D
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р»РёРЅРёРё-РІС‹РЅРѕСЃРєРё 3D
     // ---
     void Leader3DWork()
     {
-	    // Получить контейнер обозначений 3D
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 	    ISymbols3DContainer symbCont = GetSymbols3DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию линий-выносок 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ Р»РёРЅРёР№-РІС‹РЅРѕСЃРѕРє 3D
 		    ILeaders3D leadsCol = symbCont.Leaders3D;
     		
 		    if ( leadsCol != null )
 		    {
-			    // Добавить новую линию-выноску 3D
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІСѓСЋ Р»РёРЅРёСЋ-РІС‹РЅРѕСЃРєСѓ 3D
 			    IBaseLeader3D newLeader = leadsCol.Add( Kompas6Constants3D.ksObj3dTypeEnum.
                                                   o3d_leader3D );
     			
 			    if ( newLeader != null )
 			    {
-				    // Создать линию-выноску 3D
+				    // РЎРѕР·РґР°С‚СЊ Р»РёРЅРёСЋ-РІС‹РЅРѕСЃРєСѓ 3D
 				    if ( CreateLeader3D( ref newLeader) )
 				    {	
 					    string name = "";
-					    // Получить интерфейс объекта дерева построения
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР° РїРѕСЃС‚СЂРѕРµРЅРёСЏ
 					    IFeature7 feature = (IFeature7)newLeader;
     					
-					    // Получить имя объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р°
 					    if ( feature != null )
 						    name = feature.Name;
     					
 					    if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по имени
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РёРјРµРЅРё
 						    IBaseLeader3D leader = leadsCol.get_Leader3D( name );
-						    // Редактировать линию-выноску
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р»РёРЅРёСЋ-РІС‹РЅРѕСЃРєСѓ
 						    EditLeader3D( ref leader );
 					    }
 				    }
 				    else
-					    // Выдать сообщение "Объект не создан"
+					    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ"
               kompas.ksMessage( LoadString("IDS_NOCREATE") );
 			    }
 		    }
@@ -863,9 +863,9 @@ namespace Step3_API7_3D
     #endregion
 
 
-    #region Знак клеймения 3D
+    #region Р—РЅР°Рє РєР»РµР№РјРµРЅРёСЏ 3D
     //-------------------------------------------------------------------------------
-    // Создать знак клеймения 3D
+    // РЎРѕР·РґР°С‚СЊ Р·РЅР°Рє РєР»РµР№РјРµРЅРёСЏ 3D
     // ---
     bool CreateBrandLeader3D( ref IBaseLeader3D baseLeader )
     {
@@ -873,17 +873,17 @@ namespace Step3_API7_3D
     	
 	    if ( baseLeader != null )
 	    {
-		    // Создать ответвления
+		    // РЎРѕР·РґР°С‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёСЏ
 		    CreateBranchsLeader( ref baseLeader );
 
-		    // Получить интерфейс знака клеймения
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ Р·РЅР°РєР° РєР»РµР№РјРµРЅРёСЏ
 		    IBrandLeader brandLeader = (IBrandLeader)baseLeader;
 
 		    if ( brandLeader != null )
-			    // Направление
+			    // РќР°РїСЂР°РІР»РµРЅРёРµ
 			    brandLeader.Direction = false;
     			
-		    // Применить параметры
+		    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		    res = baseLeader.Update();
 	    }
 	    return res;
@@ -891,90 +891,90 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Редактировать знак клеймения
+    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·РЅР°Рє РєР»РµР№РјРµРЅРёСЏ
     // ---
     void EditBrandLeader3D( ref IBaseLeader3D leader ) 
     {
 	    if ( leader != null )
 	    {
-		    // Добавить прямолинейное ответвление
+		    // Р”РѕР±Р°РІРёС‚СЊ РїСЂСЏРјРѕР»РёРЅРµР№РЅРѕРµ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 		    LeaderAddBranch( ref leader );
 
-		    // Установить параметры знака клеймения
+		    // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ Р·РЅР°РєР° РєР»РµР№РјРµРЅРёСЏ
 		    IBrandLeader brandLeader = (IBrandLeader)leader;
     		
 		    if ( brandLeader != null )
 		    {
-			    // Получить интерфейс текста обозначения
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 			    IText des = brandLeader.Designation;
     			
 			    if ( des != null )
-				    // Изменить текст
+				    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 				    des.Str = LoadString( "IDS_MARK1" );
 		    }
 
-		    // Получить интерфейс объекта дерева
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР°
 		    IFeature7 featObj = (IFeature7)leader;
     		
 		    if ( featObj != null )
-			    // Изменить имя объекта в дереве
+			    // РР·РјРµРЅРёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р° РІ РґРµСЂРµРІРµ
 			    leader.Name = GetNewName( ref featObj, "IDS_BRAND" );
     		
-		    // Получить интерфейс свойств цвета объекта
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ С†РІРµС‚Р° РѕР±СЉРµРєС‚Р°
 		    IColorParam7 colorPars = (IColorParam7)leader;
     		
-		    // Изменить цвет на фиолетовый
+		    // РР·РјРµРЅРёС‚СЊ С†РІРµС‚ РЅР° С„РёРѕР»РµС‚РѕРІС‹Р№
 		    if ( colorPars != null )
 			    colorPars.Color = RGB( 128, 0, 128 );
 
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    leader.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование знака клеймения
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РєР»РµР№РјРµРЅРёСЏ
     // ---
     void BrandLeader3DWork()
     {
-	    // Получить контейнер обозначений 3D
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 	    ISymbols3DContainer symbCont = GetSymbols3DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию линий-выносок 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ Р»РёРЅРёР№-РІС‹РЅРѕСЃРѕРє 3D
 		    ILeaders3D leadsCol = symbCont.Leaders3D;
     		
 		    if ( leadsCol != null )
 		    {
-			    // Добавить новый знак клеймения 3D
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ Р·РЅР°Рє РєР»РµР№РјРµРЅРёСЏ 3D
 			    IBaseLeader3D newBrand = leadsCol.Add( Kompas6Constants3D.ksObj3dTypeEnum.
                                                  o3d_brandLeader3D );
     			
 			    if ( newBrand != null )
 			    {
-				    // Создать знак клеймения 3D
+				    // РЎРѕР·РґР°С‚СЊ Р·РЅР°Рє РєР»РµР№РјРµРЅРёСЏ 3D
 				    if ( CreateBrandLeader3D(ref newBrand) )
 				    {	
 					    string name = "";
-					    // Получить интерфейс объекта дерева построения
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР° РїРѕСЃС‚СЂРѕРµРЅРёСЏ
 					    IFeature7 feature = (IFeature7)newBrand;
     					
-					    // Получить имя объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р°
 					    if ( feature != null )
 						    name = feature.Name;
     					
 					    if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по имени
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РёРјРµРЅРё
 						    IBaseLeader3D brandLeader = leadsCol.get_Leader3D( name );
-						    // Редактировать знак клеймения
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·РЅР°Рє РєР»РµР№РјРµРЅРёСЏ
 						    EditBrandLeader3D( ref brandLeader );
 					    }
 				    }
 				    else
-					    // Выдать сообщение "Объект не создан"
+					    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ"
               kompas.ksMessage( LoadString("IDS_NOCREATE") );
 			    }
 		    }
@@ -983,9 +983,9 @@ namespace Step3_API7_3D
     #endregion
 
 
-    #region Знак маркировки 3D
+    #region Р—РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё 3D
     //-------------------------------------------------------------------------------
-    // Создать знак маркировки
+    // РЎРѕР·РґР°С‚СЊ Р·РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё
     // ---
     bool CreateMarkLeader3D( ref IBaseLeader3D baseLeader )
     {
@@ -993,29 +993,29 @@ namespace Step3_API7_3D
 
 	    if ( baseLeader !=null )
 	    {
-		    // Создать ответвление
+		    // РЎРѕР·РґР°С‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 		    CreateBranchsLeader( ref baseLeader );
 
-		    // Получить интерфейс знака маркировки
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ Р·РЅР°РєР° РјР°СЂРєРёСЂРѕРІРєРё
 		    IMarkLeader markLeader = (IMarkLeader)baseLeader;
 
 		    if ( markLeader != null )
 		    {	
-			    // Получить интерфейс текста над ножкой
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РЅР°Рґ РЅРѕР¶РєРѕР№
 			    IText textOnBranch = markLeader.TextOnBranch;
     			
 			    if ( textOnBranch != null )
-				    // Изменить текст
+				    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 				    textOnBranch.Str = "2";
     			
-			    // Получить интерфейс текста под ножкой
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РїРѕРґ РЅРѕР¶РєРѕР№
 			    IText textUnderBranch = markLeader.TextUnderBranch;
     			
 			    if ( textUnderBranch != null )
-				    // Изменить текст
+				    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 				    textUnderBranch.Str = "3";
 		    }
-		    // Применить параметры
+		    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		    res = baseLeader.Update();
 	    }
 	    return res;
@@ -1023,90 +1023,90 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Редактировать знак маркировки
+    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё
     // ---
     void EditMarkLeader3D( ref IBaseLeader3D baseLeader )
     {
 	    if ( baseLeader != null )
 	    {
-		    // Добавить прямолинейное ответвление
+		    // Р”РѕР±Р°РІРёС‚СЊ РїСЂСЏРјРѕР»РёРЅРµР№РЅРѕРµ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 		    LeaderAddBranch( ref baseLeader );
 
-		    // Получить интерфейс знака маркировки
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ Р·РЅР°РєР° РјР°СЂРєРёСЂРѕРІРєРё
 		    IMarkLeader markLeader = (IMarkLeader)baseLeader;
     		
 		    if ( markLeader != null )
 		    {
-			    // Получить интерфейс текста обозначения
+			    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚РµРєСЃС‚Р° РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 			    IText des = markLeader.Designation;
     			
 			    if ( des != null )
-				    // Изменить текст
+				    // РР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚
 				    des.Str = "10";
 		    }
 
-		    // Получить интерфейс объекта дерева
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР°
 		    IFeature7 featObj = (IFeature7)baseLeader;
     		
 		    if ( featObj != null )
-			    // Изменить имя объекта в дереве
+			    // РР·РјРµРЅРёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р° РІ РґРµСЂРµРІРµ
 			    baseLeader.Name = GetNewName( ref featObj, "IDS_BRAND" );
     		
-		    // Получить интерфейс свойств цвета объекта
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ С†РІРµС‚Р° РѕР±СЉРµРєС‚Р°
 		    IColorParam7 colorPars = (IColorParam7)baseLeader;
     		
-		    // Изменить цвет на сиреневый
+		    // РР·РјРµРЅРёС‚СЊ С†РІРµС‚ РЅР° СЃРёСЂРµРЅРµРІС‹Р№
 		    if ( colorPars != null )
 			    colorPars.Color = RGB( 204, 153, 255 );
     		
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    baseLeader.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование знака маркировки 3D
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·РЅР°РєР° РјР°СЂРєРёСЂРѕРІРєРё 3D
     // ---
     void MarkLeader3DWork()
     {
-	    // Получить контейнер обозначений 3D
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 	    ISymbols3DContainer symbCont = GetSymbols3DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию линий-выносок 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ Р»РёРЅРёР№-РІС‹РЅРѕСЃРѕРє 3D
 		    ILeaders3D leadsCol = symbCont.Leaders3D;
     		
 		    if ( leadsCol != null )
 		    {
-			    // Добавить новый знак маркировки 3D
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ Р·РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё 3D
 			    IBaseLeader3D newMark = leadsCol.Add( Kompas6Constants3D.ksObj3dTypeEnum.
                                                 o3d_markLeader3D );
     			
 			    if ( newMark != null )
 			    {
-				    // Создать знак маркировки 3D
+				    // РЎРѕР·РґР°С‚СЊ Р·РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё 3D
 				    if ( CreateMarkLeader3D(ref newMark) )
 				    {	
 					    string name = "";
-					    // Получить интерфейс объекта дерева построения
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР° РїРѕСЃС‚СЂРѕРµРЅРёСЏ
 					    IFeature7 feature = (IFeature7)newMark;
     					
-					    // Получить имя объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р°
 					    if ( feature != null )
 						    name = feature.Name;
 
 					    if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по имени
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РёРјРµРЅРё
 						    IBaseLeader3D markLeader = leadsCol.get_Leader3D( name );
-						    // Редактировать знак маркировки
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·РЅР°Рє РјР°СЂРєРёСЂРѕРІРєРё
 						    EditMarkLeader3D( ref markLeader );
 					    }
 				    }
 				    else
-					    // Выдать сообщение "Объект не создан"
+					    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ"
               kompas.ksMessage( LoadString("IDS_NOCREATE") );
 			    }
 		    }
@@ -1115,32 +1115,32 @@ namespace Step3_API7_3D
     #endregion
 
 
-    #region Допуск формы 3D
+    #region Р”РѕРїСѓСЃРє С„РѕСЂРјС‹ 3D
     //-------------------------------------------------------------------------------
-    // Создать ответвление для доопуска формы
+    // РЎРѕР·РґР°С‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ РґР»СЏ РґРѕРѕРїСѓСЃРєР° С„РѕСЂРјС‹
     // ---
     void CreateToleranceBranch( ref ITolerance3D tolerance )
     {
 	    if ( tolerance != null && doc3D != null )
 	    {
-			  // Указать в документе объект, на который будет указывать ножка
+			  // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕР±СЉРµРєС‚, РЅР° РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ СѓРєР°Р·С‹РІР°С‚СЊ РЅРѕР¶РєР°
         ksEntity baseObj = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                            LoadString("IDS_OBJ"), 0, this );
     		
 			  double x = 0, y = 0, z = 0, x1 = 0, y1 = 0, z1 = 0;
-			  // Указать точку конца ножки
-			  // Точка должна лежать на опорном объекте
+			  // РЈРєР°Р·Р°С‚СЊ С‚РѕС‡РєСѓ РєРѕРЅС†Р° РЅРѕР¶РєРё
+			  // РўРѕС‡РєР° РґРѕР»Р¶РЅР° Р»РµР¶Р°С‚СЊ РЅР° РѕРїРѕСЂРЅРѕРј РѕР±СЉРµРєС‚Рµ
 			  doc3D.UserGetCursor( LoadString("IDS_ENDPOINT"), out x, out y, out z );
     		
-			  // Указать объект, задающий плоскость обозначения
+			  // РЈРєР°Р·Р°С‚СЊ РѕР±СЉРµРєС‚, Р·Р°РґР°СЋС‰РёР№ РїР»РѕСЃРєРѕСЃС‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
         ksEntity posObj = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                           LoadString("IDS_POSOBJ"), 0, this );
     		
 			  if ( baseObj != null && posObj != null )
 			  {
-				  // Указать точку вставки таблицы
+				  // РЈРєР°Р·Р°С‚СЊ С‚РѕС‡РєСѓ РІСЃС‚Р°РІРєРё С‚Р°Р±Р»РёС†С‹
 				  doc3D.UserGetCursor( LoadString("IDS_TABLE"), out x1, out y1, out z1 );
-				  // Преобразовать интерфейс объекта из API5 в API7
+				  // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
           IModelObject mObj1 = (IModelObject)kompas.TransferInterface( baseObj, 
                                (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
           IModelObject mObj2 = (IModelObject)kompas.TransferInterface( posObj, 
@@ -1148,16 +1148,16 @@ namespace Step3_API7_3D
     			
 				  if ( mObj1 != null && mObj2 != null )
 				  {	
-					  // Получить интерфейс ответвлений
+					  // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 					  IBranchs3D branchs3D = (IBranchs3D)tolerance;
     				
-					  // Добавить ответвление
+					  // Р”РѕР±Р°РІРёС‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 					  if ( branchs3D != null )
 						  branchs3D.AddBranchByPoint( x, y, z, mObj1 );
     				
-					  // Установить объект, задающий плоскость обозначения
+					  // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РѕР±СЉРµРєС‚, Р·Р°РґР°СЋС‰РёР№ РїР»РѕСЃРєРѕСЃС‚СЊ РѕР±РѕР·РЅР°С‡РµРЅРёСЏ
 					  tolerance.PositionObject = mObj2;
-					  // Установить точку, задающую положение объекта
+					  // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С‚РѕС‡РєСѓ, Р·Р°РґР°СЋС‰СѓСЋ РїРѕР»РѕР¶РµРЅРёРµ РѕР±СЉРµРєС‚Р°
 					  tolerance.SetPosition( x1, y1, z1 );
 				  }
 			  }
@@ -1166,23 +1166,23 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Задать текст в ячейках допуска формы
+    // Р—Р°РґР°С‚СЊ С‚РµРєСЃС‚ РІ СЏС‡РµР№РєР°С… РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
     // ---
     void SetToleranceText( ref IToleranceParam tolPar )
     {
 	    if ( tolPar != null )
 	    {
-		    // Получить интерфейс таблицы с текстом допуска формы
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ С‚Р°Р±Р»РёС†С‹ СЃ С‚РµРєСЃС‚РѕРј РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
 		    ITable tolTable = tolPar.Table;
     		
 		    if ( tolTable != null )
 		    {
-			    // Добавить 3 столбца (1 уже есть)
-			    tolTable.AddColumn( -1, true/*справа*/ );
-			    tolTable.AddColumn( -1, true/*справа*/ );
-			    tolTable.AddColumn( -1, true/*справа*/ );
+			    // Р”РѕР±Р°РІРёС‚СЊ 3 СЃС‚РѕР»Р±С†Р° (1 СѓР¶Рµ РµСЃС‚СЊ)
+			    tolTable.AddColumn( -1, true/*СЃРїСЂР°РІР°*/ );
+			    tolTable.AddColumn( -1, true/*СЃРїСЂР°РІР°*/ );
+			    tolTable.AddColumn( -1, true/*СЃРїСЂР°РІР°*/ );
     			
-			    // Записать текст в 1-ю ячейку
+			    // Р—Р°РїРёСЃР°С‚СЊ С‚РµРєСЃС‚ РІ 1-СЋ СЏС‡РµР№РєСѓ
 			    ITableCell cell = tolTable.get_Cell( 0, 0 );
 			    ITextLine txt = null;
     			
@@ -1194,7 +1194,7 @@ namespace Step3_API7_3D
 					    txt.Str = "@22~";
 			    }
     			
-			    // Записать текст во 2-ю ячейку
+			    // Р—Р°РїРёСЃР°С‚СЊ С‚РµРєСЃС‚ РІРѕ 2-СЋ СЏС‡РµР№РєСѓ
 			    cell = tolTable.get_Cell( 0, 1 );
     			
 			    if ( cell != null )
@@ -1205,7 +1205,7 @@ namespace Step3_API7_3D
 					    txt.Str = "@2~";
 			    }
     			
-			    // Записать текст в 3-ю ячейку
+			    // Р—Р°РїРёСЃР°С‚СЊ С‚РµРєСЃС‚ РІ 3-СЋ СЏС‡РµР№РєСѓ
 			    cell = tolTable.get_Cell( 0, 2 );
     			
 			    if ( cell != null )
@@ -1216,7 +1216,7 @@ namespace Step3_API7_3D
 					    txt.Str = "B";
 			    }
     			
-			    // Записать текст в 4-ю ячейку
+			    // Р—Р°РїРёСЃР°С‚СЊ С‚РµРєСЃС‚ РІ 4-СЋ СЏС‡РµР№РєСѓ
 			    cell = tolTable.get_Cell( 0, 3 );
     			
 			    if ( cell != null )
@@ -1232,7 +1232,7 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Создать допуск формы
+    // РЎРѕР·РґР°С‚СЊ РґРѕРїСѓСЃРє С„РѕСЂРјС‹
     // ---
     bool CreateTolerance3D( ref ITolerance3D tolerance ) 
     {
@@ -1240,21 +1240,21 @@ namespace Step3_API7_3D
 
 	    if ( tolerance != null )
 	    {
-		    // Создать ответвление
+		    // РЎРѕР·РґР°С‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 		    CreateToleranceBranch( ref tolerance );
-		    // Получить интерфейс параметров допуска формы
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
 		    IToleranceParam tolPar = (IToleranceParam)tolerance;
     		
 		    if ( tolPar != null )
 		    {
-			    // Создать текст в ячейках
+			    // РЎРѕР·РґР°С‚СЊ С‚РµРєСЃС‚ РІ СЏС‡РµР№РєР°С…
 			    SetToleranceText( ref tolPar );
-			    // Положение базовой точки относительно таблицы - внизу посередине
+			    // РџРѕР»РѕР¶РµРЅРёРµ Р±Р°Р·РѕРІРѕР№ С‚РѕС‡РєРё РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ С‚Р°Р±Р»РёС†С‹ - РІРЅРёР·Сѓ РїРѕСЃРµСЂРµРґРёРЅРµ
 			    tolPar.BasePointPos = Kompas6Constants.ksTablePointEnum.ksTPBottomCenter;
 		    }
-		    // Тип стрелки 1-го ответвления - треугольник
+		    // РўРёРї СЃС‚СЂРµР»РєРё 1-РіРѕ РѕС‚РІРµС‚РІР»РµРЅРёСЏ - С‚СЂРµСѓРіРѕР»СЊРЅРёРє
 		    tolerance.set_ArrowType( 0, false );
-		    // Применить параметры
+		    // РџСЂРёРјРµРЅРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹
 		    res = tolerance.Update();
 	    }
 	    return res;
@@ -1262,37 +1262,37 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Добавить ответвление для допуска формы
+    // Р”РѕР±Р°РІРёС‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ РґР»СЏ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
     // ---
     void ToleranceAddBranch( ref ITolerance3D tolerance ) 
     {
 	    if ( tolerance != null && doc3D != null )
 	    {
-			  // Указать в документе объект, на который будет указывать ножка линии-выноски
+			  // РЈРєР°Р·Р°С‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Рµ РѕР±СЉРµРєС‚, РЅР° РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ СѓРєР°Р·С‹РІР°С‚СЊ РЅРѕР¶РєР° Р»РёРЅРёРё-РІС‹РЅРѕСЃРєРё
         ksEntity baseObj = (ksEntity)doc3D.UserSelectEntity( null, "UserFilterProc", 
                                            LoadString("IDS_OBJ"), 0, this );
     		
 			  double x = 0, y = 0, z = 0;
-			  // Указать точку конца ответвления
-        // Точка должна лежать на опорном объекте
+			  // РЈРєР°Р·Р°С‚СЊ С‚РѕС‡РєСѓ РєРѕРЅС†Р° РѕС‚РІРµС‚РІР»РµРЅРёСЏ
+        // РўРѕС‡РєР° РґРѕР»Р¶РЅР° Р»РµР¶Р°С‚СЊ РЅР° РѕРїРѕСЂРЅРѕРј РѕР±СЉРµРєС‚Рµ
 			  doc3D.UserGetCursor( LoadString("IDS_ENDPOINT"), out x, out y, out z );
     		
 			  if ( baseObj != null )
 			  {
-				  // Преобразовать интерфейс объекта из API5 в API7
+				  // РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РёР· API5 РІ API7
           IModelObject mObj = (IModelObject)kompas.TransferInterface( baseObj, 
                                (int)Kompas6Constants.ksAPITypeEnum.ksAPI7Dual, 0 );
     			
 				  if ( mObj != null )
 				  {	
-					  // Получить интерфейс ответвлений
+					  // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‚РІР»РµРЅРёР№
 					  IBranchs3D branchs3D = (IBranchs3D)tolerance;
     				
-					  // Добавить ответвление
+					  // Р”РѕР±Р°РІРёС‚СЊ РѕС‚РІРµС‚РІР»РµРЅРёРµ
 					  if ( branchs3D != null )
 						  branchs3D.AddBranchByPoint( x, y, z, mObj );
 
-					  // Ответвление со стрелкой
+					  // РћС‚РІРµС‚РІР»РµРЅРёРµ СЃРѕ СЃС‚СЂРµР»РєРѕР№
 					  tolerance.set_ArrowType( 1, true );
 				  }
 			  }
@@ -1301,7 +1301,7 @@ namespace Step3_API7_3D
 
 
     //-------------------------------------------------------------------------------
-    // Редактировать допуск формы
+    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РґРѕРїСѓСЃРє С„РѕСЂРјС‹
     // ---
     void EditTolerance3D( ref ITolerance3D tolerance ) 
     {
@@ -1309,78 +1309,78 @@ namespace Step3_API7_3D
 	    {
 		    ToleranceAddBranch( ref tolerance );
 
-		    // Получитьинтерфейс параметров допуска формы
+		    // РџРѕР»СѓС‡РёС‚СЊРёРЅС‚РµСЂС„РµР№СЃ РїР°СЂР°РјРµС‚СЂРѕРІ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹
 		    IToleranceParam tolPar = (IToleranceParam)tolerance;
 
 		    if ( tolPar != null )
 		    {
-			    // Задать признак вертикальности
+			    // Р—Р°РґР°С‚СЊ РїСЂРёР·РЅР°Рє РІРµСЂС‚РёРєР°Р»СЊРЅРѕСЃС‚Рё
 			    tolPar.Vertical = true;
-			    // Положение базовой точки относительно таблицы - слева посередине
+			    // РџРѕР»РѕР¶РµРЅРёРµ Р±Р°Р·РѕРІРѕР№ С‚РѕС‡РєРё РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ С‚Р°Р±Р»РёС†С‹ - СЃР»РµРІР° РїРѕСЃРµСЂРµРґРёРЅРµ
 			    tolPar.BasePointPos = Kompas6Constants.ksTablePointEnum.ksTPLeftBottom;
 		    }
 
-		    // Получить интерфейс объекта дерева
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР°
 		    IFeature7 featObj = (IFeature7)tolerance;
     		
 		    if ( featObj != null )
-			    // Изменить имя объекта в дереве
+			    // РР·РјРµРЅРёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р° РІ РґРµСЂРµРІРµ
 			    tolerance.Name = GetNewName( ref featObj, "IDS_TOLERANCE" );
     		
-		    // Получить интерфейс свойств цвета объекта
+		    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СЃРІРѕР№СЃС‚РІ С†РІРµС‚Р° РѕР±СЉРµРєС‚Р°
 		    IColorParam7 colorPars = (IColorParam7)tolerance;
     		
-		    // Изменить цвет на темно-красный
+		    // РР·РјРµРЅРёС‚СЊ С†РІРµС‚ РЅР° С‚РµРјРЅРѕ-РєСЂР°СЃРЅС‹Р№
 		    if ( colorPars != null )
 			    colorPars.Color = RGB( 186, 12, 34 );
 
-		    // Применить изменения
+		    // РџСЂРёРјРµРЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ
 		    tolerance.Update();
 	    }
     }
 
 
     //-------------------------------------------------------------------------------
-    // Создание и редактирование допуска формы 3D
+    // РЎРѕР·РґР°РЅРёРµ Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕРїСѓСЃРєР° С„РѕСЂРјС‹ 3D
     // ---
     void Tolerance3DWork()
     {
-	    // Получить контейнер обозначений 3D
+	    // РџРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РѕР±РѕР·РЅР°С‡РµРЅРёР№ 3D
 	    ISymbols3DContainer symbCont = GetSymbols3DContainer();
     	
 	    if ( symbCont != null )
 	    {
-		    // Получить коллекцию допусков формы 3D
+		    // РџРѕР»СѓС‡РёС‚СЊ РєРѕР»Р»РµРєС†РёСЋ РґРѕРїСѓСЃРєРѕРІ С„РѕСЂРјС‹ 3D
 		    ITolerances3D tolerCol = symbCont.Tolerances3D;
     		
 		    if ( tolerCol != null )
 		    {
-			    // Добавить новый допуск формы 3D
+			    // Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ РґРѕРїСѓСЃРє С„РѕСЂРјС‹ 3D
 			    ITolerance3D newTolerance = tolerCol.Add();
     			
 			    if ( newTolerance != null )
 			    {
-				    // Создать допуск формы 3D
+				    // РЎРѕР·РґР°С‚СЊ РґРѕРїСѓСЃРє С„РѕСЂРјС‹ 3D
 				    if ( CreateTolerance3D(ref newTolerance) )
 				    {	
 					    string name = "";
-					    // Получить интерфейс объекта дерева построения
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР° РїРѕСЃС‚СЂРѕРµРЅРёСЏ
 					    IFeature7 feature = (IFeature7)newTolerance;
     					
-					    // Получить имя объекта
+					    // РџРѕР»СѓС‡РёС‚СЊ РёРјСЏ РѕР±СЉРµРєС‚Р°
 					    if ( feature != null )
 						    name = feature.Name;
     					
 					    if ( kompas.ksYesNo(LoadString("IDS_EDIT")) == 1 )
 					    {
-						    // Получить объект из коллекции по имени
+						    // РџРѕР»СѓС‡РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РєРѕР»Р»РµРєС†РёРё РїРѕ РёРјРµРЅРё
 						    ITolerance3D tolerance = tolerCol.get_Tolerance3D( name );
-						    // Редактировать допуск формы
+						    // Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РґРѕРїСѓСЃРє С„РѕСЂРјС‹
 						    EditTolerance3D( ref tolerance );
 					    }
 				    }
 				    else
-					    // Выдать сообщение "Объект не создан"
+					    // Р’С‹РґР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ"
               kompas.ksMessage( LoadString("IDS_NOCREATE") );
 			    }
 		    }
@@ -1390,12 +1390,12 @@ namespace Step3_API7_3D
 
 
     #region COM Registration
-    // Эта функция выполняется при регистрации класса для COM
-    // Она добавляет в ветку реестра компонента раздел Kompas_Library,
-    // который сигнализирует о том, что класс является приложением Компас,
-    // а также заменяет имя InprocServer32 на полное, с указанием пути.
-    // Все это делается для того, чтобы иметь возможность подключить
-    // библиотеку на вкладке ActiveX.
+    // Р­С‚Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM
+    // РћРЅР° РґРѕР±Р°РІР»СЏРµС‚ РІ РІРµС‚РєСѓ СЂРµРµСЃС‚СЂР° РєРѕРјРїРѕРЅРµРЅС‚Р° СЂР°Р·РґРµР» Kompas_Library,
+    // РєРѕС‚РѕСЂС‹Р№ СЃРёРіРЅР°Р»РёР·РёСЂСѓРµС‚ Рѕ С‚РѕРј, С‡С‚Рѕ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј РљРѕРјРїР°СЃ,
+    // Р° С‚Р°РєР¶Рµ Р·Р°РјРµРЅСЏРµС‚ РёРјСЏ InprocServer32 РЅР° РїРѕР»РЅРѕРµ, СЃ СѓРєР°Р·Р°РЅРёРµРј РїСѓС‚Рё.
+    // Р’СЃРµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РёС‚СЊ
+    // Р±РёР±Р»РёРѕС‚РµРєСѓ РЅР° РІРєР»Р°РґРєРµ ActiveX.
     [ComRegisterFunction]
     public static void RegisterKompasLib(Type t)
     {
@@ -1411,11 +1411,11 @@ namespace Step3_API7_3D
       }
       catch (Exception ex)
       {
-        MessageBox.Show(string.Format("При регистрации класса для COM-Interop произошла ошибка:\n{0}", ex));
+        MessageBox.Show(string.Format("РџСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё РєР»Р°СЃСЃР° РґР»СЏ COM-Interop РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°:\n{0}", ex));
       }
     }
 		
-    // Эта функция удаляет раздел Kompas_Library из реестра
+    // Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»СЏРµС‚ СЂР°Р·РґРµР» Kompas_Library РёР· СЂРµРµСЃС‚СЂР°
     [ComUnregisterFunction]
     public static void UnregisterKompasLib(Type t)
     {

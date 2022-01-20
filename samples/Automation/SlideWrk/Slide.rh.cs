@@ -1,28 +1,28 @@
-public class SlideRH
+п»їpublic class SlideRH
 {
 	public const int MIN_COMMAND = 20000;
 	public const int END_SLIDE =	MIN_COMMAND + 1;
-	public const int LN =			MIN_COMMAND + 2;   // отрисовать линию
-	public const int LS =			MIN_COMMAND + 3;   //тип линии и толщина
-	public const int SC =			MIN_COMMAND + 4;   //установить текущий цвет
-	public const int MA =			MIN_COMMAND + 5;   //позиционирование в точку
-	public const int LA =			MIN_COMMAND + 6;   //отрисовать линию и позиционироваться
-	public const int AR =			MIN_COMMAND + 7;   //отрисовать дугу по углам
-	public const int AR1 =			MIN_COMMAND + 8;   //отрисовать дугу по точкам
-	public const int SF =			MIN_COMMAND + 9;   //тип и цвет заполнения
-	public const int RT =			MIN_COMMAND + 10;  //рисует прямоугольник
-	public const int BR =			MIN_COMMAND + 11;  //рисует и заполняет прямоугольник
-	public const int TX =			MIN_COMMAND + 12;  //вывести текст
-	public const int TS =			MIN_COMMAND + 13;  //тип текста
-	public const int MR =			MIN_COMMAND + 14;  //позиционирование в точку в относительных координатах
-	public const int LR =			MIN_COMMAND + 15;  //отрисовать линию в относительных координатах
-	public const int CR =			MIN_COMMAND + 16;  //отрисовать окружность
-	public const int FF =			MIN_COMMAND + 17;  //заполнить область
-	public const int DP =			MIN_COMMAND + 18;  //отрисовать ломанную линию
-	public const int FP =			MIN_COMMAND + 19;  //заполнить многоугольник
-	public const int EL =			MIN_COMMAND + 20;  //рисует эллипс
-	public const int PS =			MIN_COMMAND + 21;  //рисует и заполняет сектор
-	public const int BC =			MIN_COMMAND + 22;  //установить цвет фона
-	public const int GB =			MIN_COMMAND + 23;  // GB gbX, gbY габариты слайда
+	public const int LN =			MIN_COMMAND + 2;   // РѕС‚СЂРёСЃРѕРІР°С‚СЊ Р»РёРЅРёСЋ
+	public const int LS =			MIN_COMMAND + 3;   //С‚РёРї Р»РёРЅРёРё Рё С‚РѕР»С‰РёРЅР°
+	public const int SC =			MIN_COMMAND + 4;   //СѓСЃС‚Р°РЅРѕРІРёС‚СЊ С‚РµРєСѓС‰РёР№ С†РІРµС‚
+	public const int MA =			MIN_COMMAND + 5;   //РїРѕР·РёС†РёРѕРЅРёСЂРѕРІР°РЅРёРµ РІ С‚РѕС‡РєСѓ
+	public const int LA =			MIN_COMMAND + 6;   //РѕС‚СЂРёСЃРѕРІР°С‚СЊ Р»РёРЅРёСЋ Рё РїРѕР·РёС†РёРѕРЅРёСЂРѕРІР°С‚СЊСЃСЏ
+	public const int AR =			MIN_COMMAND + 7;   //РѕС‚СЂРёСЃРѕРІР°С‚СЊ РґСѓРіСѓ РїРѕ СѓРіР»Р°Рј
+	public const int AR1 =			MIN_COMMAND + 8;   //РѕС‚СЂРёСЃРѕРІР°С‚СЊ РґСѓРіСѓ РїРѕ С‚РѕС‡РєР°Рј
+	public const int SF =			MIN_COMMAND + 9;   //С‚РёРї Рё С†РІРµС‚ Р·Р°РїРѕР»РЅРµРЅРёСЏ
+	public const int RT =			MIN_COMMAND + 10;  //СЂРёСЃСѓРµС‚ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
+	public const int BR =			MIN_COMMAND + 11;  //СЂРёСЃСѓРµС‚ Рё Р·Р°РїРѕР»РЅСЏРµС‚ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
+	public const int TX =			MIN_COMMAND + 12;  //РІС‹РІРµСЃС‚Рё С‚РµРєСЃС‚
+	public const int TS =			MIN_COMMAND + 13;  //С‚РёРї С‚РµРєСЃС‚Р°
+	public const int MR =			MIN_COMMAND + 14;  //РїРѕР·РёС†РёРѕРЅРёСЂРѕРІР°РЅРёРµ РІ С‚РѕС‡РєСѓ РІ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚Р°С…
+	public const int LR =			MIN_COMMAND + 15;  //РѕС‚СЂРёСЃРѕРІР°С‚СЊ Р»РёРЅРёСЋ РІ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚Р°С…
+	public const int CR =			MIN_COMMAND + 16;  //РѕС‚СЂРёСЃРѕРІР°С‚СЊ РѕРєСЂСѓР¶РЅРѕСЃС‚СЊ
+	public const int FF =			MIN_COMMAND + 17;  //Р·Р°РїРѕР»РЅРёС‚СЊ РѕР±Р»Р°СЃС‚СЊ
+	public const int DP =			MIN_COMMAND + 18;  //РѕС‚СЂРёСЃРѕРІР°С‚СЊ Р»РѕРјР°РЅРЅСѓСЋ Р»РёРЅРёСЋ
+	public const int FP =			MIN_COMMAND + 19;  //Р·Р°РїРѕР»РЅРёС‚СЊ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє
+	public const int EL =			MIN_COMMAND + 20;  //СЂРёСЃСѓРµС‚ СЌР»Р»РёРїСЃ
+	public const int PS =			MIN_COMMAND + 21;  //СЂРёСЃСѓРµС‚ Рё Р·Р°РїРѕР»РЅСЏРµС‚ СЃРµРєС‚РѕСЂ
+	public const int BC =			MIN_COMMAND + 22;  //СѓСЃС‚Р°РЅРѕРІРёС‚СЊ С†РІРµС‚ С„РѕРЅР°
+	public const int GB =			MIN_COMMAND + 23;  // GB gbX, gbY РіР°Р±Р°СЂРёС‚С‹ СЃР»Р°Р№РґР°
 	public const int MAX_COMMAND = MIN_COMMAND + 24;
 }

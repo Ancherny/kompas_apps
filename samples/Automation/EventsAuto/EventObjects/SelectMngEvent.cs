@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// SelectMngEvent  - обработчик событий от менеджера селектирования документа
+// SelectMngEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ РѕС‚ РјРµРЅРµРґР¶РµСЂР° СЃРµР»РµРєС‚РёСЂРѕРІР°РЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,41 +18,41 @@ namespace Steps.NET
 			: base(obj, typeof(ksSelectionMngNotify).GUID, doc,
 			-1, null, selfAdvise) {}
 
-		// ksmSelect - Объект селектирован
+		// ksmSelect - РћР±СЉРµРєС‚ СЃРµР»РµРєС‚РёСЂРѕРІР°РЅ
 		public bool Select(object obj) 
 		{ 
 			if (m_SelfAdvise && FrmConfig.Instance.chbSelectEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> Select\nobj = {0}", m_LibName, obj);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
 		}
 
 
-		// ksmUnselect - Объект расселектирован
+		// ksmUnselect - РћР±СЉРµРєС‚ СЂР°СЃСЃРµР»РµРєС‚РёСЂРѕРІР°РЅ
 		public bool Unselect(object obj)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSelectEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> Unselect\nobj = {1}", m_LibName, obj);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;
 		}
 
 
-		// ksmUnselectAll - Все объекты расселектированы
+		// ksmUnselectAll - Р’СЃРµ РѕР±СЉРµРєС‚С‹ СЂР°СЃСЃРµР»РµРєС‚РёСЂРѕРІР°РЅС‹
 		public bool UnselectAll() 
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbSelectEvents.Checked)
 			{
 				string str = m_LibName + " --> UnselectAll";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;

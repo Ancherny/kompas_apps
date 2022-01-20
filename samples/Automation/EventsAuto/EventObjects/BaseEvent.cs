@@ -1,6 +1,6 @@
-/////////////////////////////////////////////////////////////////////////////
+п»ї/////////////////////////////////////////////////////////////////////////////
 //
-// Базовый клас для обработчиков событий
+// Р‘Р°Р·РѕРІС‹Р№ РєР»Р°СЃ РґР»СЏ РѕР±СЂР°Р±РѕС‚С‡РёРєРѕРІ СЃРѕР±С‹С‚РёР№
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -60,7 +60,7 @@ namespace Steps.NET
 		}
 
 
-		// Получить имя документа
+		// РџРѕР»СѓС‡РёС‚СЊ РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р°
 		protected string GetDocName()
 		{
 			string result = string.Empty;
@@ -106,12 +106,12 @@ namespace Steps.NET
 		}
 
 
-		// Подписаться на получение событий
+		// РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№
 		public int Advise()
 		{
-			Debug.Assert(m_Cookie == 0, "Повторно подписываться нельзя");
+			Debug.Assert(m_Cookie == 0, "РџРѕРІС‚РѕСЂРЅРѕ РїРѕРґРїРёСЃС‹РІР°С‚СЊСЃСЏ РЅРµР»СЊР·СЏ");
 
-			// Подписаться на получение событий
+			// РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№
 			if (m_Container != null) 
 			{
 				IConnectionPointContainer cpContainer = m_Container as IConnectionPointContainer;
@@ -130,22 +130,22 @@ namespace Steps.NET
 			{
 				if (this.GetType() == typeof(ApplicationEvent) && FrmConfig.Instance.chbAppEvents.Checked)
 				{ 
-					str = string.Format("Подписаться на получение событий\n{0} --> ApplicationEvent.Advise", m_LibName);
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> ApplicationEvent.Advise", m_LibName);
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(Document2DEvent) && FrmConfig.Instance.chb2DDocEvents.Checked)
 				{
-					str = string.Format("Подписаться на получение событий\n{0} --> Document2DEvent.Advise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> Document2DEvent.Advise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(Document3DEvent) && FrmConfig.Instance.chb3DDocEvents.Checked)
 				{
-					str = string.Format("Подписаться на получение событий\n{0} --> Document3DEvent.Advise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> Document3DEvent.Advise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(DocumentEvent) && FrmConfig.Instance.chbDocEvents.Checked)
 				{
-					str = string.Format("Подписаться на получение событий\n{0} --> DocumentEvent.Advise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> DocumentEvent.Advise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(Object2DEvent) && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -154,8 +154,8 @@ namespace Steps.NET
 					if (doc2D != null && doc2D.ksExistObj(m_ObjType) != 0) 
 						doc2D.ksLightObj(m_ObjType, 1);
 
-					string strType = string.Format("\nТип/указатель объекта = {0}", m_ObjType);
-					str = string.Format("Подписаться на получение событий\n{0} --> Object2DEvent.Advise\nИмя документа = {1}{2}", m_LibName, GetDocName(), strType);
+					string strType = string.Format("\nРўРёРї/СѓРєР°Р·Р°С‚РµР»СЊ РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> Object2DEvent.Advise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}{2}", m_LibName, GetDocName(), strType);
 					Global.Kompas.ksMessage(str);
       
 					if (doc2D != null && doc2D.ksExistObj(m_ObjType) != 0) 
@@ -169,11 +169,11 @@ namespace Steps.NET
             (chooseMng  != null)    )     
 						chooseMng.Choose(m_Obj3D);
 
-					string strType = string.Format("\nТип объекта = {0}", m_ObjType);
+					string strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 					string strObj3DName = string.Empty;
 					if (m_Obj3D != null)
 						strObj3DName = m_Obj3D.name;
-					str = string.Format("Подписаться на получение событий\n{0} --> Object3DEvent.Advise\nИмя документа = {1}{2}\nИмя 3D объекта = {3}", m_LibName, GetDocName(), strType, strObj3DName);
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> Object3DEvent.Advise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}{2}\nРРјСЏ 3D РѕР±СЉРµРєС‚Р° = {3}", m_LibName, GetDocName(), strType, strObj3DName);
 					Global.Kompas.ksMessage(str);
 
 					if (chooseMng != null)
@@ -181,27 +181,27 @@ namespace Steps.NET
 				}
 				else if (this.GetType() == typeof(SelectMngEvent) && FrmConfig.Instance.chbSelectEvents.Checked)
 				{
-					str = string.Format("Подписаться на получение событий\n{0} --> SelectMngEvent.Advise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> SelectMngEvent.Advise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(SpcDocumentEvent) && FrmConfig.Instance.chbSpecDocEvents.Checked)
 				{
-					str = string.Format("Подписаться на получение событий\n{0} --> SpcDocumentEvent.Advise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> SpcDocumentEvent.Advise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(SpcObjectEvent) && FrmConfig.Instance.chbSpecObjEvents.Checked)
 				{
-					str = string.Format("Подписаться на получение событий\n{0} --> SpcObjectEvent.Advise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> SpcObjectEvent.Advise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(SpecificationEvent) && FrmConfig.Instance.chbSpecEvents.Checked)
 				{
-					str = string.Format("Подписаться на получение событий\n{0} --> SpecificationEvent.Advise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> SpecificationEvent.Advise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(StampEvent) && FrmConfig.Instance.chbStampEvents.Checked)
 				{
-					str = string.Format("Подписаться на получение событий\n{0} --> StampEvent.Advise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РџРѕРґРїРёСЃР°С‚СЊСЃСЏ РЅР° РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№\n{0} --> StampEvent.Advise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 			} 
@@ -210,15 +210,15 @@ namespace Steps.NET
 		}
 
 
-		// Отписаться от получения событий
+		// РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№
 		void Unadvise()
 		{
       if (m_Cookie == 0)
         return;
 
-			if (m_ConnPt != null)				// Подписка была
+			if (m_ConnPt != null)				// РџРѕРґРїРёСЃРєР° Р±С‹Р»Р°
 			{
-				m_ConnPt.Unadvise(m_Cookie);	// Отписаться от получения событий
+				m_ConnPt.Unadvise(m_Cookie);	// РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№
 				m_ConnPt = null;
 			} 
 			m_Cookie = 0;
@@ -227,22 +227,22 @@ namespace Steps.NET
 			{
 				if (this.GetType() == typeof(ApplicationEvent) && FrmConfig.Instance.chbAppEvents.Checked)
 				{ 
-					str = string.Format("Отписаться от получения событий\n{0} --> ApplicationEvent.Unadvise", m_LibName);
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> ApplicationEvent.Unadvise", m_LibName);
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(Document2DEvent) && FrmConfig.Instance.chb2DDocEvents.Checked)
 				{
-					str = string.Format("Отписаться от получения событий\n{0} --> Document2DEvent.Unadvise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> Document2DEvent.Unadvise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(Document3DEvent) && FrmConfig.Instance.chb3DDocEvents.Checked)
 				{
-					str = string.Format("Отписаться от получения событий\n{0} --> Document3DEvent.Unadvise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> Document3DEvent.Unadvise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(DocumentEvent) && FrmConfig.Instance.chbDocEvents.Checked)
 				{
-					str = string.Format("Отписаться от получения событий\n{0} --> DocumentEvent.Unadvise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> DocumentEvent.Unadvise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(Object2DEvent) && FrmConfig.Instance.chb2DObjEvents.Checked)
@@ -252,8 +252,8 @@ namespace Steps.NET
 						doc2D.ksLightObj(m_ObjType, 1);
 
 					string strType;
-					strType = string.Format("\nТип объекта/указатель = {0}", m_ObjType);
-					str = string.Format("Отписаться от получения событий\n{0} --> Object2DEvent.Unadvise\nИмя документа = {1}", m_LibName, GetDocName(), strType);
+					strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р°/СѓРєР°Р·Р°С‚РµР»СЊ = {0}", m_ObjType);
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> Object2DEvent.Unadvise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName(), strType);
 					Global.Kompas.ksMessage(str);
 
 					if (doc2D != null && doc2D.ksExistObj(m_ObjType) != 0) 
@@ -268,11 +268,11 @@ namespace Steps.NET
 						chooseMng.Choose(m_Obj3D);
 
 					string strType;
-					strType = string.Format("\nТип объекта = {0}", m_ObjType);
+					strType = string.Format("\nРўРёРї РѕР±СЉРµРєС‚Р° = {0}", m_ObjType);
 					string strObj3DName = string.Empty;
 					if (m_Obj3D != null)
 						strObj3DName = m_Obj3D.name;
-					str = string.Format("Отписаться от получения событий\n{0} --> Object3DEvent.Unadvise\nИмя документа = {1}{2}\nИмя 3D объекта = {3}", m_LibName, GetDocName(), strType, strObj3DName);
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> Object3DEvent.Unadvise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}{2}\nРРјСЏ 3D РѕР±СЉРµРєС‚Р° = {3}", m_LibName, GetDocName(), strType, strObj3DName);
 					Global.Kompas.ksMessage(str);
 
 					if (chooseMng != null)
@@ -280,34 +280,34 @@ namespace Steps.NET
 				}
 				else if (this.GetType() == typeof(SelectMngEvent) && FrmConfig.Instance.chbSelectEvents.Checked)
 				{
-					str = string.Format("Отписаться от получения событий\n{0} --> SelectMngEvent.Unadvise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> SelectMngEvent.Unadvise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(SpcDocumentEvent) && FrmConfig.Instance.chbSpecDocEvents.Checked)
 				{
-					str = string.Format("Отписаться от получения событий\n{0} --> SpcDocumentEvent.Unadvise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> SpcDocumentEvent.Unadvise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(SpcObjectEvent) && FrmConfig.Instance.chbSpecObjEvents.Checked)
 				{
-					str = string.Format("Отписаться от получения событий\n{0} --> SpcObjectEvent.Unadvise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> SpcObjectEvent.Unadvise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(SpecificationEvent) && FrmConfig.Instance.chbSpecEvents.Checked)
 				{
-					str = string.Format("Отписаться от получения событий\n{0} --> SpecificationEvent.Unadvise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> SpecificationEvent.Unadvise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 				else if (this.GetType() == typeof(StampEvent) && FrmConfig.Instance.chbStampEvents.Checked)
 				{
-					str = string.Format("Отписаться от получения событий\n{0} --> StampEvent.Unadvise\nИмя документа = {1}", m_LibName, GetDocName());
+					str = string.Format("РћС‚РїРёСЃР°С‚СЊСЃСЏ РѕС‚ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕР±С‹С‚РёР№\n{0} --> StampEvent.Unadvise\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = {1}", m_LibName, GetDocName());
 					Global.Kompas.ksMessage(str);
 				}
 			} 
 		}
 
 
-		// Отписать все события
+		// РћС‚РїРёСЃР°С‚СЊ РІСЃРµ СЃРѕР±С‹С‚РёСЏ
 		public static void TerminateEvents()
 		{
 			int count = Global.EventList.Count;
@@ -320,7 +320,7 @@ namespace Steps.NET
 		}
 
 
-		// Отписать все события по GUID и документу
+		// РћС‚РїРёСЃР°С‚СЊ РІСЃРµ СЃРѕР±С‹С‚РёСЏ РїРѕ GUID Рё РґРѕРєСѓРјРµРЅС‚Сѓ
 		public static void TerminateEvents(Type type, object doc, int objType, ksFeature obj3D)
 		{
 			int count = Global.EventList.Count;
@@ -335,14 +335,14 @@ namespace Steps.NET
 					(obj3D == null || evt.m_Obj3D == obj3D) &&
 					(objType == -1 || evt.m_ObjType == objType))
 				{
-					evt.Disconnect();	// В деструкторе будет удален из списка RemoveAt(pos)
+					evt.Disconnect();	// Р’ РґРµСЃС‚СЂСѓРєС‚РѕСЂРµ Р±СѓРґРµС‚ СѓРґР°Р»РµРЅ РёР· СЃРїРёСЃРєР° RemoveAt(pos)
 					Global.EventList.Remove(evt);
 				}
 			}
 		}
 
 
-		// Освободить ссылки
+		// РћСЃРІРѕР±РѕРґРёС‚СЊ СЃСЃС‹Р»РєРё
 		void Clear()
 		{
 			if (m_Container != null) 
@@ -364,7 +364,7 @@ namespace Steps.NET
 		}
 
 
-		// Отсоединиться
+		// РћС‚СЃРѕРµРґРёРЅРёС‚СЊСЃСЏ
 		void Disconnect()
 		{
 			Unadvise();
@@ -391,7 +391,7 @@ namespace Steps.NET
 
 		public static void ListEvents()
 		{
-			string str = string.Format("Подписанные события:");
+			string str = string.Format("РџРѕРґРїРёСЃР°РЅРЅС‹Рµ СЃРѕР±С‹С‚РёСЏ:");
 
 			int count = Global.EventList.Count;
 			for (int i = count - 1; i >= 0; i --)
@@ -401,68 +401,68 @@ namespace Steps.NET
     
 				if (evt.GetType() == typeof(ApplicationEvent))
 				{ 
-					str += "\nApplicationEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да" : "нет";
+					str += "\nApplicationEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°" : "РЅРµС‚";
 				}
 				else if (evt.GetType() == typeof(Document2DEvent))
 				{
-					str += "\nDocument2DEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да," : "нет,";
-					str += " имя документа = " + evt.GetDocName();
+					str += "\nDocument2DEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°," : "РЅРµС‚,";
+					str += " РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + evt.GetDocName();
 				}
 				else if (evt.GetType() == typeof(Document3DEvent))
 				{
-					str += "\nDocument3DEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да," : "нет,";
-					str += " имя документа = " + evt.GetDocName(); 
+					str += "\nDocument3DEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°," : "РЅРµС‚,";
+					str += " РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + evt.GetDocName(); 
 				}
 				else if (evt.GetType() == typeof(DocumentEvent))
 				{
-					str += "\nDocumentEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да," : "нет,";
-					str += " имя документа = " + evt.GetDocName();
+					str += "\nDocumentEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°," : "РЅРµС‚,";
+					str += " РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + evt.GetDocName();
 				}
 				else if (evt.GetType() == typeof(Object2DEvent))
 				{
-					str += "\nObject2DEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да," : "нет,";
-					str += " имя документа = " + evt.GetDocName();
+					str += "\nObject2DEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°," : "РЅРµС‚,";
+					str += " РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + evt.GetDocName();
 				}
 				else if (evt.GetType() == typeof(Object3DEvent))
 				{
-					str += "\nObject3DEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да," : "нет,";
-					str += " имя документа = " + evt.GetDocName();       
+					str += "\nObject3DEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°," : "РЅРµС‚,";
+					str += " РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + evt.GetDocName();       
 				}
 				else if (evt.GetType() == typeof(SelectMngEvent))
 				{
-					str += "\nSelectMngEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да," : "нет,";
-					str += " имя документа = " + evt.GetDocName();
+					str += "\nSelectMngEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°," : "РЅРµС‚,";
+					str += " РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + evt.GetDocName();
 				}
 				else if (evt.GetType() == typeof(SpcDocumentEvent))
 				{
-					str += "\nSpcDocumentEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да," : "нет,";
-					str += " имя документа = " + evt.GetDocName();
+					str += "\nSpcDocumentEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°," : "РЅРµС‚,";
+					str += " РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + evt.GetDocName();
 				}
 				else if (evt.GetType() == typeof(SpcObjectEvent))
 				{
-					str += "\nSpcObjectEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да," : "нет,";
-					str += " имя документа = " + evt.GetDocName();  
+					str += "\nSpcObjectEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°," : "РЅРµС‚,";
+					str += " РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + evt.GetDocName();  
 				}
 				else if (evt.GetType() == typeof(SpecificationEvent))
 				{
-					str += "\nSpecificationEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да," : "нет,";
-					str += " имя документа = " + evt.GetDocName();
+					str += "\nSpecificationEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°," : "РЅРµС‚,";
+					str += " РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + evt.GetDocName();
 				}
 				else if (evt.GetType() == typeof(StampEvent))
 				{
-					str += "\nStampEvent, подписка пользователем: ";
-					str += evt.m_SelfAdvise ? "да," : "нет,";
-					str += " имя документа = " + evt.GetDocName();
+					str += "\nStampEvent, РїРѕРґРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј: ";
+					str += evt.m_SelfAdvise ? "РґР°," : "РЅРµС‚,";
+					str += " РёРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + evt.GetDocName();
 				}
 			}
 			Global.Kompas.ksMessage(str);

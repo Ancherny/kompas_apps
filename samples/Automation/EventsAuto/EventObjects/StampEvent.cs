@@ -1,6 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////
+п»ї////////////////////////////////////////////////////////////////////////////////
 //
-// StampEvent  - обработчик событий штампа
+// StampEvent  - РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№ С€С‚Р°РјРїР°
 //
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -17,61 +17,61 @@ namespace Steps.NET
 			: base(obj, typeof(ksStampNotify).GUID, doc,
 			-1, null, selfAdvise) {}
 
-		// kdBeginEditStamp - Начало редактирования штампа
+		// kdBeginEditStamp - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С€С‚Р°РјРїР°
 		public bool BeginEditStamp()
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbStampEvents.Checked)
 			{
 				string str = m_LibName + " --> BeginEditStamp";
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true;
 		}
 
 
-		// kdEndEditStamp - Завершение редактирования штампа
+		// kdEndEditStamp - Р—Р°РІРµСЂС€РµРЅРёРµ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С€С‚Р°РјРїР°
 		public bool EndEditStamp(bool editResult)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbStampEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> EndEditStamp\neditResult = {1}", m_LibName, editResult ? "true" : "false");
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				Global.Kompas.ksMessage(str);
 			}
 			return true;  
 		}
 
 
-		// kdStampCellDblClick - ДаблКлик по штампу
+		// kdStampCellDblClick - Р”Р°Р±Р»РљР»РёРє РїРѕ С€С‚Р°РјРїСѓ
 		public bool StampCellDblClick(int number)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbStampEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> StampCellDblClick\nnumber = {1}", m_LibName, number);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true; 
 		}
 
 
-		// kdStampCellBeginEdit - Начало редактирования ячейки штампа
+		// kdStampCellBeginEdit - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ СЏС‡РµР№РєРё С€С‚Р°РјРїР°
 		public bool StampCellBeginEdit(int number)
 		{
 			if (m_SelfAdvise && FrmConfig.Instance.chbStampEvents.Checked)
 			{
 				string str = string.Empty;
 				str = string.Format("{0} --> StampCellBeginEdit\nnumber = {1}", m_LibName, number);
-				str += "\nИмя документа = " + GetDocName();
+				str += "\nРРјСЏ РґРѕРєСѓРјРµРЅС‚Р° = " + GetDocName();
 				return Global.Kompas.ksYesNo(str) == 1 ? true : false;
 			}
 			return true; 
 		}	
 
-    // kdStampCellBeginEdit - Начало редактирования ячейки штампа
+    // kdStampCellBeginEdit - РќР°С‡Р°Р»Рѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ СЏС‡РµР№РєРё С€С‚Р°РјРїР°
     public bool StampBeginClearCells(object numbers)
     {
       return true; 
