@@ -55,6 +55,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.KGAXLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\AxInterop.KGAXLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />

@@ -135,6 +135,10 @@ namespace Steps.NET
     {
       return true;
     }
-    
-  }
+
+	public bool DoubleClickItem(IPropertyControl Control, int Index)
+	{
+		throw new NotImplementedException();
+	}
+	}
 }
