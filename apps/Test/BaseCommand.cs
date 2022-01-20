@@ -9,14 +9,14 @@ namespace Test
     public abstract class BaseCommand
     {
         private readonly string _libName;
-        
+
         protected BaseCommand([NotNull] string libName)
         {
             _libName = libName;
         }
-        
+
         protected abstract void Action(short command, short mode, object kompasObj);
-        
+
         // ReSharper disable once UnusedMember.Global
         [return: MarshalAs(UnmanagedType.BStr)]
         public string GetLibraryName()
