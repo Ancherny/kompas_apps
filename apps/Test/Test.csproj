@@ -41,7 +41,6 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="AssemblyInfo.cs" />
-        <Compile Include="BaseCommand.cs" />
         <Compile Include="Hello.cs" />
     </ItemGroup>
     <ItemGroup>

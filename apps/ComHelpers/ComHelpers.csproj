@@ -45,6 +45,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="AssemblyInfo.cs" />
+        <Compile Include="BaseCommand.cs" />
         <Compile Include="Registrator.cs" />
     </ItemGroup>
     <ItemGroup>
