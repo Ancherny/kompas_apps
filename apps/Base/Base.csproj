@@ -46,6 +46,9 @@
         <Reference Include="Kompas6Constants, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>..\..\api\Kompas6Constants.dll</HintPath>
         </Reference>
+        <Reference Include="Kompas6Constants3D, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\api\Kompas6Constants3D.dll</HintPath>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
