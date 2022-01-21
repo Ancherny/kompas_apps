@@ -37,6 +37,15 @@
           <HintPath>..\packages\JetBrains.Annotations.2021.3.0\lib\net20\JetBrains.Annotations.dll</HintPath>
           <Private>True</Private>
         </Reference>
+        <Reference Include="KAPITypes, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\api\KAPITypes.dll</HintPath>
+        </Reference>
+        <Reference Include="Kompas6API5, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\api\Kompas6API5.dll</HintPath>
+        </Reference>
+        <Reference Include="Kompas6Constants, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\api\Kompas6Constants.dll</HintPath>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
@@ -46,6 +55,7 @@
     <ItemGroup>
         <Compile Include="AssemblyInfo.cs" />
         <Compile Include="BaseCommand.cs" />
+        <Compile Include="DocHelpers.cs" />
         <Compile Include="Registrator.cs" />
     </ItemGroup>
     <ItemGroup>
