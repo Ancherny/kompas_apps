@@ -7,6 +7,9 @@ namespace Base
     [ClassInterface(ClassInterfaceType.AutoDual)]
     public abstract class BaseCommand
     {
+        protected const short menuItemId = 1;
+        protected const short menuEndId = 3;
+
         private readonly string _libName;
 
         protected BaseCommand([NotNull] string libName)
