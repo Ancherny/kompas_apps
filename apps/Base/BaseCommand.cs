@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using Base;
 using JetBrains.Annotations;
 
-namespace Test
+namespace Base
 {
     [ClassInterface(ClassInterfaceType.AutoDual)]
     public abstract class BaseCommand
