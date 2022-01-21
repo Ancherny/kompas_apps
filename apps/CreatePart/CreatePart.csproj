@@ -32,11 +32,11 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="Interop.Kompas6API5, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\Test\obj\Debug\Interop.Kompas6API5.dll</HintPath>
-        </Reference>
         <Reference Include="KAPITypes, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>..\..\api\KAPITypes.dll</HintPath>
+        </Reference>
+        <Reference Include="Kompas6API5, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\api\Kompas6API5.dll</HintPath>
         </Reference>
         <Reference Include="Kompas6Constants, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>..\..\api\Kompas6Constants.dll</HintPath>
