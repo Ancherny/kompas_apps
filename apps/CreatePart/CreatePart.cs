@@ -1,5 +1,6 @@
 ﻿using Kompas6API5;
 using Base;
+using Kompas6Constants3D;
 
 namespace RunCommands
 {
@@ -10,7 +11,7 @@ namespace RunCommands
     // ReSharper disable once UnusedType.Global
     public class CreatePart : BaseCommand
     {
-        public CreatePart() : base("API7 3D test")
+        public CreatePart() : base("New Part")
         {
         }
 
@@ -23,16 +24,21 @@ namespace RunCommands
                 // ReSharper disable once NotAccessedVariable
                 Document3D d3d;
                 isSuccess = DocHelpers.CreateDoc3D(out d3d, kompas, DocHelpers.Doc3DType.Part);
+                var topPart = (ksPart)d3d.GetPart((int)Part_Type.pTop_Part);
+                string name = topPart.name;
+                kompas.ksMessage(name);
+                topPart.name = "Part";
+                topPart.Update();
 
             } while (false);
 
             if (isSuccess)
             {
-                kompas.ksMessage("");
+                kompas.ksMessage("New part created.");
             }
             else
             {
-                kompas.ksMessage("Hello Kompas!");
+                kompas.ksMessage("Failed to create new part.");
             }
         }
     }
