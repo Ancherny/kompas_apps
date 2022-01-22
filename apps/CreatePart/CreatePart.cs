@@ -12,6 +12,9 @@ namespace RunCommands
     {
         private const short createPartCommandId = 1;
         private const short createAssemblyCommandId = 2;
+        private const short renamePartCommandId = 3;
+        private const short renameAssemblyCommandId = 4;
+        private const short renameSelectedCommandId = 5;
 
         public CreatePart() : base("Create New")
         {
@@ -20,7 +23,7 @@ namespace RunCommands
         protected override void Action(short command, short mode, object kompasObj)
         {
             KompasObject kompas = (KompasObject)kompasObj;
-            bool isSuccess;
+            bool isSuccess = true;
             switch (command)
             {
                 case createPartCommandId:
@@ -28,6 +31,16 @@ namespace RunCommands
                     break;
                 case createAssemblyCommandId:
                     isSuccess = DocHelpers.CreateNew(kompas, DocHelpers.Doc3DType.Assembly);
+                    break;
+                case renamePartCommandId:
+                    DocHelpers.RenameTopPart(kompas, DocHelpers.Doc3DType.Part.ToString());
+                    break;
+                case renameAssemblyCommandId:
+                    DocHelpers.RenameTopPart(kompas, DocHelpers.Doc3DType.Assembly.ToString());
+                    break;
+                case renameSelectedCommandId:
+                    string newName = kompas.ksReadString("New name", string.Empty);
+                    DocHelpers.RenameSelectedPart(kompas, newName);
                     break;
                 default:
                     isSuccess = false;
@@ -57,6 +70,18 @@ namespace RunCommands
                     command = createAssemblyCommandId;
                     break;
                 case 3:
+                    result = "Rename Part";
+                    command = renamePartCommandId;
+                    break;
+                case 4:
+                    result = "Rename Assembly";
+                    command = renameAssemblyCommandId;
+                    break;
+                case 5:
+                    result = "Rename Selected";
+                    command = renameSelectedCommandId;
+                    break;
+                case 6:
                     command = -1;
                     itemType = menuEndId;
                     break;

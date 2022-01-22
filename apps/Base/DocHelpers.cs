@@ -61,22 +61,49 @@ public static class DocHelpers
         bool isSuccess;
         do
         {
-            Document3D d3d;
-            isSuccess = CreateDoc3D(out d3d, kompas, docType);
-            var topPart = (ksPart)d3d.GetPart((int)Part_Type.pTop_Part);
-            topPart.name = docType.ToString();
-            topPart.Update();
+            isSuccess = CreateDoc3D(out _, kompas, docType);
+            if (!isSuccess)
+            {
+                break;
+            }
 
-            SetPartFirstEntityName(topPart, "Origin", Obj3dType.o3d_pointCS);
-            SetPartFirstEntityName(topPart, "Plane_XY", Obj3dType.o3d_planeXOY);
-            SetPartFirstEntityName(topPart, "Plane_XZ", Obj3dType.o3d_planeXOZ);
-            SetPartFirstEntityName(topPart, "Plane_YZ", Obj3dType.o3d_planeYOZ);
-            SetPartFirstEntityName(topPart, "Axis_X", Obj3dType.o3d_axisOX);
-            SetPartFirstEntityName(topPart, "Axis_X", Obj3dType.o3d_axisOY);
-            SetPartFirstEntityName(topPart, "Axis_X", Obj3dType.o3d_axisOZ);
+            ksPart topPart = RenameTopPart(kompas, docType.ToString());
+            RenamePartOrigin(topPart);
 
         } while (false);
 
         return isSuccess;
+    }
+
+    public static ksPart RenameTopPart(KompasObject kompas, [NotNull] string name)
+    {
+        Document3D d3d = (Document3D)kompas.ActiveDocument3D();
+        var topPart = (ksPart)d3d.GetPart((int)Part_Type.pTop_Part);
+        topPart.name = name;
+        topPart.Update();
+        return topPart;
+    }
+
+    public static ksPart RenameSelectedPart(KompasObject kompas, [NotNull] string name)
+    {
+        Document3D d3d = (Document3D)kompas.ActiveDocument3D();
+        var selMgr = (SelectionMng)d3d.GetSelectionMng();
+        var selPart = (ksPart)selMgr.First();
+        selPart.name = name;
+        selPart.Update();
+        RenamePartOrigin(selPart);
+        return selPart;
+    }
+
+    // ReSharper disable once MemberCanBePrivate.Global
+    public static void RenamePartOrigin(ksPart part)
+    {
+        SetPartFirstEntityName(part, "Origin", Obj3dType.o3d_pointCS);
+        SetPartFirstEntityName(part, "Plane_XY", Obj3dType.o3d_planeXOY);
+        SetPartFirstEntityName(part, "Plane_XZ", Obj3dType.o3d_planeXOZ);
+        SetPartFirstEntityName(part, "Plane_YZ", Obj3dType.o3d_planeYOZ);
+        SetPartFirstEntityName(part, "Axis_X", Obj3dType.o3d_axisOX);
+        SetPartFirstEntityName(part, "Axis_X", Obj3dType.o3d_axisOY);
+        SetPartFirstEntityName(part, "Axis_X", Obj3dType.o3d_axisOZ);
     }
 }
