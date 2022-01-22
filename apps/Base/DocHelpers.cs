@@ -81,18 +81,30 @@ public static class DocHelpers
         var topPart = (ksPart)d3d.GetPart((int)Part_Type.pTop_Part);
         topPart.name = name;
         topPart.Update();
+        RenamePartOrigin(topPart);
         return topPart;
     }
 
-    public static ksPart RenameSelectedPart(KompasObject kompas, [NotNull] string name)
+    public static bool RenameSelectedPart(KompasObject kompas, [NotNull] string name)
     {
-        Document3D d3d = (Document3D)kompas.ActiveDocument3D();
-        var selMgr = (SelectionMng)d3d.GetSelectionMng();
-        var selPart = (ksPart)selMgr.First();
-        selPart.name = name;
-        selPart.Update();
-        RenamePartOrigin(selPart);
-        return selPart;
+        bool isSuccess = true;
+        do
+        {
+            Document3D d3d = (Document3D)kompas.ActiveDocument3D();
+            var selMgr = (SelectionMng)d3d.GetSelectionMng();
+            var selPart = (ksPart)selMgr.First();
+            if (selPart == null)
+            {
+                isSuccess = false;
+                break;
+            }
+            selPart.name = name;
+            selPart.Update();
+            RenamePartOrigin(selPart);
+
+        } while (false);
+
+        return isSuccess;
     }
 
     // ReSharper disable once MemberCanBePrivate.Global

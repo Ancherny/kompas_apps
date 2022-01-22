@@ -40,7 +40,7 @@ namespace RunCommands
                     break;
                 case renameSelectedCommandId:
                     string newName = kompas.ksReadString("New name", string.Empty);
-                    DocHelpers.RenameSelectedPart(kompas, newName);
+                    isSuccess = DocHelpers.RenameSelectedPart(kompas, newName);
                     break;
                 default:
                     isSuccess = false;
