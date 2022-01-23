@@ -47,7 +47,7 @@ namespace Base
                 var topPart = d3d.TopPart;
                 topPart.Name = newName;
                 topPart.Update();
-                RenameOriginComponents(obj3d => topPart.DefaultObject[obj3d]);
+                RenamePartOrigin(topPart);
 
             } while (false);
 
@@ -109,9 +109,7 @@ namespace Base
                 {
                     part.Name = name;
                     part.Update();
-                    IModelObject GetModelObject(ksObj3dTypeEnum obj3d) => part.DefaultObject[obj3d];
-                    RenameOriginComponent("Origin", ksObj3dTypeEnum.o3d_pointCS, GetModelObject);
-                    RenameOriginComponents(GetModelObject);
+                    RenamePartOrigin(part);
                 }
                 else
                 {
@@ -120,13 +118,20 @@ namespace Base
                     {
                         origin.Name = name;
                         origin.Update();
-                        RenameOriginComponents(obj3d => part.DefaultObject[obj3d]);
+                        RenameOriginComponents(obj3d => origin.DefaultObject[obj3d]);
                     }
                 }
 
             } while (false);
 
             return isSuccess;
+        }
+
+        private static void RenamePartOrigin([NotNull] IPart7 part)
+        {
+            IModelObject GetModelObject(ksObj3dTypeEnum obj3d) => part.DefaultObject[obj3d];
+            RenameOriginComponent("Origin", ksObj3dTypeEnum.o3d_pointCS, GetModelObject);
+            RenameOriginComponents(GetModelObject);
         }
 
         private static void RenameOriginComponent(
