@@ -48,14 +48,6 @@ public static class DocHelpers
         return isSuccess;
     }
 
-    private static void SetPartFirstEntityName([NotNull] ksPart part, [NotNull] string name, Obj3dType entityType)
-    {
-        var collection = (ksEntityCollection)part.EntityCollection((short)entityType);
-        var entity = (ksEntity)collection.GetByIndex(0);
-        entity.name = name;
-        entity.Update();
-    }
-
     public static bool CreateNew(KompasObject kompas, Doc3DType docType)
     {
         bool isSuccess;
@@ -105,6 +97,14 @@ public static class DocHelpers
         } while (false);
 
         return isSuccess;
+    }
+
+    private static void SetPartFirstEntityName([NotNull] ksPart part, [NotNull] string name, Obj3dType entityType)
+    {
+        var collection = (ksEntityCollection)part.EntityCollection((short)entityType);
+        var entity = (ksEntity)collection.GetByIndex(0);
+        entity.name = name;
+        entity.Update();
     }
 
     // ReSharper disable once MemberCanBePrivate.Global
