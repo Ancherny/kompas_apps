@@ -9,6 +9,8 @@ namespace Base
 {
     public static class DocHelpers
     {
+        private delegate IModelObject GetModelObject(ksObj3dTypeEnum obj3d);
+
         public static bool CreateNew(KompasObject kompas, DocumentTypeEnum docType)
         {
             bool isSuccess = true;
@@ -45,7 +47,7 @@ namespace Base
                 var topPart = d3d.TopPart;
                 topPart.Name = newName;
                 topPart.Update();
-                RenameOrigin(topPart);
+                RenameOriginComponents(obj3d => topPart.DefaultObject[obj3d]);
 
             } while (false);
 
@@ -107,14 +109,18 @@ namespace Base
                 {
                     part.Name = name;
                     part.Update();
-                    RenameOrigin(part);
+                    IModelObject GetModelObject(ksObj3dTypeEnum obj3d) => part.DefaultObject[obj3d];
+                    RenameOriginComponent("Origin", ksObj3dTypeEnum.o3d_pointCS, GetModelObject);
+                    RenameOriginComponents(GetModelObject);
                 }
                 else
                 {
                     var origin = TryGetObjectOfType<ILocalCoordinateSystem>(out isSuccess, so);
                     if (isSuccess)
                     {
-                        RenameOrigin(origin.AssociationObject.Part);
+                        origin.Name = name;
+                        origin.Update();
+                        RenameOriginComponents(obj3d => part.DefaultObject[obj3d]);
                     }
                 }
 
@@ -124,24 +130,23 @@ namespace Base
         }
 
         private static void RenameOriginComponent(
-            [NotNull] IPart7 part,
             [NotNull] string name,
-            ksObj3dTypeEnum originComponentType)
+            ksObj3dTypeEnum originComponentType,
+            GetModelObject getModelObject)
         {
-            var modelObject = part.DefaultObject[originComponentType];
+            var modelObject = getModelObject(originComponentType);
             modelObject.Name = name;
             modelObject.Update();
         }
 
-        private static void RenameOrigin(IPart7 part)
+        private static void RenameOriginComponents(GetModelObject getModelObject)
         {
-            RenameOriginComponent(part, "Origin", ksObj3dTypeEnum.o3d_pointCS);
-            RenameOriginComponent(part, "Plane_XY", ksObj3dTypeEnum.o3d_planeXOY);
-            RenameOriginComponent(part, "Plane_XZ", ksObj3dTypeEnum.o3d_planeXOZ);
-            RenameOriginComponent(part, "Plane_YZ", ksObj3dTypeEnum.o3d_planeYOZ);
-            RenameOriginComponent(part, "Axis_X", ksObj3dTypeEnum.o3d_axisOX);
-            RenameOriginComponent(part, "Axis_Y", ksObj3dTypeEnum.o3d_axisOY);
-            RenameOriginComponent(part, "Axis_Z", ksObj3dTypeEnum.o3d_axisOZ);
+            RenameOriginComponent("Plane_XY", ksObj3dTypeEnum.o3d_planeXOY, getModelObject);
+            RenameOriginComponent("Plane_XZ", ksObj3dTypeEnum.o3d_planeXOZ, getModelObject);
+            RenameOriginComponent("Plane_YZ", ksObj3dTypeEnum.o3d_planeYOZ, getModelObject);
+            RenameOriginComponent("Axis_X", ksObj3dTypeEnum.o3d_axisOX, getModelObject);
+            RenameOriginComponent("Axis_Y", ksObj3dTypeEnum.o3d_axisOY, getModelObject);
+            RenameOriginComponent("Axis_Z", ksObj3dTypeEnum.o3d_axisOZ, getModelObject);
         }
     }
 }

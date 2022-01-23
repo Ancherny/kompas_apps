@@ -64,7 +64,7 @@ namespace RunCommands
                     command = createAssemblyCommandId;
                     break;
                 case 3:
-                    result = "Rename Selected";
+                    result = "Rename selected";
                     command = renameSelectedCommandId;
                     break;
                 case 4:
