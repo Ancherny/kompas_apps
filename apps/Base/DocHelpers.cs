@@ -1,121 +1,146 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using Kompas6API5;
-using KAPITypes;
 using Kompas6Constants;
 using Kompas6Constants3D;
+using KompasAPI7;
 
 namespace Base;
 
 public static class DocHelpers
 {
-    public enum Doc3DType
-    {
-        Part,
-        Assembly
-    }
-
-    // ReSharper disable once UnusedMember.Global
-    public static void CreateDoc2D(object kompasObj)
-    {
-        var kompas = (KompasObject)kompasObj;
-
-        var dp = (DocumentParam)kompas.GetParamStruct((short)StructType2DEnum.ko_DocumentParam);
-        dp.Init();
-        dp.type = (short)DocType.lt_DocPart3D;
-
-        var d2d = (Document2D)kompas.Document2D();
-        d2d.ksCreateDocument(dp);
-    }
-
-    // ReSharper disable once MemberCanBePrivate.Global
-    public static bool CreateDoc3D(out Document3D d3d, [NotNull] KompasObject kompas, Doc3DType doc3DType)
-    {
-        d3d = null;
-        bool isSuccess;
-        d3d = (Document3D)kompas.Document3D();
-        switch (doc3DType)
-        {
-            case Doc3DType.Part:
-                isSuccess = d3d.Create();
-                break;
-            case Doc3DType.Assembly:
-                isSuccess = d3d.Create(false, false);
-                break;
-            default:
-                isSuccess = false;
-                break;
-        }
-        return isSuccess;
-    }
-
-    public static bool CreateNew(KompasObject kompas, Doc3DType docType)
-    {
-        bool isSuccess;
-        do
-        {
-            isSuccess = CreateDoc3D(out _, kompas, docType);
-            if (!isSuccess)
-            {
-                break;
-            }
-
-            ksPart topPart = RenameTopPart(kompas, docType.ToString());
-            RenamePartOrigin(topPart);
-
-        } while (false);
-
-        return isSuccess;
-    }
-
-    public static ksPart RenameTopPart(KompasObject kompas, [NotNull] string name)
-    {
-        Document3D d3d = (Document3D)kompas.ActiveDocument3D();
-        var topPart = (ksPart)d3d.GetPart((int)Part_Type.pTop_Part);
-        topPart.name = name;
-        topPart.Update();
-        RenamePartOrigin(topPart);
-        return topPart;
-    }
-
-    public static bool RenameSelectedPart(KompasObject kompas, [NotNull] string name)
+    public static bool CreateNew(KompasObject kompas, DocumentTypeEnum docType)
     {
         bool isSuccess = true;
         do
         {
-            Document3D d3d = (Document3D)kompas.ActiveDocument3D();
-            var selMgr = (SelectionMng)d3d.GetSelectionMng();
-            var selPart = (ksPart)selMgr.First();
-            if (selPart == null)
+            string newName;
+            var app = (IApplication)kompas.ksGetApplication7();
+            if (app == null)
             {
                 isSuccess = false;
                 break;
             }
-            selPart.name = name;
-            selPart.Update();
-            RenamePartOrigin(selPart);
+            var d3d = (IKompasDocument3D)app.Documents.Add(docType);
+            if (d3d == null)
+            {
+                isSuccess = false;
+                break;
+            }
+
+            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+            switch (docType)
+            {
+                case DocumentTypeEnum.ksDocumentPart:
+                    newName = "Part";
+                    break;
+                case DocumentTypeEnum.ksDocumentAssembly:
+                    newName = "Assembly";
+                    break;
+                default:
+                    newName = docType.ToString();
+                    break;
+            }
+
+            var topPart = d3d.TopPart;
+            topPart.Name = newName;
+            topPart.Update();
+            RenameOrigin(topPart);
 
         } while (false);
 
         return isSuccess;
     }
 
-    private static void SetPartFirstEntityName([NotNull] ksPart part, [NotNull] string name, Obj3dType entityType)
+    // ReSharper disable once MemberCanBePrivate.Global
+    public static T TryGetObjectOfType<T>(out bool isSuccess, [NotNull] object genericObj) where T : IKompasAPIObject
     {
-        var collection = (ksEntityCollection)part.EntityCollection((short)entityType);
-        var entity = (ksEntity)collection.GetByIndex(0);
-        entity.name = name;
-        entity.Update();
+        isSuccess = true;
+        T kompasApiObj = default;
+        try
+        {
+            kompasApiObj = (T)genericObj;
+        }
+        catch (Exception)
+        {
+            isSuccess = false;
+        }
+        return kompasApiObj;
     }
 
-    // ReSharper disable once MemberCanBePrivate.Global
-    public static void RenamePartOrigin(ksPart part)
+    public static bool RenameSelectedPart(KompasObject kompas, [NotNull] string name)
     {
-        SetPartFirstEntityName(part, "Origin", Obj3dType.o3d_pointCS);
-        SetPartFirstEntityName(part, "Plane_XY", Obj3dType.o3d_planeXOY);
-        SetPartFirstEntityName(part, "Plane_XZ", Obj3dType.o3d_planeXOZ);
-        SetPartFirstEntityName(part, "Plane_YZ", Obj3dType.o3d_planeYOZ);
-        SetPartFirstEntityName(part, "Axis_X", Obj3dType.o3d_axisOX);
-        SetPartFirstEntityName(part, "Axis_Y", Obj3dType.o3d_axisOY);
-        SetPartFirstEntityName(part, "Axis_Z", Obj3dType.o3d_axisOZ);
+        bool isSuccess;
+        do
+        {
+            var app = (IApplication)kompas.ksGetApplication7();
+            if (app == null)
+            {
+                isSuccess = false;
+                break;
+            }
+            var doc = (IKompasDocument3D)app.ActiveDocument;
+            if (doc == null)
+            {
+                isSuccess = false;
+                break;
+            }
+
+            SelectionManager sm = doc.SelectionManager;
+            var so = sm.SelectedObjects;
+            if (so == null)
+            {
+                kompas.ksMessage("No editable objects selected.");
+                isSuccess = false;
+                break;
+            }
+
+            if (so.GetType().IsArray)
+            {
+                kompas.ksMessage("Multiple selected objects are not supported.");
+                isSuccess = false;
+                break;
+            }
+
+            var part = TryGetObjectOfType<IPart7>(out isSuccess, so);
+            if (isSuccess)
+            {
+                part.Name = name;
+                part.Update();
+                RenameOrigin(part);
+            }
+            else
+            {
+                var origin = TryGetObjectOfType<ILocalCoordinateSystem>(out isSuccess, so);
+                if (isSuccess)
+                {
+                    RenameOrigin(origin.AssociationObject.Part);
+                }
+            }
+
+        } while (false);
+
+        return isSuccess;
+    }
+
+    private static void RenameOriginComponent(
+        [NotNull] IPart7 part,
+        [NotNull] string name,
+        ksObj3dTypeEnum originComponentType)
+    {
+        var modelObject = part.DefaultObject[originComponentType];
+        modelObject.Name = name;
+        modelObject.Update();
+    }
+
+    private static void RenameOrigin(IPart7 part)
+    {
+        RenameOriginComponent(part, "Origin", ksObj3dTypeEnum.o3d_pointCS);
+        RenameOriginComponent(part, "Plane_XY", ksObj3dTypeEnum.o3d_planeXOY);
+        RenameOriginComponent(part, "Plane_XZ", ksObj3dTypeEnum.o3d_planeXOZ);
+        RenameOriginComponent(part, "Plane_YZ", ksObj3dTypeEnum.o3d_planeYOZ);
+        RenameOriginComponent(part, "Axis_X", ksObj3dTypeEnum.o3d_axisOX);
+        RenameOriginComponent(part, "Axis_Y", ksObj3dTypeEnum.o3d_axisOY);
+        RenameOriginComponent(part, "Axis_Z", ksObj3dTypeEnum.o3d_axisOZ);
     }
 }

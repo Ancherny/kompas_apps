@@ -1,6 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using Kompas6API5;
 using Base;
+using Kompas6Constants;
 
 namespace RunCommands
 {
@@ -13,31 +14,23 @@ namespace RunCommands
     {
         private const short createPartCommandId = 1;
         private const short createAssemblyCommandId = 2;
-        private const short renamePartCommandId = 3;
-        private const short renameAssemblyCommandId = 4;
-        private const short renameSelectedCommandId = 5;
+        private const short renameSelectedCommandId = 3;
 
-        public CreatePart() : base("Create New")
+        public CreatePart() : base("Origin naming fix")
         {
         }
 
         protected override void Action(short command, short mode, object kompasObj)
         {
             KompasObject kompas = (KompasObject)kompasObj;
-            bool isSuccess = true;
+            bool isSuccess;
             switch (command)
             {
                 case createPartCommandId:
-                    isSuccess = DocHelpers.CreateNew(kompas, DocHelpers.Doc3DType.Part);
+                    isSuccess = DocHelpers.CreateNew(kompas, DocumentTypeEnum.ksDocumentPart);
                     break;
                 case createAssemblyCommandId:
-                    isSuccess = DocHelpers.CreateNew(kompas, DocHelpers.Doc3DType.Assembly);
-                    break;
-                case renamePartCommandId:
-                    DocHelpers.RenameTopPart(kompas, DocHelpers.Doc3DType.Part.ToString());
-                    break;
-                case renameAssemblyCommandId:
-                    DocHelpers.RenameTopPart(kompas, DocHelpers.Doc3DType.Assembly.ToString());
+                    isSuccess = DocHelpers.CreateNew(kompas, DocumentTypeEnum.ksDocumentAssembly);
                     break;
                 case renameSelectedCommandId:
                     string newName = kompas.ksReadString("New name", string.Empty);
@@ -63,26 +56,18 @@ namespace RunCommands
             switch (number)
             {
                 case 1:
-                    result = "Part";
+                    result = "Create new part";
                     command = createPartCommandId;
                     break;
                 case 2:
-                    result = "Assembly";
+                    result = "Create new assembly";
                     command = createAssemblyCommandId;
                     break;
                 case 3:
-                    result = "Rename Part";
-                    command = renamePartCommandId;
-                    break;
-                case 4:
-                    result = "Rename Assembly";
-                    command = renameAssemblyCommandId;
-                    break;
-                case 5:
                     result = "Rename Selected";
                     command = renameSelectedCommandId;
                     break;
-                case 6:
+                case 4:
                     command = -1;
                     itemType = menuEndId;
                     break;
