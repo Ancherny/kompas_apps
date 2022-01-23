@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{A2F78081-51E2-4377-838D-2C23F1863D54}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "Base\Base.csproj", "{B6503207-A335-4ED7-A154-56C5A17C810C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriginFix", "OriginFix\OriginFix.csproj", "{6CE220AA-5B58-4A6F-9200-0CCF26079A4D}"
@@ -12,10 +10,6 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A2F78081-51E2-4377-838D-2C23F1863D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2F78081-51E2-4377-838D-2C23F1863D54}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2F78081-51E2-4377-838D-2C23F1863D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2F78081-51E2-4377-838D-2C23F1863D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6503207-A335-4ED7-A154-56C5A17C810C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6503207-A335-4ED7-A154-56C5A17C810C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B6503207-A335-4ED7-A154-56C5A17C810C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
