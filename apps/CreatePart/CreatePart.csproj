@@ -55,7 +55,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="AssemblyInfo.cs" />
-        <Compile Include="CreatePart.cs" />
+        <Compile Include="OriginFix.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Base\Base.csproj">

@@ -10,13 +10,13 @@ namespace RunCommands
     /// </summary>
     ///
     // ReSharper disable once UnusedType.Global
-    public class CreatePart : BaseCommand
+    public class OriginFix : BaseCommand
     {
         private const short createPartCommandId = 1;
         private const short createAssemblyCommandId = 2;
         private const short renameSelectedCommandId = 3;
 
-        public CreatePart() : base("Origin naming fix")
+        public OriginFix() : base("Origin naming fix")
         {
         }
 
