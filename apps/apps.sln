@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "Base\Base.csproj", "{B6503207-A335-4ED7-A154-56C5A17C810C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreatePart", "CreatePart\CreatePart.csproj", "{6CE220AA-5B58-4A6F-9200-0CCF26079A4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriginFix", "OriginFix\OriginFix.csproj", "{6CE220AA-5B58-4A6F-9200-0CCF26079A4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
