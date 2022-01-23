@@ -115,7 +115,7 @@ public static class DocHelpers
         SetPartFirstEntityName(part, "Plane_XZ", Obj3dType.o3d_planeXOZ);
         SetPartFirstEntityName(part, "Plane_YZ", Obj3dType.o3d_planeYOZ);
         SetPartFirstEntityName(part, "Axis_X", Obj3dType.o3d_axisOX);
-        SetPartFirstEntityName(part, "Axis_X", Obj3dType.o3d_axisOY);
-        SetPartFirstEntityName(part, "Axis_X", Obj3dType.o3d_axisOZ);
+        SetPartFirstEntityName(part, "Axis_Y", Obj3dType.o3d_axisOY);
+        SetPartFirstEntityName(part, "Axis_Z", Obj3dType.o3d_axisOZ);
     }
 }
