@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using Kompas6API5;
 using Kompas6Constants;
@@ -84,11 +85,15 @@ namespace RunCommands
 
                 formatParam.angle = 3.0f  * Math.PI / 180;
 
-                string fn = doc.fileName;
+                string path = doc.fileName;
+                string name = Path.GetFileNameWithoutExtension(path);
+                string dir = Path.GetDirectoryName(path);
+                string stlPath = @$"{dir}\{name}.stl";
 
-                doc.SaveAsToAdditionFormat(@"E:\RC\print_3d\cinelog_25\aaa.stl", formatParam);
+                doc.SaveAsToAdditionFormat(stlPath, formatParam);
 
             } while (false);
+
             return isSuccess;
         }
 
