@@ -57,9 +57,10 @@ namespace RunCommands
         private static bool ExportStl(KompasObject kompas)
         {
             bool isSuccess = true;
+            string stlPath = string.Empty;
             do
             {
-                var doc = (ksDocument3D) kompas.ActiveDocument3D();
+                var doc = (ksDocument3D)kompas.ActiveDocument3D();
                 if (doc == null)
                 {
                     isSuccess = false;
@@ -76,24 +77,40 @@ namespace RunCommands
                 formatParam.SetObjectsOptions((int)ksD3ConverterOptionsEnum.ksD3COSurfaces, 0);
 
                 int stepType = 0;
-                stepType |= (int)ksStepTypeEnum.ksSpaceStep;
-                stepType |= (int)ksStepTypeEnum.ksDeviationStep;
-                formatParam.stepType = stepType;
 
-                formatParam.lengthUnits = (int)ksLengthUnitsEnum.ksLUnMM;
                 formatParam.step = 0.1f;
+                formatParam.lengthUnits = (int)ksLengthUnitsEnum.ksLUnMM;
+                stepType |= (int)ksStepTypeEnum.ksSpaceStep;
 
                 formatParam.angle = 3.0f  * Math.PI / 180;
+                stepType |= (int)ksStepTypeEnum.ksDeviationStep;
+
+                formatParam.stepType = stepType;
 
                 string path = doc.fileName;
-                string name = Path.GetFileNameWithoutExtension(path);
-                string dir = Path.GetDirectoryName(path);
-                string stlPath = @$"{dir}\{name}.stl";
-
-                doc.SaveAsToAdditionFormat(stlPath, formatParam);
+                try
+                {
+                    string name = Path.GetFileNameWithoutExtension(path);
+                    string dir = Path.GetDirectoryName(path);
+                    stlPath = @$"{dir}\{name}.stl";
+                    isSuccess = doc.SaveAsToAdditionFormat(stlPath, formatParam);
+                }
+                catch (Exception)
+                {
+                    isSuccess = false;
+                    break;
+                }
 
             } while (false);
 
+            if (isSuccess)
+            {
+                kompas.ksMessage($"Exported to STL as:\n'{stlPath}'");
+            }
+            else
+            {
+                kompas.ksMessage($"Export to STL failed.");
+            }
             return isSuccess;
         }
 
